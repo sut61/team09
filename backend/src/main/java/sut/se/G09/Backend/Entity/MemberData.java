@@ -28,19 +28,19 @@ private int age;
 private string IDCard;
 
 
- @ManyToOne(fetch = FetchType.EAGER, targetEntity = Department.class)
+ @ManyToOne(fetch = FetchType.EAGER, targetEntity = MLData.class)
  @JoinColumn(name = "MLID", insertable = true)
  private MLData MLData;
  
-  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Department.class)
+  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
  @JoinColumn(name = "PROVINCE_ID", insertable = true)
  private Province Province;
  
-   @ManyToOne(fetch = FetchType.EAGER, targetEntity = Department.class)
+   @ManyToOne(fetch = FetchType.EAGER, targetEntity = AgentRegistration.class)
  @JoinColumn(name = "ID", insertable = true)
  private AgentRegistration AgentRegistration;
 
-  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Department.class)
+  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
  @JoinColumn(name = "CategoryID", insertable = true)
  private Category Category;
 

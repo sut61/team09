@@ -1,4 +1,4 @@
-package com.okta.developer.demo.entity;
+package sut.se.G09.Backend.Entity;
 import javax.persistence.*;
 import lombok.*;
 

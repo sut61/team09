@@ -1,7 +1,7 @@
 package sut.se.G09.Backend.Entity;
 import javax.persistence.*;
 import lombok.*;
-import java.util.*;
+
 @Entity @Data @Getter @Setter @ToString @EqualsAndHashCode
 @Table(name = "AgentAppointment", uniqueConstraints = {
         @UniqueConstraint(columnNames = "ID")})
@@ -23,9 +23,9 @@ public class AgentAppointment {
     @JoinColumn(name = "insuranceId", insertable = true)
     private InsuranceTypes insuranceType;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Sex.class)
-    @JoinColumn(name = "sexId", insertable = true)
-    private Sex sex;
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
+    @JoinColumn(name = "genderId", insertable = true)
+    private Gender gender;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "provinceId", insertable = true)

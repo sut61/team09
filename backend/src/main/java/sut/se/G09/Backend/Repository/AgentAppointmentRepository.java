@@ -1,6 +1,6 @@
-package com.okta.developer.demo.repository;
+package sut.se.G09.Backend.Repository;
 
-import com.okta.developer.demo.entity.AgentAppointment;
+import sut.se.G09.Backend.Entity.AgentAppointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;

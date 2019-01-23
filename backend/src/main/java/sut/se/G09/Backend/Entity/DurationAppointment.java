@@ -13,4 +13,24 @@ public class DurationAppointment {
   private String duration;
 
   public  DurationAppointment(){}
+  public  DurationAppointment(Long durationId,String duration){
+    this.durationId=durationId;
+    this.duration=duration;
+  }
+  public Long getDurationId() {
+    return durationId;
+  }
+
+  public void setDurationId(Long durationId) {
+    this.durationId = durationId;
+  }
+
+  public String getDuration() {
+    return duration;
+  }
+
+  public void setDuration(String duration) {
+    this.duration = duration;
+  }
+
 }

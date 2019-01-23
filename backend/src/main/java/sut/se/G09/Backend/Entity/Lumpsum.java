@@ -22,7 +22,7 @@ public class Lumpsum {
     private @NonNull Long iD;
     private String companyName;
     private int amoungEmp;
-    private Long address;
+    private String address;
     private String zipCode;
     private Date date;
 
@@ -62,7 +62,11 @@ public class Lumpsum {
         this.agentRegistrationId = agentRegistrationId;
     }
 
-    public void setLumpsum(String companyName,int amoungEmp,Long address,String zipCode){
+    public void setProvinceId(Province provinceId){
+        this.provinceId = provinceId;
+    }
+
+    public void setLumpsum(String companyName,int amoungEmp,String address,String zipCode){
         this.companyName = companyName;
         this.amoungEmp = amoungEmp;
         this.address = address;

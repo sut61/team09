@@ -86,7 +86,7 @@ public class LumpsumController {
         BusinessSize size = businessSizeRepository.findByID(BUSINESS_ID);
         Category category = categoryRepository.findByID(CATEGORY_ID);
         Establishment establishment = establishmentRepository.findByID(ESTABLISHMENT_ID);
-        AgentRegistration agentRegistration = agentRegistrationRepository.findByRegId(AGENTREGISTRATION_ID);
+        AgentRegistration agentRegistration = agentRegistrationRepository.findByID(AGENTREGISTRATION_ID);
         Province province = provinceRepository.findByID(PROVINCE_ID);
 
         Lumpsum newLumpsum = new Lumpsum();

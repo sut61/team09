@@ -2,7 +2,7 @@ package sut.se.G09.Backend.Entity;
 import javax.persistence.*;
 import lombok.*;
 
-@Entity @Data @Getter @Setter @ToString @EqualsAndHashCode
+@Entity @Data @Getter @Setter
 @Table(name = "AgentAppointment", uniqueConstraints = {
         @UniqueConstraint(columnNames = "ID")})
 public class AgentAppointment {
@@ -16,12 +16,61 @@ public class AgentAppointment {
     private int age;
     private String telNum;
     private String email;
+
+    public Long getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getTelNum() {
+        return telNum;
+    }
+
+    public void setTelNum(String telNum) {
+        this.telNum = telNum;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public AgentAppointment() { }
 
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = InsuranceTypes.class)
-    @JoinColumn(name = "insuranceId", insertable = true)
-    private InsuranceTypes insuranceType;
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
+    @JoinColumn(name = "categoryId", insertable = true)
+    private Category category;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
     @JoinColumn(name = "genderId", insertable = true)

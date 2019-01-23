@@ -1,5 +1,5 @@
 package sut.se.G09.Backend.Repository;
-import com.example.demo.entity.BusinessSize;
+import sut.se.G09.Backend.Entity.BusinessSize;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

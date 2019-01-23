@@ -13,5 +13,9 @@ public class Gender {
   private String genderName;
 
   public Gender() { }
+  public void setGenderId(Long genderId) { this.genderId = genderId; }
+  public void setGenderName(String genderName) {
+    this.genderName = genderName;
+  }
 
 }

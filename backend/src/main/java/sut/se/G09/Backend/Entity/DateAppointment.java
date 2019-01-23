@@ -14,5 +14,32 @@ public class DateAppointment {
   private int dateCount;
   private String dateStatus;
 
-    public  DateAppointment(){}
+  public  DateAppointment(){}
+  public  DateAppointment(Long dateId,String date){
+    this.dateId=dateId;
+    this.date=date;
+  }
+  public String getDate() {
+    return date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public int getDateCount() {
+    return dateCount;
+  }
+
+  public void setDateCount(int dateCount) {
+    this.dateCount = dateCount;
+  }
+
+  public String getDateStatus() {
+    return dateStatus;
+  }
+
+  public void setDateStatus(String dateStatus) {
+    this.dateStatus = dateStatus;
+  }
 }

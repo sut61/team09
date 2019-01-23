@@ -185,7 +185,7 @@ public class BackendApplication {
 			categoryRepository.save(Category);
 			Category.setId(8L);
 			categoryRepository.save(Category);
-			=========================================================================
+			//=========================================================================
 };//<== ระวะันะคะ
 	}
 }

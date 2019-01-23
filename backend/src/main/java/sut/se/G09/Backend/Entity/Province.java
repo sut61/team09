@@ -1,4 +1,5 @@
-package com.example.demo.entity;
+package sut.se.G09.Backend.Entity;
+
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,6 @@ public class Province {
     @SequenceGenerator(name="province_seq",sequenceName="province_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="province_seq")
     @Column(name="PROVINCE_ID",unique = true, nullable = true)
-    private @NonNull Long  id;
+    private @NonNull Long  iD;
     private String provinceName;
 }

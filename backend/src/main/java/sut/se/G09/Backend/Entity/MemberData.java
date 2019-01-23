@@ -1,6 +1,6 @@
-package sut.se.g09.backend.entity;
+package sut.se.G09.Backend.Entity;
 
-import sut.se.g09.backend.entity.*;
+import sut.se.G09.Backend.Entity.*;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,7 +25,7 @@ public class MemberData {
 private String Fname;
 private String Lname;
 private int age;
-private string IDCard;
+private String IDCard;
 
 
  @ManyToOne(fetch = FetchType.EAGER, targetEntity = MLData.class)

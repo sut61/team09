@@ -1,4 +1,4 @@
-package sut.se.G09.Backend;
+﻿package sut.se.G09.Backend;
 
 import sut.se.G09.Backend.Entity.*;
 import sut.se.G09.Backend.Repository.*;
@@ -26,7 +26,8 @@ public class BackendApplication {
 						   MedicalFeeRepository medicalFeeRepository,CategoryRepository categoryRepository,
 						   InsurancePremiumRepository insurancePremiumRepository,
 						   LengthRepository lengthRepository,
-						   MoneyMaximumRepository moneyMaximumRepository) {
+						   MoneyMaximumRepository moneyMaximumRepository ,AgentRegistrationRepository agentRegistrationRepository, Educationalrepository educationalrepository
+						    ,ProvinceRepository provinceRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -149,7 +150,43 @@ public class BackendApplication {
 			//====================================================
 
 
-		};//<== ระวะันะคะ
+					//==================Nattapon==========================
+			Educational Educational =new Educational(); //ระดับการศึกษา
+			Educational.setEduName("มัธยมศึกษาปีที่ 3");
+			educationalrepository.save(Educational);
+			Educational.setEduName("มัธยมศึกษาปีที่ 6");
+			educationalrepository.save(Educational);
+			Educational.setEduName("ประกาศนียบัตรวิชาชีพปี 3");
+			educationalrepository.save(Educational);
+			Educational.setEduName("ประกาศนียบัตรวิชาชีพชั้นสูงปี 2");
+			educationalrepository.save(Educational);
+			Educational.setEduName("ปริญญาตรี");
+			educationalrepository.save(Educational);
+			Educational.setEduName("ปริญญาโท");
+			educationalrepository.save(Educational);
+			Educational.setEduName("ปริญญาเอก");
+			educationalrepository.save(Educational);
+
+
+			Category Category = new Category(); //ประเภท
+			Category.setId(1L);
+			categoryRepository.save(Category);
+			Category.setId(2L);
+			categoryRepository.save(Category);
+			Category.setId(3L);
+			categoryRepository.save(Category);
+			Category.setId(4L);
+			categoryRepository.save(Category);
+			Category.setId(5L);
+			categoryRepository.save(Category);
+			Category.setId(6L);
+			categoryRepository.save(Category);
+			Category.setId(7L);
+			categoryRepository.save(Category);
+			Category.setId(8L);
+			categoryRepository.save(Category);
+			=========================================================================
+};//<== ระวะันะคะ
 	}
 }
 

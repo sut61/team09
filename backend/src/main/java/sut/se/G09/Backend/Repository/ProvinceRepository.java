@@ -9,6 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public
 interface ProvinceRepository extends JpaRepository<Province, Long> {
     Province findByID(Long Province);
+    Province findByProvinceName(String provinceName);
 }
 
 

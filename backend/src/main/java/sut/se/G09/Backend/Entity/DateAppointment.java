@@ -11,8 +11,7 @@ public class DateAppointment {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dateAppointment_seq")
   private Long dateId;
   private String date;
-  private int dateCount;
-  private String dateStatus;
+
 
   public  DateAppointment(){}
   public  DateAppointment(Long dateId,String date){
@@ -27,19 +26,4 @@ public class DateAppointment {
     this.date = date;
   }
 
-  public int getDateCount() {
-    return dateCount;
-  }
-
-  public void setDateCount(int dateCount) {
-    this.dateCount = dateCount;
-  }
-
-  public String getDateStatus() {
-    return dateStatus;
-  }
-
-  public void setDateStatus(String dateStatus) {
-    this.dateStatus = dateStatus;
-  }
 }

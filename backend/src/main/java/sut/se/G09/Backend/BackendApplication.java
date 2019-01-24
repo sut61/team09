@@ -260,8 +260,6 @@ public class BackendApplication {
 				else if(dateId==57L){date.setDate("26 กุมภาพันธ์ 2562");}
 				else if(dateId==58L){date.setDate("27 กุมภาพันธ์ 2562");}
 				else if(dateId==59L){date.setDate("28 กุมภาพันธ์ 2562");}
-				date.setDateCount(0);
-				date.setDateStatus("available");
 				dateAppointmentRepository.save(date);
 			});
 

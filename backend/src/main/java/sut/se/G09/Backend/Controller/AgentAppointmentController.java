@@ -20,29 +20,27 @@ public class AgentAppointmentController {
     @Autowired private ProvinceRepository provinceRepository;
     @Autowired private GenderRepository genderRepository;
 
-
     public AgentAppointmentController(AgentAppointmentRepository agentAppointmentRepository){
         this.agentAppointmentRepository = agentAppointmentRepository; }
 
 
-    // ทดสอบโดย ใช้คำสั่ง curl -X POST  http://localhost:8080/GoldCardRegs/new/1309902550177/22-01-1998/Pitchakorn/Norkhuntod/Universal-Coverage-Scheme(UCS)/Bankok-Thonburi/N
-  @PostMapping("/MakeAppointment/{insuranceId}/{fName}/{lName}/{genderId}/{age}/{telNum}/{email}/{provinceId}/{dateId}/{durationId}")
+  @PostMapping("/MakeAppointment/{typeName}/{fName}/{lName}/{genderName}/{age}/{telNum}/{email}/{provinceName}/{date}/{duration}")
     public AgentAppointment newAppointment (
            AgentAppointment newAppointment, @PathVariable String fName , @PathVariable String lName
-            ,@PathVariable Long insuranceId, @PathVariable Long genderId,@PathVariable Long dateId
-           ,@PathVariable Long durationId, @PathVariable Long provinceId, @PathVariable int age
-            ,@PathVariable String telNum, @PathVariable String email/*@PathVariable Long dateId*/
+            ,@PathVariable String typeName, @PathVariable String genderName,@PathVariable String date
+           ,@PathVariable String duration, @PathVariable String provinceName, @PathVariable int age
+            ,@PathVariable String telNum, @PathVariable String email
             ) {
 
-            AgentAppointment newAp = new AgentAppointment();
+            sut.se.G09.Backend.Entity.AgentAppointment newAp = new AgentAppointment();
 
-            Category insuCat = categoryRepository.findByID(insuranceId);
-            Gender gender = genderRepository.findByGenderId(genderId);
-            Province province = provinceRepository.findByID(provinceId);
-            DateAppointment dateAp = dateAppointmentRepository.findByDateId(dateId);
-            DurationAppointment durAp = durationAppointmentRepository.findByDurationId(durationId);
+            Category cate = categoryRepository.findByTypeName(typeName);
+            Gender gender = genderRepository.findByGenderName(genderName);
+            Province province = provinceRepository.findByProvinceName(provinceName);
+            DateAppointment dateAp = dateAppointmentRepository.findByDate(date);
+            DurationAppointment durAp = durationAppointmentRepository.findByDuration(duration);
 
-            newAp.setCategory(insuCat);
+            newAp.setCategory(cate);
             newAp.setfName(fName);
             newAp.setlName(lName);
             newAp.setGender(gender);
@@ -52,7 +50,6 @@ public class AgentAppointmentController {
             newAp.setProvince(province);
             newAp.setDateAppointment(dateAp);
             newAp.setDurationAppointment(durAp);
-
       return agentAppointmentRepository.save(newAp);   //บันทึก Objcet ชื่อ newReg
 
       }

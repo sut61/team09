@@ -47,7 +47,7 @@ public class MemberDataController
             @PathVariable String password,
             @PathVariable Long povin,
             @PathVariable Long ag,
-            @PathVariable Long cate,
+            @PathVariable Long cate
             ){
         MLData login = new MLData();
         login.setUserName(username);
@@ -55,7 +55,7 @@ public class MemberDataController
         mlDataRepository.save(login);
         MLData mlog = mlDataRepository.findByUserName(username);
         Province po = provinceRepository.findByID(povin);
-        AgentRegistration agent = agentRegistrationRepository.findByRegId(ag);
+        AgentRegistration agent = agentRegistrationRepository.findByID(ag);
         Category ca = categoryRepository.findByID(cate);
         MemberData member = new MemberData();
         member.setFname(fname);

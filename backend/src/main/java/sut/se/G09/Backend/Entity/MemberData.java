@@ -20,11 +20,11 @@ public class MemberData {
  @SequenceGenerator(name="mem_seq",sequenceName="mem_seq")
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="mem_seq")
  @Column(name = "MID")
- private @NonNull Long id;
+ private @NonNull Long iD;
 
 private String Fname;
 private String Lname;
-private int age;
+private Long age;
 private String IDCard;
 
 
@@ -43,7 +43,6 @@ private String IDCard;
   @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
  @JoinColumn(name = "CategoryID", insertable = true)
  private Category Category;
-
 
 
 

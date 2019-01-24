@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public
 interface MLDataRepository extends JpaRepository<MLData, Long> {
-    MLData findByID(Long MLData);
+    MLData findByUserName(String MLData);
 }
 
 

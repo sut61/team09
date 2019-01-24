@@ -21,7 +21,7 @@ public class MLData {
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ml_seq")
  @Column(name = "MLID")
 private @NonNull Long iD;
-private String UserName;
+private String userName;
 private String Password;
 
 

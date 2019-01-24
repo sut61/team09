@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface CategoryRepository extends JpaRepository<Category, Long> {
   Category findByID(Long iD);
+  Category findByTypeName(String typeName);
 }

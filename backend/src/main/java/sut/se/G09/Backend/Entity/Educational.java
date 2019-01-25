@@ -25,7 +25,7 @@ public class Educational {
 	public void setEduName(String eduName) {
 		this.eduName = eduName;
 	}
-
+	public Educational() {}
 	public Educational(Long iD, String eduName) {
 		this.iD = iD;
 		this.eduName = eduName;

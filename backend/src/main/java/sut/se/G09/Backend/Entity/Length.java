@@ -8,13 +8,13 @@ import lombok.*;
 @Entity  //บอกว่าเป็น class com.okta.developer.demo.Entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
 @Table(name="Length") //ชื่อตาราง
-public class Length {
+public class Length { //ระยะเวลาคุ้มครอง
     @Id
     @SequenceGenerator(name = "Length_seq", sequenceName = "Length_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Length_seq")
     @Column(name = "LengthId", unique = true, nullable = false, length = 100)
     private Long iD;
-    private Long lengthName;
+    private String lengthName;
 
     public Long getId() {
         return iD;
@@ -24,18 +24,18 @@ public class Length {
         this.iD = id;
     }
 
-    public Long getlengthName() {
+    public String getlengthName() {
         return lengthName;
     }
 
-    public void setlengthName(Long lengthName) {
+    public void setlengthName(String lengthName) {
         this.lengthName = lengthName;
     }
 
 
 
-protected Length() {}
-public Length(Long lengthName){  //constructor
+public Length() {}
+public Length(String lengthName){  //constructor
 
         this.lengthName = lengthName;
 }

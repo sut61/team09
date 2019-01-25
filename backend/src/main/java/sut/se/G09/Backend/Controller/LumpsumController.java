@@ -1,7 +1,7 @@
 package sut.se.G09.Backend.Controller;
 
-import com.example.demo.entity.*;
-import com.example.demo.repository.*;
+import sut.se.G09.Backend.Entity.*;
+import sut.se.G09.Backend.Repository.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,11 +40,6 @@ public class LumpsumController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/getCategory", produces = MediaType.APPLICATION_JSON_VALUE)
-    private Collection<Category> Category() {
-        return categoryRepository.findAll().stream()
-                .collect(Collectors.toList());
-    }
 
     @GetMapping(path = "/getEstablishment", produces = MediaType.APPLICATION_JSON_VALUE)
     private Collection<Establishment> Establishment() {
@@ -52,27 +47,16 @@ public class LumpsumController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/getAgentRegistration", produces = MediaType.APPLICATION_JSON_VALUE)
-    private Collection<AgentRegistration> AgentRegistration() {
-        return agentRegistrationRepository.findAll().stream()
-                .collect(Collectors.toList());
-    }
 
-    @GetMapping(path = "/getProvince", produces = MediaType.APPLICATION_JSON_VALUE)
-    private Collection<Province> Province() {
-        return provinceRepository.findAll().stream()
-                .collect(Collectors.toList());
-    }
-
-
-    @GetMapping("/Lumpsum")
-    public List<Lumpsum> Lumpsum() {
+    @GetMapping(path = "/getLumpsum", produces = MediaType.APPLICATION_JSON_VALUE)
+    private Collection<Lumpsum> Lumpsum() {
         return lumpsumRepository.findAll().stream()
                 .collect(Collectors.toList());
     }
 
 
-    @PostMapping(path = "/Lumpsum/NEW/{companyName}/{amoungEmp}/{address}/{zipCode}/{BUSINESS_ID}/{CATEGORY_ID}/{ESTABLISHMENT_ID}/{AGENTREGISTRATION_ID}/{PROVINCE_ID}")
+
+    @PostMapping(path = "/Lumpsum/NEW/{companyName}/{amoungEmp}/{address}/{zipCode}/{BUSINESS_ID}/{CATEGORY_ID}/{ESTABLISHMENT_ID}/{PROVINCE_ID}")
     public Lumpsum addLumpsum(
             @PathVariable String companyName,
             @PathVariable int amoungEmp,
@@ -81,12 +65,10 @@ public class LumpsumController {
             @PathVariable Long BUSINESS_ID,
             @PathVariable Long CATEGORY_ID,
             @PathVariable Long ESTABLISHMENT_ID,
-            @PathVariable Long AGENTREGISTRATION_ID,
             @PathVariable Long PROVINCE_ID) {
         BusinessSize size = businessSizeRepository.findByID(BUSINESS_ID);
         Category category = categoryRepository.findByID(CATEGORY_ID);
         Establishment establishment = establishmentRepository.findByID(ESTABLISHMENT_ID);
-        AgentRegistration agentRegistration = agentRegistrationRepository.findByID(AGENTREGISTRATION_ID);
         Province province = provinceRepository.findByID(PROVINCE_ID);
 
         Lumpsum newLumpsum = new Lumpsum();
@@ -94,8 +76,7 @@ public class LumpsumController {
         newLumpsum.setBusinessSizeId(size);
         newLumpsum.setCategoryId(category);
         newLumpsum.setEstablishmentId(establishment);
-        newLumpsum.setAgentRegistrationId(agentRegistration);
-        newLumpsum.setProvinceId(province);
+       newLumpsum.setProvinceId(province);
         newLumpsum.setLumpsum(companyName,amoungEmp,address,zipCode);
         newLumpsum.setDate(new Date());
 

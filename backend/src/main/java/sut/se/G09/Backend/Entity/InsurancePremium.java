@@ -8,7 +8,7 @@ import lombok.*;
 @Entity  //บอกว่าเป็น class com.okta.developer.demo.Entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
 @Table(name="InsurancePremium") //ชื่อตาราง
-public class InsurancePremium {
+public class InsurancePremium { //เบี้ยประกัน
     @Id
     @SequenceGenerator(name = "InsurancePremium_seq", sequenceName = "InsurancePremium_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "InsurancePremium_seq")
@@ -34,7 +34,7 @@ public class InsurancePremium {
 
 
 
-protected InsurancePremium() {}
+public InsurancePremium() {}
 public InsurancePremium(String insuranceName){  //constructor
     this.insuranceName = insuranceName;
 

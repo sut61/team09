@@ -1,14 +1,14 @@
 package sut.se.G09.Backend.Controller;
 
-import org.springframework.web.bind.annotation.*;
+
 import sut.se.G09.Backend.Entity.*;
 import sut.se.G09.Backend.Repository.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Collection;
 import java.util.List;
@@ -36,7 +36,7 @@ public class MemberDataController
         this.memberDataRepository = memberDataRepository;
     }
 
-    @PostMapping("/Regmem/{fname}/{lname}/{age}/{PID}/{username}/{password}/{povin}/{ag}/{cate}")
+    @PostMapping("/Regmem/{fname}/{lname}/{age}/{PID}/{username}/{password}/{povin}/{ag}/{cate}/{addes}")
     //@RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
     public MemberData NewMemberData(
             @PathVariable String fname,
@@ -47,8 +47,9 @@ public class MemberDataController
             @PathVariable String password,
             @PathVariable Long povin,
             @PathVariable Long ag,
-            @PathVariable Long cate
-            ){
+            @PathVariable Long cate,
+            @PathVariable String addes
+    ){
         MLData login = new MLData();
         login.setUserName(username);
         login.setPassword(password);
@@ -65,11 +66,37 @@ public class MemberDataController
         member.setMLData(mlog);
         member.setProvince(po);
         member.setCategory(ca);
+        member.setAddess(addes);
         member.setAgentRegistration(agent);
 
         return memberDataRepository.save(member);
     }
-    
-  
+
+
+    @PostMapping("/Regmem2/{fname}/{lname}/{age}/{PID}/{username}/{password}")
+    //@RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public MemberData NewMemberData(
+            @PathVariable String fname,
+            @PathVariable String lname,
+            @PathVariable Long age,
+            @PathVariable String PID,
+            @PathVariable String username,
+            @PathVariable String password
+    ){
+        MLData login = new MLData();
+        login.setUserName(username);
+        login.setPassword(password);
+        mlDataRepository.save(login);
+        MLData mlog = mlDataRepository.findByUserName(username);
+        MemberData member = new MemberData();
+        member.setFname(fname);
+        member.setLname(lname);
+        member.setAge(age);
+        member.setIDCard(PID);
+        member.setMLData(mlog);
+
+        return memberDataRepository.save(member);
+    }
+
 
 }

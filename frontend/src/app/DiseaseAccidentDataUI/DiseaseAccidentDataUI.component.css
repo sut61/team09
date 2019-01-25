@@ -1,0 +1,81 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+
+
+nav a {
+  padding: 50px 50px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  background-color: #123342;
+  border-radius: 4px;
+}
+table {
+  width: 100%;
+}
+
+.button-row button,
+.button-row a {margin-right: 8px;}
+.example-form {
+  cursor: pointer;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;}
+.example-full-width {font-size: 15px; width: 100%;}
+.mat-card { padding: 0 !important;}
+.mat-select{ font-size: 14px}
+.mat-card-content { padding: 50px !important; background-color: #8eb0b2 !important;}
+
+/* Change background color of buttons on hover */
+.tablink:hover {background-color: #777; }
+
+/* Set default styles for tab content */
+.maintabbar{
+    background-color: #414F64;
+        color: #ffffff;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 2px 10px;
+        width: 100%;}
+.tabbar{
+    background-color: #7c96c1;
+        color: #222323;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 4px 10px;
+        font-size: 15px;
+        width: 100%;}
+a{text-decoration: none; margin-top: 20px}
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #123342;
+  border-radius: 4px;
+  color: #FFFFFF;}
+nav a:visited, a:link {
+  color: #FFFFFF;   /**สีตัวหนังสือก่อนเม้าส์ไปโดน**/
+}
+nav a:hover {
+  color: #FFFFFF;         /**สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
+  background-color: #123342;  /**สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
+}
+

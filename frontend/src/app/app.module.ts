@@ -21,6 +21,7 @@ import { AgentAppointmentComponent } from './agent-appointment/agent-appointment
 
 import { ShowAppointmentResultComponent } from './show-appointment-result/show-appointment-result.component';
 import { DiseaseAccidentDataUIComponent } from './DiseaseAccidentDataUI/DiseaseAccidentDataUI.component';
+import { RegCategoryUiComponent } from './RegCategoryUi/RegCategoryUi.component';
 
 const appRoutes: Routes = [
 
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     AppComponent,
     AgentAppointmentComponent,
     ShowAppointmentResultComponent,
+    RegCategoryUiComponent,
 	DiseaseAccidentDataUIComponent
   ],
   imports: [

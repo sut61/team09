@@ -21,5 +21,14 @@ public class Province {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="province_seq")
     @Column(name="PROVINCE_ID",unique = true, nullable = true)
     private @NonNull Long  iD;
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
     private String provinceName;
 }

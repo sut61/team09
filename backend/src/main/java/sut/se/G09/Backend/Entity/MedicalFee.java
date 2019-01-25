@@ -27,4 +27,7 @@ private @NonNull int medicalFeeCost;
     this.medicalFeeCost = medicalFeeCost;
 
   }
+
+  public long getID() { return id; }
+
 }

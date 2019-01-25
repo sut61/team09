@@ -1,4 +1,4 @@
-﻿package sut.se.G09.Backend;
+package sut.se.G09.Backend;
 
 import sut.se.G09.Backend.Entity.*;
 import sut.se.G09.Backend.Repository.*;
@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Date;
 import java.util.stream.Stream;
 
 
@@ -23,13 +22,13 @@ public class BackendApplication {
 	ApplicationRunner init(DiseaseAccidentDataRepository diseaseAccidentDataRepository,
 						   DiseaseAccidentLevelRepository diseaseAccidentLevelRepository,
 						   DiseaseAccidentTypeRepository diseaseAccidentTypeRepository,
-						   MedicalFeeRepository medicalFeeRepository,CategoryRepository categoryRepository,
-						   InsurancePremiumRepository insurancePremiumRepository,
-						   LengthRepository lengthRepository,
-						   MoneyMaximumRepository moneyMaximumRepository ,AgentRegistrationRepository agentRegistrationRepository,
-						   Educationalrepository educationalrepository, DurationAppointmentRepository durationAppointmentRepository,
-						   DateAppointmentRepository dateAppointmentRepository, GenderRepository genderRepository
-							) {
+						   MedicalFeeRepository medicalFeeRepository,AgentRegistrationRepository agentRegistrationRepository,
+						   CategoryRepository categoryRepository, Educationalrepository educationalrepository,
+						   ProvinceRepository provinceRepository, InsurancePremiumRepository insurancePremiumRepository,
+						   LengthRepository lengthRepository, MoneyMaximumRepository moneyMaximumRepository,
+						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
+						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
+						   GenderRepository genderRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -66,7 +65,7 @@ public class BackendApplication {
 
 			MedicalFee cost_03 = new MedicalFee();
 			cost_03.setMedicalFee(1000);
-			medicalFeeRepository.save(cost_01);
+			medicalFeeRepository.save(cost_03);
 
 			MedicalFee cost_04 = new MedicalFee();
 			cost_04.setMedicalFee(1200);
@@ -100,6 +99,7 @@ public class BackendApplication {
 			cost_11.setMedicalFee(10000);
 			medicalFeeRepository.save(cost_11);
 			//=========================================================
+
 			//================add DiseaseAccidentData : BY ISARA ====================
 			//-----DATA------------------------------------
 			String s[] ={"โรคหัวใจ","หกล้ม","ไตวาย","แขนขาด"};
@@ -127,7 +127,33 @@ public class BackendApplication {
 			}
 
 			//======================================================================
-			// ======================= morn bap=======================================================
+			//====================By Nattapon=======================================
+
+
+			Educational Educational =new Educational(); //ระดับการศึกษา
+			Educational.setEduName(".มัธยมศึกษาปีที่ 3");
+			educationalrepository.save(Educational);
+			Educational Educational1 =new Educational();
+			Educational1.setEduName(".มัธยมศึกษาปีที่ 6");
+			educationalrepository.save(Educational1);
+			Educational Educational11 =new Educational();
+			Educational11.setEduName(".ประกาศนียบัตรวิชาชีพปี 3");
+			educationalrepository.save(Educational11);
+			Educational Educational111 =new Educational();
+			Educational111.setEduName(".ประกาศนียบัตรวิชาชีพชั้นสูงปี 2");
+			educationalrepository.save(Educational111);
+			Educational Educational1111 =new Educational();
+			Educational1111.setEduName(".ปริญญาตรี");
+			educationalrepository.save(Educational1111);
+			Educational Educational2 =new Educational();
+			Educational2.setEduName(".ปริญญาโท");
+			educationalrepository.save(Educational2);
+			Educational Educational3 =new Educational();
+			Educational3.setEduName(".ปริญญาเอก");
+			educationalrepository.save(Educational3);
+			//==========================================================
+
+			//==================Morn====================================
 			InsurancePremium InsurancePremium1 = new InsurancePremium();  //เบี้ยประกัน
 			InsurancePremium1.setInsuranceName("8 บาท ต่อหนึ่งวัน");
 			insurancePremiumRepository.save(InsurancePremium1);
@@ -175,46 +201,34 @@ public class BackendApplication {
 			MoneyMaximum MoneyMaximum5 = new MoneyMaximum();
 			MoneyMaximum5.setmoneyName(1000000L);
 			moneyMaximumRepository.save(MoneyMaximum5);
+			//====================================morn=============================
+			Stream.of("1.กรุงเทพมหานคร","2.กระบี่","3.กาญจนบุรี","4.กาฬสินธุ์","5.กำแพงเพชร", "6.ขอนแก่น","7.จันทบุรี","8.ฉะเชิงเทรา","9.ชลบุรี",
+					"10.ชัยนาท","11.ชัยภูมิ",	"12.ชุมพร","13.เชียงราย","14.เชียงใหม่","15.ตรัง","16.ตราด","17.ตาก","18.นครนายก","19.นครปฐม",
+					"20.นครพนม","21.นครราชสีมา","22.นครศรีธรรมราช","23.นครสวรรค์","24.นนทบุรี","25.นราธิวาส","26.น่าน","27.บึงกาฬ","28.บุรีรัมย์",
+					"29.ปทุมธานี","30.ประจวบคีรีขันธ์","31.ปราจีนบุรี","32.ปัตตานี","33.พระนครศรีอยุธยา","34.พังงา","35.พัทลุง","36.พิจิตร","37.พิษณุโลก",
+					"38.เพชรบุรี","39.เพชรบูรณ์","40.แพร่","41.พะเยา","42.ภูเก็ต","43.มหาสารคาม","44.มุกดาหาร","45.แม่ฮ่องสอน","46.ยะลา","47.ยโสธร",
+					"48.ร้อยเอ็ด","49.ระนอง","50.ระยอง","51.ราชบุรี","52.ลพบุรี","53.ลำปาง","54.ลำพูน","55.เลย","56.ศรีสะเกษ","57.สกลนคร","58.สงขลา",
+					"59.สตูล","60.สมุทรปราการ","61.สมุทรสงคราม","62.สมุทรสาคร","63.สระแก้ว","64.สระบุรี","65.สิงห์บุรี","66.สุโขทัย","67.สุพรรณบุรี",
+					"68.สุราษฎร์ธานี","69.สุรินทร์","70.หนองคาย","71.หนองบัวลำภู","72.อ่างทอง","73.อุดรธานี","74.อุทัยธานี","75.อุตรดิตถ์",
+					"76.อุบลราชธานี","77.อำนาจเจริญ").forEach(NameProvince ->{
 
-			//====================================================
+				Province province = new Province();
+				province.setProvinceName(NameProvince);
+				provinceRepository.save(province);
+			});
 
+			Stream.of("ธุรกิจขนาดเล็ก","ธุรกิจขนาดกลาง","ธุรกิจขนาดใหญ่").forEach(Size ->{
+				BusinessSize businessSize = new BusinessSize();
+				businessSize.setSize(Size);
+				businessSizeRepository.save(businessSize);
+			});
 
-					//==================Nattapon==========================
-			Educational Educational =new Educational(); //ระดับการศึกษา
-			Educational.setEduName("มัธยมศึกษาปีที่ 3");
-			educationalrepository.save(Educational);
-			Educational.setEduName("มัธยมศึกษาปีที่ 6");
-			educationalrepository.save(Educational);
-			Educational.setEduName("ประกาศนียบัตรวิชาชีพปี 3");
-			educationalrepository.save(Educational);
-			Educational.setEduName("ประกาศนียบัตรวิชาชีพชั้นสูงปี 2");
-			educationalrepository.save(Educational);
-			Educational.setEduName("ปริญญาตรี");
-			educationalrepository.save(Educational);
-			Educational.setEduName("ปริญญาโท");
-			educationalrepository.save(Educational);
-			Educational.setEduName("ปริญญาเอก");
-			educationalrepository.save(Educational);
+			Stream.of("ส่วนบุคคล","ห้างหุ้นส่วนสามัญนิติบุคคลหรือห้างหุ้นส่วนจำกัด","บริษัทจำกัดหรือบริษัทจำกัด (มหาชน)","ส่วนราชการหรือรัฐวิสาหกิจ","สหกรณ์").forEach(EstabName ->{
+				Establishment establishment = new Establishment();
+				establishment.setEstabName(EstabName);
+				establishmentRepository.save(establishment);
+			});
 
-
-			Category Category = new Category(); //ประเภท
-			Category.setId(1L);
-			categoryRepository.save(Category);
-			Category.setId(2L);
-			categoryRepository.save(Category);
-			Category.setId(3L);
-			categoryRepository.save(Category);
-			Category.setId(4L);
-			categoryRepository.save(Category);
-			Category.setId(5L);
-			categoryRepository.save(Category);
-			Category.setId(6L);
-			categoryRepository.save(Category);
-			Category.setId(7L);
-			categoryRepository.save(Category);
-			Category.setId(8L);
-			categoryRepository.save(Category);
-			//================================AgentAppointmentSystems=========================================
 			DurationAppointment dur1 = new DurationAppointment(1L,"08.00-10.00 น.");
 			DurationAppointment dur2 = new DurationAppointment(2L,"10.00-12.00 น.");
 			DurationAppointment dur3 = new DurationAppointment(3L,"13.00-15.00 น.");
@@ -298,8 +312,6 @@ public class BackendApplication {
 				else if(genderId==2L){ newGender.setGenderName("หญิง"); }
 				genderRepository.save(newGender);
 			});
-
-		};//<== ระวะันะคะ
+		};
 	}
 }
-

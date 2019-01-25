@@ -38,10 +38,6 @@ public class Lumpsum {
     @JoinColumn(name = "ESTABLISHMENT_ID", insertable = true)
     private  Establishment establishmentId;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = AgentRegistration.class)
-    @JoinColumn(name = "AGENTREGISTRATION_ID", insertable = true)
-    private  AgentRegistration agentRegistrationId;
-
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "PROVINCE_ID", insertable = true)
     private  Province provinceId;
@@ -56,10 +52,6 @@ public class Lumpsum {
 
     public void setEstablishmentId(Establishment establishmentId){
         this.establishmentId = establishmentId;
-    }
-
-    public void setAgentRegistrationId(AgentRegistration agentRegistrationId){
-        this.agentRegistrationId = agentRegistrationId;
     }
 
     public void setProvinceId(Province provinceId){

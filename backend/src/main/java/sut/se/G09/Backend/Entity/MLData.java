@@ -12,10 +12,8 @@ import java.util.List;
 @Getter @Setter
 @ToString
 @EqualsAndHashCode
-
 @Table(name="MLData")
 public class MLData {
-
  @Id
  @SequenceGenerator(name="ml_seq",sequenceName="ml_seq")
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ml_seq")

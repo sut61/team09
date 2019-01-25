@@ -66,9 +66,9 @@ public class DiseaseAccidentDataController {
         .collect(Collectors.toList());
 		}
 
-	//======  curl -X POST  http://localhost:8080/DiseaseAccidentData/NEW/"GG"/1/1/5
+	//======  curl -X POST  http://localhost:8080/DiseaseAccidentData/NEW/"1,22222"/1/1/5
 	@PostMapping(path ="/DiseaseAccidentData/NEW/{dataName}/{levelId}/{typeId}/{medicalFeeId}")	
-	public DiseaseAccidentData diseaseAccidentData(	
+	public void diseaseAccidentData(
 											@PathVariable String dataName,
 											@PathVariable long levelId,
 											@PathVariable long typeId,
@@ -85,7 +85,8 @@ public class DiseaseAccidentDataController {
 		newData.setDiseaseAccidentType(type);
 		newData.setMedicalFee(medicalFee);
 		
-		return diseaseAccidentDataRepository.save(newData);
+		 diseaseAccidentDataRepository.save(newData);
+
 	  
 	}
 }

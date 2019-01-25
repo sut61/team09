@@ -70,24 +70,6 @@ public class AgentRegistrationController {
           ,@PathVariable long Education
           ,@PathVariable Long Province)throws JsonParseException, IOException {
 
-    /*Doctor doctorid = doctorRepository.findById(doctorId);
-    Member member = memberRepository.findByID(memberID);
-    Hospital hospital = hospitalrepository.findById(hospitalId);
-
-    MedicineSystem newMedicineSystem = new MedicineSystem();
-
-
-    newMedicineSystem.setDateM(new Date());
-
-    newMedicineSystem.setDoctor(doctorid);
-    newMedicineSystem.setHospital(hospital);
-    newMedicineSystem.setMember(member);
-    newMedicineSystem.setMedicinesName(medicineName);
-
-    //newMedicineSystem.setMedicines(medicines);
-
-
-    return medicineSystemRepository.save(newMedicineSystem);*/
 
     Category category = categoryRepository.findByID(typeInsurance);
     Educational educational = educationalrepository.findByID(Education);

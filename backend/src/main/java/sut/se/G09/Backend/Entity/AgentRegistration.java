@@ -12,7 +12,7 @@ import java.util.Date;
 @ToString
 @EqualsAndHashCode
 @Table(name = "AgentRegistration", uniqueConstraints = {
-@UniqueConstraint(columnNames = "ID")})
+        @UniqueConstraint(columnNames = "ID")})
 public class AgentRegistration {
   @Id
   @SequenceGenerator(name = "Aregist_seq", sequenceName = "Aregist_seq")

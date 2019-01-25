@@ -26,8 +26,9 @@ public class BackendApplication {
 						   MedicalFeeRepository medicalFeeRepository,CategoryRepository categoryRepository,
 						   InsurancePremiumRepository insurancePremiumRepository,
 						   LengthRepository lengthRepository,
-						   MoneyMaximumRepository moneyMaximumRepository ,AgentRegistrationRepository agentRegistrationRepository, Educationalrepository educationalrepository,
-						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository, GenderRepository genderRepository
+						   MoneyMaximumRepository moneyMaximumRepository ,AgentRegistrationRepository agentRegistrationRepository,
+						   Educationalrepository educationalrepository, DurationAppointmentRepository durationAppointmentRepository,
+						   DateAppointmentRepository dateAppointmentRepository, GenderRepository genderRepository
 							) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================

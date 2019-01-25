@@ -37,7 +37,7 @@
       ค่ารักษารายวัน: <mat-form-field>
       <mat-select placeholder="ค่ารักษารายวัน " [(ngModel)]="DiseaseAccidentData.medicalFeeIdSelect" >
         <mat-option *ngFor="let MedicalFee of medicalFeeIdA" [value]="MedicalFee.id">
-          {{MedicalFee.medicalFeeCost}} บาท
+          {{MedicalFee.medicalFeeCost}} บาท.
         </mat-option>
       </mat-select>
     </mat-form-field>

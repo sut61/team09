@@ -99,6 +99,33 @@ public class BackendApplication {
 			cost_11.setMedicalFee(10000);
 			medicalFeeRepository.save(cost_11);
 			//=========================================================
+			//================add DiseaseAccidentData : BY ISARA ====================
+			//-----DATA------------------------------------
+			String s[] ={"โรคหัวใจ","หกล้ม","ไตวาย","แขนขาด"};
+			long ty[] = {1,2,1,2};
+			long lev[] = {2,1,3,3};
+			long mee[] = {5,1,10,11};
+			//--------------------------------------------------------
+			if(s.length == ty.length && s.length == lev.length && s.length == mee.length) {
+				for (int i=0;i<s.length;i++) {
+					DiseaseAccidentData data1 = new DiseaseAccidentData();
+
+					data1.setDiseaseAccidentData(s[i]);
+
+					DiseaseAccidentType t = diseaseAccidentTypeRepository.findById(ty[i]);
+					data1.setDiseaseAccidentType(t);
+
+					DiseaseAccidentLevel l = diseaseAccidentLevelRepository.findById(lev[i]);
+					data1.setDiseaseAccidentLevel(l);
+
+					MedicalFee m = medicalFeeRepository.findById(mee[i]);
+					data1.setMedicalFee(m);
+
+					diseaseAccidentDataRepository.save(data1);
+				}
+			}
+
+			//======================================================================
 			// ======================= morn bap=======================================================
 			InsurancePremium InsurancePremium1 = new InsurancePremium();  //เบี้ยประกัน
 			InsurancePremium1.setInsuranceName("8 บาท ต่อหนึ่งวัน");

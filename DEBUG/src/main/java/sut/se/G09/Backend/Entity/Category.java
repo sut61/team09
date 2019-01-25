@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity  //บอกว่าเป็น class com.okta.developer.demo.Entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
 @Table(name="Category") //ชื่อตาราง
-public class Category {
+public class Category { //ประเภทประกัน
     @Id
     @SequenceGenerator(name = "Category_seq", sequenceName = "Category_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Category_seq")
@@ -19,7 +19,6 @@ public class Category {
     private String typeName;
     private Date date; //วันที่ทำการเพิ่ม
 
-    /*
     public Long getId() {
         return iD;
     }
@@ -54,9 +53,9 @@ public class Category {
     @JoinColumn(name = "MoneyMaximumId", insertable = true)
     private  MoneyMaximum moneyMaximum;
 
-    public Category(){}
-    public Category(String typeName, Date date){  //constructor
-        this.typeName = typeName;
-        this.date = date;
-    } */
+public Category(){}
+public Category(String typeName, Date date){  //constructor
+    this.typeName = typeName;
+     this.date = date;
+}
 }

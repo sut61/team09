@@ -21,7 +21,9 @@ public class BackendApplication {
 	ApplicationRunner init(DiseaseAccidentDataRepository diseaseAccidentDataRepository,
 						   DiseaseAccidentLevelRepository diseaseAccidentLevelRepository,
 						   DiseaseAccidentTypeRepository diseaseAccidentTypeRepository,
-						   MedicalFeeRepository medicalFeeRepository) {
+						   MedicalFeeRepository medicalFeeRepository,AgentRegistrationRepository agentRegistrationRepository,
+						   CategoryRepository categoryRepository, Educationalrepository educationalrepository
+			,ProvinceRepository provinceRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -120,6 +122,31 @@ public class BackendApplication {
 			}
 
 			//======================================================================
+			//====================By Nattapon=======================================
+
+
+			Educational Educational =new Educational(); //ระดับการศึกษา
+			Educational.setEduName(".มัธยมศึกษาปีที่ 3");
+			educationalrepository.save(Educational);
+			Educational Educational1 =new Educational();
+			Educational1.setEduName(".มัธยมศึกษาปีที่ 6");
+			educationalrepository.save(Educational1);
+			Educational Educational11 =new Educational();
+			Educational11.setEduName(".ประกาศนียบัตรวิชาชีพปี 3");
+			educationalrepository.save(Educational11);
+			Educational Educational111 =new Educational();
+			Educational111.setEduName(".ประกาศนียบัตรวิชาชีพชั้นสูงปี 2");
+			educationalrepository.save(Educational111);
+			Educational Educational1111 =new Educational();
+			Educational1111.setEduName(".ปริญญาตรี");
+			educationalrepository.save(Educational1111);
+			Educational Educational2 =new Educational();
+			Educational2.setEduName(".ปริญญาโท");
+			educationalrepository.save(Educational2);
+			Educational Educational3 =new Educational();
+			Educational3.setEduName(".ปริญญาเอก");
+			educationalrepository.save(Educational3);
+			//==========================================================
 
 		};
 	}

@@ -18,7 +18,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentService } from './service/appointment.service';
 import { AgentAppointmentComponent } from './agent-appointment/agent-appointment.component';
+
 import { ShowAppointmentResultComponent } from './show-appointment-result/show-appointment-result.component';
+import { DiseaseAccidentDataUIComponent } from './DiseaseAccidentDataUI/DiseaseAccidentDataUI.component';
 
 const appRoutes: Routes = [
 
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AgentAppointmentComponent,
-    ShowAppointmentResultComponent
+    ShowAppointmentResultComponent,
+	DiseaseAccidentDataUIComponent
   ],
   imports: [
     BrowserModule,

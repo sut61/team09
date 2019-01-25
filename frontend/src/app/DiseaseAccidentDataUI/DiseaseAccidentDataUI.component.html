@@ -1,0 +1,58 @@
+<div align="center">
+  <nav><a align = 'center'>
+    <mat-card-header>
+
+      <h2>&nbsp;ข้อมูลโรคและอุบัติเหตุที่ได้รับสิทธิ์คุ้มครอง</h2>
+      <hr width="100%" align="CENTER" size="5" noshade color="PINK">
+      &nbsp;
+      ชื่อโรค/อุบัติเหตุ:
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="ชื่อโรค/อุบัติเหตุ" [(ngModel)]="DiseaseAccidentData.dataNameAdd" >
+      </mat-form-field>
+      &nbsp;
+
+      <br><br>
+      &nbsp;
+      ชนิดสิทธิคุ้มครอง: <mat-form-field>
+      <mat-select placeholder="ชนิดสิทธิคุ้มครอง " [(ngModel)]="DiseaseAccidentData.typeIdSelect">
+        <mat-option *ngFor="let DiseaseAccidentType of typeIdA" [value]="DiseaseAccidentType.id">
+          {{DiseaseAccidentType.id}}. {{DiseaseAccidentType.typeText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      <br><br>
+      &nbsp;
+      ระดับควาทรุนแรง: <mat-form-field>
+      <mat-select placeholder="ระดับความรุนแรง " [(ngModel)]="DiseaseAccidentData.levelIdSelect" >
+        <mat-option *ngFor="let DiseaseAccidentLevel of levelIdA" [value]="DiseaseAccidentLevel.id">
+          {{DiseaseAccidentLevel.id}}.{{DiseaseAccidentLevel.levelText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      &nbsp;
+      <br><br>
+      &nbsp;
+
+      ค่ารักษารายวัน: <mat-form-field>
+      <mat-select placeholder="ค่ารักษารายวัน " [(ngModel)]="DiseaseAccidentData.medicalFeeIdSelect" >
+        <mat-option *ngFor="let MedicalFee of medicalFeeIdA" [value]="MedicalFee.id">
+          {{MedicalFee.medicalFeeCost}} บาท
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      &nbsp;
+      <br><br>
+      &nbsp;
+      &nbsp;&nbsp;&nbsp;
+
+      <br>
+
+        &nbsp;&nbsp;&nbsp;<button mat-stroked-button (click)="save()" cdkFocusInitial mat-raised-button color="primary">บันทึก</button>
+
+
+
+
+      </mat-card-header>
+  </a></nav>
+</div>

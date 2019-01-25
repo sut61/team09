@@ -22,11 +22,12 @@ import { MemHomeComponent } from './mem-home/mem-home.component';
 import {LoginService} from './service/login.service';
 import {SessionService} from './service/session.service';
 import { RegCategoryUiComponent } from './RegCategoryUi/RegCategoryUi.component';
-import { AgentRegComponent } from './agent-reg/agent-reg.component';
+import { LumpsumComponent } from './lumpsum/lumpsum.component';
 
 
 const appRoutes: Routes = [
- {path: 'MemHome', component: MemHomeComponent}
+ {path: 'MemHome', component: MemHomeComponent},
+{path: 'Lumpsum', component: LumpsumComponent}
 ];
 
 @NgModule({
@@ -38,8 +39,8 @@ const appRoutes: Routes = [
 	MemLoginComponent,
 	MemHomeComponent,
     RegCategoryUiComponent,
-	  DiseaseAccidentDataUIComponent,
-    AgentRegComponent
+	DiseaseAccidentDataUIComponent,
+	LumpsumComponent
   ],
   imports: [
     BrowserModule,

@@ -1,36 +1,22 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
-
-@font-face {
-  font-family: kanitFont;
-  src: url('https://fonts.googleapis.com/css?family=Kanit');
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+nav a {
+  padding: 50px 50px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  background-color: #c5d0e2;
+  border-radius: 4px;
+}
+table {
+  width: 100%;
+}
+example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
 
-.button-row button,
-.button-row a {margin-right: 8px;}
-.font-field-head{font-family: 'Kanit', sans-serif; color: #373737;}
-.font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4;}
-.example-full-width {font-size: 16px; width: 100%; font-family: 'Kanit', sans-serif;}
-
-/* Change background color of buttons on hover */
-.tablink:hover {background-color: #777; }
-
-/* Set default styles for tab content */
-.maintabbar{
-
-        color: #ffffff;
-        float: right;
-        border: none;
-        outline: none;
-        width: 100%;}
-
-a{text-decoration: none; margin-top: 20px}
-
-nav a {
-  padding: 100px 220px;
-  text-decoration: none;
-  margin-top: 0px;
-  display: inline-block;
-  background-color: #3A9FA6;
-  float: center;
-  }
-
+.example-full-width {
+  width: 100%;
+}

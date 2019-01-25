@@ -1,0 +1,84 @@
+
+<nav><a class="font-field">
+  <mat-list>
+    <mat-list-item>
+      <h2 class="font-field-head">เหมาจ่ายประกันออนไลน์</h2>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <br>
+
+    <mat-list-item>
+      <mat-form-field class="font-field">
+        <input matInput placeholder="ชื่อบริษัท" [(ngModel)]="Lumpsums.companyName">
+        <mat-hint align="end">ตัวอย่าง : บริษัทตัวอย่าง</mat-hint>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="font-field">
+        <input matInput placeholder="ที่อยู่" [(ngModel)]="Lumpsums.address">
+        <mat-hint align="end">ตัวอย่าง : บ้านเลขที่ 111 หมู่ 6 ต.สุรนารี อ.เมือง จ.นครราชสีมา</mat-hint>
+      </mat-form-field>
+    </mat-list-item>
+    <br>
+
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <mat-select class="font-field" placeholder="เลือกจังหวัด" [(ngModel)]="Lumpsums.PROVINCE_ID"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
+          <mat-option class="font-field" *ngFor="let Province of Provinces" [value]="Province.id"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
+            {{ Province.iD }} : {{ Province.provinceName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+    <br>
+
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="รหัสไปรษณีย์" [(ngModel)]="Lumpsums.zipCode">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="จำนวนพนักงาน" [(ngModel)]="Lumpsums.amoungEmp">
+      </mat-form-field>
+    </mat-list-item>
+    <br>
+
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <mat-select class="font-field" placeholder="ขนาดบริษัท" [(ngModel)]="Lumpsums.BUSINESS_ID">
+          <mat-option class="font-field" *ngFor="let BusinessSize of BusinessSizes" [value]="BusinessSize.id" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
+            {{ BusinessSize.id }} : {{ BusinessSize.size }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+        </mat-list-item>
+        <br>
+
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <mat-select class="font-field" placeholder="ประเภทประกัน" [(ngModel)]="Lumpsums.CATEGORY_ID">
+          <mat-option class="font-field" *ngFor="let Category of Categories" [value]="Categories.id" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
+            {{ Categories.id }} : {{ Categories.typeName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+        <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+      <mat-select class="font-field" placeholder="รูปแบบสถานประกอบการณ์" [(ngModel)]="Lumpsums.ESTABLISHMENT_ID">
+          <mat-option class="font-field" *ngFor="let Establishment of Establishmentes" [value]="Establishment.id" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
+            {{ Establishment.id }} : {{ Establishment.estabName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+
+        <br>
+     &nbsp;&nbsp;
+
+
+    &nbsp;&nbsp;&nbsp;<button mat-stroked-button (click)="save()" cdkFocusInitial mat-raised-button color="primary">บันทึก</button>
+    <br>
+  </mat-list>
+</a></nav>
+

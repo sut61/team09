@@ -1,48 +1,42 @@
-<nav><a class="example-full-width">
-  <mat-list>
-    <mat-list-item>
-      <h2 class="font-field-head">กรอกข้อมูลสำหรับลงทะเบียนตัวแทน</h2>
-    </mat-list-item>
-    <br>
-    <mat-list-item>
-    <mat-form-field class="example-full-width">
+<div style="text-align:center">
+<p>
+  <mat-card>
+  <b><font size="5"></font></b><br><br>
+
+    <mat-form-field>
       <input matInput placeholder="กรอกประเภทประกัน" [(ngModel)]="categorys.typeName">
       <mat-hint align="end">ex. ประกันผู้สูงอายุ</mat-hint>
     </mat-form-field>&nbsp;&nbsp;
-    </mat-list-item>
-    <br>
-    <mat-list-item>
-    <mat-form-field class="example-full-width">
+
+
+    <mat-form-field>
       <mat-select placeholder="เลือกเบี้ยประกัน"[(ngModel)]="categorys.insuranceName">
         <mat-option *ngFor="let InsurancePremium of insurancePremiums" [value]="InsurancePremium.id">
           {{InsurancePremium.insuranceName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    </mat-list-item>
     <br>
-    <mat-list-item>
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-select placeholder="เลือกระยะเวลาคุ้มครอง"[(ngModel)]="categorys.lengthName">
         <mat-option *ngFor="let Length of lengths" [value]="Length.id">
           {{Length.lengthName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    </mat-list-item>
-    <br>
-    <mat-list-item>
-    <mat-form-field class="example-full-width">
+
+    <mat-form-field>
       <mat-select placeholder="เลือกเงินชดเชยสูงสุด"[(ngModel)]="categorys.moneyName">
         <mat-option *ngFor="let MoneyMaximum of moneyMaximums" [value]="MoneyMaximum.id">
           {{MoneyMaximum.moneyName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    </mat-list-item>
+
     <br>
     <div class="button-row">
-      &nbsp;&nbsp;&nbsp;<button mat-raised-button color="primary" (click)="save()" cdkFocusInitial>บันทึก</button>
+      &nbsp;&nbsp;&nbsp;<button mat-stroked-button (click)="save()" cdkFocusInitial>บันทึก</button>
     </div>
-  </mat-list>
-</a></nav>
+  </mat-card>
+</p>
+</div>

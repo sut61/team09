@@ -40,7 +40,7 @@ public class AgentRegistration {
     this.lName = lName;
   }
 
-/*
+
   @ManyToOne
   @JoinColumn(name= "education_id")
   private Educational educational;
@@ -60,6 +60,6 @@ public class AgentRegistration {
   }
 
   public void setCategory(Category category) {this.category = category;
-  }   */
+  }
 
 }

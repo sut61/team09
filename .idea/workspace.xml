@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a890a00f-033a-4423-9562-b38ecd527705" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DateAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DurationAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Gender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/AgentAppointmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DateAppointmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DurationAppointmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/GenderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/team09.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/team09.iml" afterDir="false" />
@@ -23,33 +14,49 @@
       <change beforePath="$PROJECT_DIR$/DEBUG/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/BackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentRegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/DiseaseAccidentDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/DiseaseAccidentDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/LumpsumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/LumpsumController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/MemberDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/MemberDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/AgentRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/AgentRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/BusinessSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/BusinessSize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DateAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DateAppointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentLevel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DurationAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DurationAppointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Educational.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Educational.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Establishment.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Establishment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Gender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/InsurancePremium.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/InsurancePremium.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Length.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Length.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Lumpsum.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Lumpsum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MLData.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MLData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MedicalFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MedicalFee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MemberData.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MemberData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MoneyMaximum.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/MoneyMaximum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/Province.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/AgentAppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/AgentAppointmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/AgentRegistrationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/AgentRegistrationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/BusinessSizeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/BusinessSizeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DateAppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DateAppointmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DiseaseAccidentDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DiseaseAccidentDataRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DiseaseAccidentLevelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DiseaseAccidentLevelRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DiseaseAccidentTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DiseaseAccidentTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DurationAppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/DurationAppointmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/Educationalrepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/Educationalrepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/EstablishmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/EstablishmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/GenderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/GenderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/InsurancePremiumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/InsurancePremiumRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/LengthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/LengthRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/LumpsumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/LumpsumRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/MLDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/MLDataRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/MedicalFeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/MedicalFeeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/MemberDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/MemberDataRepository.java" afterDir="false" />
@@ -127,20 +134,50 @@
       <change beforePath="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/agent-reg/agent-reg.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/lumpsum/lumpsum.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-home/mem-home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/mem-login/mem-login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/AgentReg.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/AgentReg.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/AgentReg.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/AgentReg.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/service/DiseaseAccidentData.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/DiseaseAccidentData.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/service/DiseaseAccidentData.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/DiseaseAccidentData.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/RegCategoryUi.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/RegCategoryUi.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/RegCategoryUi.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/RegCategoryUi.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/service/appointment.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/appointment.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/service/appointment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/appointment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/login.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/login.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/lumpsumservice.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/lumpsumservice.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/lumpsumservice.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/lumpsumservice.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/session.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/session.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/service/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/service/session.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/show-appointment-result/show-appointment-result.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/show-appointment-result/show-appointment-result.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/show-appointment-result/show-appointment-result.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/show-appointment-result/show-appointment-result.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/show-appointment-result/show-appointment-result.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/show-appointment-result/show-appointment-result.component.spec.ts" afterDir="false" />
@@ -205,16 +242,16 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="2" />
           <entry key="html" value="1" />
-          <entry key="java" value="13" />
+          <entry key="java" value="14" />
           <entry key="ts" value="2" />
         </counts>
       </usages-collector>
@@ -222,19 +259,19 @@
         <counts>
           <entry key="CSS" value="2" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="13" />
+          <entry key="JAVA" value="14" />
           <entry key="TypoScript File" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2" />
+          <entry key="java" value="31" />
           <entry key="ts" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="31" />
           <entry key="TypoScript File" value="19" />
         </counts>
       </usages-collector>
@@ -242,15 +279,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-680">
-              <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/CategoryRepository.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -260,11 +288,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/ProvinceRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/BackendApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="313" column="15" selection-start-line="313" selection-start-column="15" selection-end-line="313" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -333,6 +370,7 @@
         <option value="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java" />
         <option value="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/CategoryRepository.java" />
         <option value="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/ProvinceRepository.java" />
+        <option value="$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/BackendApplication.java" />
       </list>
     </option>
   </component>
@@ -352,6 +390,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -543,7 +582,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -586,7 +624,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18053691" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18322147" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -660,9 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="38" selection-start-column="38" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,6 +766,20 @@
     <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DateAppointment.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/CategoryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Entity/DurationAppointment.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -759,24 +808,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Controller/AgentAppointmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/CategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/Repository/ProvinceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DEBUG/src/main/java/sut/se/G09/Backend/BackendApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="313" column="15" selection-start-line="313" selection-start-column="15" selection-end-line="313" selection-end-column="15" />
         </state>
       </provider>
     </entry>

@@ -20,7 +20,7 @@ nav a:visited, a:link {
 
 }
 nav a:hover {
-  color: #ffffff;         /**สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
+  color: #ffffff;
   background-color: #123342;  /**สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
   font-size: 25px;
   cursor: pointer;
@@ -82,3 +82,4 @@ html{
       background:url(https://img.wallpapit.com/gradient-wallpapers-46-gradient-hd-wallpapers-backgrounds-color-gradient-wallpaper-hd-1920_1080.jpg);
     width: 100%;
     }
+

@@ -1,0 +1,69 @@
+import { OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {RegCategoryUiService} from  '../service/RegCategoryUi.Service';
+
+
+@Component({
+  selector: 'app-RegCategoryUi',
+  templateUrl: './RegCategoryUi.component.html',
+  styleUrls: ['./RegCategoryUi.component.css']
+}
+)
+
+export class RegCategoryUiComponent implements OnInit {
+  insurancePremiums:Array<any>;
+  lengths:Array<any>;
+  moneyMaximums:Array<any>;
+
+  categorys:any = {typeName: '', insuranceName: '', lengthName: '', moneyName: ''};
+
+
+  constructor(private Service : RegCategoryUiService ,private httpClient: HttpClient,private router:Router ) { }
+
+  ngOnInit() {
+      this.Service.getCategorys().subscribe(dataMe => {
+                    this.categorys = dataMe;
+                    console.log(this.categorys);
+      });
+      this.Service.getInsurancePremiums().subscribe(dataA => {
+              this.insurancePremiums = dataA;
+              console.log(this.insurancePremiums);
+      });
+      this.Service.getLengths().subscribe(dataB => {
+                          this.lengths = dataB;
+                          console.log(this.lengths);
+      });
+      this.Service.getMoneyMaximums().subscribe(dataC => {
+              this.moneyMaximums = dataC;
+              console.log(this.moneyMaximums);
+        });
+      }
+      save() {
+      if(this.categorys.typeName === '' || this.categorys.insuranceName === ''||
+      this.categorys.lengthName === ''  ||
+      this.categorys.moneyName === ''){
+
+      alert('กรุณใส่ข้อมูลให้ครบ');
+
+      }else {
+        this.httpClient.post('http://localhost:8080/Category/' + this.categorys.typeName + '/'
+        + this.categorys.insuranceName + '/'+ this.categorys.lengthName  + '/'
+        +this.categorys.moneyName,
+        this.categorys)
+        .subscribe(
+           data => {
+              console.log('PUT Request is successful', data);
+           },
+           error => {
+              console.log('Rrror', error);
+            }
+        );
+         alert('บันทึกสำเร็จ');
+     }
+  }
+}
+
+

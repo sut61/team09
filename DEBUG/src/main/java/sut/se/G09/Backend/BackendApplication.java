@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.stream.Stream;
 
 
 @SpringBootApplication
@@ -25,7 +26,8 @@ public class BackendApplication {
 						   CategoryRepository categoryRepository, Educationalrepository educationalrepository
 			,ProvinceRepository provinceRepository, InsurancePremiumRepository insurancePremiumRepository,
 						   LengthRepository lengthRepository,
-						   MoneyMaximumRepository moneyMaximumRepository) {
+						   MoneyMaximumRepository moneyMaximumRepository, BusinessSizeRepository businessSizeRepository,
+						   EstablishmentRepository establishmentRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -199,6 +201,32 @@ public class BackendApplication {
 			MoneyMaximum5.setmoneyName(1000000L);
 			moneyMaximumRepository.save(MoneyMaximum5);
 			//====================================morn=============================
+			Stream.of("1.กรุงเทพมหานคร","2.กระบี่","3.กาญจนบุรี","4.กาฬสินธุ์","5.กำแพงเพชร", "6.ขอนแก่น","7.จันทบุรี","8.ฉะเชิงเทรา","9.ชลบุรี",
+					"10.ชัยนาท","11.ชัยภูมิ",	"12.ชุมพร","13.เชียงราย","14.เชียงใหม่","15.ตรัง","16.ตราด","17.ตาก","18.นครนายก","19.นครปฐม",
+					"20.นครพนม","21.นครราชสีมา","22.นครศรีธรรมราช","23.นครสวรรค์","24.นนทบุรี","25.นราธิวาส","26.น่าน","27.บึงกาฬ","28.บุรีรัมย์",
+					"29.ปทุมธานี","30.ประจวบคีรีขันธ์","31.ปราจีนบุรี","32.ปัตตานี","33.พระนครศรีอยุธยา","34.พังงา","35.พัทลุง","36.พิจิตร","37.พิษณุโลก",
+					"38.เพชรบุรี","39.เพชรบูรณ์","40.แพร่","41.พะเยา","42.ภูเก็ต","43.มหาสารคาม","44.มุกดาหาร","45.แม่ฮ่องสอน","46.ยะลา","47.ยโสธร",
+					"48.ร้อยเอ็ด","49.ระนอง","50.ระยอง","51.ราชบุรี","52.ลพบุรี","53.ลำปาง","54.ลำพูน","55.เลย","56.ศรีสะเกษ","57.สกลนคร","58.สงขลา",
+					"59.สตูล","60.สมุทรปราการ","61.สมุทรสงคราม","62.สมุทรสาคร","63.สระแก้ว","64.สระบุรี","65.สิงห์บุรี","66.สุโขทัย","67.สุพรรณบุรี",
+					"68.สุราษฎร์ธานี","69.สุรินทร์","70.หนองคาย","71.หนองบัวลำภู","72.อ่างทอง","73.อุดรธานี","74.อุทัยธานี","75.อุตรดิตถ์",
+					"76.อุบลราชธานี","77.อำนาจเจริญ").forEach(NameProvince ->{
+
+				Province province = new Province();
+				province.setProvinceName(NameProvince);
+				provinceRepository.save(province);
+			});
+
+			Stream.of("ธุรกิจขนาดเล็ก","ธุรกิจขนาดกลาง","ธุรกิจขนาดใหญ่").forEach(Size ->{
+				BusinessSize businessSize = new BusinessSize();
+				businessSize.setSize(Size);
+				businessSizeRepository.save(businessSize);
+			});
+
+			Stream.of("ส่วนบุคคล","ห้างหุ้นส่วนสามัญนิติบุคคลหรือห้างหุ้นส่วนจำกัด","บริษัทจำกัดหรือบริษัทจำกัด (มหาชน)","ส่วนราชการหรือรัฐวิสาหกิจ","สหกรณ์").forEach(EstabName ->{
+				Establishment establishment = new Establishment();
+				establishment.setEstabName(EstabName);
+				establishmentRepository.save(establishment);
+			});
 
 		};
 	}

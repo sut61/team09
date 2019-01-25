@@ -29,7 +29,10 @@ nav a:hover {
 
 /* Header/Blog Title */
 .header {
+  padding: 5px;
+  font-size: 20px;
   text-align: left;
+
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -37,8 +40,6 @@ nav a:hover {
 .leftcolumn {
   float: left;
   width: 30%;
-  height: 830px;
-  background-color: #F0F0EF;
 }
 
 /* Right column */
@@ -69,14 +70,13 @@ nav a:hover {
 }
 
 .maintabbar{
-    background-color: #274456;
+    background-color: #293336;
         color: #ffffff;
         float: left;
         border: none;
         outline: none;
         width: 100%;
         }
-
 html{
 
       background:url(https://img.wallpapit.com/gradient-wallpapers-46-gradient-hd-wallpapers-backgrounds-color-gradient-wallpaper-hd-1920_1080.jpg);

@@ -30,18 +30,41 @@ import sut.se.G09.Backend.Repository.AgentAppointmentRepository;
 @DataJpaTest
 public class TestAgentAppointment {
 
-    @Autowired
-    private AgentAppointmentRepository agentAppointmentRepository;
-
-    @Autowired
-    private TestEntityManager entityManager;
-
+    @Autowired private AgentAppointmentRepository agentAppointmentRepository;
+    @Autowired private TestEntityManager entityManager;
     private Validator validator;
 
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+    }
+
+    @Test
+    public void testFirstName() {
+        AgentAppointment a = new AgentAppointment();
+        a.setfName("Aaaaa");
+        a.setlName("Lllll");
+        a.setAge(50);
+        a.setTelNum("0801234567");
+        a.setEmail("Abcdf.1234@gmail.com");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println("First name is Correct");
+            System.out.println("===========================================================================================================\n\n\n");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
     }
 
     @Test
@@ -57,8 +80,163 @@ public class TestAgentAppointment {
             entityManager.persist(a);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected FirstNameCannotBeNull");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testFirstNameLengthMustMoreThan1Character() {
+        AgentAppointment a = new AgentAppointment();
+        a.setfName("A");
+        a.setlName("Lllll");
+        a.setAge(50);
+        a.setTelNum("0801234567");
+        a.setEmail("Abcdf.1234@gmail.com");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("expected FirstNameLengthMustMoreThan1Character");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testFirstNameLengthMustLessThan30Character() {
+        AgentAppointment a = new AgentAppointment();
+        a.setfName("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        a.setlName("Lllll");
+        a.setAge(50);
+        a.setTelNum("0801234567");
+        a.setEmail("Abcdf.1234@gmail.com");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("expected FirstNameLengthMustLessThan30Character");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAgeMustBetween1to80YearsOld() {
+        AgentAppointment a = new AgentAppointment();
+        a.setfName("Fffff");
+        a.setlName("Lllll");
+        a.setAge(90);
+        a.setTelNum("0801234567");
+        a.setEmail("Abcdf.1234@gmail.com");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("expected AgeMustBetween1to80YearsOld");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAppointmentIdMustBeUnique() {
+        AgentAppointment a1 = new AgentAppointment();
+        a1.setAppointmentId(1L);
+        a1.setfName("Fffff");
+        a1.setlName("Lllll");
+        a1.setAge(50);
+        a1.setTelNum("0801234567");
+        a1.setEmail("1234abcd@gmail.com");
+
+        AgentAppointment a2 = new AgentAppointment();
+        a2.setAppointmentId(1L);
+        a2.setfName("Allll");
+        a2.setlName("Bbbbb");
+        a2.setAge(40);
+        a2.setTelNum("0801234467");
+        a2.setEmail("1234abcsd@gmail.com");
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+            entityManager.persist(a2);
+            entityManager.flush();
+            fail("expected AppointmentIdMustBeUnique");
+
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+        }
+    }
+
+    @Test
+    public void testLastNameLengthMustMoreThan1Character() {
+        AgentAppointment a = new AgentAppointment();
+        a.setfName("Aaaaa");
+        a.setlName("L");
+        a.setAge(50);
+        a.setTelNum("0801234567");
+        a.setEmail("Abcdf.1234@gmail.com");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("expected LastNameLengthMustMoreThan1Character");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testLastNameLengthMustLessThan30Character() {
+        AgentAppointment a = new AgentAppointment();
+        a.setfName("Aaaaa");
+        a.setlName("Llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+        a.setAge(50);
+        a.setTelNum("0801234567");
+        a.setEmail("Abcdf.1234@gmail.com");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("expected LastNameLengthMustLessThan30Character");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -78,35 +256,16 @@ public class TestAgentAppointment {
             entityManager.persist(a);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected LastNameCannotBeNull");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
     }
-
-    @Test
-    public void testAgeMustBetween2and3Digit() {
-        AgentAppointment a = new AgentAppointment();
-        a.setfName("Fffff");
-        a.setlName("Lllll");
-        a.setAge(1000);
-        a.setTelNum("0801234567");
-        a.setEmail("Abcdf.1234@gmail.com");
-
-        try {
-            entityManager.persist(a);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        }
-    }
-
 
     @Test
     public void testTelNumMustBeNumber() {
@@ -120,8 +279,11 @@ public class TestAgentAppointment {
             entityManager.persist(a);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected TelNumMustBeNumber");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -157,8 +319,11 @@ public class TestAgentAppointment {
             entityManager.persist(a3);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected TelNumMustBeStartWith0Then689");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -185,8 +350,11 @@ public class TestAgentAppointment {
             entityManager.persist(a2);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected EmailStartWithAlphabetOrNumber");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -213,8 +381,11 @@ public class TestAgentAppointment {
             entityManager.persist(a2);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected EmailMustContainAlphabetOrNumberOrDot");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -233,28 +404,11 @@ public class TestAgentAppointment {
             entityManager.persist(a1);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected UserNameLengthOfEmailNotLessThan8");
         } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        }
-    }
-
-    @Test
-    public void testEmailMustHaveAddressSign() {
-        AgentAppointment a = new AgentAppointment();
-        a.setfName("Fffff");
-        a.setlName("Lllll");
-        a.setAge(50);
-        a.setTelNum("0801234567");
-        a.setEmail("12356abc-gmail.com");
-        try {
-            entityManager.persist(a);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -273,11 +427,15 @@ public class TestAgentAppointment {
             entityManager.persist(a);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected EmailMustHaveAtSign");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
+            System.out.println("EmailNotHaveAtSign");
         }
     }
 
@@ -293,8 +451,11 @@ public class TestAgentAppointment {
             entityManager.persist(a);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected DomainNameOfEmailMustBeOnlyLowercaseLetter");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -321,8 +482,11 @@ public class TestAgentAppointment {
             entityManager.persist(a2);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            fail("expected DomainNameOfEmailMustBeOnlyLowercaseLetterOrDot");
         } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);

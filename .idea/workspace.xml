@@ -80,8 +80,10 @@
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Controller/LumpsumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Controller/LumpsumController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Controller/MemberDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Controller/MemberDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointmentCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointmentCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentRegistration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/BusinessSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/BusinessSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/CancelAgentAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/CancelAgentAppointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/DateAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/DateAppointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/DiseaseAccidentData.java" afterDir="false" />
@@ -98,6 +100,8 @@
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/MedicalFee.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/MedicalFee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/MemberData.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/MemberData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/MoneyMaximum.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/MoneyMaximum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/PaymentHistoty.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/PaymentHistoty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/PaymentStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/PaymentStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/Province.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Repository/AgentAppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Repository/AgentAppointmentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Repository/AgentRegistrationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Repository/AgentRegistrationRepository.java" afterDir="false" />
@@ -121,6 +125,7 @@
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Repository/ProvinceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Repository/ProvinceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/BackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/BackendApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/TestAgentAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/TestAgentAppointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
@@ -248,19 +253,20 @@
     <session id="1185446744">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.86" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="9" />
           <entry key="html" value="7" />
-          <entry key="java" value="15" />
+          <entry key="java" value="17" />
           <entry key="ts" value="5" />
         </counts>
       </usages-collector>
@@ -268,7 +274,7 @@
         <counts>
           <entry key="CSS" value="9" />
           <entry key="HTML" value="7" />
-          <entry key="JAVA" value="15" />
+          <entry key="JAVA" value="17" />
           <entry key="TypoScript File" value="5" />
         </counts>
       </usages-collector>
@@ -276,7 +282,7 @@
         <counts>
           <entry key="css" value="122" />
           <entry key="html" value="170" />
-          <entry key="java" value="34" />
+          <entry key="java" value="48" />
           <entry key="ts" value="19" />
         </counts>
       </usages-collector>
@@ -284,7 +290,7 @@
         <counts>
           <entry key="CSS" value="122" />
           <entry key="HTML" value="170" />
-          <entry key="JAVA" value="34" />
+          <entry key="JAVA" value="48" />
           <entry key="TypoScript File" value="19" />
         </counts>
       </usages-collector>
@@ -293,35 +299,38 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/agent-appointment/agent-appointment.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="476">
               <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/BackendApplicationTests.java">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="108" column="1" selection-start-line="12" selection-end-line="108" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/TestAgentAppointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="82" column="26" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="26" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -407,6 +416,8 @@
         <option value="$PROJECT_DIR$/frontend/src/app/DiseaseAccidentDataUI/DiseaseAccidentDataUI.component.css" />
         <option value="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.css" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java" />
+        <option value="$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/TestAgentAppointment.java" />
       </list>
     </option>
   </component>
@@ -426,6 +437,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -444,6 +456,76 @@
               <item name="team09" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sut" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sut" type="462c0819:PsiDirectoryNode" />
+              <item name="se" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sut" type="462c0819:PsiDirectoryNode" />
+              <item name="se" type="462c0819:PsiDirectoryNode" />
+              <item name="G09" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sut" type="462c0819:PsiDirectoryNode" />
+              <item name="se" type="462c0819:PsiDirectoryNode" />
+              <item name="G09" type="462c0819:PsiDirectoryNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="team09" type="b2602c69:ProjectViewProjectNode" />
+              <item name="team09" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sut" type="462c0819:PsiDirectoryNode" />
+              <item name="se" type="462c0819:PsiDirectoryNode" />
+              <item name="G09" type="462c0819:PsiDirectoryNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="team09" type="b2602c69:ProjectViewProjectNode" />
@@ -506,12 +588,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548150535560" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SE/SE_PROJECT/se-backend" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -547,8 +628,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18724832" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18993288" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -645,9 +727,6 @@
           <caret line="7" column="27" selection-start-column="9" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/styles.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -774,15 +853,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding>
-            <element signature="e#1744#1750#0" expanded="true" />
-            <element signature="e#1750#1756#0" expanded="true" />
-            <element signature="e#1756#1762#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,15 +901,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/RegCategoryUi/RegCategoryUi.component.css">
+    <entry file="file://$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/BackendApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/sut/se/G09/Backend/Entity/AgentAppointment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="348">
+          <caret line="108" column="1" selection-start-line="12" selection-end-line="108" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/BackendApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/backend/src/test/java/sut/se/G09/Backend/TestAgentAppointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="82" column="26" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

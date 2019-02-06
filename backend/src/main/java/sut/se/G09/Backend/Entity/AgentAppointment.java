@@ -1,5 +1,4 @@
-package sut.se.G09.Backend.Entity;
-import javax.persistence.*;
+package sut.se.G09.Backend.Entity;import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -16,23 +15,25 @@ public class AgentAppointment {
     @Column(name = "ID", unique = true, nullable = false, length = 100)
     private Long appointmentId;
 
-    @NotNull(message="Please enter First name")
-    @Size(min=2,max=30, message = "{agentAppointment.fName.invalid}")
+    @NotNull(message="First name is null")
+    @Size(min=2, message = "{First name length must more than 1 character}")
+    @Size(max=30, message = "{First name length must less than 30 character}")
     private String fName;
 
-    @NotNull(message="Please enter Last name")
-    @Size(min=2,max=30, message = "{agentAppointment.lName.invalid}")
+    @NotNull(message="{Last name is null}")
+    @Size(min=2, message = "{Last name length must more than 1 character}")
+    @Size(max=30, message = "{Last name length must less than 30 character}")
     private String lName;
 
-    @NotNull
-    @Range(min=1, max=80)
+    @NotNull(message="{Age is null}")
+    @Range(min=1, max=80, message = "{Age Must between 1-80 years old}")
     private int age;
 
-    @NotNull
-    @Pattern(regexp = "[0]{1}[6,8,9]{1}[0-9]{8}")
+    @NotNull(message="{Telephone number is null}")
+    @Pattern(regexp = "[0]{1}[6,8,9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
     private String telNum;
 
-    @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+")
+    @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+", message = "{Email pattern is invalid}")
     private String email;
 
     public Long getAppointmentId() {

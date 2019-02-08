@@ -28,7 +28,7 @@ public class BackendApplication {
 						   LengthRepository lengthRepository, MoneyMaximumRepository moneyMaximumRepository,
 						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
-						   GenderRepository genderRepository) {
+						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -311,6 +311,15 @@ public class BackendApplication {
 				if(genderId==1L){ newGender.setGenderName("ชาย"); }
 				else if(genderId==2L){ newGender.setGenderName("หญิง"); }
 				genderRepository.save(newGender);
+			});
+
+			Stream.of(1L, 2L, 3L).forEach(reasonId -> {
+				CancelAppointmentReason newReason = new CancelAppointmentReason();
+				newReason.setReasonId(reasonId);
+				if(reasonId==1L){ newReason.setReason("ติดธุระด่วน"); }
+				else if(reasonId==2L){ newReason.setReason("สมัครประกันเรียบร้อยแล้ว"); }
+				else if(reasonId==3L){ newReason.setReason("others"); }
+				cancelAppointmentReasonRepository.save(newReason);
 			});
 		};
 	}

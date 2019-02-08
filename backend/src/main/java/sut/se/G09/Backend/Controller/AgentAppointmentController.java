@@ -24,12 +24,12 @@ public class AgentAppointmentController {
         this.agentAppointmentRepository = agentAppointmentRepository; }
 
 
-  @PostMapping("/MakeAppointment/{typeName}/{fName}/{lName}/{genderName}/{age}/{telNum}/{email}/{provinceName}/{date}/{duration}")
+  @PostMapping("/MakeAppointment/{typeName}/{fName}/{lName}/{idCardNum}/{genderName}/{age}/{telNum}/{email}/{provinceName}/{date}/{duration}")
     public AgentAppointment newAppointment (
            AgentAppointment newAppointment, @PathVariable String fName , @PathVariable String lName
-            ,@PathVariable String typeName, @PathVariable String genderName,@PathVariable String date
-           ,@PathVariable String duration, @PathVariable String provinceName, @PathVariable int age
-            ,@PathVariable String telNum, @PathVariable String email
+          , @PathVariable String idCardNum,@PathVariable String typeName, @PathVariable String genderName
+          , @PathVariable String date ,@PathVariable String duration, @PathVariable String provinceName
+          , @PathVariable int age ,@PathVariable String telNum, @PathVariable String email
             ) {
 
             sut.se.G09.Backend.Entity.AgentAppointment newAp = new AgentAppointment();
@@ -43,6 +43,7 @@ public class AgentAppointmentController {
             newAp.setCategory(cate);
             newAp.setfName(fName);
             newAp.setlName(lName);
+            newAp.setIdCardNum(idCardNum);
             newAp.setGender(gender);
             newAp.setAge(age);
             newAp.setTelNum(telNum);

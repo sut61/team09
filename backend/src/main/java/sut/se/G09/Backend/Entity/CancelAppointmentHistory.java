@@ -5,11 +5,12 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity @Data
-@Table(name = "CancelAppointment", uniqueConstraints = {
+@Table(name = "CancelAppointmentHistory", uniqueConstraints = {
 @UniqueConstraint(columnNames = "ID")})
-public class CancelAppointment {
+public class CancelAppointmentHistory {
     @Id
     @SequenceGenerator(name = "cancelAppointment_seq", sequenceName = "cancelAppointment_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cancelAppointment_seq")
@@ -17,25 +18,26 @@ public class CancelAppointment {
     private Long cancelId;
 
     @NotNull
+    private String idCardNum;
+
+    @NotNull
     private String fName;
 
     @NotNull
-    private String lname;
+    private String lName;
 
-    @NotNull
-    private String email;
+
+    public String getIdCardNum() { return idCardNum; }
+
+    public void setIdCardNum(String idCardNum) { this.idCardNum = idCardNum; }
 
     public String getfName() { return fName; }
 
     public void setfName(String fName) { this.fName = fName; }
 
-    public String getLname() { return lname; }
+    public String getlName() { return lName; }
 
-    public void setLname(String lname) { this.lname = lname; }
-
-    public String getEmail() { return email; }
-
-    public void setEmail(String email) { this.email = email; }
+    public void setlName(String lName) { this.lName = lName; }
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = CancelAppointmentReason.class)
     @JoinColumn(name = "reasonId", insertable = true)

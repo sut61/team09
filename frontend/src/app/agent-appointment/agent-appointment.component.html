@@ -29,6 +29,12 @@
         </mat-list-item>
       <br>
       <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="รหัสบัตรประชาชน" [(ngModel)]="Appointment.idCardNum">
+      </mat-form-field>
+      </mat-list-item>
+      <br>
+      <mat-list-item>
         <mat-form-field class="example-full-width">
           <mat-select class="font-field" placeholder="เพศ" [(ngModel)]="Appointment.genderName">
             <mat-option class="font-field" *ngFor="let Gender of Genders" [value]="Gender.genderName" >

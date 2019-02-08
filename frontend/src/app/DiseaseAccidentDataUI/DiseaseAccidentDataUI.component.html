@@ -1,3 +1,4 @@
+
       <nav><a class="font-field">
         <mat-list>
           <mat-list-item>
@@ -13,7 +14,7 @@
           <mat-list-item>
             <mat-form-field class="example-full-width">
             <mat-select class="font-field" placeholder="ชนิดสิทธิคุ้มครอง " [(ngModel)]="DiseaseAccidentData.typeIdSelect">
-              <mat-option class="font-field" *ngFor="let DiseaseAccidentType of typeIdA" [value]="DiseaseAccidentType.id">
+              <mat-option class="font-field" *ngFor="let DiseaseAccidentType of typeIdA" [value]="DiseaseAccidentType.typeText">
                 {{DiseaseAccidentType.id}}. {{DiseaseAccidentType.typeText}}
               </mat-option>
             </mat-select>
@@ -23,7 +24,7 @@
           <mat-list-item>
                <mat-form-field class="example-full-width">
                 <mat-select class="font-field" placeholder="ระดับความรุนแรง" [(ngModel)]="DiseaseAccidentData.levelIdSelect" >
-                  <mat-option class="font-field" *ngFor="let DiseaseAccidentLevel of levelIdA" [value]="DiseaseAccidentLevel.id">
+                  <mat-option class="font-field" *ngFor="let DiseaseAccidentLevel of levelIdA" [value]="DiseaseAccidentLevel.levelText">
                     {{DiseaseAccidentLevel.id}}.{{DiseaseAccidentLevel.levelText}}
                   </mat-option>
                 </mat-select>
@@ -33,7 +34,7 @@
           <mat-list-item>
              <mat-form-field class="example-full-width">
               <mat-select class="font-field" placeholder="ค่ารักษารายวัน" [(ngModel)]="DiseaseAccidentData.medicalFeeIdSelect" >
-                <mat-option class="font-field" *ngFor="let MedicalFee of medicalFeeIdA" [value]="MedicalFee.id">
+                <mat-option class="font-field" *ngFor="let MedicalFee of medicalFeeIdA" [value]="MedicalFee.medicalFeeCost">
                   {{MedicalFee.medicalFeeCost}} บาท.
                 </mat-option>
               </mat-select>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import {DiseaseAccidentDataService} from '../service/DiseaseAccidentData.Service'
 import {Router} from '@angular/router';
@@ -20,7 +19,7 @@ medicalFeeIdA:Array<any>;
 DiseaseAccidentData : any = {
 dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 };
-  constructor(private Service : DiseaseAccidentDataService ,private httpClient: HttpClient) { }
+  constructor(private Service : DiseaseAccidentDataService ,private httpClient: HttpClient, private router:Router) { }
 
   ngOnInit() {
    this.Service.getDiseaseAccidentLevel().subscribe(data1 => {
@@ -37,6 +36,12 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
                 this.medicalFeeIdA = data3;
                 console.log(this.medicalFeeIdA);
               });
+
+   this.Service.getDiseaseAccidentData().subscribe(data => {
+             this.DiseaseAccidentData = data;
+             console.log(this.DiseaseAccidentData);
+           });
+
 
   }
 
@@ -58,19 +63,27 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 
       .subscribe(
 
-        data => {
 
-        console.log('PUT Request is successful' , data);
+        data => {
+        {alert('ลงทะเบียนสำเร็จ!');}
+        console.log(this.DiseaseAccidentData)
+                               const DiseaseAccidentData  = this.DiseaseAccidentData
+                               this.router.navigate(['ShowDiseaseAccidentDataResult',{
+                               dataNameAdd:DiseaseAccidentData.dataNameAdd,
+                               typeIdSelect:DiseaseAccidentData.levelIdSelect,
+                               levelIdSelect:DiseaseAccidentData.typeIdSelect,
+                               medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect}])
+                               console.log('PUT Request is successful', data);
 
         },
 
         error => {
 
-        console.log('Error ' , error);
+         error => { console.log('Error', error); }
 
         }
       );
-       alert('บันทึกสำเร็จ');
+
     }
   }
 

@@ -40,6 +40,11 @@ const appRoutes: Routes = [
  {path: 'MemHome', component: MemHomeComponent},
  {path: 'AgentReg', component: AgentRegComponent},
 {path: 'Lumpsum', component: LumpsumComponent},
+{path: 'ClaimDataUI', component: ClaimDataUIComponent},
+{path: 'OfficerLogin', component: OfficerLoginComponent},
+{path: 'OfficerHome', component: OfficerHomeComponent},
+{path: 'ShowDiseaseAccidentDataResult', component: ShowDiseaseAccidentDataResultComponent},
+{path: 'ShowClaimDataResult', component: ShowClaimDataResultComponent},
 {path: 'MemberRegistionComponent', component: MemberRegistionComponent}
 ];
 
@@ -51,7 +56,7 @@ const appRoutes: Routes = [
 	DiseaseAccidentDataUIComponent,
 	MemLoginComponent,
 	MemHomeComponent,
-    RegCategoryUiComponent,
+   RegCategoryUiComponent,
 	DiseaseAccidentDataUIComponent,
 	LumpsumComponent,
 	AgentRegComponent,

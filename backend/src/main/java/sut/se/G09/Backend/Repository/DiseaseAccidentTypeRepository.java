@@ -8,4 +8,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface DiseaseAccidentTypeRepository extends JpaRepository<DiseaseAccidentType, Long> {
 
   DiseaseAccidentType findById(long Id);
+  DiseaseAccidentType findByTypeText(String TypeText);
+
 }

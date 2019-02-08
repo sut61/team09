@@ -8,4 +8,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface DiseaseAccidentLevelRepository extends JpaRepository<DiseaseAccidentLevel, Long> {
 
   DiseaseAccidentLevel findById(long Id);
+  DiseaseAccidentLevel findByLevelText(String LevelText);
 }

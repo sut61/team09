@@ -70,14 +70,14 @@ public class DiseaseAccidentDataController {
 	@PostMapping(path ="/DiseaseAccidentData/NEW/{dataName}/{levelId}/{typeId}/{medicalFeeId}")	
 	public void diseaseAccidentData(
 											@PathVariable String dataName,
-											@PathVariable long levelId,
-											@PathVariable long typeId,
-											@PathVariable long medicalFeeId
+											@PathVariable String levelId,
+											@PathVariable String typeId,
+											@PathVariable int medicalFeeId
 										)throws JsonParseException, IOException
 	{
-		DiseaseAccidentLevel level = diseaseAccidentLevelRepository.findById(levelId);
-		DiseaseAccidentType type = diseaseAccidentTypeRepository.findById(typeId);
-		MedicalFee medicalFee = medicalFeeRepository.findById(medicalFeeId);
+		DiseaseAccidentLevel level = diseaseAccidentLevelRepository.findByLevelText(levelId);
+		DiseaseAccidentType type = diseaseAccidentTypeRepository.findByTypeText(typeId);
+		MedicalFee medicalFee = medicalFeeRepository.findByMedicalFeeCost(medicalFeeId);
 		
 		DiseaseAccidentData newData = new DiseaseAccidentData();
 		newData.setDiseaseAccidentData(dataName);

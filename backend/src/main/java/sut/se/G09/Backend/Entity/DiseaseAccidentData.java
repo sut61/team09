@@ -24,7 +24,7 @@ private @NonNull long id;
   @Column(unique = true)
   @Pattern(regexp = "[^0-9]+",message = "Please not enter Number in first digit")
   @Size(min = 3,max = 20,message = "Please not enter data in 3-20 digit")
-    private String DataName;
+    private String dataName;
 
 
   public DiseaseAccidentData(){}
@@ -42,8 +42,8 @@ private @NonNull long id;
   private  MedicalFee medicalFee;
 
 
-	public void setDiseaseAccidentData(String DataName) {
-    this.DataName = DataName;
+	public void setDiseaseAccidentData(String dataName) {
+    this.dataName = dataName;
 	}
 	
 	public void setDiseaseAccidentLevel(DiseaseAccidentLevel diseaseAccidentLevel) {

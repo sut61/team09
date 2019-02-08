@@ -1,6 +1,9 @@
 package sut.se.G09.Backend.Entity;
 import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity  //บอกว่าเป็น class entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -15,7 +18,13 @@ public class DiseaseAccidentData {
 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="DiseaseAccidentData_seq")
 @Column(name="DiseaseAccidentData_ID",unique = true, nullable = true)
 private @NonNull long id;
-private @NonNull String DataName;
+
+  @NotNull(message="Please enter Disease/Accident")
+  //@UniqueElements(message = "this data Unique!!")
+  @Column(unique = true)
+  @Pattern(regexp = "[^0-9]+",message = "Please not enter Number in first digit")
+  @Size(min = 3,max = 20,message = "Please not enter data in 3-20 digit")
+    private String DataName;
 
 
   public DiseaseAccidentData(){}

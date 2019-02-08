@@ -9,6 +9,11 @@ import { MemLoginComponent } from './mem-login/mem-login.component';
 import { MemHomeComponent } from './mem-home/mem-home.component';
 import { RegCategoryUiComponent } from './RegCategoryUi/RegCategoryUi.component';
 import { LumpsumComponent } from './lumpsum/lumpsum.component';
+
+import { ClaimDataUIComponent } from './ClaimDataUI/ClaimDataUI.component';
+import { OfficerLoginComponent } from './OfficerLogin/OfficerLogin.component';
+import { OfficerHomeComponent } from './OfficerHome/OfficerHome.component';
+
 const routes: Routes = [
 { path: 'agentAppointment', component: AgentAppointmentComponent },
 { path: 'showAppointmentResult', component: ShowAppointmentResultComponent },
@@ -17,6 +22,10 @@ const routes: Routes = [
 { path: 'MemHome', component: MemHomeComponent },
 { path: 'RegCategoryUi', component: RegCategoryUiComponent },
 { path: ' Lumpsum', component: LumpsumComponent },
+
+{ path: ' ClaimDataUI', component: ClaimDataUIComponent },
+{ path: ' OfficerLogin', component: OfficerLoginComponent },
+{ path: ' OfficerHome', component: OfficerHomeComponent },
 ];
 
 @NgModule({

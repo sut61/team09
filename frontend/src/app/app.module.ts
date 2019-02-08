@@ -27,6 +27,10 @@ import { MemberRegistionComponent } from './member-registion/member-registion.co
 import { AgentRegComponent } from './agent-reg/agent-reg.component';
 import { MemRegService } from './service/memReg.service';
 
+import { ClaimDataUIComponent } from './ClaimDataUI/ClaimDataUI.component';
+import { OfficerLoginComponent } from './OfficerLogin/OfficerLogin.component';
+import { OfficerHomeComponent } from './OfficerHome/OfficerHome.component';
+
 
 const appRoutes: Routes = [
  {path: 'MemHome', component: MemHomeComponent},
@@ -47,7 +51,10 @@ const appRoutes: Routes = [
 	DiseaseAccidentDataUIComponent,
 	LumpsumComponent,
 	AgentRegComponent,
-	MemberRegistionComponent
+	MemberRegistionComponent,
+	ClaimDataUIComponent,
+	OfficerLoginComponent,
+	OfficerHomeComponent
   ],
   imports: [
     BrowserModule,

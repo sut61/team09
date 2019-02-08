@@ -25,11 +25,6 @@ const routes: Routes = [
 { path: 'RegCategoryUi', component: RegCategoryUiComponent },
 { path: ' Lumpsum', component: LumpsumComponent },
 
-{ path: ' ClaimDataUI', component: ClaimDataUIComponent },
-{ path: ' OfficerLogin', component: OfficerLoginComponent },
-{ path: ' OfficerHome', component: OfficerHomeComponent },
-{ path: ' ShowDiseaseAccidentDataResult', component: ShowDiseaseAccidentDataResultComponent },
-{ path: ' ShowClaimDataResult', component: ShowClaimDataResultComponent },
 
 
 ];

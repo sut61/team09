@@ -15,7 +15,7 @@ Date : Array<any>;
 Duration : Array<any>;
 Provinces : Array<any>;
 Appointment : any = {
-typeName: '', fName: '', lName: '', genderName: '', age: '', telNum: ''
+typeName: '', fName: '', lName: '', idCardNum: '' ,genderName: '', age: '', telNum: ''
 ,email: '' , provinceName: '', date: '',  duration: ''};
 
 constructor(private appointService : AppointmentService ,private httpClient: HttpClient, private router:Router) { }
@@ -29,24 +29,25 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
 
    save() {
      if (this.Appointment.typeName == null || this.Appointment.fName == null || this.Appointment.lName == null ||
-        this.Appointment.genderName == null || this.Appointment.age == null || this.Appointment.telNum == null ||
-        this.Appointment.email == null || this.Appointment.provinceName == null || this.Appointment.date == null ||
-        this.Appointment.duration == null)
+        this.Appointment.idCardNum == null || this.Appointment.genderName == null || this.Appointment.age == null ||
+        this.Appointment.telNum == null || this.Appointment.email == null || this.Appointment.provinceName == null ||
+        this.Appointment.date == null || this.Appointment.duration == null)
         {alert('กรุณากรอกข้อมูลให้ครบถ้วน');}
 
       else{
         this.httpClient.post('http://localhost:8080/MakeAppointment/' + this.Appointment.typeName + '/'
-        + this.Appointment.fName + '/' + this.Appointment.lName + '/' + this.Appointment.genderName + '/'
-        + this.Appointment.age + '/' + this.Appointment.telNum + '/' + this.Appointment.email + '/'
-        + this.Appointment.provinceName + '/'+ this.Appointment.date + '/' + this.Appointment.duration
+        + this.Appointment.fName + '/' + this.Appointment.lName + '/' + this.Appointment.idCardNum + '/'
+        + this.Appointment.genderName + '/' + this.Appointment.age + '/' + this.Appointment.telNum + '/'
+        + this.Appointment.email + '/' + this.Appointment.provinceName + '/'+ this.Appointment.date + '/'
+        + this.Appointment.duration
         ,this.Appointment)
           .subscribe(
              data => {
              console.log(this.Appointment)
               const Appointment  = this.Appointment
-              this.router.navigate(['showAppointmentResult',{typeName:Appointment.typeName, fName:Appointment.fName
-              , lName:Appointment.lName, genderName :this.Appointment.genderName, age:Appointment.age
-              , telNum:Appointment.telNum, email:Appointment.email, provinceName:Appointment.provinceName
+              this.router.navigate(['showAppointmentResult',{ typeName:Appointment.typeName, fName:Appointment.fName
+              , lName:Appointment.lName , idCardNum:Appointment.idCardNum , genderName :this.Appointment.genderName
+              , age:Appointment.age , telNum:Appointment.telNum, email:Appointment.email, provinceName:Appointment.provinceName
               , date:Appointment.date, duration:Appointment.duration}])
               console.log('PUT Request is successful', data);
               {alert('ลงทะเบียนสำเร็จ!');}

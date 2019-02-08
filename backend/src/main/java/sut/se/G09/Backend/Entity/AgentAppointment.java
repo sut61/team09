@@ -25,6 +25,9 @@ public class AgentAppointment {
     @Size(max=30, message = "{Last name length must less than 30 character}")
     private String lName;
 
+    @NotNull(message="{ID card number is null}")
+    private String idCardNum;
+
     @NotNull(message="{Age is null}")
     @Range(min=1, max=80, message = "{Age Must between 1-80 years old}")
     private int age;
@@ -60,6 +63,10 @@ public class AgentAppointment {
         this.lName = lName;
     }
 
+    public String getIdCardNum() { return idCardNum; }
+
+    public void setIdCardNum(String idCardNum) { this.idCardNum = idCardNum; }
+
     public int getAge() {
         return age;
     }
@@ -83,6 +90,7 @@ public class AgentAppointment {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     public AgentAppointment() { }
 

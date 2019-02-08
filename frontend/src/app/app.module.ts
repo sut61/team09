@@ -32,6 +32,7 @@ import { OfficerLoginComponent } from './OfficerLogin/OfficerLogin.component';
 import { OfficerHomeComponent } from './OfficerHome/OfficerHome.component';
 import { ShowDiseaseAccidentDataResultComponent } from './ShowDiseaseAccidentDataResult/ShowDiseaseAccidentDataResult.component';
 import { ShowClaimDataResultComponent } from './ShowClaimDataResult/ShowClaimDataResult.component';
+import { OfficerRegComponent } from './officer-reg/officer-reg.component';
 
 
 
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
 {path: 'OfficerHome', component: OfficerHomeComponent},
 {path: 'ShowDiseaseAccidentDataResult', component: ShowDiseaseAccidentDataResultComponent},
 {path: 'ShowClaimDataResult', component: ShowClaimDataResultComponent},
-{path: 'MemberRegistionComponent', component: MemberRegistionComponent}
+{path: 'MemberRegistionComponent', component: MemberRegistionComponent},
+{path: 'OfficerReg', component: OfficerRegComponent}
 ];
 
 @NgModule({
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
 	OfficerLoginComponent,
 	OfficerHomeComponent,
 	ShowDiseaseAccidentDataResultComponent,
-	ShowClaimDataResultComponent
+	ShowClaimDataResultComponent,
+	OfficerRegComponent
   ],
   imports: [
     BrowserModule,

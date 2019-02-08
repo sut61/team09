@@ -36,12 +36,7 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
                 this.medicalFeeIdA = data3;
                 console.log(this.medicalFeeIdA);
               });
-/**
-   this.Service.getDiseaseAccidentData().subscribe(data => {
-             this.DiseaseAccidentData = data;
-             console.log(this.DiseaseAccidentData);
-           });
-*/
+
 
   }
 
@@ -52,9 +47,19 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
     this.DiseaseAccidentData.levelIdSelect === ''|| this.DiseaseAccidentData.medicalFeeIdSelect === ''){
 
      alert('กรุณาเลือกข้อมูลให้ครบ!');
+    }
+    else if(this.DiseaseAccidentData.dataNameAdd.length < 3){
 
+          alert('ข้อมูล! สั้นเกินไป');
 
-    }else{
+}
+else if(this.DiseaseAccidentData.dataNameAdd.length > 20){
+
+          alert('ข้อมูล! ยาวเกินไป');
+
+}
+
+    else{
 
       this.httpClient.post('http://localhost:8080/DiseaseAccidentData/NEW/'
       + this.DiseaseAccidentData.dataNameAdd + '/'
@@ -75,7 +80,7 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
                                levelIdSelect:DiseaseAccidentData.typeIdSelect,
                                medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect}])
                                console.log('PUT Request is successful', data);
-                               {alert('ลงทะเบียนสำเร็จ!');}
+                               {alert('บันทึกสำเร็จ!');}
               },
 
         error => {

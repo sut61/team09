@@ -30,6 +30,10 @@ import { MemRegService } from './service/memReg.service';
 import { ClaimDataUIComponent } from './ClaimDataUI/ClaimDataUI.component';
 import { OfficerLoginComponent } from './OfficerLogin/OfficerLogin.component';
 import { OfficerHomeComponent } from './OfficerHome/OfficerHome.component';
+import { ShowDiseaseAccidentDataResultComponent } from './ShowDiseaseAccidentDataResult/ShowDiseaseAccidentDataResult.component';
+import { ShowClaimDataResultComponent } from './ShowClaimDataResult/ShowClaimDataResult.component';
+
+
 
 
 const appRoutes: Routes = [
@@ -54,7 +58,9 @@ const appRoutes: Routes = [
 	MemberRegistionComponent,
 	ClaimDataUIComponent,
 	OfficerLoginComponent,
-	OfficerHomeComponent
+	OfficerHomeComponent,
+	ShowDiseaseAccidentDataResultComponent,
+	ShowClaimDataResultComponent
   ],
   imports: [
     BrowserModule,

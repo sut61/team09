@@ -13,6 +13,8 @@ import { LumpsumComponent } from './lumpsum/lumpsum.component';
 import { ClaimDataUIComponent } from './ClaimDataUI/ClaimDataUI.component';
 import { OfficerLoginComponent } from './OfficerLogin/OfficerLogin.component';
 import { OfficerHomeComponent } from './OfficerHome/OfficerHome.component';
+import { ShowDiseaseAccidentDataResultComponent } from './ShowDiseaseAccidentDataResult/ShowDiseaseAccidentDataResult.component';
+import { ShowClaimDataResultComponent } from './ShowClaimDataResult/ShowClaimDataResult.component';
 
 const routes: Routes = [
 { path: 'agentAppointment', component: AgentAppointmentComponent },
@@ -26,6 +28,10 @@ const routes: Routes = [
 { path: ' ClaimDataUI', component: ClaimDataUIComponent },
 { path: ' OfficerLogin', component: OfficerLoginComponent },
 { path: ' OfficerHome', component: OfficerHomeComponent },
+{ path: ' ShowDiseaseAccidentDataResult', component: ShowDiseaseAccidentDataResultComponent },
+{ path: ' ShowClaimDataResult', component: ShowClaimDataResultComponent },
+
+
 ];
 
 @NgModule({

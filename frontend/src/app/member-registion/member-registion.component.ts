@@ -34,7 +34,8 @@ Member : any ={ fName: '', lName: '', olds: '',PID: '' ,username: '' ,password: 
         else{
           this.httpClient.post('http://localhost:8080/Regmem/' +
            this.Member.fName + '/' + this.Member.lName + '/' + this.Member.Olds + '/'
-           + this.Member.PID + '/' + this.Member.username + '/' + this.Member.password + '/' + this.Member.povin  + '/' + this.Member.agnt + '/' + this.Member.typeName +'/' + this.Member.addes
+           + this.Member.PID + '/' + this.Member.username + '/' + this.Member.password + '/' + this.Member.povin  + '/' +
+           this.Member.agnt + '/' + this.Member.typeName +'/' + this.Member.addes
           ,this.Member)
             .subscribe(
                data => {

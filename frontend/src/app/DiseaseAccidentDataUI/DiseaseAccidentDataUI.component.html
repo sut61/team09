@@ -2,18 +2,16 @@
       <nav><a class="font-field">
         <mat-list>
           <mat-list-item>
-            <h2 class="font-field-head">ข้อมูลโรคและอุบัติเหตุที่ได้รับสิทธิ์คุ้มครอง</h2>
+            <h2 class="font-field-head">ข้อมูลโรค/อุบัติเหตุที่ได้รับสิทธิ์คุ้มครอง</h2>
           </mat-list-item>
           <br>
           <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="ชื่อโรค/อุบัติเหตุ" [(ngModel)]="DiseaseAccidentData.dataNameAdd" >
+        <input matInput placeholder="กรอก ชื่อโรค/อุบัติเหตุ" [(ngModel)]="DiseaseAccidentData.dataNameAdd" >
       </mat-form-field>
-          </mat-list-item>
-      <br>
-          <mat-list-item>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-form-field class="example-full-width">
-            <mat-select class="font-field" placeholder="ชนิดสิทธิคุ้มครอง " [(ngModel)]="DiseaseAccidentData.typeIdSelect">
+            <mat-select class="font-field" placeholder="เลือก ชนิดสิทธิคุ้มครอง " [(ngModel)]="DiseaseAccidentData.typeIdSelect">
               <mat-option class="font-field" *ngFor="let DiseaseAccidentType of typeIdA" [value]="DiseaseAccidentType.typeText">
                 {{DiseaseAccidentType.id}}. {{DiseaseAccidentType.typeText}}
               </mat-option>
@@ -23,7 +21,7 @@
       <br>
           <mat-list-item>
                <mat-form-field class="example-full-width">
-                <mat-select class="font-field" placeholder="ระดับความรุนแรง" [(ngModel)]="DiseaseAccidentData.levelIdSelect" >
+                <mat-select class="font-field" placeholder="เลือก ระดับความรุนแรง" [(ngModel)]="DiseaseAccidentData.levelIdSelect" >
                   <mat-option class="font-field" *ngFor="let DiseaseAccidentLevel of levelIdA" [value]="DiseaseAccidentLevel.levelText">
                     {{DiseaseAccidentLevel.id}}.{{DiseaseAccidentLevel.levelText}}
                   </mat-option>
@@ -33,7 +31,7 @@
       <br>
           <mat-list-item>
              <mat-form-field class="example-full-width">
-              <mat-select class="font-field" placeholder="ค่ารักษารายวัน" [(ngModel)]="DiseaseAccidentData.medicalFeeIdSelect" >
+              <mat-select class="font-field" placeholder="เลือก ค่ารักษารายวัน" [(ngModel)]="DiseaseAccidentData.medicalFeeIdSelect" >
                 <mat-option class="font-field" *ngFor="let MedicalFee of medicalFeeIdA" [value]="MedicalFee.medicalFeeCost">
                   {{MedicalFee.medicalFeeCost}} บาท.
                 </mat-option>

@@ -72,15 +72,16 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
         data => {
 
         console.log('PUT Request is successful', data);
-        /**
-        console.log(this.DiseaseAccidentData)
-                               const DiseaseAccidentData  = this.DiseaseAccidentData
-                               this.router.navigate(['ShowDiseaseAccidentDataResult',{
-                               dataNameAdd:DiseaseAccidentData.dataNameAdd,
-                               typeIdSelect:DiseaseAccidentData.levelIdSelect,
-                               levelIdSelect:DiseaseAccidentData.typeIdSelect,
-                               medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect}])
-        */
+
+        console.log(this.ClaimData)
+                               const ClaimData  = this.ClaimData
+                               this.router.navigate(['ShowClaimDataResult',{
+                               memberDataS:ClaimData.memberDataS,
+                               diseaseAccidentDataS:ClaimData.diseaseAccidentDataS,
+                               categoryS:ClaimData.categoryS,
+                               hospitalS:ClaimData.hospitalS,
+                               costA:ClaimData.costA}])
+
                                {alert('บันทึกสำเร็จ!');}
               },
 

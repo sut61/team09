@@ -1,3 +1,13 @@
-<p>
-  show-claim-data-result works!
-</p>
+
+<nav><a class="font-field">
+  <mat-card class="example-form">
+    <p class="font-field-head"> โชว์ข้อมูล </p>
+    <p class="font-field"> ID ผู้ใช้สิทธิ์ :&nbsp;&nbsp;&nbsp;{{ClaimData.memberDataS}} </p>
+    <p class="font-field">  ชื่อโรค/อุบัติเหตุ :&nbsp;&nbsp;&nbsp;{{ClaimData.diseaseAccidentDataS}} </p>
+    <p class="font-field"> ประกันที่ใช้ :&nbsp;&nbsp;&nbsp;{{ClaimData.categoryS}} </p>
+    <p class="font-field"> โรงบาลที่รักษา :&nbsp;&nbsp;&nbsp;{{ClaimData.hospitalS}} </p>
+    <p class="font-field"> ค่ารักษาพยาบาล :&nbsp;&nbsp;&nbsp;{{ClaimData.costA}} </p>
+
+    <button mat-raised-button color="primary" routerLink="/">ยืนยัน</button>
+  </mat-card>
+</a></nav>

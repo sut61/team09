@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
 
 @Component({
-  selector: 'app-cancel-appointment',
-  templateUrl: './cancel-appointment.component.html',
-  styleUrls: ['./cancel-appointment.component.css']
+selector: 'app-cancel-appointment',
+templateUrl: './cancel-appointment.component.html',
+styleUrls: ['./cancel-appointment.component.css']
 })
 export class CancelAppointmentComponent implements OnInit {
 
@@ -15,7 +15,7 @@ Date : Array<any>;
 Reasons : Array<any>;
 CancelAppointment : any = {
 idCardNum: '' , reason: ''};
-  constructor(private appointService : AppointmentService, private cancelService : CancelAppointmentService
+constructor(private appointService : AppointmentService, private cancelService : CancelAppointmentService
   ,private httpClient: HttpClient , private router:Router) { }
 
   ngOnInit() {

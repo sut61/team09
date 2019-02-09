@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
 
 @Component({
-  selector: 'app-agent-appointment',
-  templateUrl: './agent-appointment.component.html',
-  styleUrls: ['./agent-appointment.component.css']
+selector: 'app-agent-appointment',
+templateUrl: './agent-appointment.component.html',
+styleUrls: ['./agent-appointment.component.css']
 })
 export class AgentAppointmentComponent implements OnInit {
 Categories : Array<any>;
@@ -28,11 +28,17 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
     this.appointService.getProvince().subscribe(dataE => { this.Provinces = dataE; console.log(this.Provinces);});   }
 
    save() {
-     if (this.Appointment.typeName == null || this.Appointment.fName == null || this.Appointment.lName == null ||
-        this.Appointment.idCardNum == null || this.Appointment.genderName == null || this.Appointment.age == null ||
-        this.Appointment.telNum == null || this.Appointment.email == null || this.Appointment.provinceName == null ||
-        this.Appointment.date == null || this.Appointment.duration == null)
-        {alert('กรุณากรอกข้อมูลให้ครบถ้วน');}
+      if(this.Appointment.typeName == null){alert('กรุณาเลือกประเภทประกันที่สนใจ');}
+      if(this.Appointment.fName == null){alert('กรุณากรอกชื่อจริง');}
+      if(this.Appointment.lName == null){alert('กรุณากรอกนามสกุล');}
+      if(this.Appointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
+      if(this.Appointment.genderName == null){alert('กรุณาเลือกเพศ');}
+      if(this.Appointment.age == null){alert('กรุณากรอกอายุ');}
+      if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัทพ์');}
+      if(this.Appointment.email == null){alert('กรุณากรอก email');}
+      if(this.Appointment.provinceName == null){alert('กรุณาเลือกจังหวัดที่ต้องการ');}
+      if(this.Appointment.date == null){alert('กรุณาเลือกวันที่ต้องการ');}
+      if(this.Appointment.duration == null){alert('กรุณาเลือกเวลาที่ต้องการ');}
 
       else{
         this.httpClient.post('http://localhost:8080/MakeAppointment/' + this.Appointment.typeName + '/'
@@ -43,6 +49,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
         ,this.Appointment)
           .subscribe(
              data => {
+
              console.log(this.Appointment)
               const Appointment  = this.Appointment
               this.router.navigate(['showAppointmentResult',{ typeName:Appointment.typeName, fName:Appointment.fName
@@ -54,7 +61,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
 
              },
              error => { console.log('Rrror', error); }
-          );               alert('ลงทะเบียนสำเร็จ!');
+          );
 
         }
     }

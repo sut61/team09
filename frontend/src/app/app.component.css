@@ -16,7 +16,7 @@ nav a {
 
 nav a:visited, a:link {
   color: #123342;   /**สีตัวหนังสือใน nav{} **/
-  font-size: 25px;
+  font-size: 20px;
 
 }
 nav a:hover {
@@ -79,7 +79,7 @@ nav a:hover {
 
 html{
 
-      background:url(https://img.wallpapit.com/gradient-wallpapers-46-gradient-hd-wallpapers-backgrounds-color-gradient-wallpaper-hd-1920_1080.jpg);
+      background:url(https://wallpapercave.com/wp/wp2672847.jpg);
     width: 100%;
     }
 

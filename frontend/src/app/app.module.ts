@@ -22,6 +22,7 @@ import { MemHomeComponent } from './mem-home/mem-home.component';
 import {LoginService} from './service/login.service';
 import {SessionService} from './service/session.service';
 import { RegCategoryUiComponent } from './RegCategoryUi/RegCategoryUi.component';
+import { RegCancelInsuranceComponent } from './RegCancelInsurance/RegCancelInsurance.component';
 import { LumpsumComponent } from './lumpsum/lumpsum.component';
 import { MemberRegistionComponent } from './member-registion/member-registion.component';
 import { AgentRegComponent } from './agent-reg/agent-reg.component';
@@ -67,6 +68,7 @@ const appRoutes: Routes = [
 	MemLoginComponent,
 	MemHomeComponent,
    RegCategoryUiComponent,
+RegCancelInsuranceComponent,
 	DiseaseAccidentDataUIComponent,
 	LumpsumComponent,
 	AgentRegComponent,

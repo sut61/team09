@@ -6,6 +6,9 @@ import sut.se.G09.Backend.Entity.CancelAppointmentReason;
 import sut.se.G09.Backend.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class CancelAppointmentHistoryController {
@@ -18,8 +21,14 @@ public class CancelAppointmentHistoryController {
         this.cancelAppointmentHistoryRepository = cancelAppointmentHistoryRepository;
     }
 
+    @GetMapping("/GetCancelAppointment") public Collection<CancelAppointmentHistory> CancelAppointmentHistory() {
+        return cancelAppointmentHistoryRepository.findAll().stream().collect(Collectors.toList()); }
+
+    @GetMapping("/GetCancelAppointmentReason") public Collection<CancelAppointmentReason> CancelAppointmentReason() {
+        return cancelAppointmentReasonRepository.findAll().stream().collect(Collectors.toList()); }
+
     //curl -X DELETE http://localhost:8080/cancel/"1309902540177"/"others"
-    @DeleteMapping("/cancel/{idCardNum}/{reason}")
+    @DeleteMapping ("/cancel/{idCardNum}/{reason}")
     public void cancelAppointment(@PathVariable String idCardNum ,@PathVariable String reason) {
         AgentAppointment findApp = agentAppointmentRepository.findByIdCardNum(idCardNum);
         CancelAppointmentHistory newCanc = new CancelAppointmentHistory();

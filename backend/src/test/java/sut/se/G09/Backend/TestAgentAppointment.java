@@ -48,6 +48,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -75,6 +76,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -99,6 +101,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -123,6 +126,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -147,6 +151,7 @@ public class TestAgentAppointment {
         a.setAge(90);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -172,6 +177,7 @@ public class TestAgentAppointment {
         a1.setAge(50);
         a1.setTelNum("0801234567");
         a1.setEmail("1234abcd@gmail.com");
+        a1.setIdCardNum("1300000000000");
 
         AgentAppointment a2 = new AgentAppointment();
         a2.setAppointmentId(1L);
@@ -180,6 +186,7 @@ public class TestAgentAppointment {
         a2.setAge(40);
         a2.setTelNum("0801234467");
         a2.setEmail("1234abcsd@gmail.com");
+        a2.setIdCardNum("1300000000001");
 
         try {
             entityManager.persist(a1);
@@ -203,6 +210,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -227,6 +235,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -251,6 +260,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
 
         try {
             entityManager.persist(a);
@@ -275,6 +285,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801ABC567");
         a.setEmail("Abcdf.1234@gmail.com");
+        a.setIdCardNum("1300000000000");
         try {
             entityManager.persist(a);
             entityManager.flush();
@@ -291,13 +302,14 @@ public class TestAgentAppointment {
     }
 
     @Test
-    public void testTelNumMustBeStartWith0Then689() {
+    public void testTelNumMustBeStartWith0Then2to9() {
         AgentAppointment a1 = new AgentAppointment();
         a1.setfName("Aaaaa");
         a1.setlName("Bbbbb");
         a1.setAge(50);
         a1.setTelNum("2801234567");
         a1.setEmail("Abcdf.1234@gmail.com");
+        a1.setIdCardNum("1300000000000");
 
         AgentAppointment a2 = new AgentAppointment();
         a2.setfName("Ccccc");
@@ -305,6 +317,7 @@ public class TestAgentAppointment {
         a2.setAge(40);
         a2.setTelNum("0101234567");
         a2.setEmail("Abcdf.1234@gmail.com");
+        a2.setIdCardNum("1300000000001");
 
         AgentAppointment a3 = new AgentAppointment();
         a3.setfName("Eeeee");
@@ -312,6 +325,7 @@ public class TestAgentAppointment {
         a3.setAge(30);
         a3.setTelNum("1301234567");
         a3.setEmail("Abcdf.1234@gmail.com");
+        a3.setIdCardNum("1300000000002");
 
         try {
             entityManager.persist(a1);
@@ -319,7 +333,7 @@ public class TestAgentAppointment {
             entityManager.persist(a3);
             entityManager.flush();
 
-            fail("expected TelNumMustBeStartWith0Then689");
+            fail("expected TelNumMustBeStartWith0Then2to9");
         } catch(javax.validation.ConstraintViolationException e) {
             System.out.println("\n\n\n===========================================================================================================");
             System.out.println(e.getMessage());
@@ -338,6 +352,7 @@ public class TestAgentAppointment {
         a1.setAge(50);
         a1.setTelNum("0801234567");
         a1.setEmail(".1234abc@gmail.com");
+        a1.setIdCardNum("1300000000000");
 
         AgentAppointment a2 = new AgentAppointment();
         a2.setfName("Allll");
@@ -345,6 +360,7 @@ public class TestAgentAppointment {
         a2.setAge(40);
         a2.setTelNum("0801234567");
         a2.setEmail("_1234abc@gmail.com");
+        a2.setIdCardNum("1300000000001");
         try {
             entityManager.persist(a1);
             entityManager.persist(a2);
@@ -369,6 +385,7 @@ public class TestAgentAppointment {
         a1.setAge(50);
         a1.setTelNum("0801234567");
         a1.setEmail("1234_abc@gmail.com");
+        a1.setIdCardNum("1300000000000");
 
         AgentAppointment a2 = new AgentAppointment();
         a2.setfName("Allll");
@@ -376,6 +393,7 @@ public class TestAgentAppointment {
         a2.setAge(40);
         a2.setTelNum("0801234567");
         a2.setEmail("123*4ab+c@gmail.com");
+        a2.setIdCardNum("1300000000001");
         try {
             entityManager.persist(a1);
             entityManager.persist(a2);
@@ -400,6 +418,8 @@ public class TestAgentAppointment {
         a1.setAge(50);
         a1.setTelNum("0801234567");
         a1.setEmail("123bc@gmail.com");
+        a1.setIdCardNum("1300000000000");
+
         try {
             entityManager.persist(a1);
             entityManager.flush();
@@ -423,6 +443,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("12356abc-gmail.com");
+        a.setIdCardNum("1300000000000");
         try {
             entityManager.persist(a);
             entityManager.flush();
@@ -447,6 +468,7 @@ public class TestAgentAppointment {
         a.setAge(50);
         a.setTelNum("0801234567");
         a.setEmail("12356abc@gMAil.com");
+        a.setIdCardNum("1300000000000");
         try {
             entityManager.persist(a);
             entityManager.flush();
@@ -470,6 +492,7 @@ public class TestAgentAppointment {
         a1.setAge(50);
         a1.setTelNum("0801234567");
         a1.setEmail("123456abc@gMAil.com");
+        a1.setIdCardNum("1300000000000");
 
         AgentAppointment a2 = new AgentAppointment();
         a2.setfName("Fffff");
@@ -477,6 +500,7 @@ public class TestAgentAppointment {
         a2.setAge(50);
         a2.setTelNum("0801234567");
         a2.setEmail("123456abc@gmail_com");
+        a2.setIdCardNum("1300000000001");
         try {
             entityManager.persist(a1);
             entityManager.persist(a2);

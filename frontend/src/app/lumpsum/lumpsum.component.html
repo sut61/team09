@@ -15,6 +15,7 @@
       <br>
       <mat-form-field class="font-field">
         <input matInput placeholder="ที่อยู่" [(ngModel)]="Lumpsums.address">
+        <mat-hint align="end">ตัวอย่าง : 100 ต.สุระนารี อ.เมือง</mat-hint>
       </mat-form-field>
     </mat-list-item>
     <br>
@@ -22,7 +23,7 @@
     <mat-list-item>
       <mat-form-field class="example-full-width">
         <mat-select class="font-field" placeholder="เลือกจังหวัด" [(ngModel)]="Lumpsums.PROVINCE_ID"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
-          <mat-option class="font-field" *ngFor="let Province of Provinces" [value]="Province.id"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
+          <mat-option class="font-field" *ngFor="let Province of Provinces" [value]="Province.provinceName"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
             {{ Province.iD }} : {{ Province.provinceName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
           </mat-option>
         </mat-select>
@@ -44,8 +45,8 @@
     <mat-list-item>
       <mat-form-field class="example-full-width">
         <mat-select class="font-field" placeholder="ขนาดบริษัท" [(ngModel)]="Lumpsums.BUSINESS_ID">
-          <mat-option class="font-field" *ngFor="let BusinessSize of BusinessSizes" [value]="BusinessSize.id" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
-            {{ BusinessSize.id }} : {{ BusinessSize.size }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+          <mat-option class="font-field" *ngFor="let BusinessSize of BusinessSizes" [value]="BusinessSize.sizeName" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
+            {{ BusinessSize.id }} : {{ BusinessSize.sizeName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -54,9 +55,9 @@
 
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <mat-select class="font-field" placeholder="ประเภทประกัน" [(ngModel)]="Lumpsums.CATEGORY_ID">
-          <mat-option class="font-field" *ngFor="let Category of Categories" [value]="Category.id" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
-            {{ Category.id }} : {{ Category.typeName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+      <mat-select class="font-field" placeholder="รูปแบบสถานประกอบการณ์" [(ngModel)]="Lumpsums.ESTABLISHMENT_ID">
+          <mat-option class="font-field" *ngFor="let Establishment of Establishmentes" [value]="Establishment.estabName" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
+            {{ Establishment.id }} : {{ Establishment.estabName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -64,14 +65,14 @@
         <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="รูปแบบสถานประกอบการณ์" [(ngModel)]="Lumpsums.ESTABLISHMENT_ID">
-          <mat-option class="font-field" *ngFor="let Establishment of Establishmentes" [value]="Establishment.id" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
-            {{ Establishment.id }} : {{ Establishment.estabName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+        <mat-select class="font-field" placeholder="ประเภทประกัน" [(ngModel)]="Lumpsums.CATEGORY_ID">
+          <mat-option class="font-field" *ngFor="let Category of Categories" [value]="Category.typeName" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
+            {{ Category.id }} : {{ Category.typeName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
           </mat-option>
         </mat-select>
       </mat-form-field>
     </mat-list-item>
-        <br>
+    <br>
      &nbsp;&nbsp;
 
 

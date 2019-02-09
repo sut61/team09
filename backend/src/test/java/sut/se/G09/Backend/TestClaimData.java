@@ -7,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import sut.se.G09.Backend.Entity.*;
-import sut.se.G09.Backend.Repository.*;
+import sut.se.G09.Backend.Entity.ClaimData;
+import sut.se.G09.Backend.Entity.DiseaseAccidentData;
+import sut.se.G09.Backend.Repository.ClaimDataRepository;
+import sut.se.G09.Backend.Repository.DiseaseAccidentDataRepository;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import javax.validation.constraints.Null;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -22,10 +25,10 @@ import static org.junit.Assert.fail;
 @RunWith(SpringRunner.class)
 //@SpringBootTest
 @DataJpaTest
-public class TestDiseaseAccidentData {
+public class TestClaimData {
 
     @Autowired
-    private DiseaseAccidentDataRepository diseaseAccidentDataRepository;
+    private ClaimDataRepository claimDataRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -41,10 +44,10 @@ public class TestDiseaseAccidentData {
 
 //========================================================================================
 @Test
-public void testDataNamePass() {
-    DiseaseAccidentData a1 = new DiseaseAccidentData();
+public void testCostPass() {
+    ClaimData a1 = new ClaimData();
 
-    a1.setDiseaseAccidentData("โรคหัวใจนะ");
+    a1.setCostClaimData("100");
 
 
 
@@ -63,12 +66,11 @@ public void testDataNamePass() {
     }
 }
 
-
     @Test
-    public void testDataNameCannotBeNull() {
-        DiseaseAccidentData a1 = new DiseaseAccidentData();
+    public void testCostCannotBeNull() {
+        ClaimData a1 = new ClaimData();
 
-        a1.setDiseaseAccidentData(null);
+        a1.setCostClaimData(null);
 
 
 
@@ -90,9 +92,11 @@ public void testDataNamePass() {
     }
 
     @Test
-    public void testDataNameFirstDigitNotNumber() {
-        DiseaseAccidentData a1 = new DiseaseAccidentData();
-        a1.setDiseaseAccidentData("2โรค");
+    public void testCostOverSize() {
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData("1111111111");
+
 
 
         try {
@@ -107,15 +111,17 @@ public void testDataNamePass() {
             System.out.println("==========================");
             System.out.println(e.getMessage());
             System.out.println("==========================");
-            System.out.println("DataName First Digit Not Number");
+            System.out.println("CostOverSize");
             System.out.println("==========================");
         }
     }
 
     @Test
-    public void testDataNameSizeLess() {
-        DiseaseAccidentData a1 = new DiseaseAccidentData();
-        a1.setDiseaseAccidentData("หส");
+    public void testCostFirstDigitNotZero() {
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData("05");
+
 
 
         try {
@@ -130,61 +136,10 @@ public void testDataNamePass() {
             System.out.println("==========================");
             System.out.println(e.getMessage());
             System.out.println("==========================");
-            System.out.println("DataName Size is Less");
+            System.out.println("Cost First Digit Not is Zero");
             System.out.println("==========================");
         }
     }
-
-    @Test
-    public void testDataNameSizeOver() {
-        DiseaseAccidentData a1 = new DiseaseAccidentData();
-        a1.setDiseaseAccidentData("นรดกี้ร่ดก้เรหน้นรเ้หน้เร้หนเดว้หส้ดเวห้กรเด้หน้เ้หำนพี้ัไรำ้ัไีำจพเีดก่ิอ่หืง");
-
-
-        try {
-            entityManager.persist(a1);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-            System.out.println("==========================");
-            System.out.println(e.getMessage());
-            System.out.println("==========================");
-            System.out.println("DataName Size is Over ");
-            System.out.println("==========================");
-        }
-    }
-
-    @Test//(expected=javax.persistence.PersistenceException.class)
-    public void testDataNameUnique() {
-        DiseaseAccidentData a1 = new DiseaseAccidentData();
-        a1.setDiseaseAccidentData("โดดดดดโดดด");
-        entityManager.persist(a1);
-
-        DiseaseAccidentData a2 = new DiseaseAccidentData();
-        a2.setDiseaseAccidentData("โดดดดดโดดด");
-
-
-
-        try {
-            entityManager.persist(a2);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.persistence.PersistenceException e) {
-            System.out.println("==========================");
-            System.out.println(e.getMessage());
-            System.out.println("==========================");
-            System.out.println("DataName not Unique");
-            System.out.println("==========================");
-        }
-    }
-
-
-
 //=============================================================================================
 
 

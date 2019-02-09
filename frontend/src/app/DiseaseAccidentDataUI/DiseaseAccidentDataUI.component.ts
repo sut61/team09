@@ -52,13 +52,17 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 
           alert('ข้อมูล! สั้นเกินไป');
 
-}
-else if(this.DiseaseAccidentData.dataNameAdd.length > 20){
+    }
+    else if(this.DiseaseAccidentData.dataNameAdd.length > 20){
 
           alert('ข้อมูล! ยาวเกินไป');
 
-}
+    }
+    else if(/[0-9]{1}.+/.test(this.DiseaseAccidentData.dataNameAdd) === true){
 
+          alert('กรุณาอย่าใ่สเลขนำหน้า');
+
+    }
     else{
 
       this.httpClient.post('http://localhost:8080/DiseaseAccidentData/NEW/'
@@ -72,6 +76,8 @@ else if(this.DiseaseAccidentData.dataNameAdd.length > 20){
 
 
         data => {
+
+        console.log('PUT Request is successful', data);
         console.log(this.DiseaseAccidentData)
                                const DiseaseAccidentData  = this.DiseaseAccidentData
                                this.router.navigate(['ShowDiseaseAccidentDataResult',{
@@ -79,14 +85,12 @@ else if(this.DiseaseAccidentData.dataNameAdd.length > 20){
                                typeIdSelect:DiseaseAccidentData.levelIdSelect,
                                levelIdSelect:DiseaseAccidentData.typeIdSelect,
                                medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect}])
-                               console.log('PUT Request is successful', data);
+
                                {alert('บันทึกสำเร็จ!');}
               },
 
-        error => {
-
-         error => { console.log('Error', error);   }
-
+        error => {console.log('Error', error);
+        {alert('ข้อมูลนี่มีในฐานข้อมูลแล้ว!');}
         }
       );
 

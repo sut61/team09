@@ -19,10 +19,14 @@ public class ClaimData {
 @Column(name="ClaimData_ID",unique = true, nullable = true)
 private @NonNull long id;
 
-  @NotNull
-  //@Pattern(regexp = "[0-9|^,]+")
-  @Size(min = 1,max = 8)
-	private int cost;
+
+  @NotNull(message = "Cost Not null")
+  @Pattern(regexp = "[^0]{1}[0-9]*" ,message = "Cost Include be Number")
+  @Size(min = 1,max = 8,message = "Cost Size 1-8 digit")
+  private String cost;
+
+  private @NonNull int trueCost;
+
 
 
 
@@ -49,8 +53,11 @@ private @NonNull long id;
 	private  DiseaseAccidentLevel diseaseAccidentLevel;
 	---------------------------------------------------------------*/
 	
-	public void setCostClaimData(int cost) {
-		this.cost = cost;}
+	public void setCostClaimData(String cost) {
+		this.cost = cost;
+		trueCost = Integer.valueOf(cost);
+
+	}
 
 		public void setMemberData (MemberData memberData){
 			this.memberData = memberData;

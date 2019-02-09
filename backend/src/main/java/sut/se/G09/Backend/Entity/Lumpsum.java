@@ -3,7 +3,14 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import lombok.*;
+import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.UniqueElements;
+
 import  java.util.*;
 import java.util.Date;
 @Entity  //บอกว่าเป็น class entity class ที่เก็บขอมูล
@@ -20,11 +27,28 @@ public class Lumpsum {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="lumpsum_seq")
     @Column(name="LUMPSUM_ID",unique = true, nullable = true)
     private @NonNull Long iD;
+
+    @NotNull(message="Please enter Company Name")
+    @Column(unique = true)
     private String companyName;
+
+    @NotNull(message="Please enter among of Employee")
+    @Range(min=5, max=10000000)
     private int amoungEmp;
+
+    @NotNull(message="Please enter address")
+    @Pattern(regexp = "[0-9\\d]{1,3}\\W.{1,20}\\W.{1,20}")
     private String address;
+
+    @NotNull(message="Please enter zipCode")
+    @Size(min = 5 , max = 5)
     private String zipCode;
+
     private Date date;
+
+//    @ManyToOne(fetch = FetchType.EAGER, targetEntity = AgentRegistration.class)
+//    @JoinColumn(name = "ID", insertable = true)
+//    private  AgentRegistration agentRegistrationId;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = BusinessSize.class)
     @JoinColumn(name = "BUSINESS_ID", insertable = true)
@@ -58,13 +82,20 @@ public class Lumpsum {
         this.provinceId = provinceId;
     }
 
-    public void setLumpsum(String companyName,int amoungEmp,String address,String zipCode){
+    public void setiD(Long iD){this.iD = iD;}
+
+    public void setLumpsum(String companyName, int amoungEmp, String address, String zipCode){
         this.companyName = companyName;
         this.amoungEmp = amoungEmp;
         this.address = address;
         this.zipCode = zipCode;
 
     }
+
+    public Long getiD() {
+        return iD;
+    }
+
     public void setDate(Date date){
         this.date = date;
     }

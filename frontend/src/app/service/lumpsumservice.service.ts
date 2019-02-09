@@ -15,7 +15,7 @@ constructor(private http: HttpClient) { }
         return this.http.get(this.API + '/getBusinessSize');}
 
   getCategory(): Observable<any> {
-      return this.http.get(this.API + '/getCategory');}
+      return this.http.get(this.API + '/Category');}
 
   getEstablishment(): Observable<any> {
       return this.http.get(this.API + '/getEstablishment');}

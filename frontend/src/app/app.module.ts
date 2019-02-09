@@ -37,7 +37,7 @@ import { ShowagentRegisresultComponent } from './showagent-regisresult/showagent
 import { HospitalComponent } from './hospital/hospital.component';
 import { HospitalService } from './service/Hospital.service';
 import { ShowHospitalResultComponent } from './show-hospital-result/show-hospital-result.component';
-
+import { ShowLumpsumResultComponent } from './show-lumpsum-result/show-lumpsum-result.component';
 
 
 
@@ -54,7 +54,8 @@ const appRoutes: Routes = [
 {path: 'OfficerReg', component: OfficerRegComponent},
 {path: 'ShowagentRegisresultComponent', component: ShowagentRegisresultComponent},
 {path: 'Hospital', component: HospitalComponent},
-{path: 'ShowHospitalResultComponent', component: ShowHospitalResultComponent}
+{path: 'ShowHospitalResultComponent', component: ShowHospitalResultComponent},
+{path: 'ShowLumpsumResultComponent', component: ShowLumpsumResultComponent}
 ];
 
 @NgModule({
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
 	OfficerRegComponent,
 	ShowagentRegisresultComponent,
 	HospitalComponent,
-	ShowHospitalResultComponent
+	ShowHospitalResultComponent,
+  ShowLumpsumResultComponent
   ],
   imports: [
     BrowserModule,

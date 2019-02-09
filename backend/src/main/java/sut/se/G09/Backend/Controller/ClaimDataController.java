@@ -48,6 +48,12 @@ public class ClaimDataController {
 		return claimDataRepository.findAll().stream()
         .collect(Collectors.toList());
 		}
+	@GetMapping(path = "/getMemberData", produces = MediaType.APPLICATION_JSON_VALUE)
+	private Collection<MemberData> MemberData()
+	{
+		return memberDataRepository.findAll().stream()
+				.collect(Collectors.toList());
+	}
 
 	/*
 	@GetMapping(path = "/getDiseaseAccidentData", produces = MediaType.APPLICATION_JSON_VALUE)

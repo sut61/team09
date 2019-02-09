@@ -25,7 +25,7 @@ public class MemberData {
  private String Fname;
  private String Lname;
  private Long age;
- private String IDCard;
+ private String idCard;
  private String addess;
 
 
@@ -49,6 +49,4 @@ public class MemberData {
 
 
  public MemberData() {}
-
-
 }

@@ -20,9 +20,9 @@ public class BusinessSize {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="business_seq")
     @Column(name="BUSINESS_ID",unique = true, nullable = true)
     private @NonNull Long  iD;
-    private String size;
+    private String sizeName;
 
-    public void setSize(String size){
-        this.size = size;
+    public void setSize(String sizeName){
+        this.sizeName = sizeName;
     }
 }

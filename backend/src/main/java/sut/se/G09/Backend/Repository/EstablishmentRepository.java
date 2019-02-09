@@ -5,4 +5,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface EstablishmentRepository extends JpaRepository<Establishment, Long>{
     Establishment findByID(long id);
+    Establishment findByEstabName(String estabName);
 }

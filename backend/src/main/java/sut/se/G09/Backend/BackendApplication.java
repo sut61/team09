@@ -245,7 +245,7 @@ public class BackendApplication {
 				establishment.setEstabName(EstabName);
 				establishmentRepository.save(establishment);
 			});
-
+//================================================== AgentAppointment & Cancel ============================================================
 			DurationAppointment dur1 = new DurationAppointment(1L,"08.00-10.00 น.");
 			DurationAppointment dur2 = new DurationAppointment(2L,"10.00-12.00 น.");
 			DurationAppointment dur3 = new DurationAppointment(3L,"13.00-15.00 น.");
@@ -332,14 +332,17 @@ public class BackendApplication {
 				genderRepository.save(newGender);
 			});
 
-			Stream.of(1L, 2L, 3L).forEach(reasonId -> {
+			Stream.of(1L, 2L, 3L, 4L, 5L).forEach(reasonId -> {
 				CancelAppointmentReason newReason = new CancelAppointmentReason();
 				newReason.setReasonId(reasonId);
 				if(reasonId==1L){ newReason.setReason("ติดธุระด่วน"); }
 				else if(reasonId==2L){ newReason.setReason("สมัครประกันเรียบร้อยแล้ว"); }
-				else if(reasonId==3L){ newReason.setReason("others"); }
+				else if(reasonId==3L){ newReason.setReason("จะไปเรียนแต่งหน้านั่งสมาธิดำน้ำ"); }
+				else if(reasonId==4L){ newReason.setReason("จะไปเที่ยวตลาดน้ำเรียนถ่ายรูป"); }
+				else if(reasonId==5L){ newReason.setReason("อื่นๆ"); }
 				cancelAppointmentReasonRepository.save(newReason);
 			});
+			//=====================================================================================================================
 			Stream.of(1L, 2L,3L).forEach(hosSizeId -> {                  //***define type of status detail***
 				HospitalSize newSize = new HospitalSize();
 				newSize.sethosSizeId(hosSizeId);

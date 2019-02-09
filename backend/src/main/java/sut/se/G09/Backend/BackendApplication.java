@@ -28,7 +28,7 @@ public class BackendApplication {
 						   LengthRepository lengthRepository, MoneyMaximumRepository moneyMaximumRepository,
 						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
-						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository) {
+						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,HospitalSizeRepository hospitalSizeRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -322,6 +322,21 @@ public class BackendApplication {
 				else if(reasonId==2L){ newReason.setReason("สมัครประกันเรียบร้อยแล้ว"); }
 				else if(reasonId==3L){ newReason.setReason("others"); }
 				cancelAppointmentReasonRepository.save(newReason);
+			});
+			Stream.of(1L, 2L,3L).forEach(hosSizeId -> {                  //***define type of status detail***
+				HospitalSize newSize = new HospitalSize();
+				newSize.sethosSizeId(hosSizeId);
+
+				if(hosSizeId ==1L){
+					newSize.setHosSize("ขนาดเล็ก");
+				}
+				else if(hosSizeId ==2L){
+					newSize.setHosSize("ขนาดกลาง");
+				}
+				else if(hosSizeId ==3L){
+					newSize.setHosSize("ขนาดใหญ่");
+				}
+				hospitalSizeRepository.save(newSize);
 			});
 		};
 	}

@@ -50,9 +50,14 @@ this.HospitalService.getHosSize().subscribe(dataD => {
                                     this.httpClient.post('http://localhost:8080/Hospital/' + this.Hospitalreg.namehos + '/' + this.Hospitalreg.nameagent + '/'+ this.Hospitalreg.catta + '/'+ this.Hospitalreg.province + '/'+this.Hospitalreg.sizehos,
                                     this.Hospitalreg)
                                     .subscribe(
-                                        data => {alert('บันทึกสำเร็จ');
-
-                                        },
+                                        data => {console.log(this.Hospitalreg)
+              const Hospitalreg  = this.Hospitalreg
+              this.router.navigate(['ShowHospitalResultComponent',{namehos:Hospitalreg.namehos, nameagent:Hospitalreg.nameagent
+              , catta :this.Hospitalreg.catta, province :this.Hospitalreg.province
+              , sizehos :this.Hospitalreg.sizehos}])
+              console.log('PUT Request is successful', data);
+              {alert('ลงทะเบียนสำเร็จ!');}
+                                      },
                                         error => {
                                             console.log('Rrror', error);
                                         }

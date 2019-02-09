@@ -20,8 +20,7 @@ public class CancelAppointmentHistory {
     private Long cancelId;
 
     @NotNull(message="ID card number is null")
-    @Size(max=13, message = "{ID card number must be 13 characters}")
-    @Pattern(regexp = "[\\d]{13}")
+    @Pattern(regexp = "[\\d]{13}", message = "{ID card number pattern is invalid}")
     private String idCardNum;
 
     @NotNull(message="First name is null")
@@ -32,6 +31,7 @@ public class CancelAppointmentHistory {
     @Size(max=30, message = "{Last name length must less than 30 character}")
     private String lName;
 
+    public CancelAppointmentHistory() {}
 
     public String getIdCardNum() { return idCardNum; }
 

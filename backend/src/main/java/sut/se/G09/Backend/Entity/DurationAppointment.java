@@ -14,11 +14,9 @@ public class DurationAppointment {
   @SequenceGenerator(name = "durationAppointment_seq", sequenceName = "durationAppointment_seq")
   @GeneratedValue(strategy = GenerationType   .SEQUENCE, generator = "durationAppointment_seq")
   @Column(unique = true)
-  @NotNull(message="Duration ID is null")
   private Long durationId;
 
   @NotNull(message="Duration is null")
-  @Size(max=30, message = "{Duration must less than 30 character}")
   @Pattern(regexp = "[0-9]{2}.[0-9]{2}-[0-9]{2}.[0-9]{2}\\s[น][.]")
   private String duration;
 

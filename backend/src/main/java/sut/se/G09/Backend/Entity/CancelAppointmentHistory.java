@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity @Data
@@ -17,13 +19,17 @@ public class CancelAppointmentHistory {
     @Column(name = "ID", unique = true, nullable = false, length = 100)
     private Long cancelId;
 
-    @NotNull
+    @NotNull(message="ID card number is null")
+    @Size(max=13, message = "{ID card number must be 13 characters}")
+    @Pattern(regexp = "[\\d]{13}")
     private String idCardNum;
 
-    @NotNull
+    @NotNull(message="First name is null")
+    @Size(max=30, message = "{First name length must less than 30 character}")
     private String fName;
 
-    @NotNull
+    @NotNull(message="Last name is null")
+    @Size(max=30, message = "{Last name length must less than 30 character}")
     private String lName;
 
 

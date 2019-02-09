@@ -202,15 +202,15 @@ public class BackendApplication {
 			MoneyMaximum5.setmoneyName(1000000L);
 			moneyMaximumRepository.save(MoneyMaximum5);
 			//====================================morn=============================
-			Stream.of("1.กรุงเทพมหานคร","2.กระบี่","3.กาญจนบุรี","4.กาฬสินธุ์","5.กำแพงเพชร", "6.ขอนแก่น","7.จันทบุรี","8.ฉะเชิงเทรา","9.ชลบุรี",
-					"10.ชัยนาท","11.ชัยภูมิ",	"12.ชุมพร","13.เชียงราย","14.เชียงใหม่","15.ตรัง","16.ตราด","17.ตาก","18.นครนายก","19.นครปฐม",
-					"20.นครพนม","21.นครราชสีมา","22.นครศรีธรรมราช","23.นครสวรรค์","24.นนทบุรี","25.นราธิวาส","26.น่าน","27.บึงกาฬ","28.บุรีรัมย์",
-					"29.ปทุมธานี","30.ประจวบคีรีขันธ์","31.ปราจีนบุรี","32.ปัตตานี","33.พระนครศรีอยุธยา","34.พังงา","35.พัทลุง","36.พิจิตร","37.พิษณุโลก",
-					"38.เพชรบุรี","39.เพชรบูรณ์","40.แพร่","41.พะเยา","42.ภูเก็ต","43.มหาสารคาม","44.มุกดาหาร","45.แม่ฮ่องสอน","46.ยะลา","47.ยโสธร",
-					"48.ร้อยเอ็ด","49.ระนอง","50.ระยอง","51.ราชบุรี","52.ลพบุรี","53.ลำปาง","54.ลำพูน","55.เลย","56.ศรีสะเกษ","57.สกลนคร","58.สงขลา",
-					"59.สตูล","60.สมุทรปราการ","61.สมุทรสงคราม","62.สมุทรสาคร","63.สระแก้ว","64.สระบุรี","65.สิงห์บุรี","66.สุโขทัย","67.สุพรรณบุรี",
-					"68.สุราษฎร์ธานี","69.สุรินทร์","70.หนองคาย","71.หนองบัวลำภู","72.อ่างทอง","73.อุดรธานี","74.อุทัยธานี","75.อุตรดิตถ์",
-					"76.อุบลราชธานี","77.อำนาจเจริญ").forEach(NameProvince ->{
+			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร", "ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี",
+					"ชัยนาท","ชัยภูมิ", "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม",
+					"นครพนม","นครราชสีมา","นครศรีธรรมราช","นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บึงกาฬ","บุรีรัมย์",
+					"ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา","พังงา","พัทลุง","พิจิตร","พิษณุโลก",
+					"เพชรบุรี","เพชรบูรณ์","แพร่","พะเยา","ภูเก็ต","มหาสารคาม","มุกดาหาร","แม่ฮ่องสอน","ยะลา","ยโสธร",
+					"ร้อยเอ็ด","ระนอง","ระยอง","ราชบุรี","ลพบุรี","ลำปาง","ลำพูน","เลย","ศรีสะเกษ","สกลนคร","สงขลา",
+					"สตูล","สมุทรปราการ","สมุทรสงคราม","สมุทรสาคร","สระแก้ว","สระบุรี","สิงห์บุรี","สุโขทัย","สุพรรณบุรี",
+					"สุราษฎร์ธานี","สุรินทร์","หนองคาย","หนองบัวลำภู","อ่างทอง","อุดรธานี","อุทัยธานี","อุตรดิตถ์",
+					"อุบลราชธานี","อำนาจเจริญ").forEach(NameProvince ->{
 
 				Province province = new Province();
 				province.setProvinceName(NameProvince);
@@ -243,65 +243,67 @@ public class BackendApplication {
 					,51L,52L,53L,54L,55L,56L,57L,58L,59L).forEach(dateId -> {
 				DateAppointment date = new DateAppointment();
 				date.setDateId(dateId);
-				if(dateId==1L){date.setDate("1 มกราคม 2562");}
-				else if(dateId==2L){date.setDate("2 มกราคม 2562");}
-				else if(dateId==3L){date.setDate("3 มกราคม 2562");}
-				else if(dateId==4L){date.setDate("4 มกราคม 2562");}
-				else if(dateId==5L){date.setDate("5 มกราคม 2562");}
-				else if(dateId==6L){date.setDate("6 มกราคม 2562");}
-				else if(dateId==7L){date.setDate("7 มกราคม 2562");}
-				else if(dateId==8L){date.setDate("8 มกราคม 2562");}
-				else if(dateId==9L){date.setDate("9 มกราคม 2562");}
-				else if(dateId==10L){date.setDate("10 มกราคม 2562");}
-				else if(dateId==11L){date.setDate("11 มกราคม 2562");}
-				else if(dateId==12L){date.setDate("12 มกราคม 2562");}
-				else if(dateId==13L){date.setDate("13 มกราคม 2562");}
-				else if(dateId==14L){date.setDate("14 มกราคม 2562");}
-				else if(dateId==15L){date.setDate("15 มกราคม 2562");}
-				else if(dateId==16L){date.setDate("16 มกราคม 2562");}
-				else if(dateId==17L){date.setDate("17 มกราคม 2562");}
-				else if(dateId==18L){date.setDate("18 มกราคม 2562");}
-				else if(dateId==19L){date.setDate("19 มกราคม 2562");}
-				else if(dateId==20L){date.setDate("20 มกราคม 2562");}
-				else if(dateId==21L){date.setDate("21 มกราคม 2562");}
-				else if(dateId==22L){date.setDate("22 มกราคม 2562");}
-				else if(dateId==23L){date.setDate("23 มกราคม 2562");}
-				else if(dateId==24L){date.setDate("24 มกราคม 2562");}
-				else if(dateId==25L){date.setDate("25 มกราคม 2562");}
-				else if(dateId==26L){date.setDate("26 มกราคม 2562");}
-				else if(dateId==27L){date.setDate("27 มกราคม 2562");}
-				else if(dateId==28L){date.setDate("28 มกราคม 2562");}
-				else if(dateId==29L){date.setDate("29 มกราคม 2562");}
-				else if(dateId==30L){date.setDate("30 มกราคม 2562");}
-				else if(dateId==31L){date.setDate("31 มกราคม 2562");}
-				else if(dateId==32L){date.setDate("1 มกราคม 2562");}
-				else if(dateId==33L){date.setDate("2 กุมภาพันธ์ 2562");}
-				else if(dateId==34L){date.setDate("3 กุมภาพันธ์ 2562");}
-				else if(dateId==35L){date.setDate("4 กุมภาพันธ์ 2562");}
-				else if(dateId==36L){date.setDate("5 กุมภาพันธ์ 2562");}
-				else if(dateId==37L){date.setDate("6 กุมภาพันธ์ 2562");}
-				else if(dateId==38L){date.setDate("7 กุมภาพันธ์ 2562");}
-				else if(dateId==39L){date.setDate("8 กุมภาพันธ์ 2562");}
-				else if(dateId==40L){date.setDate("9 กุมภาพันธ์ 2562");}
-				else if(dateId==41L){date.setDate("10 กุมภาพันธ์ 2562");}
-				else if(dateId==42L){date.setDate("11 กุมภาพันธ์ 2562");}
-				else if(dateId==43L){date.setDate("12 กุมภาพันธ์ 2562");}
-				else if(dateId==44L){date.setDate("13 กุมภาพันธ์ 2562");}
-				else if(dateId==45L){date.setDate("14 กุมภาพันธ์ 2562");}
-				else if(dateId==46L){date.setDate("15 กุมภาพันธ์ 2562");}
-				else if(dateId==47L){date.setDate("16 กุมภาพันธ์ 2562");}
-				else if(dateId==48L){date.setDate("17 กุมภาพันธ์ 2562");}
-				else if(dateId==49L){date.setDate("18 กุมภาพันธ์ 2562");}
-				else if(dateId==50L){date.setDate("19 กุมภาพันธ์ 2562");}
-				else if(dateId==51L){date.setDate("20 กุมภาพันธ์ 2562");}
-				else if(dateId==52L){date.setDate("21 กุมภาพันธ์ 2562");}
-				else if(dateId==53L){date.setDate("22 กุมภาพันธ์ 2562");}
-				else if(dateId==54L){date.setDate("23 กุมภาพันธ์ 2562");}
-				else if(dateId==55L){date.setDate("24 กุมภาพันธ์ 2562");}
-				else if(dateId==56L){date.setDate("25 กุมภาพันธ์ 2562");}
-				else if(dateId==57L){date.setDate("26 กุมภาพันธ์ 2562");}
-				else if(dateId==58L){date.setDate("27 กุมภาพันธ์ 2562");}
-				else if(dateId==59L){date.setDate("28 กุมภาพันธ์ 2562");}
+				if(dateId==1L){date.setDate("1 มีนาคม 2562");}
+				else if(dateId==2L){date.setDate("2 มีนาคม 2562");date.setCount(4);date.setStatus("full");}
+				else if(dateId==3L){date.setDate("3 มีนาคม 2562");date.setCount(3);}
+				else if(dateId==4L){date.setDate("4 มีนาคม 2562");date.setCount(3);}
+				else if(dateId==5L){date.setDate("5 มีนาคม 2562");date.setCount(4);date.setStatus("full");}
+				else if(dateId==6L){date.setDate("6 มีนาคม 2562");date.setCount(4);date.setStatus("full");}
+				else if(dateId==7L){date.setDate("7 มีนาคม 2562");}
+				else if(dateId==8L){date.setDate("8 มีนาคม 2562");}
+				else if(dateId==9L){date.setDate("9 มีนาคม 2562");}
+				else if(dateId==10L){date.setDate("10 มีนาคม 2562");}
+				else if(dateId==11L){date.setDate("11 มีนาคม 2562");}
+				else if(dateId==12L){date.setDate("12 มีนาคม 2562");}
+				else if(dateId==13L){date.setDate("13 มีนาคม 2562");}
+				else if(dateId==14L){date.setDate("14 มีนาคม 2562");}
+				else if(dateId==15L){date.setDate("15 มีนาคม 2562");}
+				else if(dateId==16L){date.setDate("16 มีนาคม 2562");}
+				else if(dateId==17L){date.setDate("17 มีนาคม 2562");}
+				else if(dateId==18L){date.setDate("18 มีนาคม 2562");}
+				else if(dateId==19L){date.setDate("19 มีนาคม 2562");}
+				else if(dateId==20L){date.setDate("20 มีนาคม 2562");}
+				else if(dateId==21L){date.setDate("21 มีนาคม 2562");}
+				else if(dateId==22L){date.setDate("22 มีนาคม 2562");}
+				else if(dateId==23L){date.setDate("23 มีนาคม 2562");}
+				else if(dateId==24L){date.setDate("24 มีนาคม 2562");}
+				else if(dateId==25L){date.setDate("25 มีนาคม 2562");}
+				else if(dateId==26L){date.setDate("26 มีนาคม 2562");}
+				else if(dateId==27L){date.setDate("27 มีนาคม 2562");}
+				else if(dateId==28L){date.setDate("28 มีนาคม 2562");}
+				else if(dateId==29L){date.setDate("29 มีนาคม 2562");}
+				else if(dateId==30L){date.setDate("30 มีนาคม 2562");}
+				else if(dateId==31L){date.setDate("31 มีนาคม 2562");}
+				else if(dateId==32L){date.setDate("1 เมษายน 2562");}
+				else if(dateId==33L){date.setDate("2 เมษายน 2562");}
+				else if(dateId==34L){date.setDate("3 เมษายน 2562");}
+				else if(dateId==35L){date.setDate("4 เมษายน 2562");}
+				else if(dateId==36L){date.setDate("5 เมษายน 2562");}
+				else if(dateId==37L){date.setDate("6 เมษายน 2562");}
+				else if(dateId==38L){date.setDate("7 เมษายน 2562");}
+				else if(dateId==39L){date.setDate("8 เมษายน 2562");}
+				else if(dateId==40L){date.setDate("9 เมษายน 2562");}
+				else if(dateId==41L){date.setDate("10 เมษายน 2562");}
+				else if(dateId==42L){date.setDate("11 เมษายน 2562");}
+				else if(dateId==43L){date.setDate("12 เมษายน 2562");}
+				else if(dateId==44L){date.setDate("13 เมษายน 2562");}
+				else if(dateId==45L){date.setDate("14 เมษายน 2562");}
+				else if(dateId==46L){date.setDate("15 เมษายน 2562");}
+				else if(dateId==47L){date.setDate("16 เมษายน 2562");}
+				else if(dateId==48L){date.setDate("17 เมษายน 2562");}
+				else if(dateId==49L){date.setDate("18 เมษายน 2562");}
+				else if(dateId==50L){date.setDate("19 เมษายน 2562");}
+				else if(dateId==51L){date.setDate("20 เมษายน 2562");}
+				else if(dateId==52L){date.setDate("21 เมษายน 2562");}
+				else if(dateId==53L){date.setDate("22 เมษายน 2562");}
+				else if(dateId==54L){date.setDate("23 เมษายน 2562");}
+				else if(dateId==55L){date.setDate("24 เมษายน 2562");}
+				else if(dateId==56L){date.setDate("25 เมษายน 2562");}
+				else if(dateId==57L){date.setDate("26 เมษายน 2562");}
+				else if(dateId==58L){date.setDate("27 เมษายน 2562");}
+				else if(dateId==59L){date.setDate("28 เมษายน 2562");}
+				else if(dateId==60L){date.setDate("29 เมษายน 2562");}
+				else if(dateId==61L){date.setDate("30 เมษายน 2562");}
 				dateAppointmentRepository.save(date);
 			});
 

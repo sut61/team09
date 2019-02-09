@@ -40,18 +40,32 @@ public class AgentAppointmentController {
             DateAppointment dateAp = dateAppointmentRepository.findByDate(date);
             DurationAppointment durAp = durationAppointmentRepository.findByDuration(duration);
 
-            newAp.setCategory(cate);
-            newAp.setfName(fName);
-            newAp.setlName(lName);
-            newAp.setIdCardNum(idCardNum);
-            newAp.setGender(gender);
-            newAp.setAge(age);
-            newAp.setTelNum(telNum);
-            newAp.setEmail(email);
-            newAp.setProvince(province);
-            newAp.setDateAppointment(dateAp);
-            newAp.setDurationAppointment(durAp);
-      return agentAppointmentRepository.save(newAp);   //บันทึก Objcet ชื่อ newReg
+            if(dateAp.getStatus()=="available") {
+                if (dateAp.getCount() < 4) {
+
+                    newAp.setCategory(cate);
+                    newAp.setfName(fName);
+                    newAp.setlName(lName);
+                    newAp.setIdCardNum(idCardNum);
+                    newAp.setGender(gender);
+                    newAp.setAge(age);
+                    newAp.setTelNum(telNum);
+                    newAp.setEmail(email);
+                    newAp.setProvince(province);
+                    newAp.setDateAppointment(dateAp);
+                    newAp.setDurationAppointment(durAp);
+
+                    int count = dateAp.getCount();
+                    count++;
+                    dateAp.setCount(count);
+
+                        if (dateAp.getCount() == 4) {
+                            dateAp.setStatus("full");
+                        }
+                }
+                dateAppointmentRepository.save(dateAp);
+            }
+      return agentAppointmentRepository.save(newAp);
 
       }
 

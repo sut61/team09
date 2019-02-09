@@ -24,13 +24,14 @@
 
         <mat-form-field class="font-field">
           <input matInput placeholder="นามสกุล" [(ngModel)]="Appointment.lName">
-          <mat-hint align="end">ตัวอย่าง : บ้านรวย</mat-hint>
+          <mat-hint align="end">ตัวอย่าง : พ่อรวย</mat-hint>
         </mat-form-field>
         </mat-list-item>
       <br>
       <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="รหัสบัตรประชาชน" [(ngModel)]="Appointment.idCardNum">
+        <input matInput #input maxlength="13" placeholder="รหัสบัตรประชาชน" [(ngModel)]="Appointment.idCardNum">
+        <mat-hint align="end">{{input.value?.length || 0}}/13</mat-hint>
       </mat-form-field>
       </mat-list-item>
       <br>
@@ -74,7 +75,7 @@
         <mat-form-field class="example-full-width">
           <mat-select class="font-field" placeholder="เลือกวันที่ต้องการนัด" [(ngModel)]="Appointment.date">
             <mat-option class="font-field" *ngFor="let DateAppointment of Date" [value]="DateAppointment.date">
-              {{DateAppointment.date}}
+              {{DateAppointment.date}} : {{DateAppointment.status}}
             </mat-option>
           </mat-select>
         </mat-form-field>

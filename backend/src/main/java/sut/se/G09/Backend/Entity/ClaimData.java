@@ -21,7 +21,7 @@ private @NonNull long id;
 
 
   @NotNull(message = "Cost Not null")
-  @Pattern(regexp = "[^0]{1}[0-9]*" ,message = "Cost Include be Number")
+  @Pattern(regexp = "[1-9]+[0-9]*" ,message = "Cost Include be Number")
   @Size(min = 1,max = 8,message = "Cost Size 1-8 digit")
   private String cost;
 

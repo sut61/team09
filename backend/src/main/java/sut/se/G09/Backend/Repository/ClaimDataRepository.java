@@ -8,5 +8,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface ClaimDataRepository extends JpaRepository<ClaimData, Long> {
 
   ClaimData findById(long Id);
-  ClaimData findByCost(int cost);
+  ClaimData findByCost(String cost);
 }

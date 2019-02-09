@@ -9,4 +9,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public
 interface MemberDataRepository extends JpaRepository<MemberData, Long> {
       MemberData findByID (long id);
+      MemberData findByIdCard (String IDCard);
 }

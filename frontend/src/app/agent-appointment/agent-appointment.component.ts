@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
 
 @Component({
-  selector: 'app-agent-appointment',
-  templateUrl: './agent-appointment.component.html',
-  styleUrls: ['./agent-appointment.component.css']
+selector: 'app-agent-appointment',
+templateUrl: './agent-appointment.component.html',
+styleUrls: ['./agent-appointment.component.css']
 })
 export class AgentAppointmentComponent implements OnInit {
 Categories : Array<any>;
@@ -54,7 +54,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
 
              },
              error => { console.log('Rrror', error); }
-          );               alert('ลงทะเบียนสำเร็จ!');
+          );
 
         }
     }

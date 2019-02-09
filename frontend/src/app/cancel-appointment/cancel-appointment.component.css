@@ -7,22 +7,18 @@
 
 .button-row button,
 .button-row a {margin-right: 8px;}
-.font-field-head{font-family: 'Kanit', sans-serif; color: #373737;}
-.font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4; width: 200px;}
-.example-full-width {font-size: 16px; font-family: 'Kanit', sans-serif; width: 200px;}
+.font-field-head{font-family: 'Kanit', sans-serif; color: #373737; width: 100%}
+.font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4;}
+.example-full-width {font-size: 16px; font-family: 'Kanit', sans-serif; width: 100%}
+
 /* Change background color of buttons on hover */
 .tablink:hover {background-color: #777; }
 
 /* Set default styles for tab content */
 .maintabbar{
-
         color: #ffffff;
         float: right;
         border: none;
         outline: none;
         width: 100%;}
-
-a{text-decoration: none; margin-top: 20px}
-
-
 

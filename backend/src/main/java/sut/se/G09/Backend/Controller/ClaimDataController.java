@@ -24,22 +24,22 @@ public class ClaimDataController {
   @Autowired  private       MemberDataRepository memberDataRepository;
   @Autowired  private       DiseaseAccidentDataRepository diseaseAccidentDataRepository;
   @Autowired  private       CategoryRepository categoryRepository;
-  //@Autowired  private       HospitalRepository hospitalRepository;
+  @Autowired  private       HospitalRepository hospitalRepository;
 
 
   @Autowired
   public ClaimDataController(	ClaimDataRepository claimDataRepository,
 								 		DiseaseAccidentDataRepository diseaseAccidentDataRepository,
 										MemberDataRepository memberDataRepository,
-										CategoryRepository categoryRepository
-										//HospitalRepository hospitalRepository
+										CategoryRepository categoryRepository,
+										HospitalRepository hospitalRepository
 										) 
 	{
     this.claimDataRepository = claimDataRepository;
     this.memberDataRepository = memberDataRepository;
     this.diseaseAccidentDataRepository = diseaseAccidentDataRepository;
     this.categoryRepository = categoryRepository;
-    //this.hospitalRepository = hospitalRepository;
+    this.hospitalRepository = hospitalRepository;
 	}
 	
 	@GetMapping(path = "/getClaimData", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,7 +48,12 @@ public class ClaimDataController {
 		return claimDataRepository.findAll().stream()
         .collect(Collectors.toList());
 		}
-		
+	@GetMapping(path = "/getHospital", produces = MediaType.APPLICATION_JSON_VALUE)
+	private Collection<Hospital> Hospital()
+	{
+		return hospitalRepository.findAll().stream()
+				.collect(Collectors.toList());
+	}
 	/*
 	@GetMapping(path = "/getDiseaseAccidentData", produces = MediaType.APPLICATION_JSON_VALUE)
 		private Collection<DiseaseAccidentData> DiseaseAccidentData() 
@@ -79,23 +84,25 @@ public class ClaimDataController {
 		}
 */
 	//======  curl -X POST  http://localhost:8080/DiseaseAccidentData/NEW/"1,22222"/1/1/5
-	@PostMapping(path ="/ClaimData/NEW/{memberData}/{diseaseAccidentData}/{category}/{cost}")	
+	@PostMapping(path ="/ClaimData/NEW/{memberData}/{diseaseAccidentData}/{category}/{hospital}/{cost}")
 	public void ClaimData(
 											@PathVariable long memberData,
 											@PathVariable String diseaseAccidentData,
 											@PathVariable String category,
+											@PathVariable String hospital,
 											@PathVariable String cost
 										)throws JsonParseException, IOException
 	{
 		MemberData member = memberDataRepository.findByID(memberData);
 		DiseaseAccidentData DiseaseAccident = diseaseAccidentDataRepository.findByDataName(diseaseAccidentData);
-		//โรงบาล
+		Hospital hos = hospitalRepository.findByHosName(hospital);
 		Category cat = categoryRepository.findByTypeName(category);
 
 		ClaimData newData = new ClaimData();
 		newData.setMemberData(member);
 		newData.setDiseaseAccidentData(DiseaseAccident);
-		/*โรงบาล*///newData.s(type);
+		newData.setHospital(hos);
+		newData.setCategory(cat);
 		newData.setCostClaimData(cost);
 
 		claimDataRepository.save(newData);

@@ -8,9 +8,14 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ShowClaimDataResultComponent implements OnInit {
 
-  constructor() { }
+   ClaimData : any = {};
+    constructor(private route:ActivatedRoute) { }
 
-  ngOnInit() {
-  }
+        ngOnInit() {
+            this.route.params.subscribe(prams=>{
+              this.ClaimData = prams
+              console.log(prams)
+            })
+        }
 
 }

@@ -13,13 +13,9 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AppointmentService } from './service/appointment.service';
 import { AgentAppointmentComponent } from './agent-appointment/agent-appointment.component';
 import { ShowAppointmentResultComponent } from './show-appointment-result/show-appointment-result.component';
-import { CancelAppointmentService } from './service/cancel-appointment.service';
-import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
-
 import { DiseaseAccidentDataUIComponent } from './DiseaseAccidentDataUI/DiseaseAccidentDataUI.component';
 import { MemLoginComponent } from './mem-login/mem-login.component';
 import { MemHomeComponent } from './mem-home/mem-home.component';
@@ -58,7 +54,6 @@ const appRoutes: Routes = [
 {path: 'OfficerReg', component: OfficerRegComponent},
 {path: 'ShowagentRegisresultComponent', component: ShowagentRegisresultComponent},
 {path: 'Hospital', component: HospitalComponent},
-{path: 'cancelAppointment', component: CancelAppointmentComponent},
 {path: 'ShowHospitalResultComponent', component: ShowHospitalResultComponent}
 ];
 
@@ -67,7 +62,6 @@ const appRoutes: Routes = [
     AppComponent,
     AgentAppointmentComponent,
     ShowAppointmentResultComponent,
-CancelAppointmentComponent,
 	DiseaseAccidentDataUIComponent,
 	MemLoginComponent,
 	MemHomeComponent,

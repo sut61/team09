@@ -14,15 +14,13 @@ public class DateAppointment {
   @SequenceGenerator(name = "dateAppointment_seq", sequenceName = "dateAppointment_seq")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dateAppointment_seq")
   @Column(unique = true)
-  @NotNull(message="Date ID is null")
   private Long dateId;
 
   @NotNull(message="{Date is null}")
-  //@Pattern(regexp = "[1-3]{1}[0-9]*\\s[\\W]+\\s[0-9]{4}")
   private String date;
 
   @NotNull(message="{Count is null}")
-  @Range(min=0, max=4, message = "{Date Appoint Limit at 0-4 times/date}")
+  @Range(min=0, max=4, message = "{Date Appoint Limit at 4 times/date}")
   private int count=0;
 
   @NotNull(message="{Status is null}")

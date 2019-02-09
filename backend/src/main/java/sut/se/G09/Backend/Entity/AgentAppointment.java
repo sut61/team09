@@ -15,7 +15,7 @@ public class AgentAppointment {
     @Column(name = "ID", unique = true, nullable = false, length = 100)
     private Long appointmentId;
 
-    @NotNull(message="First name is null")
+    @NotNull(message="{First name is null}")
     @Size(min=2, message = "{First name length must more than 1 character}")
     @Size(max=30, message = "{First name length must less than 30 character}")
     private String fName;
@@ -33,7 +33,7 @@ public class AgentAppointment {
     private int age;
 
     @NotNull(message="{Telephone number is null}")
-    @Pattern(regexp = "[0]{1}[6,8,9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
+    @Pattern(regexp = "[0]{1}[2-9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
     private String telNum;
 
     @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+", message = "{Email pattern is invalid}")

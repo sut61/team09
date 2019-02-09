@@ -31,4 +31,5 @@ public class CancelAppointmentHistoryController {
         cancelAppointmentHistoryRepository.save(newCanc);   //บันทึก Objcet ชื่อ newReg
         agentAppointmentRepository.deleteById(findApp.getAppointmentId());
     }
+
 }

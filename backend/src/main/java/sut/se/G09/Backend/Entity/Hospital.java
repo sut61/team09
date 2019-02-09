@@ -47,14 +47,14 @@ public class Hospital {
     private HospitalSize hospitalSize;
 
 
-    public void setAgentname(AgentRegistration agentRegis) {this.agentRegistration = agentRegis;
+    public void setAgentRegistration(AgentRegistration agentRegis) {this.agentRegistration = agentRegis;
     }
     public void setProvince(Province province) {this.province = province;
     }
 
     public void setCategory(Category category) {this.category = category;
     }
-    public void setHosSize(HospitalSize hosSize) {this.hospitalSize = hosSize;
+    public void setHospitalSize(HospitalSize hosSize) {this.hospitalSize = hosSize;
     }
 
 }

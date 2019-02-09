@@ -66,14 +66,14 @@ public class AgentRegistrationController {
   http://localhost:8080/MedicineSystem/NEW/id=1/id=1/id=1/id=1,id=2,id=3
   */
   // @RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public AgentRegistration agentRegistration(@PathVariable String fName,@PathVariable String lName,@PathVariable long typeInsurance
-          ,@PathVariable long Education
-          ,@PathVariable Long Province)throws JsonParseException, IOException {
+  public AgentRegistration agentRegistration(@PathVariable String fName,@PathVariable String lName,@PathVariable String typeInsurance
+          ,@PathVariable String Education
+          ,@PathVariable String Province)throws JsonParseException, IOException {
 
 
-    Category category = categoryRepository.findByID(typeInsurance);
-    Educational educational = educationalrepository.findByID(Education);
-    Province province = provinceRepository.findByID(Province);
+    Category category = categoryRepository.findByTypeName(typeInsurance);
+    Educational educational = educationalrepository.findByeduName(Education);
+    Province province = provinceRepository.findByProvinceName(Province);
 
     AgentRegistration agent = new AgentRegistration();
 

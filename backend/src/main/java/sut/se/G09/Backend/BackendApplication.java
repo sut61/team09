@@ -23,7 +23,8 @@ public class BackendApplication {
 						   DiseaseAccidentLevelRepository diseaseAccidentLevelRepository,
 						   DiseaseAccidentTypeRepository diseaseAccidentTypeRepository,
 						   MedicalFeeRepository medicalFeeRepository,AgentRegistrationRepository agentRegistrationRepository,
-						   CategoryRepository categoryRepository, Educationalrepository educationalrepository,
+						   CategoryRepository categoryRepository,
+						   ReasonMemberRepository reasonMemberRepository,Educationalrepository educationalrepository,
 						   ProvinceRepository provinceRepository, InsurancePremiumRepository insurancePremiumRepository,
 						   LengthRepository lengthRepository, MoneyMaximumRepository moneyMaximumRepository,
 						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
@@ -201,6 +202,22 @@ public class BackendApplication {
 			MoneyMaximum MoneyMaximum5 = new MoneyMaximum();
 			MoneyMaximum5.setmoneyName(1000000L);
 			moneyMaximumRepository.save(MoneyMaximum5);
+
+			ReasonMember ReasonMember1 = new ReasonMember();  //เหตุผลในการยกเลิก
+			ReasonMember1.setReasonMemberName("ไม่จำเป็น");
+			reasonMemberRepository.save(ReasonMember1);
+			ReasonMember ReasonMember2 = new ReasonMember();  //เหตุผลในการยกเลิก
+			ReasonMember2.setReasonMemberName("ค่าใช้จ่ายสูงเกินไป");
+			reasonMemberRepository.save(ReasonMember2);
+			ReasonMember ReasonMember3 = new ReasonMember();  //เหตุผลในการยกเลิก
+			ReasonMember3.setReasonMemberName("ตกงาน ทำให้ไม่มีตังจ่าย");
+			reasonMemberRepository.save(ReasonMember3);
+			ReasonMember ReasonMember4 = new ReasonMember();  //เหตุผลในการยกเลิก
+			ReasonMember4.setReasonMemberName("เสียชีวิต");
+			reasonMemberRepository.save(ReasonMember4);
+			ReasonMember ReasonMember5 = new ReasonMember();  //เหตุผลในการยกเลิก
+			ReasonMember5.setReasonMemberName("ไม่ขอระบุ");
+			reasonMemberRepository.save(ReasonMember5);
 			//====================================morn=============================
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร", "ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี",
 					"ชัยนาท","ชัยภูมิ", "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม",

@@ -4,25 +4,30 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
-@Entity
-@Data
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Entity @Data @Getter @Setter @ToString @EqualsAndHashCode
 @Table(name = "AgentRegistration", uniqueConstraints = {
         @UniqueConstraint(columnNames = "ID")})
 public class AgentRegistration {
-  @Id
-  @SequenceGenerator(name = "Aregist_seq", sequenceName = "Aregist_seq")
+
+
+  @Id @SequenceGenerator(name = "Aregist_seq", sequenceName = "Aregist_seq")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Aregist_seq")
   @Column(name = "ID", unique = true, nullable = false, length = 100)
   private Long iD;
 
 
-
+  @NotNull(message="{First name is null}")
+  @Size(min=2, message = "{First name length must more than 1 character}")
+  @Size(max=30, message = "{First name length must less than 30 character}")
   private String fName;
+
+  @NotNull(message="{Last name is null}")
+  @Size(min=2, message = "{Last name length must more than 1 character}")
+  @Size(max=30, message = "{Last name length must less than 30 character}")
   private String lName;
 
   public AgentRegistration(){}
@@ -33,13 +38,13 @@ public class AgentRegistration {
   }
 
 
-  public void setfName(String eduId) {
+  public void setfName(String fName) {
     this.fName = fName;
   }
-  public void setlName(String eduId) {
+  public void setlName(String lName) {
     this.lName = lName;
   }
-
+  public void setiD(Long iD) { this.iD = iD; }
 
   @ManyToOne
   @JoinColumn(name= "education_id")

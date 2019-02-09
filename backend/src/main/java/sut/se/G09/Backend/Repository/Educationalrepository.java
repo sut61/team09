@@ -6,5 +6,6 @@ import sut.se.G09.Backend.Entity.Educational;
 @RepositoryRestResource
 public interface Educationalrepository extends JpaRepository<Educational, Long> {
        Educational findByID(long iD);
+       Educational findByeduName(String duName);
 }
 

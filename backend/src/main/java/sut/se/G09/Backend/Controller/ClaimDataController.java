@@ -48,12 +48,7 @@ public class ClaimDataController {
 		return claimDataRepository.findAll().stream()
         .collect(Collectors.toList());
 		}
-	@GetMapping(path = "/getHospital", produces = MediaType.APPLICATION_JSON_VALUE)
-	private Collection<Hospital> Hospital()
-	{
-		return hospitalRepository.findAll().stream()
-				.collect(Collectors.toList());
-	}
+
 	/*
 	@GetMapping(path = "/getDiseaseAccidentData", produces = MediaType.APPLICATION_JSON_VALUE)
 		private Collection<DiseaseAccidentData> DiseaseAccidentData() 

@@ -13,14 +13,18 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AppointmentService } from './service/appointment.service';
 import { AgentAppointmentComponent } from './agent-appointment/agent-appointment.component';
+import { CancelAppointmentService } from './service/cancel-appointment.service';
+import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
+
 import { ShowAppointmentResultComponent } from './show-appointment-result/show-appointment-result.component';
 import { DiseaseAccidentDataUIComponent } from './DiseaseAccidentDataUI/DiseaseAccidentDataUI.component';
 import { MemLoginComponent } from './mem-login/mem-login.component';
 import { MemHomeComponent } from './mem-home/mem-home.component';
-import {LoginService} from './service/login.service';
-import {SessionService} from './service/session.service';
+import { LoginService} from './service/login.service';
+import { SessionService} from './service/session.service';
 import { RegCategoryUiComponent } from './RegCategoryUi/RegCategoryUi.component';
 import { RegCancelInsuranceComponent } from './RegCancelInsurance/RegCancelInsurance.component';
 import { LumpsumComponent } from './lumpsum/lumpsum.component';
@@ -56,13 +60,15 @@ const appRoutes: Routes = [
 {path: 'ShowagentRegisresultComponent', component: ShowagentRegisresultComponent},
 {path: 'Hospital', component: HospitalComponent},
 {path: 'ShowHospitalResultComponent', component: ShowHospitalResultComponent},
-{path: 'ShowLumpsumResultComponent', component: ShowLumpsumResultComponent}
+{path: 'ShowLumpsumResultComponent', component: ShowLumpsumResultComponent},
+{path: 'cancelAppointment', component: CancelAppointmentComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     AgentAppointmentComponent,
+    CancelAppointmentComponent,
     ShowAppointmentResultComponent,
 	DiseaseAccidentDataUIComponent,
 	MemLoginComponent,

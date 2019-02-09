@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AgentAppointmentComponent } from './agent-appointment/agent-appointment.component';
 import { ShowAppointmentResultComponent } from './show-appointment-result/show-appointment-result.component';
+import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
+
 import { DiseaseAccidentDataUIComponent } from './DiseaseAccidentDataUI/DiseaseAccidentDataUI.component';
 import { MemLoginComponent } from './mem-login/mem-login.component';
 import { MemHomeComponent } from './mem-home/mem-home.component';
@@ -22,6 +24,7 @@ import { HospitalComponent } from './hospital/hospital.component';
 const routes: Routes = [
 { path: 'agentAppointment', component: AgentAppointmentComponent },
 { path: 'showAppointmentResult', component: ShowAppointmentResultComponent },
+{ path: 'cancelAppointment', component: CancelAppointmentComponent },
 { path: 'DiseaseAccidentDataUI', component: DiseaseAccidentDataUIComponent },
 { path: 'MemLogin', component: MemLoginComponent },
 { path: 'MemHome', component: MemHomeComponent },

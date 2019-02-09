@@ -47,11 +47,11 @@ private @NonNull long id;
 	@JoinColumn(name = "Category_ID", insertable = true)
 	private  Category category;
 
-/*/-----------------[โรงพยาบาล]-------------------
+
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = DiseaseAccidentLevel.class)
 	@JoinColumn(name = "Hospital_ID", insertable = true)
-	private  DiseaseAccidentLevel diseaseAccidentLevel;
-	---------------------------------------------------------------*/
+	private  Hospital hospital;
+
 	
 	public void setCostClaimData(String cost) {
 		this.cost = cost;
@@ -70,11 +70,9 @@ private @NonNull long id;
 		public void setCategory (Category category){
 			this.category = category;}
 	
-	/*
-	
-	public void setHospital(MedicalFee medicalFee) {
-    this.medicalFee = medicalFee;
-	}
-	*/
+		public void setHospital(Hospital hospital) {
+    	this.hospital = hospital;
+		}
+
 
 	}

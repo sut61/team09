@@ -18,7 +18,7 @@ public class HospitalSize {
     private String hosSize;
 
 
-    public void sethosId(Long iD) { this.iD = iD; }
+    public void sethosSizeId(Long iD) { this.iD = iD; }
     public void setHosSize(String hosSize) {
         this.hosSize = hosSize;
     }

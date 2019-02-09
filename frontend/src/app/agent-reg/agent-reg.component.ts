@@ -48,7 +48,13 @@ this.AgentRegService.getProvince().subscribe(dataC => {
                                     this.Agentregis)
                                     .subscribe(
                                         data => {
-                                            console.log('PUT Request is successful', data);
+                                           console.log(this.Agentregis)
+              const Agentregis  = this.Agentregis
+              this.router.navigate(['ShowagentRegisresultComponent',{firstname:Agentregis.firstname, lastname:Agentregis.lastname
+              , cattype :this.Agentregis.cattype, educational :this.Agentregis.educational
+              , aprovince :this.Agentregis.aprovince}])
+              console.log('PUT Request is successful', data);
+              {alert('ลงทะเบียนสำเร็จ!');}
                                         },
                                         error => {
                                             console.log('Rrror', error);

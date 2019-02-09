@@ -15,6 +15,7 @@ import { OfficerLoginComponent } from './OfficerLogin/OfficerLogin.component';
 import { OfficerHomeComponent } from './OfficerHome/OfficerHome.component';
 import { ShowDiseaseAccidentDataResultComponent } from './ShowDiseaseAccidentDataResult/ShowDiseaseAccidentDataResult.component';
 import { ShowClaimDataResultComponent } from './ShowClaimDataResult/ShowClaimDataResult.component';
+import { HospitalComponent } from './hospital/hospital.component';
 
 const routes: Routes = [
 { path: 'agentAppointment', component: AgentAppointmentComponent },

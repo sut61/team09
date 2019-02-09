@@ -62,7 +62,7 @@ public class MemberDataController
         member.setFname(fname);
         member.setLname(lname);
         member.setAge(age);
-        member.setIDCard(PID);
+        member.setIdCard(PID);
         member.setMLData(mlog);
         member.setProvince(po);
         member.setCategory(ca);
@@ -92,7 +92,7 @@ public class MemberDataController
         member.setFname(fname);
         member.setLname(lname);
         member.setAge(age);
-        member.setIDCard(PID);
+        member.setIdCard(PID);
         member.setMLData(mlog);
 
         return memberDataRepository.save(member);

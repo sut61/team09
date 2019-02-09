@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CancelAppointmentService } from '../service/cancel-appointment.service';
 import { AppointmentService } from '../service/appointment.service';
 import { HttpClient } from '@angular/common/http';
+import { Router} from '@angular/router';
+
 @Component({
   selector: 'app-cancel-appointment',
   templateUrl: './cancel-appointment.component.html',
@@ -13,7 +15,8 @@ Date : Array<any>;
 Reasons : Array<any>;
 CancelAppointment : any = {
 idCardNum: '' , reason: ''};
-  constructor(private appointService : AppointmentService, private cancelService : CancelAppointmentService ,private httpClient: HttpClient) { }
+  constructor(private appointService : AppointmentService, private cancelService : CancelAppointmentService
+  ,private httpClient: HttpClient , private router:Router) { }
 
   ngOnInit() {
     this.cancelService.getCancelAppointment().subscribe(data => { this.CancelAppointment = data; console.log(this.CancelAppointment);});
@@ -32,7 +35,8 @@ idCardNum: '' , reason: ''};
                data => {
                console.log(this.CancelAppointment)
                 console.log('PUT Request is successful', data);
-                {alert('ลงทะเบียนสำเร็จ!');}
+                this.router.navigate(['/'])
+                {alert('ยกเลิกสำเร็จ!');}
 
                },
                error => { console.log('Rrror', error); }

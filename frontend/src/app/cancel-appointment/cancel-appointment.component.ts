@@ -25,7 +25,8 @@ constructor(private appointService : AppointmentService, private cancelService :
   }
 
   submit(){
-       if (this.CancelAppointment.idCardNum == null||this.CancelAppointment.reason == null) {alert('กรุณาใส่ข้อมูลให้ครบถ้วน');}
+       if (this.CancelAppointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
+       if (this.CancelAppointment.reason == null){alert('กรุณาเลือกเหตุผลที่ต้องการยกเลิก');}
 
         else{
           this.httpClient.delete('http://localhost:8080/cancel/' + this.CancelAppointment.idCardNum + '/'
@@ -37,9 +38,8 @@ constructor(private appointService : AppointmentService, private cancelService :
                 console.log('PUT Request is successful', data);
                 this.router.navigate(['/'])
                 {alert('ยกเลิกสำเร็จ!');}
-
                },
-               error => { console.log('Rrror', error); }
+               error => { console.log('Rrror', error); alert('ไม่พบข้อมูลการนัดพบ กรุณาตรวจสอบรหัสบัตรประชาชนให้ถูกต้อง');}
             );
 
           }

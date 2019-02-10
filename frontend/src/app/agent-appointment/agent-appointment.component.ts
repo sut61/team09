@@ -11,7 +11,7 @@ styleUrls: ['./agent-appointment.component.css']
 export class AgentAppointmentComponent implements OnInit {
 Categories : Array<any>;
 Genders: Array<any>;
-Date : Array<any>;
+Date : any = { count: '', status: ''};
 Duration : Array<any>;
 Provinces : Array<any>;
 Appointment : any = {
@@ -29,16 +29,32 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
 
    save() {
       if(this.Appointment.typeName == null){alert('กรุณาเลือกประเภทประกันที่สนใจ');}
-      if(this.Appointment.fName == null){alert('กรุณากรอกชื่อจริง');}
-      if(this.Appointment.lName == null){alert('กรุณากรอกนามสกุล');}
-      if(this.Appointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
-      if(this.Appointment.genderName == null){alert('กรุณาเลือกเพศ');}
-      if(this.Appointment.age == null){alert('กรุณากรอกอายุ');}
-      if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัทพ์');}
-      if(this.Appointment.email == null){alert('กรุณากรอก email');}
-      if(this.Appointment.provinceName == null){alert('กรุณาเลือกจังหวัดที่ต้องการ');}
-      if(this.Appointment.date == null){alert('กรุณาเลือกวันที่ต้องการ');}
-      if(this.Appointment.duration == null){alert('กรุณาเลือกเวลาที่ต้องการ');}
+
+      else if(this.Appointment.fName == null){alert('กรุณากรอกชื่อจริง');}
+      else if(this.Appointment.fName.length > 30){ alert('ความยาวชื่อจริงไม่ควรเกิน 30 ตัวอักษร!'); }
+      else if(this.Appointment.fName.length < 2){ alert('ความยาวชื่อจริงต้องมากกว่า 2 ตัวอักษร!'); }
+
+      else if(this.Appointment.lName == null){alert('กรุณากรอกนามสกุล');}
+      else if(this.Appointment.lName.length > 30){ alert('ความยาวนามสกุลไม่ควรเกิน 30 ตัวอักษร!'); }
+      else if(this.Appointment.fName.length < 2){ alert('ความยาวนามสกุลต้องมากกว่า 2 ตัวอักษร!'); }
+
+      else if(this.Appointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
+
+      else if(this.Appointment.genderName == null){alert('กรุณาเลือกเพศ');}
+
+      else if(this.Appointment.age == null){alert('กรุณากรอกอายุ');}
+      else if(this.Appointment.age < 1 || this.Appointment.age > 80){ alert('อายุไม่อยู่ในช่วงที่กำหนด'); }
+
+      else if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัทพ์');}
+
+      else if(this.Appointment.email == null){alert('กรุณากรอก email');}
+
+      else if(this.Appointment.provinceName == null){alert('กรุณาเลือกจังหวัดที่ต้องการ');}
+
+      else if(this.Appointment.date == null){alert('กรุณาเลือกวันที่ต้องการ');}
+
+      else if(this.Appointment.duration == null){alert('กรุณาเลือกเวลาที่ต้องการ');}
+
 
       else{
         this.httpClient.post('http://localhost:8080/MakeAppointment/' + this.Appointment.typeName + '/'
@@ -54,13 +70,13 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
               const Appointment  = this.Appointment
               this.router.navigate(['showAppointmentResult',{ typeName:Appointment.typeName, fName:Appointment.fName
               , lName:Appointment.lName , idCardNum:Appointment.idCardNum , genderName :this.Appointment.genderName
-              , age:Appointment.age , telNum:Appointment.telNum,email:Appointment.email,  provinceName:Appointment.provinceName
+              , age:Appointment.age , telNum:Appointment.telNum, email:Appointment.email, provinceName:Appointment.provinceName
               , date:Appointment.date, duration:Appointment.duration}])
               console.log('PUT Request is successful', data);
               {alert('ลงทะเบียนสำเร็จ!');}
 
              },
-             error => { console.log('Rrror', error); }
+             error => { console.log('Rrror', error); alert('กรุณาตรวจสอบความถูกต้องของข้อมูล');}
           );
 
         }

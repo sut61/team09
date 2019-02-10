@@ -1,25 +1,18 @@
-import { Injectable } from '@angular/core';
-
-const USERNAME_KEY = 'AuthUsername';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
-  constructor() { }
+  private signinURL = '//localhost:8080/loginEM';
 
-  signOut() {
-    window.sessionStorage.clear();
-  }
+  constructor(private http: HttpClient) { }
 
-  public saveUsername(username: string) {
-    window.sessionStorage.removeItem(USERNAME_KEY);
-    window.sessionStorage.setItem(USERNAME_KEY, username);
-  }
-
-  public getUsername(): string {
-    return sessionStorage.getItem(USERNAME_KEY);
+  signin(form: any) {
+    return this.http.post(this.signinURL, form);
   }
 
 }
+

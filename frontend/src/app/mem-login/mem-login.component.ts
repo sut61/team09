@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
-import {SessionService} from '../service/session.service';
 
 @Component({
   selector: 'app-mem-login',
@@ -15,16 +14,15 @@ export class MemLoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private route: Router, private loginService: LoginService, private SessionService: SessionService) { }
+  constructor(private route: Router, private loginService: LoginService) { }
 
   ngOnInit() {
-    if (this.SessionService.getUsername()) {
-    }
+
   }
 
   login() {
-    this.loginService.signin(this.user).subscribe(value => {}, error1 => {}, () => {
-      this.SessionService.saveUsername(this.user.username);
+    this.loginService.signin(this.user).subscribe(   value => {}, error1 => {}, () => {
+       this.loginService.saveUser(this.user.username);
       this.route.navigate(['MemHome']);
     });
   }

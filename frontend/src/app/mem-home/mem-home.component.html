@@ -1,5 +1,64 @@
-<p>
-  mem-home works!
+<mat-card align="center">
+<h2> ยินดีต้อนรับ</h2>
 
-  Data will show in sprint 2!!!!!!!
-</p>
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="name">ขื่อ</th>
+    <th mat-sort-header="name">นามสกุล</th>
+    <th mat-sort-header="name">เลขบัตรประชาชน</th>
+  </tr>
+
+  <tr >
+    <td>{{User.fname}}</td>
+    <td>{{User.lname}}</td>
+    <td>{{User.idCard}}</td>
+
+  </tr>
+</table>
+
+<h2> CODE</h2>
+<mat-list-item>
+<mat-form-field class="font-field">
+  <input matInput placeholder="CODE" [(ngModel)]="code.code">
+</mat-form-field>
+</mat-list-item>
+
+<button mat-raised-button class="font-field" color="primary" (click)="submit()" cdkFocusInitial>ยืนยัน</button>
+
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="a">id</th>
+    <th mat-sort-header="v">ค่าใช้จ่าย</th>
+    <th mat-sort-header="d">วันที่บิล</th>
+    <th mat-sort-header="c">รหัสชำระ</th>
+  </tr>
+
+  <tr >
+    <td>{{Cost.id}}</td>
+    <td>{{Cost.amount}}</td>
+    <td>{{Cost.date}}</td>
+    <td>{{Cost.code}}</td>
+
+  </tr>
+</table>
+
+
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="h">id</th>
+    <th mat-sort-header="j">ค่าใช้จ่าย</th>
+    <th mat-sort-header="y">วันที่ชำระ</th>
+    <th mat-sort-header="u">รหัสชำระ</th>
+  </tr>
+
+  <tr >
+    <td>{{Paid.id}}</td>
+    <td>{{Paid.amount}}</td>
+    <td>{{Paid.date}}</td>
+    <td>{{Paid.code}}</td>
+
+  </tr>
+</table>
+
+
+</mat-card>

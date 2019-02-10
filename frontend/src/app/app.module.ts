@@ -43,6 +43,8 @@ import { HospitalComponent } from './hospital/hospital.component';
 import { HospitalService } from './service/Hospital.service';
 import { ShowHospitalResultComponent } from './show-hospital-result/show-hospital-result.component';
 import { ShowLumpsumResultComponent } from './show-lumpsum-result/show-lumpsum-result.component';
+import { EmLoginComponent } from './em-login/em-login.component';
+import { MemShowComponent } from './mem-show/mem-show.component';
 
 
 
@@ -52,7 +54,9 @@ const appRoutes: Routes = [
 {path: 'Lumpsum', component: LumpsumComponent},
 {path: 'ClaimDataUI', component: ClaimDataUIComponent},
 {path: 'OfficerLogin', component: OfficerLoginComponent},
+{path: 'MemShowComponent', component: MemShowComponent},
 {path: 'OfficerHome', component: OfficerHomeComponent},
+{path: 'EmLoginComponent', component: EmLoginComponent},
 {path: 'ShowDiseaseAccidentDataResult', component: ShowDiseaseAccidentDataResultComponent},
 {path: 'ShowClaimDataResult', component: ShowClaimDataResultComponent},
 {path: 'MemberRegistionComponent', component: MemberRegistionComponent},
@@ -88,7 +92,9 @@ RegCancelInsuranceComponent,
 	ShowagentRegisresultComponent,
 	HospitalComponent,
 	ShowHospitalResultComponent,
-  ShowLumpsumResultComponent
+  ShowLumpsumResultComponent,
+  EmLoginComponent,
+  MemShowComponent
   ],
   imports: [
     BrowserModule,

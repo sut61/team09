@@ -1,6 +1,7 @@
 package sut.se.G09.Backend.Controller;
 
 
+import org.springframework.http.MediaType;
 import sut.se.G09.Backend.Entity.*;
 import sut.se.G09.Backend.Repository.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,13 +33,14 @@ public class MemberDataController
 
 
 
-    public MemberDataController(MemberDataRepository memberDataRepository ) {
+    public MemberDataController(MemberDataRepository memberDataRepository , MLDataRepository mlDataRepository ) {
         this.memberDataRepository = memberDataRepository;
+        this.mlDataRepository = mlDataRepository;
     }
 
     @PostMapping("/Regmem/{fname}/{lname}/{age}/{PID}/{username}/{password}/{povin}/{ag}/{cate}/{addes}")
     //@RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public MemberData NewMemberData(
+    public MLData NewMemberData(
             @PathVariable String fname,
             @PathVariable String lname,
             @PathVariable Long age,
@@ -50,11 +52,7 @@ public class MemberDataController
             @PathVariable Long cate,
             @PathVariable String addes
     ){
-        MLData login = new MLData();
-        login.setUserName(username);
-        login.setPassword(password);
-        mlDataRepository.save(login);
-        MLData mlog = mlDataRepository.findByUserName(username);
+
         Province po = provinceRepository.findByID(povin);
         AgentRegistration agent = agentRegistrationRepository.findByID(ag);
         Category ca = categoryRepository.findByID(cate);
@@ -63,40 +61,24 @@ public class MemberDataController
         member.setLname(lname);
         member.setAge(age);
         member.setIdCard(PID);
-        member.setMLData(mlog);
         member.setProvince(po);
         member.setCategory(ca);
         member.setAddess(addes);
         member.setAgentRegistration(agent);
+        memberDataRepository.save(member);
+        MemberData mem = memberDataRepository.findByIdCard(PID);
 
-        return memberDataRepository.save(member);
-    }
-
-
-    @PostMapping("/Regmem2/{fname}/{lname}/{age}/{PID}/{username}/{password}")
-    //@RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public MemberData NewMemberData(
-            @PathVariable String fname,
-            @PathVariable String lname,
-            @PathVariable Long age,
-            @PathVariable String PID,
-            @PathVariable String username,
-            @PathVariable String password
-    ){
         MLData login = new MLData();
         login.setUserName(username);
         login.setPassword(password);
-        mlDataRepository.save(login);
-        MLData mlog = mlDataRepository.findByUserName(username);
-        MemberData member = new MemberData();
-        member.setFname(fname);
-        member.setLname(lname);
-        member.setAge(age);
-        member.setIdCard(PID);
-        member.setMLData(mlog);
-
-        return memberDataRepository.save(member);
+        login.setMemberData(mem);
+        return mlDataRepository.save(login);
     }
 
+    @GetMapping(path = "/member",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<MemberData> CancelInsurance() {
+        return memberDataRepository.findAll().stream().collect(Collectors.toList());
+    }
 
 }

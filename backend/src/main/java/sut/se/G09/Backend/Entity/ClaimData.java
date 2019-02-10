@@ -55,8 +55,7 @@ private @NonNull long id;
 	
 	public void setCostClaimData(String cost) {
 		this.cost = cost;
-		if(cost != null){
-		trueCost = Integer.valueOf(cost);}
+		trueCost = Integer.valueOf(cost);
 
 	}
 

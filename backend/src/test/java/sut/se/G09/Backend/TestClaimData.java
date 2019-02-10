@@ -86,7 +86,7 @@ public void testCostPass() {
             System.out.println("==========================");
             System.out.println(e.getMessage());
             System.out.println("==========================");
-            System.out.println("testCostCannotBeNull");
+            System.out.println("DataName Cannot Be Null");
             System.out.println("==========================");
         }
     }

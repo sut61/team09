@@ -1,7 +1,9 @@
 package sut.se.G09.Backend.Controller;
 
 import sut.se.G09.Backend.Controller.LoginForm;
+import sut.se.G09.Backend.Entity.EMData;
 import sut.se.G09.Backend.Entity.MLData;
+import sut.se.G09.Backend.Repository.EMDataRepository;
 import sut.se.G09.Backend.Repository.MLDataRepository;
 import sut.se.G09.Backend.Repository.MemberDataRepository;
 import org.slf4j.Logger;
@@ -19,16 +21,16 @@ import java.security.spec.InvalidKeySpecException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class LoginController {
+public class EmLoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
-    MLDataRepository mlDataRepository;
+    EMDataRepository EMDataRepository;
 
-    @PostMapping("/login")
+    @PostMapping("/loginEM")
     public ResponseEntity<Object> loginAuth(@RequestBody LoginForm loginForm) throws InvalidKeySpecException, NoSuchAlgorithmException {
-        MLData member = mlDataRepository.findByUserName(loginForm.getUsername());
+        EMData member = EMDataRepository.findByUserName(loginForm.getUsername());
         String password = member.getPassword();
         if(member.getPassword().equals(loginForm.getPassword()))
         {

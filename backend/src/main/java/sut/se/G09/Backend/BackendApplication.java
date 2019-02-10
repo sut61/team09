@@ -29,7 +29,7 @@ public class BackendApplication {
 						   LengthRepository lengthRepository, MoneyMaximumRepository moneyMaximumRepository,
 						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
-						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,HospitalSizeRepository hospitalSizeRepository) {
+						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -54,7 +54,10 @@ public class BackendApplication {
 			typeA00.setDiseaseAccidentType("อุบัติเหตุ");
 			diseaseAccidentTypeRepository.save(typeA00);
 			//======================================================================
-
+               EMData em = new EMData();
+               em.setUserName("tt");
+               em.setPassword("t");
+               emDataRepository.save(em);
 			//================add MedicalFee : BY ISARA ====================
 			MedicalFee cost_01 = new MedicalFee();
 			cost_01.setMedicalFee(500);

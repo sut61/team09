@@ -14,13 +14,13 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 
-@Table(name="PaymentHistoty")
-public class PaymentHistoty {
+@Table(name="PaymentCost")
+public class PaymentCost {
 
  @Id
  @SequenceGenerator(name="ph_seq",sequenceName="ph_seq")
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ph_seq")
- @Column(name = "PHID")
+ @Column(name = "PCID")
  private @NonNull Long iD;
  private String code;
  private Long amount;
@@ -34,7 +34,7 @@ public class PaymentHistoty {
 
 
 
- public PaymentHistoty() {}
+ public PaymentCost () {}
 
 
 }

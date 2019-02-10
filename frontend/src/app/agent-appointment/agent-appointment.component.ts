@@ -54,7 +54,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
               const Appointment  = this.Appointment
               this.router.navigate(['showAppointmentResult',{ typeName:Appointment.typeName, fName:Appointment.fName
               , lName:Appointment.lName , idCardNum:Appointment.idCardNum , genderName :this.Appointment.genderName
-              , age:Appointment.age , telNum:Appointment.telNum, email:Appointment.email, provinceName:Appointment.provinceName
+              , age:Appointment.age , telNum:Appointment.telNum,email:Appointment.email,  provinceName:Appointment.provinceName
               , date:Appointment.date, duration:Appointment.duration}])
               console.log('PUT Request is successful', data);
               {alert('ลงทะเบียนสำเร็จ!');}

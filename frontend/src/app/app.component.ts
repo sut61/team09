@@ -11,9 +11,6 @@ export class AppComponent {
   title = 'frontend';
  constructor(private route: Router, private SessionService: SessionService) {}
 
-  isLogin(): boolean {
-    return !!this.SessionService.getUsername();
-  }
 
   gotoMemHome() {
     this.route.navigate(['MemHome']);

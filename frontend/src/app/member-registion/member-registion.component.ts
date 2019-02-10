@@ -40,10 +40,10 @@ Member : any ={ fName: '', lName: '', olds: '',PID: '' ,username: '' ,password: 
             .subscribe(
                data => {
 
-                {alert('ลงทะเบียนสำเร็จ!');}
-
                },
-               error => { console.log('Rrror', error); }
+               error => { console.log('Rrror', error); alert('ล้มเหลว!'); }
+
+
             );               alert('ลงทะเบียนสำเร็จ!');
 
           }

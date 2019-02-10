@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router';
+import {SessionService} from '../service/session.service';
 @Component({
   selector: 'app-officer-login',
   templateUrl: './OfficerLogin.component.html',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfficerLoginComponent implements OnInit {
 
-  constructor() { }
+ user: any = {
+     username: '',
+     password: ''
+   };
 
-  ngOnInit() {
-  }
+ constructor(private route: Router, private SessionService: SessionService) { }
+
+   ngOnInit() {
+   }
+   login() {
+     this.SessionService.signin(this.user).subscribe(value => {}, error1 => {}, () => {
+       this.route.navigate(['OfficerHome']);
+     });
+   }
+
 
 }

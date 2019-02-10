@@ -1,0 +1,85 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+body {
+ margin: 0;
+ font-family: Kanit, sans-serif;
+}
+
+nav a {
+  padding: 10px 60px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #CC000000; /**พื้นหลังปุ่มกด**/
+  border-radius: 2px;}
+
+nav a:visited, a:link {
+  color: #123342;   /**สีตัวหนังสือใน nav{} **/
+  font-size: 20px;
+
+}
+nav a:hover {
+  color: #ffffff;
+  background-color: #123342;  /**สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
+  font-size: 25px;
+  cursor: pointer;
+}
+
+
+/* Header/Blog Title */
+.header {
+  text-align: left;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 30%;
+  height: 1000px;
+  background-color: #F0F0EF;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 40%;
+
+}
+
+/* Add a card effect for articles */
+.card { text-align: center;}
+.card1 { padding bottom: 5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.maintabbar{
+    background-color: #274456;
+        color: #blue;
+        float: left;
+        border: none;
+        outline: none;
+        width: 100%;
+        }
+
+html{
+
+      background:url(https://wallpapercave.com/wp/wp2672847.jpg);
+    width: 100%;
+    }
+

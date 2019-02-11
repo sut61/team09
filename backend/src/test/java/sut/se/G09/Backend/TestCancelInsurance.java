@@ -213,26 +213,4 @@ public class TestCancelInsurance {
         }
     }
 
-
-    @Test
-    public void testDataNameFirstNotNumber() {
-        CancelInsurance a1 = new CancelInsurance();
-        a1.setfName("5นันทวัฒน์");
-        a1.setlName("สัตยา");
-
-        try {
-            entityManager.persist(a1);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("\n\n\n\n\n====================================================================");
-            System.out.println(e.getMessage());
-            System.out.println("====================================================================\n\n\n\n\n");
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        }
-    }
-    
 }

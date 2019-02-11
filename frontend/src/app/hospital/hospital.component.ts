@@ -44,22 +44,37 @@ this.HospitalService.getHosSize().subscribe(dataD => {
 }
 
  save() {
-                                  if (this.Hospitalreg.firstname === '') {
-                                    alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-                                  } else {
-                                    this.httpClient.post('http://localhost:8080/Hospital/' + this.Hospitalreg.namehos + '/' + this.Hospitalreg.nameagent + '/'+ this.Hospitalreg.catta + '/'+ this.Hospitalreg.province + '/'+this.Hospitalreg.sizehos,
-                                    this.Hospitalreg)
-                                    .subscribe(
-                                        data => {console.log(this.Hospitalreg)
-              const Hospitalreg  = this.Hospitalreg
-              this.router.navigate(['ShowHospitalResultComponent',{namehos:Hospitalreg.namehos, nameagent:Hospitalreg.nameagent
+ if (this.Hospitalreg.namehos === '') {
+ alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+  }
+
+
+    else if(this.Hospitalreg.namehos.length < 3){
+
+          alert('ชื่อโรงพยาบาลสั้นเกินไป');
+
+    }
+    else if(this.Hospitalreg.namehos.length > 30){
+
+          alert('ชื่อโรงพยาบาลยาวเกินไป');
+
+    }
+
+
+    else {
+  this.httpClient.post('http://localhost:8080/Hospital/' + this.Hospitalreg.namehos + '/' + this.Hospitalreg.nameagent + '/'+ this.Hospitalreg.catta + '/'+ this.Hospitalreg.province + '/'+this.Hospitalreg.sizehos,
+    this.Hospitalreg)
+    .subscribe(
+      data => {console.log(this.Hospitalreg)
+        const Hospitalreg  = this.Hospitalreg
+         this.router.navigate(['ShowHospitalResultComponent',{namehos:Hospitalreg.namehos, nameagent:Hospitalreg.nameagent
               , catta :this.Hospitalreg.catta, province :this.Hospitalreg.province
               , sizehos :this.Hospitalreg.sizehos}])
               console.log('PUT Request is successful', data);
               {alert('ลงทะเบียนสำเร็จ!');}
                                       },
                                         error => {
-                                            console.log('Rrror', error);
+                                            console.log('Rrror', error); {alert('ชื่อโรงพยาบาลซ้ำ!');}
                                         }
 
                                     );

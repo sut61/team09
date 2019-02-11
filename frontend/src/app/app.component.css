@@ -30,6 +30,8 @@ nav a:hover {
 /* Header/Blog Title */
 .header {
   text-align: left;
+  padding: 5px;
+  background-color: #9cc8d1;
 }
 
 /* Create two unequal columns that floats next to each other */

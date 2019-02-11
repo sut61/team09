@@ -41,14 +41,37 @@ this.AgentRegService.getProvince().subscribe(dataC => {
 }
 
  save() {
-                                  if (this.Agentregis.firstname === ''|| this.Agentregis.lastname === '' ) {
-                                    alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-                                  } else {
-                                    this.httpClient.post('http://localhost:8080/AgentRegistration/' + this.Agentregis.firstname + '/' + this.Agentregis.lastname + '/'+ this.Agentregis.cattype + '/'+ this.Agentregis.educational + '/'+this.Agentregis.aprovince,
-                                    this.Agentregis)
-                                    .subscribe(
-                                        data => {
-                                           console.log(this.Agentregis)
+     if (this.Agentregis.firstname === ''|| this.Agentregis.lastname === '' ) {
+       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+
+        }  else if(this.Agentregis.firstname.length <= 1){
+
+          alert('ชื่อสั้นเกินไป');
+
+    }
+          else if(this.Agentregis.lastname.length <= 1){
+
+          alert('นามสกุลสั้นเกินไป');
+
+    }
+
+          else if(this.Agentregis.lastname.length > 30){
+
+          alert('นามสกุลสยาวเกินไป');
+
+    }
+         else if(this.Agentregis.firstname.length > 30){
+
+          alert('ชื่อยาวเกินไป');
+
+    }
+
+    else {
+        this.httpClient.post('http://localhost:8080/AgentRegistration/' + this.Agentregis.firstname + '/' + this.Agentregis.lastname + '/'+ this.Agentregis.cattype + '/'+ this.Agentregis.educational + '/'+this.Agentregis.aprovince,
+        this.Agentregis)
+        .subscribe(
+          data => {
+           console.log(this.Agentregis)
               const Agentregis  = this.Agentregis
               this.router.navigate(['ShowagentRegisresultComponent',{firstname:Agentregis.firstname, lastname:Agentregis.lastname
               , cattype :this.Agentregis.cattype, educational :this.Agentregis.educational
@@ -57,10 +80,10 @@ this.AgentRegService.getProvince().subscribe(dataC => {
               {alert('ลงทะเบียนสำเร็จ!');}
                                         },
                                         error => {
-                                            console.log('Rrror', error);
+                                            console.log('Rrror', error); {alert('ชื่อหรือนามสกุลมีอยู่แล้ว!');}
                                         }
 
-                                    );alert('บันทึกสำเร็จ');
+                                    )
 
                                   }
                                 }

@@ -45,7 +45,7 @@ import { ShowHospitalResultComponent } from './show-hospital-result/show-hospita
 import { ShowLumpsumResultComponent } from './show-lumpsum-result/show-lumpsum-result.component';
 import { EmLoginComponent } from './em-login/em-login.component';
 import { MemShowComponent } from './mem-show/mem-show.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 const appRoutes: Routes = [
@@ -111,6 +111,7 @@ MatListModule,
 MatToolbarModule,
 MatDividerModule,
 FormsModule,
+MatSnackBarModule,
 RouterModule.forRoot(appRoutes),
 AppRoutingModule
   ],

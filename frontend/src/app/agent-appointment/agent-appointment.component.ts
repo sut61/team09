@@ -3,13 +3,14 @@ import { AppointmentService } from '../service/appointment.service';
 import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
 
+import { MatSnackBar } from '@angular/material';
+
 @Component({
 selector: 'app-agent-appointment',
 templateUrl: './agent-appointment.component.html',
 styleUrls: ['./agent-appointment.component.css']
 })
 export class AgentAppointmentComponent implements OnInit {
-
 Categories : Array<any>;
 Genders: Array<any>;
 Date : any = { count: '', status: ''};
@@ -19,7 +20,7 @@ Appointment : any = {
 typeName: '', fName: '', lName: '', idCardNum: '' ,genderName: '', age: '', telNum: ''
 ,email: '' , provinceName: '', date: '',  duration: ''};
 
-constructor(private appointService : AppointmentService ,private httpClient: HttpClient, private router:Router) { }
+constructor(private appointService : AppointmentService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
   ngOnInit() {
     this.appointService.getAppointment().subscribe(data => { this.Appointment = data; console.log(this.Appointment);});
     this.appointService.getCategory().subscribe(dataF => { this.Categories = dataF; console.log(this.Categories);});
@@ -37,7 +38,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
 
       else if(this.Appointment.lName == null){alert('กรุณากรอกนามสกุล');}
       else if(this.Appointment.lName.length > 30){ alert('ความยาวนามสกุลไม่ควรเกิน 30 ตัวอักษร!'); }
-      else if(this.Appointment.fName.length < 2){ alert('ความยาวนามสกุลต้องมากกว่า 2 ตัวอักษร!'); }
+      else if(this.Appointment.lName.length < 2){ alert('ความยาวนามสกุลต้องมากกว่า 2 ตัวอักษร!'); }
 
       else if(this.Appointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
       else if(/[0-9]{13}/.test(this.Appointment.idCardNum) === false){ alert('รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง'); }
@@ -77,11 +78,15 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
               , age:Appointment.age , telNum:Appointment.telNum, email:Appointment.email, provinceName:Appointment.provinceName
               , date:Appointment.date, duration:Appointment.duration}])
               console.log('PUT Request is successful', data);
-              {alert('การนัดพบสำเร็จ!');}
+
+                let snackBarRef = this.snackBar.open('การนัดพบสำเร็จ!', 'ตกลง',{
+                    verticalPosition:"top",
+                    horizontalPosition: "center"
+                });
 
              },
              error => {
-             console.log('Rrror', error);
+             console.log('Rrror', error); alert('วันที่เลือกมีจำนวนการนัดเต็มแล้ว! กรุณาเลือกวันใหม่');
              }
           );
 

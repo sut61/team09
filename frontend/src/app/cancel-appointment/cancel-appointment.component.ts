@@ -4,6 +4,8 @@ import { AppointmentService } from '../service/appointment.service';
 import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
 
+import { MatSnackBar } from '@angular/material';
+
 @Component({
 selector: 'app-cancel-appointment',
 templateUrl: './cancel-appointment.component.html',
@@ -16,7 +18,7 @@ Reasons : Array<any>;
 CancelAppointment : any = {
 idCardNum: '' , reason: ''};
 constructor(private appointService : AppointmentService, private cancelService : CancelAppointmentService
-  ,private httpClient: HttpClient , private router:Router) { }
+  ,private httpClient: HttpClient , private router:Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.cancelService.getCancelAppointment().subscribe(data => { this.CancelAppointment = data; console.log(this.CancelAppointment);});
@@ -38,9 +40,19 @@ constructor(private appointService : AppointmentService, private cancelService :
                console.log(this.CancelAppointment)
                 console.log('PUT Request is successful', data);
                 this.router.navigate(['/'])
-                {alert('ยกเลิกสำเร็จ!');}
+                let snackBarRef = this.snackBar.open('ยกเลิกสำเร็จ!', 'ตกลง',{
+                    verticalPosition:"top",
+                    horizontalPosition: "center"
+                });
+
                },
-               error => { console.log('Rrror', error); alert('ไม่พบข้อมูลการนัดพบ กรุณาตรวจสอบรหัสบัตรประชาชนให้ถูกต้อง');}
+               error => {
+               console.log('Rrror', error);
+                let snackBarRef = this.snackBar.open('ไม่พบข้อมูลการนัดพบ! กรุณาตรวจสอบรหัสบัตรประชาชนให้ถูกต้อง', 'ตกลง',{
+                    verticalPosition:"top",
+                    horizontalPosition: "center"
+                });
+               }
             );
 
           }

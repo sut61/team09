@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.*;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 @Entity  //บอกว่าเป็น class com.okta.developer.demo.Entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -16,6 +19,11 @@ public class Category { //ประเภทประกัน
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Category_seq")
     @Column(name = "CategoryId", unique = true, nullable = false, length = 100)
     private Long iD;
+
+    @NotNull(message="Please enter First name")
+    @Pattern(regexp = "^[A-z]*[ก-๐]{6,20}|^[ก-๐]*[A-z]{6,20}")
+    @Size(max = 30 , min = 6)
+    @Column( unique = true)
     private String typeName;
     private Date date; //วันที่ทำการเพิ่ม
 

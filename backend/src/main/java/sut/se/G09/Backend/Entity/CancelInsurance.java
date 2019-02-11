@@ -91,11 +91,11 @@ public class CancelInsurance { //ยกเลิกประกันชีว�
     private String idCard;
 
     @NotNull(message="Please enter First name")
-    @Pattern(regexp = "[ก-๐]{4,20}|[A-z]{4,20}")
+    @Pattern(regexp = "^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}")
     private String fName;
 
     @NotNull(message="Please enter First name")
-    @Pattern(regexp = "[ก-๐]{4,20}|[A-z]{4,20}")
+    @Pattern(regexp = "^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}")
     private String lName;
 
     @NotNull(message="Please enter First name")

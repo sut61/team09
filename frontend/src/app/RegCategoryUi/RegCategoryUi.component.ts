@@ -48,7 +48,19 @@ export class RegCategoryUiComponent implements OnInit {
 
       alert('กรุณใส่ข้อมูลให้ครบ');
 
-      }else {
+      }
+      else if(/^[A-z]*[ก-๐]|^[ก-๐]*[A-z]/.test(this.categorys.typeName) === false){
+          alert('กรอกประเภทประกันชีวิตให้ถูกต้อง');
+
+      }
+      else if(this.categorys.typeName.length < 6){
+          alert('ข้อมูลประเภทประกันต้องมีความยาว ไม่ต่ำกว่า 6 ตัว');
+      }
+      else if(this.categorys.typeName.length > 30){
+          alert('ข้อมูลประเภทประกันต้องมีความยาว ห้ามเกิน 30 ตัว');
+      }
+
+      else {
         this.httpClient.post('http://localhost:8080/Category/' + this.categorys.typeName + '/'
         + this.categorys.insuranceName + '/'+ this.categorys.lengthName  + '/'
         +this.categorys.moneyName,

@@ -24,6 +24,7 @@ public class Hospital {
     @Column(name = "ID", unique = true, nullable = false, length = 100)
     private Long iD;
 
+    @Column( unique = true)
     @NotNull(message="{Hospital name is null}")
     @Size(min=5, message = "{Hospital name length must more than 5 character}")
     @Size(max=30, message = "{Hospital name length must less than 30 character}")
@@ -32,6 +33,7 @@ public class Hospital {
     public Hospital() {}
     public Hospital(Long iD, String hosName) {
         this.iD = iD;
+
         this.hosName = hosName;
     }
     public void setiD(Long iD) {

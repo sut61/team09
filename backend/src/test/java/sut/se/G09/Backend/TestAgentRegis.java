@@ -127,7 +127,7 @@ public class TestAgentRegis {
         }
     }
     @Test
-    public void testAppointmentIdMustBeUnique() {
+    public void testFirstNameLastNameMustBeUnique() {
         AgentRegistration a1 = new AgentRegistration();
         a1.setiD(1L);
         a1.setfName("Fffff");
@@ -135,9 +135,9 @@ public class TestAgentRegis {
 
 
         AgentRegistration a2 = new AgentRegistration();
-        a2.setiD(1L);
-        a2.setfName("Allll");
-        a2.setlName("Bbbbb");
+        a2.setiD(2L);
+        a2.setfName("Fffff");
+        a2.setlName("Lllll");
 
 
         try {
@@ -153,6 +153,7 @@ public class TestAgentRegis {
             System.out.println("===========================================================================================================\n\n\n");
         }
     }
+
     @Test
     public void testLastNameLengthMustMoreThan1Character() {
         AgentRegistration a = new AgentRegistration();

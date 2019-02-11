@@ -127,29 +127,28 @@ public class TestHospital {
             assertEquals(violations.size(), 1);
         }
     }
-    @Test
-    public void testHospitalIdMustBeUnique() {
+    @Test//(expected=javax.persistence.PersistenceException.class)
+    public void testHosNameUnique() {
         Hospital a1 = new Hospital();
-        a1.setiD(1L);
-
-
+        a1.setHosName("โรงพยาบาลยันฮอย");
+        entityManager.persist(a1);
 
         Hospital a2 = new Hospital();
-        a2.setiD(1L);
+        a2.setHosName("โรงพยาบาลยันฮอย");
 
 
 
         try {
-            entityManager.persist(a1);
-            entityManager.flush();
             entityManager.persist(a2);
             entityManager.flush();
-            fail("expected AppointmentIdMustBeUnique");
 
+            fail("Should not pass to this line");
         } catch(javax.persistence.PersistenceException e) {
-            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println("==========================");
             System.out.println(e.getMessage());
-            System.out.println("===========================================================================================================\n\n\n");
+            System.out.println("==========================");
+            System.out.println("Hospital not Unique");
+            System.out.println("==========================");
         }
     }
 }

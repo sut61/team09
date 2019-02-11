@@ -19,12 +19,13 @@ public class AgentRegistration {
   @Column(name = "ID", unique = true, nullable = false, length = 100)
   private Long iD;
 
-
+  @Column( unique = true)
   @NotNull(message="{First name is null}")
   @Size(min=2, message = "{First name length must more than 1 character}")
   @Size(max=30, message = "{First name length must less than 30 character}")
-  private String fName;
 
+  private String fName;
+  @Column( unique = true)
   @NotNull(message="{Last name is null}")
   @Size(min=2, message = "{Last name length must more than 1 character}")
   @Size(max=30, message = "{Last name length must less than 30 character}")

@@ -9,6 +9,7 @@ templateUrl: './agent-appointment.component.html',
 styleUrls: ['./agent-appointment.component.css']
 })
 export class AgentAppointmentComponent implements OnInit {
+
 Categories : Array<any>;
 Genders: Array<any>;
 Date : any = { count: '', status: ''};
@@ -39,6 +40,8 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
       else if(this.Appointment.fName.length < 2){ alert('ความยาวนามสกุลต้องมากกว่า 2 ตัวอักษร!'); }
 
       else if(this.Appointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
+      else if(/[0-9]{13}/.test(this.Appointment.idCardNum) === false){ alert('รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง'); }
+
 
       else if(this.Appointment.genderName == null){alert('กรุณาเลือกเพศ');}
 
@@ -46,15 +49,16 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
       else if(this.Appointment.age < 1 || this.Appointment.age > 80){ alert('อายุไม่อยู่ในช่วงที่กำหนด'); }
 
       else if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัทพ์');}
+      else if(/[0]{1}[2-9]{1}[0-9]{8}/.test(this.Appointment.telNum) === false){ alert('รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง'); }
 
       else if(this.Appointment.email == null){alert('กรุณากรอก email');}
+      else if(/[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+/.test(this.Appointment.email) === false){ alert('รูปแบบemailไม่ถูกต้อง'); }
 
       else if(this.Appointment.provinceName == null){alert('กรุณาเลือกจังหวัดที่ต้องการ');}
 
       else if(this.Appointment.date == null){alert('กรุณาเลือกวันที่ต้องการ');}
 
       else if(this.Appointment.duration == null){alert('กรุณาเลือกเวลาที่ต้องการ');}
-
 
       else{
         this.httpClient.post('http://localhost:8080/MakeAppointment/' + this.Appointment.typeName + '/'
@@ -73,10 +77,12 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
               , age:Appointment.age , telNum:Appointment.telNum, email:Appointment.email, provinceName:Appointment.provinceName
               , date:Appointment.date, duration:Appointment.duration}])
               console.log('PUT Request is successful', data);
-              {alert('ลงทะเบียนสำเร็จ!');}
+              {alert('การนัดพบสำเร็จ!');}
 
              },
-             error => { console.log('Rrror', error); alert('กรุณาตรวจสอบความถูกต้องของข้อมูล');}
+             error => {
+             console.log('Rrror', error);
+             }
           );
 
         }

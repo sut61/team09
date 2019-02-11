@@ -26,7 +26,7 @@ public class AgentAppointment {
     private String lName;
 
     @NotNull(message="{ID card number is null}")
-    @Pattern(regexp = "[\\d]{13}", message = "{ID card number pattern is invalid}")
+    @Pattern(regexp = "[0-9]{13}", message = "{ID card number pattern is invalid}")
     private String idCardNum;
 
     @Range(min=1, max=80, message = "{Age Must between 1-80 years old}")

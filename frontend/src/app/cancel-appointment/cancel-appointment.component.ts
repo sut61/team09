@@ -26,7 +26,8 @@ constructor(private appointService : AppointmentService, private cancelService :
 
   submit(){
        if (this.CancelAppointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
-       if (this.CancelAppointment.reason == null){alert('กรุณาเลือกเหตุผลที่ต้องการยกเลิก');}
+       else if(/[0-9]{13}/.test(this.CancelAppointment.idCardNum) === false){ alert('รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง'); }
+       else if (this.CancelAppointment.reason == null){alert('กรุณาเลือกเหตุผลที่ต้องการยกเลิก');}
 
         else{
           this.httpClient.delete('http://localhost:8080/cancel/' + this.CancelAppointment.idCardNum + '/'

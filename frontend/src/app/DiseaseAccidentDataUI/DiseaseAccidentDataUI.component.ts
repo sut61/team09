@@ -58,9 +58,9 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
           alert('ข้อมูล! ยาวเกินไป');
 
     }
-    else if(/[0-9]{1}.+/.test(this.DiseaseAccidentData.dataNameAdd) === true){
+    else if(/[A-Za-z]+/.test(this.DiseaseAccidentData.dataNameAdd) === true){
 
-          alert('กรุณาอย่าใ่สเลขนำหน้า');
+          alert('กรุณาชื่อโรคเป็นภาษาไทย');
 
     }
     else{
@@ -77,7 +77,7 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 
         data => {
 
-        console.log('PUT Request is successful', data);
+         console.log('PUT Request is successful', data);
         console.log(this.DiseaseAccidentData)
                                const DiseaseAccidentData  = this.DiseaseAccidentData
                                this.router.navigate(['ShowDiseaseAccidentDataResult',{
@@ -86,7 +86,7 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
                                levelIdSelect:DiseaseAccidentData.typeIdSelect,
                                medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect}])
 
-                               {alert('บันทึกสำเร็จ!');}
+
               },
 
         error => {console.log('Error', error);

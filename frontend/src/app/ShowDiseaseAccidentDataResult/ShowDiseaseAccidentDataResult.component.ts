@@ -16,6 +16,7 @@ export class ShowDiseaseAccidentDataResultComponent implements OnInit {
             this.DiseaseAccidentData = prams
             console.log(prams)
           })
+
       }
 
 }

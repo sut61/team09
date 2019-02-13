@@ -90,9 +90,9 @@ public void testDataNamePass() {
     }
 
     @Test
-    public void testDataNameFirstDigitNotNumber() {
+    public void testDataNameFirstDigitNotEnglish() {
         DiseaseAccidentData a1 = new DiseaseAccidentData();
-        a1.setDiseaseAccidentData("2โรค");
+        a1.setDiseaseAccidentData("โรค1AA");
 
 
         try {

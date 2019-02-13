@@ -91,7 +91,7 @@ public class ClaimDataController {
 											@PathVariable String diseaseAccidentData,
 											@PathVariable String category,
 											@PathVariable String hospital,
-											@PathVariable String cost
+											@PathVariable long cost
 										)throws JsonParseException, IOException
 	{
 		MemberData member = memberDataRepository.findByID(memberData);

@@ -56,21 +56,24 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
      alert('กรุณาเลือกข้อมูลให้ครบ!');
     }
 
-    else if(this.ClaimData.costA.length < 2){
 
-          alert('จำนวนค่ารักษาน้อยเกินไป');
-
-    }
-     else if(this.ClaimData.costA.length > 8){
-
-              alert('จำนวนค่ารักษามากเกินไป');
-
-        }
      else if(/[^0-9]+/.test(this.ClaimData.costA) === true){
 
-                   alert('กรอกค่ารักษาเฉพาตัวเลข');
+                      alert('กรอกค่ารักษาเฉพาตัวเลข');
+
+                }
+    else if(this.ClaimData.costA < 100){
+
+          alert('จำนวนค่ารักษาน้อยกว่า 100  โปรดเช็คว่าค่ารักษาท่านว่าได้กรอกถูกแล้ว');
+
+    }
+
+     else if(this.ClaimData.costA > 100000000){
+
+                   alert('จำนวนค่ารักษามากเกิน100,000,000 โปรดเช็คว่าค่ารักษาท่านว่าได้กรอกถูกแล้ว');
 
              }
+
     else  {
 
       this.httpClient.post('http://localhost:8080/ClaimData/NEW/'
@@ -101,7 +104,7 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
               },
 
         error => {console.log('Error', error);
-            {alert('กรอกค่ารักษาเป็นตัวเลขจำนวนเต็ม หรือ ห้ามใช้ 0 นำหน้าเลขเท่านั้น');}
+            alert('ห้ามกรอก0 นำหน้า');
         }
       );
 

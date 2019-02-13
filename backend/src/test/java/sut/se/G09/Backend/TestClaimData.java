@@ -21,7 +21,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-
+//-Dmaven.test.failure.ignore=true
 @RunWith(SpringRunner.class)
 //@SpringBootTest
 @DataJpaTest
@@ -47,7 +47,7 @@ public class TestClaimData {
 public void testCostPass() {
     ClaimData a1 = new ClaimData();
 
-    a1.setCostClaimData("100");
+    a1.setCostClaimData(100);
 
 
 
@@ -67,10 +67,10 @@ public void testCostPass() {
 }
 
     @Test
-    public void testCostCannotBeNull() {
+    public void testCostOverRange() {
         ClaimData a1 = new ClaimData();
 
-        a1.setCostClaimData(null);
+        a1.setCostClaimData(1111111111);
 
 
 
@@ -86,16 +86,15 @@ public void testCostPass() {
             System.out.println("==========================");
             System.out.println(e.getMessage());
             System.out.println("==========================");
-            System.out.println("DataName Cannot Be Null");
+            System.out.println("CostOverRange");
             System.out.println("==========================");
         }
     }
-
     @Test
-    public void testCostOverSize() {
+    public void testCostLessRange() {
         ClaimData a1 = new ClaimData();
 
-        a1.setCostClaimData("1111111111");
+        a1.setCostClaimData(9);
 
 
 
@@ -111,7 +110,7 @@ public void testCostPass() {
             System.out.println("==========================");
             System.out.println(e.getMessage());
             System.out.println("==========================");
-            System.out.println("CostOverSize");
+            System.out.println("CostOverRange");
             System.out.println("==========================");
         }
     }
@@ -120,7 +119,7 @@ public void testCostPass() {
     public void testCostFirstDigitNotZero() {
         ClaimData a1 = new ClaimData();
 
-        a1.setCostClaimData("05");
+        a1.setCostClaimData(05);
 
 
 

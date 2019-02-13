@@ -1,5 +1,7 @@
 package sut.se.G09.Backend.Entity;
 import lombok.*;
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -20,12 +22,12 @@ public class ClaimData {
 private @NonNull long id;
 
 
-  @NotNull(message = "Cost Not null")
-  @Pattern(regexp = "[1-9]+[0-9]*" ,message = "Cost Include be Number")
-  @Size(min = 1,max = 8,message = "Cost Size 1-8 digit")
-  private String cost;
 
-  private @NonNull int trueCost;
+ // @Pattern(regexp = "[1-9]+[0-9]*" ,message = "Cost Include be Number")
+  @Range(min = 100,max = 99999999,message = "Cost Range 100-99999999 digit")
+  private long cost;
+
+  //private @NonNull int trueCost;
 
 
 
@@ -53,9 +55,9 @@ private @NonNull long id;
 	private  Hospital hospital;
 
 	
-	public void setCostClaimData(String cost) {
+	public void setCostClaimData(long cost) {
 		this.cost = cost;
-		trueCost = Integer.valueOf(cost);
+
 
 	}
 

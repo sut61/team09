@@ -100,11 +100,11 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
                                hospitalS:ClaimData.hospitalS,
                                costA:ClaimData.costA}])
 
-                               {alert('บันทึกสำเร็จ!');}
+                              
               },
 
         error => {console.log('Error', error);
-            alert('ห้ามกรอก0 นำหน้า');
+            alert('เกิดข้อผิดพลาด!!!');
         }
       );
 

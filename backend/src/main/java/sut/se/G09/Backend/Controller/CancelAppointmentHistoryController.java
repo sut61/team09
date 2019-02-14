@@ -3,6 +3,7 @@ import org.springframework.web.bind.annotation.*;
 import sut.se.G09.Backend.Entity.AgentAppointment;
 import sut.se.G09.Backend.Entity.CancelAppointmentHistory;
 import sut.se.G09.Backend.Entity.CancelAppointmentReason;
+import sut.se.G09.Backend.Entity.DateAppointment;
 import sut.se.G09.Backend.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,7 @@ public class CancelAppointmentHistoryController {
     @Autowired private final CancelAppointmentHistoryRepository cancelAppointmentHistoryRepository;
     @Autowired private CancelAppointmentReasonRepository cancelAppointmentReasonRepository;
     @Autowired private AgentAppointmentRepository agentAppointmentRepository;
+    @Autowired private DateAppointmentRepository dateAppointmentRepository;
 
     public CancelAppointmentHistoryController(CancelAppointmentHistoryRepository cancelAppointmentHistoryRepository) {
         this.cancelAppointmentHistoryRepository = cancelAppointmentHistoryRepository;
@@ -30,14 +32,29 @@ public class CancelAppointmentHistoryController {
     //curl -X DELETE http://localhost:8080/cancel/"1309902540177"/"others"
     @DeleteMapping ("/cancel/{idCardNum}/{reason}")
     public void cancelAppointment(@PathVariable String idCardNum ,@PathVariable String reason) {
-        AgentAppointment findApp = agentAppointmentRepository.findByIdCardNum(idCardNum);
+
         CancelAppointmentHistory newCanc = new CancelAppointmentHistory();
+        AgentAppointment findApp = agentAppointmentRepository.findByIdCardNum(idCardNum);
         CancelAppointmentReason findReason = cancelAppointmentReasonRepository.findByReason(reason);
+
+        String date = findApp.getDateAppointment().getDate();
+        DateAppointment dateAp = dateAppointmentRepository.findByDate(date);
+
         newCanc.setIdCardNum(idCardNum);
         newCanc.setfName(findApp.getfName());
         newCanc.setlName(findApp.getlName());
         newCanc.setCancelAppointmentReason(findReason);
         cancelAppointmentHistoryRepository.save(newCanc);   //บันทึก Objcet ชื่อ newReg
+
+        int count = dateAp.getCount();
+        count--;
+        dateAp.setCount(count);
+
+        if (dateAp.getCount() < 4) {
+            dateAp.setStatus("available");
+        }
+        dateAppointmentRepository.save(dateAp);
+
         agentAppointmentRepository.deleteById(findApp.getAppointmentId());
     }
 

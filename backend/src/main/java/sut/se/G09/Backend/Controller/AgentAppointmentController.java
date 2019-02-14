@@ -40,7 +40,6 @@ public class AgentAppointmentController {
             DateAppointment dateAp = dateAppointmentRepository.findByDate(date);
             DurationAppointment durAp = durationAppointmentRepository.findByDuration(duration);
 
-            if(dateAp.getStatus()=="available") {
                 if (dateAp.getCount() < 4) {
 
                     newAp.setCategory(cate);
@@ -62,9 +61,9 @@ public class AgentAppointmentController {
                         if (dateAp.getCount() == 4) {
                             dateAp.setStatus("full");
                         }
+                    dateAppointmentRepository.save(dateAp);
                 }
-                dateAppointmentRepository.save(dateAp);
-            }
+
       return agentAppointmentRepository.save(newAp);
 
       }

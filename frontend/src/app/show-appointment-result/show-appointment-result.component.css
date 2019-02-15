@@ -4,8 +4,8 @@
   font-family: kanitFont;
   src: url('https://fonts.googleapis.com/css?family=Kanit');
 }
-.font-field{font-size: 18px; font-family: 'Kanit', sans-serif; color: #ffffff; text-align: left;}
-.font-field-head{font-size: 25px; font-family: 'Kanit', sans-serif; color: #ffffff; text-align: center;}
+.font-field{font-size: 18px; font-family: 'Kanit', sans-serif; color: #082130; text-align: left;}
+.font-field-head{font-family: 'Kanit', sans-serif; color: #082130; text-align: center;}
 
 .example-form {
   font-size: 16px;
@@ -15,7 +15,7 @@
 }
 
 nav a {
-  padding: 40px 300px;
+  padding: 40px 150px;
   text-decoration: none;
   display: inline-block;
   background-color: #CC000000; /**พื้นหลังสีใส**/

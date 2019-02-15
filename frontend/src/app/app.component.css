@@ -7,31 +7,30 @@ body {
 }
 
 nav a {
-  padding: 10px 60px;
+  padding: 10px 50px;
   text-decoration: none;
-  margin-top: 10px;
   display: inline-block;
-  background-color: #CC000000; /**พื้นหลังปุ่มกด**/
+  /**background-color: #CC000000; พื้นหลังปุ่มกด**/
   border-radius: 2px;}
 
 nav a:visited, a:link {
-  color: #123342;   /**สีตัวหนังสือใน nav{} **/
-  font-size: 20px;
+  color: #082130;   /**สีตัวหนังสือใน nav{} **/
+  font-size: 25px;
 
 }
 nav a:hover {
   color: #ffffff;
-  background-color: #123342;  /**สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
-  font-size: 25px;
+  /**background-color: #123342;  สีพื้นหลังตอนเเลื่อนเมาส์ไปโดน**/
+  font-size: 30px;
   cursor: pointer;
 }
 
 
 /* Header/Blog Title */
 .header {
-  text-align: left;
+  color: #ffffff;
+  font-size: 25px;
   padding: 5px;
-  background-color: #9cc8d1;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -40,13 +39,14 @@ nav a:hover {
   float: left;
   width: 30%;
   height: 1000px;
-  background-color: #F0F0EF;
+  margin-top: 200px;
+  background-color: #CC000000;
 }
 
 /* Right column */
 .rightcolumn {
   float: left;
-  width: 40%;
+  width: 70%;
 
 }
 
@@ -81,7 +81,7 @@ nav a:hover {
 
 html{
 
-      background:url(https://wallpapercave.com/wp/wp2672847.jpg);
-    width: 100%;
+      background:url(a1.jpg) ;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
-

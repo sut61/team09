@@ -7,7 +7,7 @@
 
 .button-row button,
 .button-row a {margin-right: 8px;}
-.font-field-head{font-family: 'Kanit', sans-serif; color: #ffffff;}
+.font-field-head{font-family: 'Kanit', sans-serif; color: #133a51;}
 .font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4;}
 .example-full-width {font-size: 16px; width: 100%; font-family: 'Kanit', sans-serif;}
 
@@ -22,8 +22,14 @@
         outline: none;
         width: 100%;}
 
+a{text-decoration: none; margin-top: 20px}
 
-
-.blue-snackbar {
-  background: #373737;
-}
+nav a {
+  width: 600px;
+  height: 500px;
+  text-decoration: none;
+  margin-top: 50px;
+  display: inline-block;
+  background-color: #CC000000;
+  float: center;
+  }

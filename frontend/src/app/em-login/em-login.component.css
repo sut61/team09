@@ -26,11 +26,10 @@
 a{text-decoration: none; margin-top: 20px}
 
 nav a {
-  padding: 60px 332px;
+  padding: 100px 332px;
   text-decoration: none;
   margin-top: 0px;
   display: inline-block;
   background-color: #3A9FA6;
-  float: center;
   }
 

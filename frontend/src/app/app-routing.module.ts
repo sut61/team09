@@ -20,7 +20,6 @@ import { ShowDiseaseAccidentDataResultComponent } from './ShowDiseaseAccidentDat
 import { ShowClaimDataResultComponent } from './ShowClaimDataResult/ShowClaimDataResult.component';
 import { HospitalComponent } from './hospital/hospital.component';
 
-
 const routes: Routes = [
 { path: 'agentAppointment', component: AgentAppointmentComponent },
 { path: 'showAppointmentResult', component: ShowAppointmentResultComponent },

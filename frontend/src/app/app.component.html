@@ -1,35 +1,20 @@
-<div class="header">
-  <h3>&nbsp;&nbsp;&nbsp;Health Insurance G09</h3>
-</div>
 <html>
 <div class="row" >
   <div class="leftcolumn">
     <div class="card">
-      <div id="Maintabbar" class="maintabbar" align="center">
-        <h2>MENU</h2>
-      </div>
       <nav>
-        <a routerLink="/OfficerLogin" routerLinkActive="active">Officer Login</a>
-        <a routerLink="/MemLogin" routerLinkActive="active">Login</a>
-        <a routerLink="/MemberRegistionComponent" routerLinkActive="active">สมัครประกันชีวิต</a>
-        <a routerLink="/RegCategoryUi" routerLinkActive="active">เพิ่มประเภทประกันชีวิต</a>
-        <a routerLink="/Lumpsum" routerLinkActive="active">เหมาจ่ายประกัน</a>
-        <a routerLink="/AgentReg" routerLinkActive="active">สมัครตัวแทน</a>
-	      <a routerLink="/DiseaseAccidentDataUI" routerLinkActive="active">โรคและอุบัติเหตุที่ได้รับสิทธิ์คุ้มครอง</a>&nbsp;
-        <a routerLink="/Hospital" routerLinkActive="active">โรงพยาบาลคู่สัญญา</a>&nbsp;
-        <a routerLink="/ClaimDataUI" routerLinkActive="active">ข้อมูลการใช้สิทธิ์คุ้มครอง</a>&nbsp;
-        <a routerLink="/RegCancelInsurance" routerLinkActive="active">ยกเลิกสมาชิกประกันชีวิตออนไลน์</a>&nbsp;
-        <a routerLink="/agentAppointment" routerLinkActive="active">นัดพบตัวแทน</a>
-        <a routerLink="/cancelAppointment" routerLinkActive="active">ยกเลิกนัดพบตัวแทน</a>
-
+        <a routerLink="/MemLogin" routerLinkActive="active">Login</a><br>
+        <a routerLink="/MemberRegistionComponent" routerLinkActive="active">สมัครประกันชีวิต</a><br>
+        <a routerLink="/AgentReg" routerLinkActive="active">สมัครตัวแทน</a><br>
+        <a routerLink="/agentAppointment" routerLinkActive="active">นัดพบตัวแทน</a><br>
+        <a routerLink="/cancelAppointment" routerLinkActive="active">ยกเลิกนัดพบตัวแทน</a><br><br>
+        <a routerLink="/OfficerLogin" routerLinkActive="active">Officer Login</a><br>
       </nav>
     </div>
-  </div>
+    </div>
 
   <div class="rightcolumn">
-    <div class="card1">
       <router-outlet></router-outlet>
-    </div>
   </div>
 </div>
 </html>

@@ -51,8 +51,11 @@
         <input matInput placeholder="กรอก ค่ารักษาพยาบาล" [(ngModel)]="ClaimData.costA" >
         <mat-hint align="end">ใส่ตัวเลขเท่านั้น</mat-hint>
       </mat-form-field>
-      </mat-list-item>
+      </mat-list-item><br>
+    <mat-list-item>
+    <button mat-raised-button align = "left" class="font-field" color="warm" routerLink="/OfficerHome">ย้อนกลับ</button>&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;<button class="font-field" (click)="save()" cdkFocusInitial mat-raised-button color="primary">บันทึก</button>
+    </mat-list-item>
   </mat-list>
 </a></nav>
 

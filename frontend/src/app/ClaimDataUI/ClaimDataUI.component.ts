@@ -14,10 +14,11 @@ memberDataSS:Array<any>;
 diseaseAccidentDataSS:Array<any>;
 categorySS:Array<any>;
 hospitalSS:Array<any>;
+treatmentStyleSS:Array<any>;
 costAA:Array<any>;
 
 ClaimData : any = {
-memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :''
+memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmentStyleS :'',costA :''
 };
   constructor(private Service : ClaimDataService ,private httpClient: HttpClient, private router:Router) { }
 
@@ -44,6 +45,11 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
                      console.log(this.hospitalSS);
                    });
 
+   this.Service.getTreatmentStyle().subscribe(data5 => {
+                        this.treatmentStyleSS = data5;
+                        console.log(this.treatmentStyleSS);
+                      });
+
   }
 
   /**====SAVE====*/
@@ -51,7 +57,8 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
   save(){
 
     if(this.ClaimData.memberDataS === ''|| this.ClaimData.diseaseAccidentDataS === ''||
-    this.ClaimData.categoryS === ''|| this.ClaimData.costA === ''|| this.ClaimData.hospitalS === ''){
+    this.ClaimData.categoryS === ''|| this.ClaimData.costA === ''|| this.ClaimData.hospitalS === ''
+    || this.ClaimData.treatmentStyleSS === ''){
 
      alert('กรุณาเลือกข้อมูลให้ครบ!');
     }
@@ -81,6 +88,7 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
       + this.ClaimData.diseaseAccidentDataS + '/'
       + this.ClaimData.categoryS + '/'
       + this.ClaimData.hospitalS + '/'
+      + this.ClaimData.treatmentStyleS + '/'
       + this.ClaimData.costA
        ,this.ClaimData)
 
@@ -98,9 +106,10 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',costA :'
                                diseaseAccidentDataS:ClaimData.diseaseAccidentDataS,
                                categoryS:ClaimData.categoryS,
                                hospitalS:ClaimData.hospitalS,
+                               treatmentStyleS:ClaimData.treatmentStyleS,
                                costA:ClaimData.costA}])
 
-                              
+
               },
 
         error => {console.log('Error', error);

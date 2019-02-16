@@ -54,7 +54,15 @@ private @NonNull long id;
 	@JoinColumn(name = "Hospital_ID", insertable = true)
 	private  Hospital hospital;
 
-	
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = TreatmentStyle.class)
+	@JoinColumn(name = "TreatmentStyle_ID", insertable = true)
+	private  TreatmentStyle treatmentStyle;
+
+
+	public void setTreatmentStyle(TreatmentStyle treatmentStyle) {
+		this.treatmentStyle = treatmentStyle;
+	}
+
 	public void setCostClaimData(long cost) {
 		this.cost = cost;
 

@@ -26,7 +26,9 @@ getHospital(): Observable<any> {
         return this.http.get(this.API +'/getHospital');
       }
 
-
+getTreatmentStyle(): Observable<any> {
+        return this.http.get(this.API +'/getTreatmentStyle');
+      }
 
 
 }

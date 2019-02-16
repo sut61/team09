@@ -29,7 +29,8 @@ public class BackendApplication {
 						   LengthRepository lengthRepository, MoneyMaximumRepository moneyMaximumRepository,
 						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
-						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository) {
+						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,
+						   HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository,TreatmentStyleRepository treatmentStyleRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -45,6 +46,20 @@ public class BackendApplication {
 			diseaseAccidentLevelRepository.save(leve1_3);
 			//=========================================================================
 
+			//================add treatmentStyle : BY ISARA ====================
+			String ts[]={
+					"ผ่าตัด","เข้าเฝือก","เย็บแผล","กายภาพ","ให้คลีโม","ฟอกไต","ดามกระดูก","นอนพักที่โรงพยาบาล",
+					"ฉายรังสี","ใช้ยาแผนปัจจุบัน","ใช้ยาแผนโบราณ",
+			};
+			for(int i=0;i<ts.length;i++) {
+				TreatmentStyle treatmentStyle = new TreatmentStyle();
+				treatmentStyle.setStyleName(ts[i]);
+				treatmentStyleRepository.save(treatmentStyle);
+			}
+
+			//=========================================================================
+
+
 			//================add DiseaseAccidentType : BY ISARA ====================
 			DiseaseAccidentType typeD00 = new DiseaseAccidentType();
 			typeD00.setDiseaseAccidentType("โรค");
@@ -54,10 +69,21 @@ public class BackendApplication {
 			typeA00.setDiseaseAccidentType("อุบัติเหตุ");
 			diseaseAccidentTypeRepository.save(typeA00);
 			//======================================================================
-               EMData em = new EMData();
-               em.setUserName("tt");
-               em.setPassword("t");
-               emDataRepository.save(em);
+
+			String emU[]={
+					"tt","admin"
+			};
+
+			String emP[]={
+					"t","1234"
+			};
+
+			for(int i=0;i<emU.length;i++) {
+				EMData em = new EMData();
+				em.setUserName(emU[i]);
+				em.setPassword(emP[i]);
+				emDataRepository.save(em);
+			}
 			//================add MedicalFee : BY ISARA ====================
 			MedicalFee cost_01 = new MedicalFee();
 			cost_01.setMedicalFee(500);

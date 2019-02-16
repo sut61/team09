@@ -48,6 +48,16 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
+        <mat-select class="font-field" placeholder="เลือก รูปแบบการรักษา" [(ngModel)]="ClaimData.treatmentStyleS" >
+          <mat-option class="font-field" *ngFor="let TreatmentStyle of treatmentStyleSS" [value]="TreatmentStyle.styleName">
+            {{TreatmentStyle.id}}. {{TreatmentStyle.styleName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+    <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
         <input matInput placeholder="กรอก ค่ารักษาพยาบาล" [(ngModel)]="ClaimData.costA" >
         <mat-hint align="end">ใส่ตัวเลขเท่านั้น</mat-hint>
       </mat-form-field>

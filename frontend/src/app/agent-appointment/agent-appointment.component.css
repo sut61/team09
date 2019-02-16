@@ -26,10 +26,11 @@ a{text-decoration: none; margin-top: 20px}
 
 nav a {
   width: 600px;
-  height: 500px;
+  height: 600px;
   text-decoration: none;
   margin-top: 50px;
   display: inline-block;
-  background-color: #CC000000;
+  background-color: rgba(0, 200, 500, 0.2);
+  border-radius: 5px;
   float: center;
   }

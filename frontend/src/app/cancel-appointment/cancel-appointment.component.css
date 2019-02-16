@@ -25,11 +25,13 @@
 a{text-decoration: none; margin-top: 20px}
 
 nav a {
-  width: 500px;
-  height: 500px;
-  text-decoration: none;
-  margin-top: 50px;
-  display: inline-block;
-  background-color: #CC000000;
-  float: center;
+    width: 500px;
+    height: 300px;
+    text-decoration: none;
+    margin-top: 50px;
+    display: inline-block;
+    /**outline-color: rgba(50, 115, 220, 0.3);**/
+    background-color: rgba(0, 400, 500, 0.2);
+    border-radius: 5px;
+    float: center;
   }

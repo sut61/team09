@@ -85,25 +85,27 @@ public class CancelInsurance { //ยกเลิกประกันชีว�
 
     private Long iD;
 
-    @NotNull(message="Please enter First name")
+    @NotNull(message="idcard not null")
     @Pattern(regexp = "[0-9]{13}")
     @Column( unique = true)
     private String idCard;
 
-    @NotNull(message="Please enter First name")
+    @NotNull(message="Please enter not First name")
     @Pattern(regexp = "^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}")
     private String fName;
 
-    @NotNull(message="Please enter First name")
+    @NotNull(message="LastName is not null")
     @Pattern(regexp = "^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}")
     private String lName;
 
-    @NotNull(message="Please enter First name")
-    @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{5}[A-Za-z0-9.]*@[a-z]+.[a-z.]+")
+    @NotNull(message="Email is not null")
+    @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+", message = "{Email pattern is invalid}")
+    @Column( unique = true)
     private String eMail;
 
-    @NotNull(message="Please enter First name")
-    @Pattern(regexp = "[0]{1}[6,8,9]{1}[0-9]{8}")
+    @NotNull(message="{Telephone number is null}")
+    @Pattern(regexp = "[0]{1}[2-9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
+    @Column( unique = true)
     private String tlePhone;
     private Date date; //วันที่ทำการยกเลิก
 

@@ -3,6 +3,8 @@ import { CancellumpsumService } from '../service/cancellumpsum.service';
 import { LumpsumserviceService } from '../service/lumpsumservice.service';
 import { HttpClient } from '@angular/common/http';
 
+
+
 @Component({
   selector: 'app-cancellumpsum',
 templateUrl: './cancellumpsum.component.html',
@@ -10,9 +12,10 @@ templateUrl: './cancellumpsum.component.html',
 })
 export class CancellumpsumComponent implements OnInit {
 
-  Contacts : Array<any>;
   Lumpsums : Array<any>;
-  Lumpsumlist: Array<any> = []
+
+  displayedColumns: string[] = ['iD','companyName','address','provinceId','zipCode','businessSizeId','establishmentId','categoryId','amoungEmp'];
+  Contacts : Array<any>;
   Cancellumpsum : any = {
   LUMPSUM_ID: '' ,CONTACT_ID: '' , comment: ''};
 
@@ -32,8 +35,8 @@ export class CancellumpsumComponent implements OnInit {
 save() {
       if(this.Cancellumpsum.LUMPSUM_ID === '' || this.Cancellumpsum.CONTACT_ID === ''||
       this.Cancellumpsum.comment === '' ){
-
       alert('กรุณใส่ข้อมูลให้ครบ');
+
 
       }else {
         this.httpClient.delete('http://localhost:8080/cancelLumpsum/' + this.Cancellumpsum.LUMPSUM_ID + '/'
@@ -47,7 +50,7 @@ save() {
               console.log('Rrror', error);
             }
         );
-         alert('บันทึกสำเร็จ');
+         alert('ยกเลิกสำเร็จ');
      }
   }
 

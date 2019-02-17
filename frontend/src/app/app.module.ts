@@ -46,6 +46,7 @@ import { ShowLumpsumResultComponent } from './show-lumpsum-result/show-lumpsum-r
 import { EmLoginComponent } from './em-login/em-login.component';
 import { MemShowComponent } from './mem-show/mem-show.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CancellumpsumComponent } from './cancellumpsum/cancellumpsum.component';
 
 
 const appRoutes: Routes = [
@@ -66,6 +67,8 @@ const appRoutes: Routes = [
 {path: 'ShowHospitalResultComponent', component: ShowHospitalResultComponent},
 {path: 'ShowLumpsumResultComponent', component: ShowLumpsumResultComponent},
 {path: 'cancelAppointment', component: CancelAppointmentComponent},
+{path: 'Cancellumpsum', component: CancellumpsumComponent},
+
 ];
 
 @NgModule({
@@ -94,7 +97,8 @@ RegCancelInsuranceComponent,
 	ShowHospitalResultComponent,
   ShowLumpsumResultComponent,
   EmLoginComponent,
-  MemShowComponent
+  MemShowComponent,
+  CancellumpsumComponent
   ],
   imports: [
     BrowserModule,

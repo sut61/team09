@@ -30,7 +30,8 @@ public class BackendApplication {
 						   BusinessSizeRepository businessSizeRepository, EstablishmentRepository establishmentRepository,
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
 						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,
-						   HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository,TreatmentStyleRepository treatmentStyleRepository) {
+						   HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository,TreatmentStyleRepository treatmentStyleRepository,
+						   ContactRepository contactRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -386,6 +387,11 @@ public class BackendApplication {
 					newSize.setHosSize("ขนาดใหญ่");
 				}
 				hospitalSizeRepository.save(newSize);
+			});
+			Stream.of("มายกเลิกด้วยตัวเอง","ยกเลิกผ่านทางโทรศัพท์","ยกเลิกผ่านทาง e-mail","ยกเลิกผ่านทางไรษณีย์").forEach(NameContact ->{
+				Contact contact = new Contact();
+				contact.setContactName(NameContact);
+				contactRepository.save(contact);
 			});
 		};
 	}

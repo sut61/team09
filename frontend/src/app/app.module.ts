@@ -47,6 +47,7 @@ import { EmLoginComponent } from './em-login/em-login.component';
 import { MemShowComponent } from './mem-show/mem-show.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CancellumpsumComponent } from './cancellumpsum/cancellumpsum.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 const appRoutes: Routes = [
@@ -116,6 +117,7 @@ MatToolbarModule,
 MatDividerModule,
 FormsModule,
 MatSnackBarModule,
+MatTableModule,
 RouterModule.forRoot(appRoutes),
 AppRoutingModule
   ],

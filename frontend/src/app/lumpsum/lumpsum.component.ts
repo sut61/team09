@@ -51,6 +51,9 @@ save() {
         else if(this.Lumpsums.zipCode.length != 5)
         {alert('รหัสไปรษณีย์ไม่ถูกต้อง');}
 
+        else if(this.Lumpsums.amoungEmp < 5 || this.Lumpsums.amoungEmp > 10000000)
+        {alert('จำนวนพนักงานต้องมากกว่าเท่ากับ 5 หรือน้อยกว่าเท่ากับ 10,000,000');}
+
       else{
         this.httpClient.post('http://localhost:8080/Lumpsum/NEW/' + this.Lumpsums.companyName + '/'
         + this.Lumpsums.amoungEmp + '/' + this.Lumpsums.address + '/' + this.Lumpsums.zipCode + '/'

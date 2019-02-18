@@ -71,7 +71,7 @@ this.HospitalService.getHosSize().subscribe(dataD => {
               , catta :this.Hospitalreg.catta, province :this.Hospitalreg.province
               , sizehos :this.Hospitalreg.sizehos}])
               console.log('PUT Request is successful', data);
-              {alert('ลงทะเบียนสำเร็จ!');}
+
                                       },
                                         error => {
                                             console.log('Rrror', error); {alert('ชื่อโรงพยาบาลซ้ำ!');}

@@ -1,50 +1,86 @@
-<mat-card align="center">
-<h2> ยินดีต้อนรับ</h2>
+<nav><a class="font-field" >
+  <mat-list>
+    <mat-list-item>
+    <h2 class="font-field-head">ยินดีต้อนรับ</h2>
+    </mat-list-item><br>
+    <button mat-raised-button class="font-field" color="warn" routerLink="/RegCancelInsurance" routerLinkActive="active">ยกเลิกสมาชิกประกันชีวิตออนไลน์</button>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-list-item>
+    <table matSort (matSortChange)="sortData($event)" class="show-member">
+      <tr>
+        <th mat-sort-header="name" >ชื่อ</th>&nbsp;&nbsp;
+        <th mat-sort-header="name">นามสกุล</th>&nbsp;&nbsp;
+        <th mat-sort-header="name">เลขบัตรประชาชน</th>&nbsp;&nbsp;
+      </tr>
+      <tr >
+        <td >{{User.fname}}</td>&nbsp;&nbsp;
+        <td>{{User.lname}}</td>&nbsp;&nbsp;
+        <td>{{User.idCard}}</td>&nbsp;&nbsp;
+      </tr>
+    </table><br>
+    </mat-list-item>
+    <br>
+    <div class = "code" >
+      <mat-form-field >
+        <input matInput placeholder="CODE" [(ngModel)]="code.code">
+      </mat-form-field>
+      &nbsp;&nbsp;<button mat-raised-button class="font-field" color="primary" (click)="submit()" cdkFocusInitial>ยืนยัน</button>
+    </div>
+    <br>
+    <div class = "table" ><h2 class="font-field-topic">ค้างชำระ</h2>
+      <table mat-table [dataSource]="Cost" class="example-full-width1">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td  mat-cell *matCellDef="let Cost"> {{ Cost.id }} </td>
+        </ng-container>
 
-<table matSort (matSortChange)="sortData($event)">
-  <tr>
-    <th mat-sort-header="name">ขื่อ</th>
-    <th mat-sort-header="name">นามสกุล</th>
-    <th mat-sort-header="name">เลขบัตรประชาชน</th>
-  </tr>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> ยอดชำระ </th>
+          <td  mat-cell *matCellDef="let Cost"> {{ Cost.amount }} </td>
+        </ng-container>
 
-  <tr >
-    <td>{{User.fname}}</td>
-    <td>{{User.lname}}</td>
-    <td>{{User.idCard}}</td>
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef> รหัสชำระ </th>
+          <td  mat-cell *matCellDef="let Cost"> {{ Cost.code }} </td>
+        </ng-container>
 
-  </tr>
-</table>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> เวลาบิล </th>
+          <td  mat-cell *matCellDef="let Cost"> {{ Cost.date }} </td>
+        </ng-container>
 
-<h2> CODE</h2>
-<mat-list-item>
-<mat-form-field class="font-field">
-  <input matInput placeholder="CODE" [(ngModel)]="code.code">
-</mat-form-field>
-</mat-list-item>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div><br>
 
-<button mat-raised-button class="font-field" color="primary" (click)="submit()" cdkFocusInitial>ยืนยัน</button>
+    <div class = "table2" ><h2 class="font-field-topic">ประวัติการชำระ</h2>
+      <table mat-table [dataSource]="Paid" class="example-full-width1">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td  mat-cell *matCellDef="let Paid"> {{ Paid.id }} </td>
+        </ng-container>
 
-  <mat-list-item>
-    <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="ยังไม่จ่าย" [(ngModel)]="text1"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
-        <mat-option class="font-field" *ngFor="let PaymentCost of Cost" [value]="PaymentCost.code"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
-          {{ PaymentCost.id }} : ยอดชำระ {{ PaymentCost.amount }}  : รหัสชำระ {{ PaymentCost.code }} :เวลาบิล {{ PaymentCost.date }}  <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-list-item>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> ยอดชำระ </th>
+          <td  mat-cell *matCellDef="let Paid"> {{ Paid.amount }} </td>
+        </ng-container>
 
-  <mat-list-item>
-    <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="จ่ายแล้ว" [(ngModel)]="text"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
-        <mat-option class="font-field" *ngFor="let PaymentHistory of Paid" [value]="PaymentHistory.code"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
-          {{ PaymentHistory.id }} : ยอดชำระ {{ PaymentHistory.amount }} :รหัสชำระ {{ PaymentHistory.code }} :เวลาที่ชำระ {{ PaymentHistory.date }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-list-item>
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef> รหัสชำระ </th>
+          <td  mat-cell *matCellDef="let Paid"> {{ Paid.code }} </td>
+        </ng-container>
 
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> เวลาบิล </th>
+          <td  mat-cell *matCellDef="let Paid"> {{ Paid.date }} </td>
+        </ng-container>
 
-
-</mat-card>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+      </table>
+    </div>
+  </mat-list><br>
+  <button mat-raised-button class="font-field" color="warm" routerLink="/">ออกจากระบบ</button>&nbsp;&nbsp;
+</a></nav>

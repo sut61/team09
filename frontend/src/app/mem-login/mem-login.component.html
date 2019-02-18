@@ -1,15 +1,15 @@
-<mat-toolbar color="primary">
-  <span>เข้าสู่ระบบ</span>
-</mat-toolbar>
-<mat-card align="center">
-  <form #userForm="ngForm">
-    <mat-form-field>
-      <input matInput (keyup.enter)="login()" type="text" name="userUsername" placeholder="username" [(ngModel)]="user.username">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput (keyup.enter)="login()" type="password" name="userPassword" placeholder="password" [(ngModel)]="user.password">
-    </mat-form-field>
-  </form>
-  <button mat-raised-button (click)="login()" >login</button>
-</mat-card>
+<nav><a>
+  <mat-list-item>
+    <h2 class="font-field-head">&nbsp;เข้าสู่ระบบ</h2>
+  </mat-list-item>
+  <mat-form-field class="font-field">
+    <input matInput (keyup.enter)="login()" type="text" name="userUsername" placeholder="username" [(ngModel)]="user.username">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="font-field">
+    <input matInput (keyup.enter)="login()" type="password" name="userPassword" placeholder="password" [(ngModel)]="user.password">
+  </mat-form-field>
+  <mat-list-item>
+    <button mat-raised-button align ="center" color="primary" class="button" (click)="login()" >login</button>
+  </mat-list-item>
+</a></nav>

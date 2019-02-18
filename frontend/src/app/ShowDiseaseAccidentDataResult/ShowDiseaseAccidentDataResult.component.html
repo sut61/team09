@@ -2,16 +2,15 @@
   <mat-card class="example-form">
 
     <div align="center">
-    <mat-card class="example-formX" >
-      บันทึกสำเร็จ
-  </mat-card>
+      <h2 class="font-field-head"> บันทึกสำเร็จ </h2>
     </div>
-    <p class="font-field-head"> โชว์ข้อมูล </p>
+    <h2 class="font-field"> ผลการบันทึก </h2>
     <p class="font-field"> ชื่อโรค/อุบัติเหตุ:&nbsp;&nbsp;&nbsp;{{DiseaseAccidentData.dataNameAdd}} </p>
     <p class="font-field"> ชนิดสิทธิคุ้มครอง:&nbsp;&nbsp;&nbsp;{{DiseaseAccidentData.typeIdSelect}} </p>
     <p class="font-field"> ระดับความรุนแรง:&nbsp;&nbsp;&nbsp;{{DiseaseAccidentData.levelIdSelect}} </p>
     <p class="font-field"> ค่ารักษารายวัน:&nbsp;&nbsp;&nbsp;{{DiseaseAccidentData.medicalFeeIdSelect}} </p>
 
-    <button mat-raised-button color="primary" routerLink="/DiseaseAccidentDataUI">ยืนยัน</button>
+    <button mat-raised-button align = "left" class="font-field-back" color="warm" routerLink="/OfficerHome">ย้อนกลับ</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" class="font-field" routerLink="/DiseaseAccidentDataUI">ยืนยัน</button>
   </mat-card>
 </a></nav>

@@ -3,19 +3,20 @@ import {memHomeService} from '../service/memHome.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-mem-home',
-  templateUrl: './mem-home.component.html',
-  styleUrls: ['./mem-home.component.css']
+selector: 'app-mem-home',
+templateUrl: './mem-home.component.html',
+styleUrls: ['./mem-home.component.css']
 })
 export class MemHomeComponent implements OnInit {
+displayedColumns: string[] = ['id','amount','code','date'];
+displayedColumns1: string[] = ['id','amount','code','date'];
+User : Array<any>;
+Paid : Array<any>;
+Cost : Array<any>;
 
- User : Array<any>;
- Paid : Array<any>;
- Cost : Array<any>;
+code : any = { code : '' } ;
 
- code : any = { code : '' } ;
-
-  constructor(private memHomeService: memHomeService , private httpClient: HttpClient ) { }
+constructor(private memHomeService: memHomeService , private httpClient: HttpClient ) { }
 
   ngOnInit() {
   this.memHomeService.getUser(localStorage.getItem('currentUser')).subscribe(data => { this.User = data; console.log(this.memHomeService);});

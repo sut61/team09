@@ -38,65 +38,60 @@
         <button mat-raised-button class="font-field" color="primary" (click)="save()" cdkFocusInitial >ยืนยัน</button>
       </mat-dialog-actions>
     </mat-list-item>
-    <br>
-    <br>
-    <br>
-
-
-    <table mat-table [dataSource]="Lumpsums" class="example-full-width1">
-
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="iD">
-        <th mat-header-cell *matHeaderCellDef> ID บริษัท </th>
-        <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.iD }} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="companyName">
-        <th mat-header-cell *matHeaderCellDef> ชื่อบริษัท </th>
-        <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.companyName }} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef> ที่อยู่บริษัท </th>
-      <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.address }} </td>
-    </ng-container>
-
-      <ng-container matColumnDef="provinceId">
-      <th mat-header-cell *matHeaderCellDef> จังหวัด </th>
-      <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.provinceId.provinceName }} </td>
-    </ng-container>
-
-      <ng-container matColumnDef="zipCode">
-        <th mat-header-cell *matHeaderCellDef>   รหัสไปรษณีย์    </th>
-        <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.zipCode }} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="businessSizeId">
-      <th mat-header-cell *matHeaderCellDef> ขนาดบริษัท </th>
-      <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.businessSizeId.sizeName }} </td>
-    </ng-container>
-
-      <ng-container matColumnDef="establishmentId">
-        <th mat-header-cell *matHeaderCellDef> รูปแบบสถานประกอบการ </th>
-        <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.establishmentId.estabName }} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="categoryId">
-        <th mat-header-cell *matHeaderCellDef> ประเภทประกัน </th>
-        <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.categoryId.typeName }} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="amoungEmp">
-        <th mat-header-cell *matHeaderCellDef> จำนวนพนักงาน </th>
-        <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.amoungEmp }} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
   </mat-list>
-</a></nav>
+</a></nav><br>
+<table mat-table [dataSource]="Lumpsums" class="example-full-width1">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="iD">
+    <th mat-header-cell *matHeaderCellDef> ID บริษัท </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.iD }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="companyName">
+    <th mat-header-cell *matHeaderCellDef> ชื่อบริษัท </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.companyName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> ที่อยู่บริษัท </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.address }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="provinceId">
+    <th mat-header-cell *matHeaderCellDef> จังหวัด </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.provinceId.provinceName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="zipCode">
+    <th mat-header-cell *matHeaderCellDef>   รหัสไปรษณีย์    </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.zipCode }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="businessSizeId">
+    <th mat-header-cell *matHeaderCellDef> ขนาดบริษัท </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.businessSizeId.sizeName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="establishmentId">
+    <th mat-header-cell *matHeaderCellDef> รูปแบบสถานประกอบการ </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.establishmentId.estabName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="categoryId">
+    <th mat-header-cell *matHeaderCellDef> ประเภทประกัน </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.categoryId.typeName }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amoungEmp">
+    <th mat-header-cell *matHeaderCellDef> จำนวนพนักงาน </th>
+    <td  mat-cell *matCellDef="let Lumpsums"> {{ Lumpsums.amoungEmp }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 

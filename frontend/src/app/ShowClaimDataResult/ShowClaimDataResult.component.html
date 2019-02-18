@@ -2,12 +2,9 @@
   <mat-card class="example-form">
 
     <div align="center">
-      <mat-card class="example-formX" >
-        บันทึกสำเร็จ
-      </mat-card>
-	  </div>
-
-    <p class="font-field-head"> โชว์ข้อมูล </p>
+      <h2 class="font-field-head"> บันทึกสำเร็จ </h2>
+    </div>
+    <h2 class="font-field"> ผลการบันทึก </h2>
     <p class="font-field"> ID ผู้ใช้สิทธิ์ :&nbsp;&nbsp;&nbsp;{{ClaimData.memberDataS}} </p>
     <p class="font-field">  ชื่อโรค/อุบัติเหตุ :&nbsp;&nbsp;&nbsp;{{ClaimData.diseaseAccidentDataS}} </p>
     <p class="font-field"> ประกันที่ใช้ :&nbsp;&nbsp;&nbsp;{{ClaimData.categoryS}} </p>
@@ -15,6 +12,7 @@
     <p class="font-field"> รูปแบบการรักษา :&nbsp;&nbsp;&nbsp;{{ClaimData.treatmentStyleS}} </p>
     <p class="font-field"> ค่ารักษาพยาบาล :&nbsp;&nbsp;&nbsp;{{ClaimData.costA}} </p>
 
-    <button mat-raised-button color="primary" routerLink="/ClaimDataUI">ยืนยัน</button>
+    <button mat-raised-button align = "left" class="font-field-back" color="warm" routerLink="/OfficerHome">ย้อนกลับ</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" class="font-field" routerLink="/ClaimDataUI">ยืนยัน</button>
   </mat-card>
 </a></nav>

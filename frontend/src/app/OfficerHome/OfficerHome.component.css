@@ -6,6 +6,8 @@ body {
  font-family: Kanit, sans-serif;
 }
 
+.font-field{font-size: 18px; width: 150px; font-family: 'Kanit', sans-serif; color: #ffffff;}
+
 nav a {
   padding: 10px 60px;
   text-decoration: none;

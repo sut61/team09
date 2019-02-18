@@ -5,32 +5,19 @@
   src: url('https://fonts.googleapis.com/css?family=Kanit');
 }
 
-.button-row button,
-.button-row a {margin-right: 8px;}
-.font-field-head{font-family: 'Kanit', sans-serif; color: #373737;}
-.font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4;}
-.example-full-width {font-size: 16px; width: 100%; font-family: 'Kanit', sans-serif;}
 
-/* Change background color of buttons on hover */
-.tablink:hover {background-color: #777; }
-
-/* Set default styles for tab content */
-.maintabbar{
-
-        color: #ffffff;
-        float: right;
-        border: none;
-        outline: none;
-        width: 100%;}
-
+.font-field{font-size: 18px; width: 400px; font-family: 'Kanit', sans-serif; color: #212020;}
+.font-field-head{font-size: 25px; width: 400px; font-family: 'Kanit', sans-serif; color: #212020;}
+.button{font-family: 'Kanit', sans-serif; text-align:center;  width: 100px; }
 a{text-decoration: none; margin-top: 20px}
 
 nav a {
-  padding: 60px 332px;
+  padding: 20px;
   text-decoration: none;
-  margin-top: 0px;
+  margin-left: 100px;
+  margin-top: 100px;
   display: inline-block;
-  background-color: #3A9FA6;
+  background-color: #70aee5;
+  border-radius:5px;
   float: center;
   }
-

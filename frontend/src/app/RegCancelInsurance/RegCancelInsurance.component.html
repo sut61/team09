@@ -1,4 +1,4 @@
-<div class="font-field">
+<nav><a class="font-field">
   <mat-list>
     <mat-list-item>
       <h2 class="font-field-head">ยกเลิกประกันชีวิตออนไลน์</h2>
@@ -31,7 +31,7 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="กรอกอีเมลย์" [(ngModel)]="cancelInsurances.eMail">
+        <input matInput placeholder="กรอกอีเมลล์" [(ngModel)]="cancelInsurances.eMail">
         <mat-hint align="end">ex. mornblackboom@gmail.com</mat-hint>
       </mat-form-field>&nbsp;&nbsp;
     </mat-list-item>
@@ -39,7 +39,7 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="กรอกอเบอร์โทร" [(ngModel)]="cancelInsurances.tlePhone">
+        <input matInput placeholder="กรอกเบอร์โทร" [(ngModel)]="cancelInsurances.tlePhone">
         <mat-hint align="end">ex. 0927373056</mat-hint>
       </mat-form-field>&nbsp;&nbsp;
     </mat-list-item>
@@ -56,9 +56,9 @@
     </mat-list-item>
 
     <br>
-    <button mat-raised-button align = "left" class="font-field" color="warm" routerLink="/OfficerHome">ย้อนกลับ</button>&nbsp;&nbsp;
+    <button mat-raised-button align = "left" class="font-field" color="warm" routerLink="/MemHome">ย้อนกลับ</button>&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;<button mat-raised-button class="font-field" color="primary" (click)="save()" cdkFocusInitial>บันทึก</button>
 
 
   </mat-list>
-</div>
+</a></nav>

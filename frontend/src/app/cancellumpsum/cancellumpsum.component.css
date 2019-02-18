@@ -9,8 +9,8 @@
 .button-row a {margin-right: 8px;}
 .font-field-head{font-family: 'Kanit', sans-serif; color: #373737;}
 .font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4;}
-.example-full-width {font-size: 15px; width: 100%; font-family: 'Kanit', sans-serif;}
-.example-full-width1 {font-size: 5px; width: 155%; font-family: 'Kanit', sans-serif;}
+.example-full-width {font-size: 18px; width: 100%; font-family: 'Kanit', sans-serif;}
+.example-full-width1 {font-size: 10px; width: 1050px; font-family: 'Kanit', sans-serif;}
 
 
 /* Change background color of buttons on hover */
@@ -28,8 +28,7 @@
 a{text-decoration: none; margin-top: 20px}
 
 nav a {
-  width: 600px;
-  height: 600px;
+  padding: 10px;
   text-decoration: none;
   margin-top: 50px;
   display: inline-block;

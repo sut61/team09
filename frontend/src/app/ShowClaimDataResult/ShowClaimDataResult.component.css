@@ -5,7 +5,8 @@
   src: url('https://fonts.googleapis.com/css?family=Kanit');
 }
 .font-field{font-size: 18px; font-family: 'Kanit', sans-serif; color: #123342; text-align: center;} /**หัวข้อ**/
-.font-field-head{font-size: 20px; font-family: 'Kanit', sans-serif; color: #373737; text-align: center;} /**รายละเอียด**/
+.font-field-back{font-size: 18px; font-family: 'Kanit', sans-serif; color: #ffffff;}
+.font-field-head{font-size: 20px; font-family: 'Kanit', sans-serif; color: #ffffff; text-align: center;} /**รายละเอียด**/
 
 .example-form {
   font-size: 16px;
@@ -15,9 +16,9 @@
 }
 
 nav a {
-  padding: 40px 300px;
+  padding: 10px;
   text-decoration: none;
-  display: inline-block;
+  margin-top:100px;
   background-color: #CC000000; /**พื้นหลังสีใส**/
   border-radius: 2px;}
 

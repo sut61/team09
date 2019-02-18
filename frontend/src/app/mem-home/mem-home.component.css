@@ -8,29 +8,38 @@
 .button-row button,
 .button-row a {margin-right: 8px;}
 .font-field-head{font-family: 'Kanit', sans-serif; color: #373737;}
-.font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #b3f3f4;}
+.font-field{font-size: 16px; font-family: 'Kanit', sans-serif; color: #ffffff;}
+.font-field-topic{font-size: 16px; font-family: 'Kanit', sans-serif; color: #373737;}
 .example-full-width {font-size: 16px; width: 100%; font-family: 'Kanit', sans-serif;}
-
-/* Change background color of buttons on hover */
-.tablink:hover {background-color: #777; }
-
-/* Set default styles for tab content */
-.maintabbar{
-
-        color: #ffffff;
-        float: right;
-        border: none;
-        outline: none;
-        width: 100%;}
+.example-full-width1 {font-size: 16px; width: 800px; font-family: 'Kanit', sans-serif;}
+.show-member{font-size: 16px; font-family: 'Kanit', sans-serif; color: #ffffff;}
 
 a{text-decoration: none; margin-top: 20px}
 
 nav a {
-  padding: 60px 332px;
+  padding: 20px;
   text-decoration: none;
-  margin-top: 0px;
+  margin-left: 0px;
+  margin-top: 100px;
   display: inline-block;
+  border-radius: 5px;
   background-color: #3A9FA6;
-  float: center;
   }
+
+.table{
+padding: 5px;  /*ขนาดพื้นหลัง table*/
+color: #3b3f3e; /*สีตัวหนังสือใน table*/
+border-radius: 5px; /*ความมนของขอบ table*/
+background-color: #e59b87;  /*สีพื้นหลัง table*/
+}
+
+.table2{
+padding: 5px;  /*ขนาดพื้นหลัง table*/
+color: #3b3f3e; /*สีตัวหนังสือใน table*/
+border-radius: 5px; /*ความมนของขอบ table*/
+background-color: #c1e587;  /*สีพื้นหลัง table*/
+}
+.code{
+color: #373737; /*สีตัวหนังสือใน table*/
+}
 

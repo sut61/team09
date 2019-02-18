@@ -13,7 +13,7 @@
       </mat-form-field>&nbsp;&nbsp;
     </mat-list-item>
 
-      <br>
+    <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="ที่อยู่" [(ngModel)]="Lumpsums.address">
@@ -52,19 +52,19 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-        </mat-list-item>
-        <br>
+    </mat-list-item>
+    <br>
 
     <mat-list-item>
       <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="รูปแบบสถานประกอบการณ์" [(ngModel)]="Lumpsums.ESTABLISHMENT_ID">
+        <mat-select class="font-field" placeholder="รูปแบบสถานประกอบการณ์" [(ngModel)]="Lumpsums.ESTABLISHMENT_ID">
           <mat-option class="font-field" *ngFor="let Establishment of Establishmentes" [value]="Establishment.estabName" > <!-- แสดงค่าที่เราเกดลือกแล้ว -->
             {{ Establishment.id }} : {{ Establishment.estabName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
           </mat-option>
         </mat-select>
       </mat-form-field>
     </mat-list-item>
-        <br>
+    <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
         <mat-select class="font-field" placeholder="ประเภทประกัน" [(ngModel)]="Lumpsums.CATEGORY_ID">
@@ -75,7 +75,7 @@
       </mat-form-field>
     </mat-list-item>
     <br>
-     &nbsp;&nbsp;
+    &nbsp;&nbsp;
 
     <button mat-raised-button align = "left" class="font-field" color="warm" routerLink="/OfficerHome">ย้อนกลับ</button>&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;<button mat-stroked-button class="font-field" (click)="save()" cdkFocusInitial mat-raised-button color="primary">บันทึก</button>

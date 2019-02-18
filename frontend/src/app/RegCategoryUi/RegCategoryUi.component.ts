@@ -49,16 +49,18 @@ export class RegCategoryUiComponent implements OnInit {
       alert('กรุณใส่ข้อมูลให้ครบ');
 
       }
-      else if(/^[A-z]*[ก-๐]|^[ก-๐]*[A-z]/.test(this.categorys.typeName) === false){
-          alert('กรอกประเภทประกันชีวิตให้ถูกต้อง');
 
-      }
       else if(this.categorys.typeName.length < 6){
           alert('ข้อมูลประเภทประกันต้องมีความยาว ไม่ต่ำกว่า 6 ตัว');
       }
       else if(this.categorys.typeName.length > 30){
           alert('ข้อมูลประเภทประกันต้องมีความยาว ห้ามเกิน 30 ตัว');
       }
+      else if(this.categorys.insuranceName == null){alert('กรุณาเลือกจเบี้ยประกัน');}
+
+      else if(this.categorys.lengthName == null){alert('กรุณาเลือกวระยะเวลาคุ้มครอง');}
+
+      else if(this.categorys.moneyName == null){alert('กรุณาเลือกเงินชดเชย');}
 
       else {
         this.httpClient.post('http://localhost:8080/Category/' + this.categorys.typeName + '/'
@@ -68,12 +70,20 @@ export class RegCategoryUiComponent implements OnInit {
         .subscribe(
            data => {
               console.log('PUT Request is successful', data);
+              console.log(this.categorys)
+                               const categorys  = this.categorys
+                               this.router.navigate(['ShowCategoryResult',{
+                               typeName:categorys.typeName,
+                               insuranceName:categorys.insuranceName,
+                               lengthName:categorys.lengthName,
+                               moneyName:categorys.moneyName}])
+              alert('บันทึกข้อมูลแล้ว');
            },
            error => {
               console.log('Rrror', error);
             }
         );
-         alert('บันทึกสำเร็จ');
+
      }
   }
 }

@@ -77,7 +77,7 @@ this.AgentRegService.getProvince().subscribe(dataC => {
               , cattype :this.Agentregis.cattype, educational :this.Agentregis.educational
               , aprovince :this.Agentregis.aprovince}])
               console.log('PUT Request is successful', data);
-              {alert('ลงทะเบียนสำเร็จ!');}
+
                                         },
                                         error => {
                                             console.log('Rrror', error); {alert('ชื่อหรือนามสกุลมีอยู่แล้ว!');}

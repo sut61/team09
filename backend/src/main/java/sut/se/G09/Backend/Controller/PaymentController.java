@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.Date;
 
-import java.util.Collection;
+import java.util.*;
+
 import java.util.Date;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -48,18 +47,17 @@ public class PaymentController
     }
 
     @GetMapping(path ="/cost/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PaymentCost cost (@PathVariable String user){
+    public Collection<PaymentCost> cost (@PathVariable String user){
         MLData mem = mlDataRepository.findByUserName(user);
-        PaymentCost po = paymentCostRepository.findByMemberData(mem.getMemberData());
-
-        return po;
+        Collection<PaymentCost> po = paymentCostRepository.findByMemberData(mem.getMemberData());
+        return  po.stream().collect(Collectors.toList());
     }
 
     @GetMapping(path ="/paid/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PaymentHistoty paid (@PathVariable String user){
+    public Collection<PaymentHistoty>  paid (@PathVariable String user){
         MLData mem = mlDataRepository.findByUserName(user);
-        PaymentHistoty p = paymentHistoryRepository.findByMemberData(mem.getMemberData());
-        return p;
+        Collection<PaymentHistoty> p = paymentHistoryRepository.findByMemberData(mem.getMemberData());
+        return p.stream().collect(Collectors.toList());
     }
 
     @DeleteMapping ("/pay/{code}")

@@ -25,40 +25,26 @@
 
 <button mat-raised-button class="font-field" color="primary" (click)="submit()" cdkFocusInitial>ยืนยัน</button>
 
-<table matSort (matSortChange)="sortData($event)">
-  <tr>
-    <th mat-sort-header="a">id</th>
-    <th mat-sort-header="v">ค่าใช้จ่าย</th>
-    <th mat-sort-header="d">วันที่บิล</th>
-    <th mat-sort-header="c">รหัสชำระ</th>
-  </tr>
+  <mat-list-item>
+    <mat-form-field class="example-full-width">
+      <mat-select class="font-field" placeholder="ยังไม่จ่าย" [(ngModel)]="text1"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
+        <mat-option class="font-field" *ngFor="let PaymentCost of Cost" [value]="PaymentCost.code"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
+          {{ PaymentCost.id }} : ยอดชำระ {{ PaymentCost.amount }}  : รหัสชำระ {{ PaymentCost.code }} :เวลาบิล {{ PaymentCost.date }}  <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-list-item>
 
-  <tr >
-    <td>{{Cost.id}}</td>
-    <td>{{Cost.amount}}</td>
-    <td>{{Cost.date}}</td>
-    <td>{{Cost.code}}</td>
+  <mat-list-item>
+    <mat-form-field class="example-full-width">
+      <mat-select class="font-field" placeholder="จ่ายแล้ว" [(ngModel)]="text"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
+        <mat-option class="font-field" *ngFor="let PaymentHistory of Paid" [value]="PaymentHistory.code"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
+          {{ PaymentHistory.id }} : ยอดชำระ {{ PaymentHistory.amount }} :รหัสชำระ {{ PaymentHistory.code }} :เวลาที่ชำระ {{ PaymentHistory.date }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-list-item>
 
-  </tr>
-</table>
-
-
-<table matSort (matSortChange)="sortData($event)">
-  <tr>
-    <th mat-sort-header="h">id</th>
-    <th mat-sort-header="j">ค่าใช้จ่าย</th>
-    <th mat-sort-header="y">วันที่ชำระ</th>
-    <th mat-sort-header="u">รหัสชำระ</th>
-  </tr>
-
-  <tr >
-    <td>{{Paid.id}}</td>
-    <td>{{Paid.amount}}</td>
-    <td>{{Paid.date}}</td>
-    <td>{{Paid.code}}</td>
-
-  </tr>
-</table>
 
 
 </mat-card>

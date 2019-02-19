@@ -34,7 +34,7 @@ public class Lumpsum {
 
     @NotNull(message="Please enter among of Employee")
     @Range(min=5, max=10000000)
-    private int amoungEmp;
+    private Integer amoungEmp;
 
     @NotNull(message="Please enter address")
     @Pattern(regexp = "[0-9\\d]{1,3}\\W.{1,20}\\W.{1,20}")
@@ -84,7 +84,7 @@ public class Lumpsum {
 
     public void setiD(Long iD){this.iD = iD;}
 
-    public void setLumpsum(String companyName, int amoungEmp, String address, String zipCode){
+    public void setLumpsum(String companyName, Integer amoungEmp, String address, String zipCode){
         this.companyName = companyName;
         this.amoungEmp = amoungEmp;
         this.address = address;

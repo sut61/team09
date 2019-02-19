@@ -1,7 +1,10 @@
 import {HttpClient} from '@angular/common/http';
+import {FormControl} from '@angular/forms';
 import {Component,OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import {RegCancelInsuranceService} from  '../service/RegCancelInsurance.Service';
 import {memHomeService} from '../service/memHome.service';
+
 
 @Component({
   selector: 'app-RegCancelInsurance',
@@ -15,7 +18,9 @@ private User :  number;
 
 cancelInsurances : any = {idCard: '', fName: '', lName: '', eMail: '', tlePhone: '', reasonMemberName: ''};
 
-constructor(private Service : RegCancelInsuranceService ,private memHomeService: memHomeService,private httpClient: HttpClient) { }
+constructor(private Service : RegCancelInsuranceService ,
+            private memHomeService: memHomeService,private httpClient: HttpClient,
+            private router:Router) { }
 
   ngOnInit() {
     this.Service.getCancelInsurances().subscribe(dataMe => {
@@ -98,8 +103,17 @@ constructor(private Service : RegCancelInsuranceService ,private memHomeService:
         this.cancelInsurances)
         .subscribe(
            data => {
-              console.log(this.cancelInsurances)
               console.log('PUT Request is successful', data);
+              console.log(this.cancelInsurances)
+                               const cancelInsurances  = this.cancelInsurances
+                               this.router.navigate(['ShowCancelInsurance',{
+                               idCard:cancelInsurances.idCard,
+                               fName:cancelInsurances.fName,
+                               lName:cancelInsurances.lName,
+                               eMail:cancelInsurances.eMail,
+                               tlePhone:cancelInsurances.tlePhone,
+                               reasonMemberName:cancelInsurances.reasonMemberName,}])
+              alert('บันทึกข้อมูลแล้ว');
            },
            error => {
               console.log('Rrror', error); }

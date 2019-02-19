@@ -12,6 +12,7 @@ import { MemHomeComponent } from './mem-home/mem-home.component';
 import { RegCategoryUiComponent } from './RegCategoryUi/RegCategoryUi.component';
 import { RegCancelInsuranceComponent } from './RegCancelInsurance/RegCancelInsurance.component';
 import { ShowCategoryResultComponent } from './show-category-result/show-category-result.component';
+import { ShowCancelInsuranceComponent } from './show-cancel-insurance/show-cancel-insurance.component';
 import { LumpsumComponent } from './lumpsum/lumpsum.component';
 
 import { ClaimDataUIComponent } from './ClaimDataUI/ClaimDataUI.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
 { path: 'RegCategoryUi', component: RegCategoryUiComponent },
 { path: 'ShowCategoryResult', component: ShowCategoryResultComponent },
 { path: 'RegCancelInsurance', component: RegCancelInsuranceComponent },
+{ path: 'ShowCancelInsurance', component: ShowCancelInsuranceComponent },
 { path: ' Lumpsum', component: LumpsumComponent },
 
 

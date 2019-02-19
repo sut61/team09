@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Component,OnInit} from '@angular/core';
 import {RegCancelInsuranceService} from  '../service/RegCancelInsurance.Service';
-
+import {memHomeService} from '../service/memHome.service';
 
 @Component({
   selector: 'app-RegCancelInsurance',
@@ -11,15 +11,20 @@ import {RegCancelInsuranceService} from  '../service/RegCancelInsurance.Service'
 )
 export class RegCancelInsuranceComponent implements OnInit {
 reasonMembers : Array<any>;
+private User :  number;
 
 cancelInsurances : any = {idCard: '', fName: '', lName: '', eMail: '', tlePhone: '', reasonMemberName: ''};
-constructor(private Service : RegCancelInsuranceService ,private httpClient: HttpClient) { }
+
+constructor(private Service : RegCancelInsuranceService ,private memHomeService: memHomeService,private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.Service.getCancelInsurances().subscribe(dataMe => {
                     this.cancelInsurances = dataMe;
                     console.log(this.cancelInsurances);
      });
+  this.Service.getmems(localStorage.getItem('currentUser')).subscribe(data => {
+   this.User = data; console.log(this.memHomeService);});
+
 
     this.Service.getReasonMembers().subscribe(dataA => {
                     this.reasonMembers = dataA;
@@ -29,7 +34,8 @@ constructor(private Service : RegCancelInsuranceService ,private httpClient: Htt
 
  /**====SAVE====*/
   save() {
-      if(this.cancelInsurances.idCard === '' ||
+      if(
+      this.cancelInsurances.idCard === '' ||
       this.cancelInsurances.fName === ''||
       this.cancelInsurances.lName === ''  ||
       this.cancelInsurances.eMail === ''  ||
@@ -82,6 +88,7 @@ constructor(private Service : RegCancelInsuranceService ,private httpClient: Htt
 
       else {
         this.httpClient.delete('http://localhost:8080/CancelInsurance/'
+        + this.User +'/'
         + this.cancelInsurances.idCard + '/'
         + this.cancelInsurances.fName + '/'
         + this.cancelInsurances.lName  + '/'

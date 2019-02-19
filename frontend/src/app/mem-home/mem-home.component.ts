@@ -19,7 +19,8 @@ code : any = { code : '' } ;
 constructor(private memHomeService: memHomeService , private httpClient: HttpClient ) { }
 
   ngOnInit() {
-  this.memHomeService.getUser(localStorage.getItem('currentUser')).subscribe(data => { this.User = data; console.log(this.memHomeService);});
+  this.memHomeService.getUser(localStorage.getItem('currentUser')).subscribe(data => {
+   this.User = data; console.log(this.memHomeService);});
   this.memHomeService.getCost(localStorage.getItem('currentUser')).subscribe(dataa => { this.Cost = dataa; console.log(this.memHomeService);});
    this.memHomeService.getPaid(localStorage.getItem('currentUser')).subscribe(datab => { this.Paid = datab; console.log(this.memHomeService);});
   }

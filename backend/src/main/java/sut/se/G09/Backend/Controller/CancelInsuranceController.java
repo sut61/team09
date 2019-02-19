@@ -20,13 +20,17 @@ class CancelInsuranceController {
     private ReasonMemberRepository reasonMemberRepository;
     @Autowired
     private MemberDataRepository memberDataRepository;
+    @Autowired
+    private MLDataRepository mlDataRepository;
 
     public CancelInsuranceController(CancelInsuranceRepository cancelInsuranceRepository,
                               ReasonMemberRepository reasonMemberRepository,
-                                     MemberDataRepository memberDataRepository){
+                                     MemberDataRepository memberDataRepository,
+                                     MLDataRepository mlDataRepository){
         this.cancelInsuranceRepository=cancelInsuranceRepository;
         this.reasonMemberRepository = reasonMemberRepository;
         this.memberDataRepository = memberDataRepository;
+        this.mlDataRepository = mlDataRepository;
 
     }
     @GetMapping(path = "/CancelInsurance",
@@ -48,13 +52,15 @@ class CancelInsuranceController {
 
     }
 
-    @DeleteMapping("/CancelInsurance/{idCard}/{fName}/{lName}/{eMail}/{tlePhone}/{reasonMemberName}")
-    public void cancelAppointment(@PathVariable String idCard,
+    @DeleteMapping("/CancelInsurance/{user}/{idCard}/{fName}/{lName}/{eMail}/{tlePhone}/{reasonMemberName}")
+    public void cancelAppointment(@PathVariable long user,
+                                  @PathVariable String idCard,
                                   @PathVariable String fName,
                                   @PathVariable String lName,
                                   @PathVariable String eMail,
                                   @PathVariable String tlePhone,
                                   @PathVariable Long reasonMemberName) {
+        MLData mem = mlDataRepository.findById(user);
         MemberData findApp = memberDataRepository.findByIdCard(idCard);
         ReasonMember reasonMember = reasonMemberRepository.findByID(reasonMemberName);
         CancelInsurance newCancelInsurance = new CancelInsurance();
@@ -66,6 +72,7 @@ class CancelInsuranceController {
         newCancelInsurance.setDate(new Date());
         newCancelInsurance.setReasonMember(reasonMember);
         cancelInsuranceRepository.save(newCancelInsurance);
+        mlDataRepository.deleteById(mem.getID());
         memberDataRepository.deleteById(findApp.getID());
     }
 

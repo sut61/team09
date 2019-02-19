@@ -46,6 +46,14 @@ public class PaymentController
         return username;
     }
 
+    @GetMapping(path ="/getmem/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public long getMember (@PathVariable String user){
+        MLData mem = mlDataRepository.findByUserName(user);
+        return mem.getID();
+    }
+
+
+
     @GetMapping(path ="/cost/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<PaymentCost> cost (@PathVariable String user){
         MLData mem = mlDataRepository.findByUserName(user);

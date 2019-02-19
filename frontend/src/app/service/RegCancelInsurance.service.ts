@@ -18,6 +18,9 @@ import { Observable } from 'rxjs/Observable';
   getReasonMembers(): Observable<any> {
         return this.http.get(this.API +'/ReasonMember');
   }
+  getmems(user): Observable<any> {
+        return this.http.get(this.API +'/getmem/' + user);
+  }
 
 
 }

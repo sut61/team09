@@ -68,8 +68,8 @@
   <br>
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <mat-select class="example-full-width" placeholder="เลือกวันที่ต้องการนัด" [(ngModel)]="Appointment.date">
-        <mat-option class="example-full-width" *ngFor="let DateAppointment of Date" [value]="DateAppointment.date">
+      <mat-select class="font-field" placeholder="เลือกวันที่ต้องการนัด" [(ngModel)]="Appointment.date">
+        <mat-option class="font-field" *ngFor="let DateAppointment of Date" [value]="DateAppointment.date">
           {{DateAppointment.date}} : {{DateAppointment.status}}
         </mat-option>
       </mat-select>

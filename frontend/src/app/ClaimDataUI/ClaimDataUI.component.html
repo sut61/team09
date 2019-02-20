@@ -7,7 +7,7 @@
     <mat-list-item>
 
       <mat-form-field class="example-full-width">
-        <mat-select class="font-field" placeholder="เลือก ผู้ใช้สิทธิ์ " [(ngModel)]="ClaimData.memberDataS">
+        <mat-select  class="font-field" placeholder="เลือก ผู้ใช้สิทธิ์ " [(ngModel)]="ClaimData.memberDataS" id = "MemberDataClaim" >
           <mat-option class="font-field" *ngFor="let MemberData of memberDataSS" [value]="MemberData.id">
             {{MemberData.id}}. {{MemberData.fname}} {{MemberData.lname}}
           </mat-option>
@@ -18,7 +18,7 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <mat-select class="font-field" placeholder="เลือก ชื่อโรค/อุบัติเหตุ" [(ngModel)]="ClaimData.diseaseAccidentDataS" >
+        <mat-select class="font-field" placeholder="เลือก ชื่อโรค/อุบัติเหตุ" [(ngModel)]="ClaimData.diseaseAccidentDataS" id = "DiseaseAccidentDataClaim">
           <mat-option class="font-field" *ngFor="let DiseaseAccidentData of diseaseAccidentDataSS" [value]="DiseaseAccidentData.dataName">
             {{DiseaseAccidentData.id}}.{{DiseaseAccidentData.dataName}}
           </mat-option>
@@ -28,7 +28,7 @@
     <br>
     <mat-list-item>
     <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="เลือก ประกันที่ใช้" [(ngModel)]="ClaimData.categoryS" >
+      <mat-select class="font-field" placeholder="เลือก ประกันที่ใช้" [(ngModel)]="ClaimData.categoryS" id = "CategoryClaim">
         <mat-option class="font-field" *ngFor="let Category of categorySS" [value]="Category.typeName">
           {{Category.id}}.{{Category.typeName}}
         </mat-option>
@@ -38,7 +38,7 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <mat-select class="font-field" placeholder="เลือก โรงบาลที่รักษา" [(ngModel)]="ClaimData.hospitalS" >
+        <mat-select class="font-field" placeholder="เลือก โรงบาลที่รักษา" [(ngModel)]="ClaimData.hospitalS" id = "HospitalClaim">
           <mat-option class="font-field" *ngFor="let Hospital of hospitalSS" [value]="Hospital.hosName">
             {{Hospital.id}}. {{Hospital.hosName}}
           </mat-option>
@@ -48,7 +48,7 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <mat-select class="font-field" placeholder="เลือก รูปแบบการรักษา" [(ngModel)]="ClaimData.treatmentStyleS" >
+        <mat-select class="font-field" placeholder="เลือก รูปแบบการรักษา" [(ngModel)]="ClaimData.treatmentStyleS" id = "TreatmentStyleClaim">
           <mat-option class="font-field" *ngFor="let TreatmentStyle of treatmentStyleSS" [value]="TreatmentStyle.styleName">
             {{TreatmentStyle.id}}. {{TreatmentStyle.styleName}}
           </mat-option>
@@ -58,7 +58,7 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="กรอก ค่ารักษาพยาบาล" [(ngModel)]="ClaimData.costA" >
+        <input matInput placeholder="กรอก ค่ารักษาพยาบาล" [(ngModel)]="ClaimData.costA" id = "costClaim">
         <mat-hint align="end">ใส่ตัวเลขเท่านั้น</mat-hint>
       </mat-form-field>
       </mat-list-item><br>

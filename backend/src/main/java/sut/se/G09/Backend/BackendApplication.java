@@ -32,7 +32,7 @@ public class BackendApplication {
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
 						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,
 						   HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository,TreatmentStyleRepository treatmentStyleRepository,
-						   ContactRepository contactRepository) {
+						   ContactRepository contactRepository,LumpsumRepository lumpsumRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -474,6 +474,36 @@ public class BackendApplication {
 				}
 			}
 			//-------------------------------------------------
+
+			String CName[] ={"AA company","AS Company","BB company"};
+			int Am[] = {100,20,3000};
+			String Add[] ={"100 ต.สุรนารี อ.เมือง","151 ต.สุรนารี อ.เมือง","90 ต.สุรนารี อ.เมือง"};
+			String zip[] = {"30000","30000","30000"};
+			long bu[] = {1,3,2};
+			long Est[] = {5,6,1};
+			long Ca[] = {1,1,1,};
+			//--------------------------------------------------------
+
+				for (int i=0;i<CName.length;i++) {
+
+					Lumpsum lumpsum = new Lumpsum();
+					BusinessSize businessSize = businessSizeRepository.findByID(bu[i]);
+					Category category = categoryRepository.findByID(Ca[i]);
+					Establishment establishment = establishmentRepository.findByID(Est[i]);
+					Province p = provinceRepository.findByID(vince[i]);
+
+					lumpsum.setLumpsum(CName[i],Am[i],Add[i],zip[i]);
+					lumpsum.setBusinessSizeId(businessSize);
+					lumpsum.setCategoryId(category);
+					lumpsum.setEstablishmentId(establishment);
+					lumpsum.setProvinceId(p);
+					lumpsum.setDate(new Date());
+
+					lumpsumRepository.save(lumpsum);
+
+			}
+
+
 		};
 	}
 }

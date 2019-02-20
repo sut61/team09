@@ -248,6 +248,25 @@ public class BackendApplication {
 			ReasonMember ReasonMember5 = new ReasonMember();  //เหตุผลในการยกเลิก
 			ReasonMember5.setReasonMemberName("ไม่ขอระบุ");
 			reasonMemberRepository.save(ReasonMember5);
+			
+			String typeName[] = {"ประกันผู้สูงอายุ","ประกันนักเรียน","ประกันนักศึกษา","ประกันวัยทอง"};
+				long insuranceName[]  = {1,2,3,4};
+				long lengthName[] = {4,3,2,1};
+				long moneyName[] = {3,2,1,4};
+
+
+			for (int i=0;i<s.length;i++) {
+				InsurancePremium insurancePremiums = insurancePremiumRepository.findByID(insuranceName[i]);
+				Length lengthnames = lengthRepository.findByID(lengthName[i]);
+				MoneyMaximum moneynames = moneyMaximumRepository.findByID(moneyName[i]);
+				Category newCategory = new Category();
+				newCategory.setTypeName(typeName[i]);
+				newCategory.setDate(new Date());
+				newCategory.setInsurancePremium(insurancePremiums);
+				newCategory.setLength(lengthnames);
+				newCategory.setMoneyMaximum(moneynames);
+				categoryRepository.save(newCategory);
+			}
 			//====================================morn=============================
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร", "ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี",
 					"ชัยนาท","ชัยภูมิ", "ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม",

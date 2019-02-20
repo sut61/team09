@@ -115,30 +115,7 @@ public void testCostPass() {
         }
     }
 
-    @Test
-    public void testCostFirstDigitNotZero() {
-        ClaimData a1 = new ClaimData();
 
-        a1.setCostClaimData(05);
-
-
-
-        try {
-            entityManager.persist(a1);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-            System.out.println("==========================");
-            System.out.println(e.getMessage());
-            System.out.println("==========================");
-            System.out.println("Cost First Digit Not is Zero");
-            System.out.println("==========================");
-        }
-    }
 //=============================================================================================
 
 

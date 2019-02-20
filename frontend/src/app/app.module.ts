@@ -71,6 +71,7 @@ const appRoutes: Routes = [
 {path: 'ShowLumpsumResultComponent', component: ShowLumpsumResultComponent},
 {path: 'cancelAppointment', component: CancelAppointmentComponent},
 {path: 'Cancellumpsum', component: CancellumpsumComponent},
+{path: 'showAppointmentResult', component: ShowAppointmentResultComponent},
 
 ];
 

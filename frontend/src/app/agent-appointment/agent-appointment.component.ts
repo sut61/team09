@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../service/appointment.service';
 import { HttpClient } from '@angular/common/http';
 import { Router} from '@angular/router';
-
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -13,12 +12,10 @@ styleUrls: ['./agent-appointment.component.css']
 export class AgentAppointmentComponent implements OnInit {
 Categories : Array<any>;
 Genders: Array<any>;
-Date : any = { count: '', status: ''};
+Date : Array<any>;
 Duration : Array<any>;
 Provinces : Array<any>;
-Appointment : any = {
-typeName: '', fName: '', lName: '', idCardNum: '' ,genderName: '', age: '', telNum: ''
-,email: '' , provinceName: '', date: '',  duration: ''};
+Appointment : any = {typeName: '', fName: '', lName: '', idCardNum: '' ,genderName: '', age: '', telNum: '',email: '' , provinceName: '', date: '',  duration: ''};
 
 constructor(private appointService : AppointmentService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
   ngOnInit() {
@@ -49,7 +46,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
       else if(this.Appointment.age == null){alert('กรุณากรอกอายุ');}
       else if(this.Appointment.age < 1 || this.Appointment.age > 80){ alert('อายุไม่อยู่ในช่วงที่กำหนด'); }
 
-      else if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัทพ์');}
+      else if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัพท์');}
       else if(/[0]{1}[2-9]{1}[0-9]{8}/.test(this.Appointment.telNum) === false){ alert('รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง'); }
 
       else if(this.Appointment.email == null){alert('กรุณากรอก email');}
@@ -70,8 +67,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
         ,this.Appointment)
           .subscribe(
              data => {
-
-             console.log(this.Appointment)
+              console.log(this.Appointment)
               const Appointment  = this.Appointment
               this.router.navigate(['showAppointmentResult',{ typeName:Appointment.typeName, fName:Appointment.fName
               , lName:Appointment.lName , idCardNum:Appointment.idCardNum , genderName :this.Appointment.genderName
@@ -79,14 +75,13 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
               , date:Appointment.date, duration:Appointment.duration}])
               console.log('PUT Request is successful', data);
 
-                let snackBarRef = this.snackBar.open('การนัดพบสำเร็จ!', 'ตกลง',{
+             },
+             error => {
+             console.log('Rrror', error);
+              let snackBarRef = this.snackBar.open('วันที่เลือกมีจำนวนการนัดเต็มแล้ว! กรุณาเลือกวันที่ใหม่', 'ตกลง',{
                     verticalPosition:"top",
                     horizontalPosition: "center"
                 });
-
-             },
-             error => {
-             console.log('Rrror', error); alert('วันที่เลือกมีจำนวนการนัดเต็มแล้ว! กรุณาเลือกวันใหม่');
              }
           );
 

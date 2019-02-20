@@ -9,7 +9,7 @@
 
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="เลือกรูปแบบประกัน" [(ngModel)]="Appointment.typeName"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
+      <mat-select id ="agentAp0" class="font-field" placeholder="เลือกรูปแบบประกัน" [(ngModel)]="Appointment.typeName"> <!-- แสดงค่าที่ได้หลังจากกดเลือก -->
         <mat-option class="font-field" *ngFor="let Category of Categories" [value]="Category.typeName"> <!-- แสดงค่าที่มีจากฐานข้อมูล -->
           {{ Category.id }} : {{ Category.typeName }}   <!-- ค่าที่เราต้องการให้แสดงเพื่อกดเลือก -->
         </mat-option>
@@ -19,46 +19,48 @@
   <br>
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="ชื่อจริง" [(ngModel)]="Appointment.fName">
+      <input id ="agentAp1" matInput placeholder="ชื่อจริง" [(ngModel)]="Appointment.fName">
       <mat-hint align="end">ตัวอย่าง : นายหล่อ</mat-hint>
     </mat-form-field>&nbsp;&nbsp;
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="นามสกุล" [(ngModel)]="Appointment.lName">
+      <input id ="agentAp2" matInput placeholder="นามสกุล" [(ngModel)]="Appointment.lName">
       <mat-hint align="end">ตัวอย่าง : พ่อรวย</mat-hint>
     </mat-form-field>
   </mat-list-item>
   <br>
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <input matInput #input maxlength="13" placeholder="รหัสบัตรประชาชน" [(ngModel)]="Appointment.idCardNum">
+      <input id ="agentAp3" matInput #input maxlength="13" placeholder="รหัสบัตรประชาชน" [(ngModel)]="Appointment.idCardNum">
       <mat-hint align="end">{{input.value?.length || 0}}/13</mat-hint>
     </mat-form-field>&nbsp;&nbsp;
     <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="เพศ" [(ngModel)]="Appointment.genderName">
+      <mat-select  id ="agentAp4" class="font-field" placeholder="เพศ" [(ngModel)]="Appointment.genderName">
         <mat-option class="font-field" *ngFor="let Gender of Genders" [value]="Gender.genderName" >
           {{ Gender.genderName }}
         </mat-option>
       </mat-select>
     </mat-form-field>&nbsp;&nbsp;
     <mat-form-field class="font-field">
-      <input matInput placeholder="อายุ (ปี)" [(ngModel)]="Appointment.age">
+      <input id ="agentAp5" matInput placeholder="อายุ (ปี)" [(ngModel)]="Appointment.age">
     </mat-form-field>
   </mat-list-item>
   <br>
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <i class="material-icons">call</i> <input matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เบอร์โทรศัพท์ติดต่อกลับ" [(ngModel)]="Appointment.telNum">
+      <i class="material-icons">call</i>
+      <input id ="agentAp6" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เบอร์โทรศัพท์ติดต่อกลับ" [(ngModel)]="Appointment.telNum">
       <mat-hint align="end">ตัวอย่าง : 0801234567</mat-hint>
     </mat-form-field>&nbsp;&nbsp;
     <mat-form-field class="example-full-width">
-      <i class="material-icons">alternate_email</i><input matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email" [(ngModel)]="Appointment.email">
+      <i class="material-icons">alternate_email</i>
+      <input  id ="agentAp7" matInput placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email" [(ngModel)]="Appointment.email">
     </mat-form-field>
   </mat-list-item>
   <br>
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <mat-select class="example-full-width" placeholder="เลือกจังหวัด" [(ngModel)]="Appointment.provinceName">
+      <mat-select id ="agentAp8" class="example-full-width" placeholder="เลือกจังหวัด" [(ngModel)]="Appointment.provinceName">
         <mat-option class="example-full-width" *ngFor="let Province of Provinces" [value]="Province.provinceName">
           {{Province.provinceName}}
         </mat-option>
@@ -68,14 +70,14 @@
   <br>
   <mat-list-item>
     <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="เลือกวันที่ต้องการนัด" [(ngModel)]="Appointment.date">
+      <mat-select id ="agentAp9" class="font-field" placeholder="เลือกวันที่ต้องการนัด" [(ngModel)]="Appointment.date">
         <mat-option class="font-field" *ngFor="let DateAppointment of Date" [value]="DateAppointment.date">
           {{DateAppointment.date}} : {{DateAppointment.status}}
         </mat-option>
       </mat-select>
     </mat-form-field>&nbsp;&nbsp;
     <mat-form-field class="example-full-width">
-      <mat-select class="font-field" placeholder="เลือกช่วงเวลา" [(ngModel)]="Appointment.duration">
+      <mat-select id ="agentAp10" class="font-field" placeholder="เลือกช่วงเวลา" [(ngModel)]="Appointment.duration">
         <mat-option class="font-field" *ngFor="let DurationAppointment of Duration" [value]="DurationAppointment.duration">
           {{DurationAppointment.duration}}
         </mat-option>

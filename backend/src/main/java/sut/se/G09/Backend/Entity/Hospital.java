@@ -70,4 +70,7 @@ public class Hospital {
     public void setHospitalSize(HospitalSize hosSize) {this.hospitalSize = hosSize;
     }
 
+    public void setHosName(String hosName) {
+        this.hosName = hosName;
+    }
 }

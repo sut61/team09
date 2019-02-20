@@ -45,28 +45,7 @@ public class TestHospital {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
-    @Test
-    public void testHosNamePass() {
-        Hospital a1 = new Hospital();
 
-        a1.setHosName("โรงพยาบาลสุรนารี");
-
-
-
-        try {
-            entityManager.persist(a1);
-            entityManager.flush();
-            System.out.println("==========================");
-            System.out.println("Test Not Fail");
-            System.out.println("==========================");
-
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-
-        }
-    }
     @Test
     public void testHosNameCannotBeNull() {
         Hospital a = new Hospital();

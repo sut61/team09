@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Date;
 import java.util.stream.Stream;
 
 
@@ -412,6 +413,67 @@ public class BackendApplication {
 				contact.setContactName(NameContact);
 				contactRepository.save(contact);
 			});
+			//-----------------------------------------------------------
+
+			//----------------------------------------------
+			String firstname[] ={"พอเพียง","พอใจ","พอที"};
+			String lastname[] ={"คนเดิม","หรือยัง","ก็ได้"};
+			long edu[] = {1,3,2};
+			long vince[] = {5,6,9};
+			long cat[] = {1,1,1,};
+			//--------------------------------------------------------
+			if(firstname.length == edu.length && firstname.length == vince.length&& firstname.length == cat.length ) {
+				for (int i=0;i<firstname.length;i++) {
+					AgentRegistration data1 = new AgentRegistration();
+
+					data1.setfName(firstname[i]);
+					data1.setlName(lastname[i]);
+
+					Educational e = educationalrepository.findByID(edu[i]);
+					data1.setEducational(e);
+
+					Province p = provinceRepository.findByID(vince[i]);
+					data1.setProvince(p);
+
+					Category g = categoryRepository.findByID(cat[i]);
+					data1.setCategory(g);
+
+
+
+					agentRegistrationRepository.save(data1);
+				}
+			}
+			//-------------------------------------------------
+			String name[] ={"โรงพยาบาลศิริราช","โรงพยาบาลกรุงเทพ","โรงพยาบาลสุรนารี"};
+			long agent[] = {1,1,2};
+			long cat2[] = {1,1,2};
+			long pro[] = {1,1,21};
+			long size[] = {3,3,3};
+			//--------------------------------------------------------
+			if(name.length == agent.length && name.length == cat2.length && name.length == pro.length && name.length == size.length ) {
+				for (int i=0;i<name.length;i++) {
+					Hospital data1 = new Hospital();
+
+					data1.setHosName(name[i]);
+
+					AgentRegistration a = agentRegistrationRepository.findByID(agent[i]);
+					data1.setAgentRegistration(a);
+
+					Category c = categoryRepository.findByID(cat2[i]);
+					data1.setCategory(c);
+
+					Province p = provinceRepository.findByID(pro[i]);
+					data1.setProvince(p);
+
+					HospitalSize g = hospitalSizeRepository.findByID(size[i]);
+					data1.setHospitalSize(g);
+
+
+
+					hospitalRepository.save(data1);
+				}
+			}
+			//-------------------------------------------------
 		};
 	}
 }

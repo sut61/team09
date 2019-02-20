@@ -70,7 +70,10 @@ save() {
                   {alert('บันทึกสำเร็จ!');}
 
              },
-             error => { console.log('Rrror', error); }
+             error => { console.log('Rrror', error);
+                {alert('ข้อมูลไม่ถูกต้อง!');}
+             }
+
           );
 
         }

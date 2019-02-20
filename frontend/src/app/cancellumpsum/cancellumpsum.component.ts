@@ -46,12 +46,14 @@ save() {
         .subscribe(
            data => {
               console.log('PUT Request is successful', data);
+              alert('ยกเลิกสำเร็จ');
            },
            error => {
               console.log('Rrror', error);
+              alert('ข้อมูลไม่ถูกต้อง');
             }
         );
-         alert('ยกเลิกสำเร็จ');
+
      }
   }
 

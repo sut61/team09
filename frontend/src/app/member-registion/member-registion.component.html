@@ -8,12 +8,12 @@
 
     <mat-list-item>
       <mat-form-field class="font-field">
-        <input matInput placeholder="ชื่อจริง" [(ngModel)]="Member.fName">
+        <input matInput ID  = "member1" placeholder="ชื่อจริง" [(ngModel)]="Member.fName">
         <mat-hint align="end">ตัวอย่าง : นายหล่อ</mat-hint>
       </mat-form-field>&nbsp;&nbsp;
 
       <mat-form-field class="font-field">
-        <input matInput placeholder="นามสกุล" [(ngModel)]="Member.lName">
+        <input matInput ID="member2" placeholder="นามสกุล" [(ngModel)]="Member.lName">
         <mat-hint align="end">ตัวอย่าง : บ้านรวย</mat-hint>
       </mat-form-field>
     </mat-list-item>
@@ -21,22 +21,22 @@
 
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="หมายเลขบัตรประชาชน" [(ngModel)]="Member.PID">
+        <input matInput ID="member3"  placeholder="หมายเลขบัตรประชาชน" [(ngModel)]="Member.PID">
       </mat-form-field>
     </mat-list-item>
 
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="อายุ" [(ngModel)]="Member.Olds">
+        <input matInput  ID="member4" placeholder="อายุ" [(ngModel)]="Member.Olds">
       </mat-form-field>
     </mat-list-item>
-	
+
 	<mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="ที่อยู่" [(ngModel)]="Member.addes">
+        <input matInput ID="member5" placeholder="ที่อยู่" [(ngModel)]="Member.addes">
       </mat-form-field>
     </mat-list-item>
-	
+
 
     <br>
     <mat-list-item>
@@ -71,13 +71,13 @@
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="username" [(ngModel)]="Member.username">
+        <input matInput ID="member6" placeholder="username" [(ngModel)]="Member.username">
       </mat-form-field>
     </mat-list-item>
     <br>
     <mat-list-item>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="password" [(ngModel)]="Member.password">
+        <input matInput  ID="member7" placeholder="password" [(ngModel)]="Member.password">
       </mat-form-field>
     </mat-list-item>
     <br>
@@ -88,5 +88,8 @@
       </mat-dialog-actions>
     </mat-list-item>
   </mat-list>
+
+  <button mat-button (click)="openSnackBar()">Show snack-bar</button>
+
 </a></nav>
 

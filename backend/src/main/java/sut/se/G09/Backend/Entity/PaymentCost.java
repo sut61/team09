@@ -22,6 +22,7 @@ public class PaymentCost {
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ph_seq")
  @Column(name = "PCID")
  private @NonNull Long iD;
+ @Column(unique = true)
  private String code;
  private Long amount;
  private Date date;

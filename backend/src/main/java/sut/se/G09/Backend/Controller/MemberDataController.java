@@ -67,11 +67,12 @@ public class MemberDataController
         member.setAgentRegistration(agent);
         memberDataRepository.save(member);
         MemberData mem = memberDataRepository.findByIdCard(PID);
-
         MLData login = new MLData();
         login.setUserName(username);
         login.setPassword(password);
         login.setMemberData(mem);
+
+
         return mlDataRepository.save(login);
     }
 

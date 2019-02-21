@@ -38,9 +38,10 @@ Member : any ={ fName: '', lName: '', olds: '',PID: '' ,username: '' ,password: 
        else if (/[0-9]{13}/.test(this.Member.PID)=== false){this.snackBar.open("เลขประชาชนต้องเป็นตัวเลข 13 หลักเท่านั้น", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
        else if (this.Member.Olds == null){this.snackBar.open("กรุณากรอก อายุ ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
        else if(this.Member.Olds < 1 || this.Member.Olds > 80){this.snackBar.open("อายุไม่ควรต่ำกว่า 1 ปี และไม่เกิน 80 ปี ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});  }
+              else if (this.Member.addes == ''){this.snackBar.open("กรุณากรอก ที่อยู่ของท่าน ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
        else if (this.Member.username == ''){this.snackBar.open("กรุณากรอก username ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
        else if (this.Member.password == ''){this.snackBar.open("กรุณากรอก password ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
-       else if (this.Member.addes == ''){this.snackBar.open("กรุณากรอก ที่อยู่ของท่าน ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+
         else{
           this.httpClient.post('http://localhost:8080/Regmem/' +
            this.Member.fName + '/' + this.Member.lName + '/' + this.Member.Olds + '/'
@@ -51,10 +52,10 @@ Member : any ={ fName: '', lName: '', olds: '',PID: '' ,username: '' ,password: 
                data => {
 
                },
-               error => { console.log('Rrror', error); alert('ล้มเหลว!'); }
+               error => { console.log('Rrror', error); this.snackBar.open("เลขบัตรประชาชน หรือ username มีคนใช้แล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+               , () => {this.snackBar.open("ลงทะเบียนสำเร็จ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});}
 
-
-            );               alert('ลงทะเบียนสำเร็จ!');
+            );
 
           }
       }

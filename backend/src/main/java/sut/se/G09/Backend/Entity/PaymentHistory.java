@@ -22,6 +22,7 @@ public class PaymentHistory {
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ph_seq")
  @Column(name = "PHID")
  private @NonNull Long iD;
+ @Column(unique = true)
  private String code;
  private Long amount;
  private Date date;

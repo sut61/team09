@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {Component} from '@angular/core';
 import {RegCategoryUiService} from  '../service/RegCategoryUi.Service';
 
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-RegCategoryUi',
@@ -14,14 +15,15 @@ import {RegCategoryUiService} from  '../service/RegCategoryUi.Service';
 )
 
 export class RegCategoryUiComponent implements OnInit {
-  insurancePremiums:Array<any>;
-  lengths:Array<any>;
-  moneyMaximums:Array<any>;
+insurancePremiums:Array<any>;
+lengths:Array<any>;
+moneyMaximums:Array<any>;
 
-  categorys:any = {typeName: '', insuranceName: '', lengthName: '', moneyName: ''};
+categorys:any = {typeName: '', insuranceName: '', lengthName: '', moneyName: ''};
 
 
-  constructor(private Service : RegCategoryUiService ,private httpClient: HttpClient,private router:Router ) { }
+constructor(private Service : RegCategoryUiService ,private httpClient: HttpClient,
+            private router:Router ,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
       this.Service.getCategorys().subscribe(dataMe => {
@@ -77,10 +79,18 @@ export class RegCategoryUiComponent implements OnInit {
                                insuranceName:categorys.insuranceName,
                                lengthName:categorys.lengthName,
                                moneyName:categorys.moneyName}])
-              alert('บันทึกข้อมูลแล้ว');
+
+                    let snackBarRef = this.snackBar.open('บันทึกสำเร็จ!','ตกลง',{
+                    verticalPosition:"top",
+                    horizontalPosition: "center"
+                });
            },
            error => {
               console.log('Rrror', error);
+                let snackBarRef = this.snackBar.open('ประเภทประกันมีอยุ่แล้ว! กรุณาตรวจสอบอีกครั้ง', 'ตกลง',{
+                    verticalPosition:"top",
+                    horizontalPosition: "center"
+                });
             }
         );
 

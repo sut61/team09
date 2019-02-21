@@ -4,7 +4,7 @@ import {Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {RegCancelInsuranceService} from  '../service/RegCancelInsurance.Service';
 import {memHomeService} from '../service/memHome.service';
-
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-RegCancelInsurance',
@@ -20,7 +20,7 @@ cancelInsurances : any = {idCard: '', fName: '', lName: '', eMail: '', tlePhone:
 
 constructor(private Service : RegCancelInsuranceService ,
             private memHomeService: memHomeService,private httpClient: HttpClient,
-            private router:Router) { }
+            private router:Router ,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.Service.getCancelInsurances().subscribe(dataMe => {
@@ -113,11 +113,20 @@ constructor(private Service : RegCancelInsuranceService ,
                                eMail:cancelInsurances.eMail,
                                tlePhone:cancelInsurances.tlePhone,
                                reasonMemberName:cancelInsurances.reasonMemberName,}])
-              alert('บันทึกข้อมูลแล้ว');
+                    let snackBarRef = this.snackBar.open('ยกเลิกสำเร็จ!','ตกลง',{
+                      verticalPosition:"top",
+                      horizontalPosition: "center"
+                });
            },
            error => {
-              console.log('Rrror', error); }
+              console.log('Rrror', error);
+                let snackBarRef = this.snackBar.open('กรุณาเลือกเหตุผล!','ตกลง',{
+                      verticalPosition:"top",
+                      horizontalPosition: "center"
+              });
+            }
         );
+
      }
   }
 }

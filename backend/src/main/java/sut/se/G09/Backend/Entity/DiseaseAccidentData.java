@@ -23,7 +23,7 @@ private @NonNull long id;
   //@UniqueElements(message = "this data Unique!!")
   @Column(unique = true)
   @Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]$",message = "Please not enter English")
-  @Size(min = 3,max = 50,message = "Please not enter data in 3-20 digit")
+  @Size(min = 3,max = 50,message = "Please not enter data in 3-50 digit")
     private String dataName;
 
 

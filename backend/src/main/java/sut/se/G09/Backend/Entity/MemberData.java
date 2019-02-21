@@ -47,10 +47,6 @@ public class MemberData {
  private String addess;
 
 
- @ManyToOne(fetch = FetchType.EAGER, targetEntity = MLData.class)
- @JoinColumn(name = "MLID", insertable = true)
- private MLData MLData;
-
  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
  @JoinColumn(name = "PROVINCE_ID", insertable = true)
  private Province Province;

@@ -44,8 +44,8 @@ constructor(private LumpsumserviceService : LumpsumserviceService ,private httpC
 
 
 save() {
-     if (this.Lumpsums.companyName == null || this.Lumpsums.amoungEmp == null  || this.Lumpsums.address == null  || this.Lumpsums.zipCode == null
-      || this.Lumpsums.BUSINESS_ID == null  || this.Lumpsums.CATEGORY_ID == null  || this.Lumpsums.ESTABLISHMENT_ID == null  || this.Lumpsums.PROVINCE_ID == null )
+     if (this.Lumpsums.companyName === '' || this.Lumpsums.amoungEmp === ''  || this.Lumpsums.address === ''  || this.Lumpsums.zipCode === ''
+      || this.Lumpsums.BUSINESS_ID === ''  || this.Lumpsums.CATEGORY_ID === ''  || this.Lumpsums.ESTABLISHMENT_ID === ''  || this.Lumpsums.PROVINCE_ID === '' )
         {alert('กรุณากรอกข้อมูลให้ครบถ้วน');}
 
         else if(this.Lumpsums.zipCode.length != 5)
@@ -53,6 +53,8 @@ save() {
 
         else if(this.Lumpsums.amoungEmp < 5 || this.Lumpsums.amoungEmp > 10000000)
         {alert('จำนวนพนักงานต้องมากกว่าเท่ากับ 5 หรือน้อยกว่าเท่ากับ 10,000,000');}
+
+        else if(/[0-9\d]{1,3}\W.{1,20}\W.{1,20}/.test(this.Lumpsums.address) === false){ alert('รูปแบบที่อยู่ไม่ถูกต้อง'); }
 
       else{
         this.httpClient.post('http://localhost:8080/Lumpsum/NEW/' + this.Lumpsums.companyName + '/'

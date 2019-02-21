@@ -19,5 +19,7 @@ constructor(private http: HttpClient) { }
 getLumpsum(): Observable<any> {
       return this.http.get(this.API +'/getLumpsum');
     }
+ getProvince(): Observable<any> {
+       return this.http.get(this.API + '/getProvince');}
 
 }

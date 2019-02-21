@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {ClaimDataService} from '../service/ClaimData.Service'
 import {Router} from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-claim-data',
@@ -20,7 +21,7 @@ costAA:Array<any>;
 ClaimData : any = {
 memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmentStyleS :'',costA :''
 };
-  constructor(private Service : ClaimDataService ,private httpClient: HttpClient, private router:Router) { }
+  constructor(private Service : ClaimDataService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -54,30 +55,57 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
 
   /**====SAVE====*/
 
+ /** this.snackBar.open("กรุณาเลือก ผู้ใช้สิทธิ์!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});  */
+
   save(){
 
-    if(this.ClaimData.memberDataS === ''|| this.ClaimData.diseaseAccidentDataS === ''||
-    this.ClaimData.categoryS === ''|| this.ClaimData.costA === ''|| this.ClaimData.hospitalS === ''
-    || this.ClaimData.treatmentStyleSS === ''){
+    if(this.ClaimData.memberDataS === ''){
+      alert('กรุณาเลือก ผู้ใช้สิทธิ์!');
 
-     alert('กรุณาเลือกข้อมูลให้ครบ!');
     }
 
 
-     else if(/[^0-9]+/.test(this.ClaimData.costA) === true){
+     else if(this.ClaimData.diseaseAccidentDataS === ''){
+      alert('กรุณาเลือก ชื่อโรค/อุบัติเหตุ!');
 
-                      alert('กรอกค่ารักษาเฉพาตัวเลข');
 
                 }
-    else if(this.ClaimData.costA < 100){
+      else if(this.ClaimData.categoryS === ''){
+      alert('กรุณาเลือก ประกันที่ใช้!');
 
-          alert('จำนวนค่ารักษาน้อยกว่า 100  โปรดเช็คว่าค่ารักษาท่านว่าได้กรอกถูกแล้ว');
+
+                     }
+      else if(this.ClaimData.hospitalS === ''){
+      alert('กรุณาเลือก โรงบาลที่รักษา!');
+
+
+                     }
+      else if(this.ClaimData.treatmentStyleSS === ''){
+      alert('กรุณาเลือก รูปแบบการรักษา!');
+
+
+
+                     }
+      else if(this.ClaimData.costA === ''){
+      alert('กรุณากรอก ค่ารักษาพยาบาล!');
+
+
+                     }
+      else if(/[^0-9]+/.test(this.ClaimData.costA) === true){
+      alert('กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด');
+
+
+                     }
+
+    else if(this.ClaimData.costA < 100){
+      alert('จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว');
+
+
 
     }
 
-     else if(this.ClaimData.costA > 100000000){
-
-                   alert('จำนวนค่ารักษามากเกิน100,000,000 โปรดเช็คว่าค่ารักษาท่านว่าได้กรอกถูกแล้ว');
+     else if(this.ClaimData.costA > 10000000){
+      alert('จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว');
 
              }
 
@@ -113,7 +141,8 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
               },
 
         error => {console.log('Error', error);
-            alert('เกิดข้อผิดพลาด!!!');
+                alert('เกิดข้อผิดพลาด!!!');
+
         }
       );
 

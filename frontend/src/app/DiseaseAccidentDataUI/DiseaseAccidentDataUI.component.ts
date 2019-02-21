@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {DiseaseAccidentDataService} from '../service/DiseaseAccidentData.Service'
 import {Router} from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-DiseaseAccidentDataUI',
@@ -19,7 +20,7 @@ medicalFeeIdA:Array<any>;
 DiseaseAccidentData : any = {
 dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 };
-  constructor(private Service : DiseaseAccidentDataService ,private httpClient: HttpClient, private router:Router) { }
+  constructor(private Service : DiseaseAccidentDataService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
    this.Service.getDiseaseAccidentLevel().subscribe(data1 => {
@@ -41,28 +42,49 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
   }
 
   /**====SAVE====*/
+
+
   save(){
 
-    if(this.DiseaseAccidentData.dataNameAdd === ''|| this.DiseaseAccidentData.typeIdSelect === ''||
-    this.DiseaseAccidentData.levelIdSelect === ''|| this.DiseaseAccidentData.medicalFeeIdSelect === ''){
-
-     alert('กรุณาเลือกข้อมูลให้ครบ!');
-    }
-    else if(this.DiseaseAccidentData.dataNameAdd.length < 3){
-
-          alert('ข้อมูล! สั้นเกินไป');
+    if(this.DiseaseAccidentData.dataNameAdd === ''){
+               alert('กรุณากรอก ชื่อโรค/อุบัติเหตุ !');
 
     }
-    else if(this.DiseaseAccidentData.dataNameAdd.length > 20){
+    else if( this.DiseaseAccidentData.typeIdSelect === ''){
 
-          alert('ข้อมูล! ยาวเกินไป');
+               alert('กรุณาเลือก ชนิดสิทธิคุ้มครอง !');
 
-    }
+        }
+    else if(this.DiseaseAccidentData.levelIdSelect === ''){
+               alert('กรุณาเลือก ระดับความรุนแรง !');
+
+
+        }
+    else if(this.DiseaseAccidentData.medicalFeeIdSelect === ''){
+               alert('กรุณาเลือก ค่ารักษารายวัน !');
+
+
+        }
     else if(/[A-Za-z]+/.test(this.DiseaseAccidentData.dataNameAdd) === true){
 
-          alert('กรุณาชื่อโรคเป็นภาษาไทย');
+                   alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อโรค/อุบัติเหตุ เป็นภาษาไทย');
+
+
+        }
+
+    else if(this.DiseaseAccidentData.dataNameAdd.length < 3){
+
+               alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป');
+
 
     }
+    else if(this.DiseaseAccidentData.dataNameAdd.length > 50){
+
+               alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ');
+
+
+    }
+
     else{
 
       this.httpClient.post('http://localhost:8080/DiseaseAccidentData/NEW/'
@@ -90,7 +112,8 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
               },
 
         error => {console.log('Error', error);
-        {alert('ข้อมูลนี่มีในฐานข้อมูลแล้ว!');}
+                       alert('ชื่อโรค/อุบัติเหตุ นี้มีในฐานข้อมูลแล้ว !!');
+
         }
       );
 

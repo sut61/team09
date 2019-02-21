@@ -52,6 +52,10 @@ public class TestCancelLumpsum {
 
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
+
 
         try {
             entityManager.persist(cancelLumpsum);
@@ -75,12 +79,240 @@ public class TestCancelLumpsum {
 
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
         cancelLumpsum.setComment(null);
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
 
         try {
 
             entityManager.persist(cancelLumpsum);
             entityManager.flush();
             fail("expected CommentCannotBeNull");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testNameCanCannotBeNull() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan(null);
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected NameCanCannotBeNull");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testNameCanMustBeLengthLessThan50() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQqqqqqqqqqqqqqqqq");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected NameCanMustBeLengthLessThan50");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAgeCanCannotBeNull() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(null);
+        cancelLumpsum.setIDcardCan("1234567890123");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected AgeCanCannotBeNull");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAgeCanOverSize() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(90);
+        cancelLumpsum.setIDcardCan("1234567890123");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected Age Must between 20-80 years old");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAgeCanLessSize() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(10);
+        cancelLumpsum.setIDcardCan("1234567890123");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected Age Must between 20-80 years old ");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testIDcardCanCannotBeNull() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan(null);
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected IDcardCanCannotBeNull");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testIDcardCanAlphabetWrong() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("156fd12589412");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected IDcardCanAlphabetWrong");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testIDcardCanOverSize() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("123456789012345");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected IDcardCanCannotBeNull");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testIDcardCanLessSize() {
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890");
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected IDcardCanCannotBeNull");
         } catch(javax.validation.ConstraintViolationException e) {
 
             System.out.println("\n\n\n===========================================================================================================");

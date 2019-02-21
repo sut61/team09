@@ -21,13 +21,17 @@ public class CancelLumpsumController {
     private ContactRepository contactRepository;
     @Autowired
     private LumpsumRepository lumpsumRepository;
+    private GenderRepository genderRepository;
+    private ProvinceRepository provinceRepository;
 
 
     public CancelLumpsumController(CancelLumpsumRepository cancelLumpsumRepository,LumpsumRepository lumpsumRepositorya,
-                                   ContactRepository contactRepository) {
+                                   ContactRepository contactRepository,GenderRepository genderRepository,ProvinceRepository provinceRepository) {
         this.cancelLumpsumRepository = cancelLumpsumRepository;
         this.lumpsumRepository = lumpsumRepository;
         this.contactRepository = contactRepository;
+        this.genderRepository = genderRepository;
+        this.provinceRepository = provinceRepository;
 
     }
 
@@ -48,19 +52,29 @@ public class CancelLumpsumController {
         return lumpsumRepository.findAll().stream()
                 .collect(Collectors.toList());
     }
+
     // curl -X DELETE  http://localhost:8080/cancelLumpsum/1/"aaaaaaaaa"/1    //ตัว test class
-    @DeleteMapping("/cancelLumpsum/{companyID}/{contactID}/{comment}")
-    public void deleteLumpsum (@PathVariable Long companyID ,@PathVariable Long contactID,@PathVariable String comment) {
-
-
+    @DeleteMapping("/cancelLumpsum/{companyID}/{contactID}/{comment}/{PROVINCE_ID}/{nameCan}/{ageCan}/{IDcardCan}")
+    public void deleteLumpsum (@PathVariable Long companyID ,
+                               @PathVariable Long contactID,
+                               @PathVariable String comment,
+                               @PathVariable String  PROVINCE_ID,
+                               @PathVariable String nameCan,
+                               @PathVariable Integer ageCan,
+                               @PathVariable String IDcardCan) {
 
         Lumpsum findLumpsum = lumpsumRepository.findByID(companyID);
         Contact findContact = contactRepository.findByID(contactID);
+        Province province = provinceRepository.findByProvinceName(PROVINCE_ID);
         CancelLumpsum newCancel = new CancelLumpsum();
 
         newCancel.setContactId(findContact);
-        //newCancel.setLumpsumId(findLumpsum);
         newCancel.setComment(comment);
+        newCancel.setProvinceId(province);
+        newCancel.setNameCan(nameCan);
+        newCancel.setAgeCan(ageCan);
+        newCancel.setIDcardCan(IDcardCan);
+
         Lumpsum l = this.lumpsumRepository.findByID(findLumpsum.getiD());
         this.lumpsumRepository.delete(l);
         newCancel.setDate(new Date());

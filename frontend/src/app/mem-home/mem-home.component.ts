@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {memHomeService} from '../service/memHome.service';
 import { HttpClient } from '@angular/common/http';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
 selector: 'app-mem-home',
@@ -16,7 +18,7 @@ Cost : Array<any>;
 
 code : any = { code : '' } ;
 
-constructor(private memHomeService: memHomeService , private httpClient: HttpClient ) { }
+constructor(private memHomeService: memHomeService , private httpClient: HttpClient  ,private snackBar: MatSnackBar ,private route: Router) { }
 
   ngOnInit() {
   this.memHomeService.getUser(localStorage.getItem('currentUser')).subscribe(data => {
@@ -35,10 +37,12 @@ constructor(private memHomeService: memHomeService , private httpClient: HttpCli
                  data => {
                  console.log(this.code)
                   console.log('PUT Request is successful', data);
-                  {alert('ชำระแล้ว');}
+                  {this.snackBar.open("ชำระเสร็จสิ้น", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+                  this.route.navigate(['MemHome']);
+                  }
 
                  },
-                 error => { console.log('Rrror', error); }
+                 error => { console.log('Rrror', error); this.snackBar.open("กรุณาตรวจสอบรหัสชำระ ท่านกรอกไม่ถูกต้อง", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
               );
 
             }

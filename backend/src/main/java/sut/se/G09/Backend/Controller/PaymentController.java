@@ -62,16 +62,16 @@ public class PaymentController
     }
 
     @GetMapping(path ="/paid/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<PaymentHistoty>  paid (@PathVariable String user){
+    public Collection<PaymentHistory>  paid (@PathVariable String user){
         MLData mem = mlDataRepository.findByUserName(user);
-        Collection<PaymentHistoty> p = paymentHistoryRepository.findByMemberData(mem.getMemberData());
+        Collection<PaymentHistory> p = paymentHistoryRepository.findByMemberData(mem.getMemberData());
         return p.stream().collect(Collectors.toList());
     }
 
     @DeleteMapping ("/pay/{code}")
     public void Pay(@PathVariable String code){
         PaymentCost po = paymentCostRepository.findByCode(code);
-        PaymentHistoty p = new PaymentHistoty();
+        PaymentHistory p = new PaymentHistory();
         p.setAmount(po.getAmount());
         p.setCode(po.getCode());
         p.setDate(new Date());

@@ -14,8 +14,8 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 
-@Table(name="PaymentHistoty")
-public class PaymentHistoty {
+@Table(name="PaymentHistory")
+public class PaymentHistory {
 
  @Id
  @SequenceGenerator(name="ph_seq",sequenceName="ph_seq")
@@ -34,7 +34,7 @@ public class PaymentHistoty {
 
 
 
- public PaymentHistoty() {}
+ public PaymentHistory() {}
 
 
 }

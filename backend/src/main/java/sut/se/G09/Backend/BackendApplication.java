@@ -32,7 +32,7 @@ public class BackendApplication {
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
 						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,
 						   HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository,TreatmentStyleRepository treatmentStyleRepository,
-						   ContactRepository contactRepository,LumpsumRepository lumpsumRepository) {
+						   ContactRepository contactRepository,LumpsumRepository lumpsumRepository, MemberDataRepository memberDataRepository , MLDataRepository mlDataRepository , PaymentCostRepository paymentCostRepository ,PaymentHistoryRepository paymentHistoryRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -502,6 +502,93 @@ public class BackendApplication {
 					lumpsumRepository.save(lumpsum);
 
 			}
+
+
+
+			//================add Data : BY Vector ====================
+
+			Category co = categoryRepository.findByID(2L);
+			AgentRegistration ao = agentRegistrationRepository.findByID(2L);
+			Province po = provinceRepository.findByID(9L);
+
+			MemberData mem2 = new MemberData();
+			mem2.setFname("สมชาย");
+			mem2.setLname("สมหญิง");
+			mem2.setAge(25L);
+			mem2.setIdCard("1234567890223");
+			MLData log2 = new MLData();
+			log2.setUserName("log");
+			log2.setPassword("1234");
+			mem2.setCategory(co);
+			mem2.setProvince(po);
+			mem2.setAgentRegistration(ao);
+			mem2.setAddess("132 Nakon ping ping");
+			memberDataRepository.save(mem2);
+			log2.setMemberData(memberDataRepository.findByIdCard("1234567890223"));
+			mlDataRepository.save(log2);
+
+			MemberData mem = new MemberData();
+			mem.setFname("สมชาย");
+			mem.setLname("เป็นหญิง");
+			mem.setAge(25L);
+			mem.setIdCard("1234567890123");
+			MLData log = new MLData();
+			log.setUserName("tester");
+			log.setPassword("1234");
+			mem.setCategory(co);
+			mem.setProvince(po);
+			mem.setAgentRegistration(ao);
+			mem.setAddess("132 Nakon ping ping");
+			memberDataRepository.save(mem);
+			log.setMemberData(memberDataRepository.findByIdCard("1234567890123"));
+			mlDataRepository.save(log);
+
+			MemberData mem1 = new MemberData();
+			mem1.setFname("สมหญิง");
+			mem1.setLname("เป็นชาย");
+			mem1.setAge(25L);
+			mem1.setIdCard("1234567890132");
+			MLData log1 = new MLData();
+			log1.setUserName("test");
+			log1.setPassword("1234");
+			mem1.setCategory(co);
+			mem1.setProvince(po);
+			mem1.setAgentRegistration(ao);
+			mem1.setAddess("136 Nakon ping ping");
+			memberDataRepository.save(mem1);
+			log1.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
+			mlDataRepository.save(log1);
+
+			PaymentCost cost = new PaymentCost();
+			cost.setAmount(1800L);
+			cost.setDate(new Date());
+			cost.setCode("A23");
+			cost.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
+			paymentCostRepository.save(cost);
+
+			PaymentCost cost3 = new PaymentCost();
+			cost3.setAmount(2000L);
+			cost3.setDate(new Date());
+			cost3.setCode("AB3");
+			cost3.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
+			paymentCostRepository.save(cost3);
+
+			PaymentCost cost4 = new PaymentCost();
+			cost4.setAmount(1900L);
+			cost4.setDate(new Date());
+			cost4.setCode("ABC123");
+			cost4.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
+			paymentCostRepository.save(cost4);
+
+			PaymentCost cost1 = new PaymentCost();
+			cost1.setAmount(1800L);
+			cost1.setDate(new Date());
+			cost1.setCode("321ABC");
+			cost1.setMemberData(memberDataRepository.findByIdCard("1234567890123"));
+			paymentCostRepository.save(cost1);
+
+
+			//======================================================================
 
 
 		};

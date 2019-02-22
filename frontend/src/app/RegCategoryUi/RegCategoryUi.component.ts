@@ -55,13 +55,11 @@ constructor(private Service : RegCategoryUiService ,private httpClient: HttpClie
       }
 
       else if(this.categorys.typeName.length < 6){
-          alert('ข้อมูลประเภทประกันต้องมีความยาว ไม่ต่ำกว่า 6 ตัว');
-          this.snackBar.open("กรุณากรอก ชื่อโรค/อุบัติเหตุ !", "ลองใหม่", {
+          this.snackBar.open("ข้อมูลประเภทประกันต้องมีความยาว ไม่ต่ำกว่า 6 ตัว", "ลองใหม่", {
              duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
       else if(this.categorys.typeName.length > 30){
-          alert('ข้อมูลประเภทประกันต้องมีความยาว ห้ามเกิน 30 ตัว');
-          this.snackBar.open("กรุณากรอก ชื่อโรค/อุบัติเหตุ !", "ลองใหม่", {
+          this.snackBar.open("ข้อมูลประเภทประกันต้องมีความยาว ห้ามเกิน 30 ตัว", "ลองใหม่", {
              duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
       else if(this.categorys.insuranceName == null){

@@ -121,7 +121,7 @@ constructor(private Service : RegCancelInsuranceService ,
            },
            error => {
               console.log('Rrror', error);
-                let snackBarRef = this.snackBar.open('ไม่สามารถยกเลิกสมาชิกได้!','ตกลง',{
+                let snackBarRef = this.snackBar.open('ไม่สามารถยกเลิกสมาชิกได้ เนื่องจากมียอดค้างชำระ!','ตกลง',{
                       verticalPosition:"top",
                       horizontalPosition: "center"
               });

@@ -27,9 +27,12 @@ constructor(private appointService : AppointmentService, private cancelService :
   }
 
   submit(){
-       if (this.CancelAppointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
-       else if(/[0-9]{13}/.test(this.CancelAppointment.idCardNum) === false){ alert('รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง'); }
-       else if (this.CancelAppointment.reason == null){alert('กรุณาเลือกเหตุผลที่ต้องการยกเลิก');}
+       if (this.CancelAppointment.idCardNum == null)
+       { this.snackBar.open("กรุณากรอกรหัสบัตรประชาชน", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+       else if(/[0-9]{13}/.test(this.CancelAppointment.idCardNum) === false)
+       { this.snackBar.open("รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+       else if (this.CancelAppointment.reason == null)
+        { this.snackBar.open("กรุณาเลือกเหตุผลที่ต้องการยกเลิก", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
 
         else{
           this.httpClient.delete('http://localhost:8080/cancel/' + this.CancelAppointment.idCardNum + '/'

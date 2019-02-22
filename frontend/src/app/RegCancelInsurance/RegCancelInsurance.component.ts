@@ -112,15 +112,16 @@ constructor(private Service : RegCancelInsuranceService ,
                                lName:cancelInsurances.lName,
                                eMail:cancelInsurances.eMail,
                                tlePhone:cancelInsurances.tlePhone,
-                               reasonMemberName:cancelInsurances.reasonMemberName,}])
-                    let snackBarRef = this.snackBar.open('ยกเลิกสำเร็จ!','ตกลง',{
+                               reasonMemberName:cancelInsurances.reasonMemberName}])
+
+                    let snackBarRef = this.snackBar.open('ยกเลิกสำเร็จ','ตกลง',{
                       verticalPosition:"top",
                       horizontalPosition: "center"
                 });
            },
            error => {
               console.log('Rrror', error);
-                let snackBarRef = this.snackBar.open('กรุณาเลือกเหตุผล!','ตกลง',{
+                let snackBarRef = this.snackBar.open('ไม่สามารถยกเลิกสมาชิกได้!','ตกลง',{
                       verticalPosition:"top",
                       horizontalPosition: "center"
               });

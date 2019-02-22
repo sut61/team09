@@ -48,21 +48,37 @@ constructor(private Service : RegCategoryUiService ,private httpClient: HttpClie
       this.categorys.lengthName === ''  ||
       this.categorys.moneyName === ''){
 
-      alert('กรุณใส่ข้อมูลให้ครบ');
+      this.snackBar.open("กรุณใส่ข้อมูลให้ครบ!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
 
       }
 
       else if(this.categorys.typeName.length < 6){
           alert('ข้อมูลประเภทประกันต้องมีความยาว ไม่ต่ำกว่า 6 ตัว');
+          this.snackBar.open("กรุณากรอก ชื่อโรค/อุบัติเหตุ !", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
       else if(this.categorys.typeName.length > 30){
           alert('ข้อมูลประเภทประกันต้องมีความยาว ห้ามเกิน 30 ตัว');
+          this.snackBar.open("กรุณากรอก ชื่อโรค/อุบัติเหตุ !", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
-      else if(this.categorys.insuranceName == null){alert('กรุณาเลือกจเบี้ยประกัน');}
+      else if(this.categorys.insuranceName == null){
 
-      else if(this.categorys.lengthName == null){alert('กรุณาเลือกวระยะเวลาคุ้มครอง');}
+      this.snackBar.open("กรุณาเลือกจเบี้ยประกัน!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+      }
 
-      else if(this.categorys.moneyName == null){alert('กรุณาเลือกเงินชดเชย');}
+      else if(this.categorys.lengthName == null){
+      this.snackBar.open("กรุณาเลือกวระยะเวลาคุ้มครอง!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+      }
+
+      else if(this.categorys.moneyName == null){
+      this.snackBar.open("กรุณาเลือกเงินชดเชย!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+      }
 
       else {
         this.httpClient.post('http://localhost:8080/Category/' + this.categorys.typeName + '/'

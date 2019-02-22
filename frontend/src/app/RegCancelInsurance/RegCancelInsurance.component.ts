@@ -47,46 +47,75 @@ constructor(private Service : RegCancelInsuranceService ,
       this.cancelInsurances.tlePhone === ''  ||
       this.cancelInsurances.reasonMemberName === ''){
 
-      alert('กรุณใส่ข้อมูลให้ครบ');
+      this.snackBar.open("กรุณใส่ข้อมูลให้ครบ", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
  else if(/[0-9]{13}/.test(this.cancelInsurances.idCard) === false){
-          alert('กรอกขรหัสประจำตัวประชาชนให้ถูกต้อง');
+          this.snackBar.open("กรอกขรหัสประจำตัวประชาชนให้ถูกต้อง!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
       }else if(/^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}/.test(this.cancelInsurances.fName) === false){
-          alert('กรอกชื่อให้ถูกต้อง');
+          this.snackBar.open("กรอกชื่อให้ถูกต้อง!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
       }else if(/^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}/.test(this.cancelInsurances.lName) === false){
-          alert('กรอกขนามสกุลให้ถูกต้อง');
+
+          this.snackBar.open("กรอกขนามสกุลให้ถูกต้อง!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
       }else if(/[A-Za-z0-9][A-Za-z0-9.]{5}[A-Za-z0-9.]*@[a-z]+.[a-z.]+/.test(this.cancelInsurances.eMail) === false){
-          alert('กรอกขอีเมลย์ให้ถูกต้อง');
+
+          this.snackBar.open("กรอกขอีเมลย์ให้ถูกต้อง!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
       }else if(/[0]{1}[6,8,9]{1}[0-9]{8}/.test(this.cancelInsurances.tlePhone) === false ){
-          alert('กรอกขเบอร์โทรศัพท์ให้ถูกต้อง');
+
+          this.snackBar.open("กรอกขเบอร์โทรศัพท์ให้ถูกต้อง!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
 
       else if(this.cancelInsurances.idCard.length < 13){
-          alert('รหัสประจำตัวประชาชนสั้นเกินไป ต้องมี 13 ตัว');
+
+          this.snackBar.open("รหัสประจำตัวประชาชนสั้นเกินไป ต้องมี 13 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.fName.length < 2){
-          alert('ชื่อสั้นเกินไป ต้องมีอน่างน้อย 2 ตัว');
+
+          this.snackBar.open("ชื่อสั้นเกินไป ต้องมีอน่างน้อย 2 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.lName.length < 2){
-          alert('นามสกุลสั้นเกินไป ต้องมีอน่างน้อย 2 ตัว');
+
+          this.snackBar.open("นามสกุลสั้นเกินไป ต้องมีอน่างน้อย 2 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.eMail.length < 4){
-          alert('อีเมลย์สั้นเกินไป ต้องมีอน่างน้อย 4 ตัว');
+
+          this.snackBar.open("อีเมลย์สั้นเกินไป ต้องมีอน่างน้อย 4 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.tlePhone.length < 10){
-          alert('เบอร์โทรศัพท์ต้องมี 10 ตัว');
+
+          this.snackBar.open("เบอร์โทรศัพท์ต้องมี 10 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
 
       else if(this.cancelInsurances.idCard.length > 13){
-          alert('จำนวนรหัสประจำตัวประชาชน ต้องมี 13 ตัว');
+
+          this.snackBar.open("จำนวนรหัสประจำตัวประชาชน ต้องมี 13 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.fName.length > 20){
-          alert('ชื่อยาวเกินไป ต้องไม่เกิน 20');
+
+          this.snackBar.open("ชื่อยาวเกินไป ต้องไม่เกิน 20!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.lName.length > 20){
-          alert('นามสกุลยาวเกินไป ต้องไม่เกิน 20 ตัว');
+
+          this.snackBar.open("นามสกุลยาวเกินไป ต้องไม่เกิน 20 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.eMail.length > 30){
-          alert('อีเมลย์ยาวเกินไป ต้องไม่เกิน30');
+
+          this.snackBar.open("อีเมลย์ยาวเกินไป ต้องไม่เกิน30!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }else if(this.cancelInsurances.tlePhone.length > 10){
-          alert('เบอร์โทรศัพท์ต้องมี 10 ตัว');
+
+          this.snackBar.open("เบอร์โทรศัพท์ต้องมี 10 ตัว!", "ลองใหม่", {
+             duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
       }
 
 
@@ -121,7 +150,7 @@ constructor(private Service : RegCancelInsuranceService ,
            },
            error => {
               console.log('Rrror', error);
-                let snackBarRef = this.snackBar.open('ไม่สามารถยกเลิกสมาชิกได้ เนื่องจากมียอดค้างชำระ!','ตกลง',{
+                let snackBarRef = this.snackBar.open('ไม่สามารถยกเลิกสมาชิกได้ !','ตกลง',{
                       verticalPosition:"top",
                       horizontalPosition: "center"
               });

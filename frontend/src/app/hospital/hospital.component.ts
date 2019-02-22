@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import {HospitalService} from '../service/Hospital.Service'
 import {Router} from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-hospital',
@@ -21,7 +22,7 @@ export class HospitalComponent implements OnInit {
     namehos: '',nameagent: '',catta: '',province: '',sizehos: ''};
 
   constructor(private HospitalService: HospitalService,
-              private httpClient: HttpClient,private router:Router) { }
+              private httpClient: HttpClient,private router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 this.HospitalService.getAgent().subscribe(dataA => {
@@ -44,21 +45,13 @@ this.HospitalService.getHosSize().subscribe(dataD => {
 }
 
  save() {
- if (this.Hospitalreg.namehos === '') {
- alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-  }
+    if(this.Hospitalreg.namehos == null)
+      { this.snackBar.open("กรุณากรอกชื่อโรงพยาบาล", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Hospitalreg.namehos.length > 30)
+      { this.snackBar.open("ความยาวชื่อโรงพยาบาลไม่ควรเกิน 30 ตัวอักษร", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Hospitalreg.namehos.length < 2)
+      { this.snackBar.open("ความยาวชื่อโรงพยาบาลต้องมากกว่า 2 ตัวอักษร", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
 
-
-    else if(this.Hospitalreg.namehos.length < 3){
-
-          alert('ชื่อโรงพยาบาลสั้นเกินไป');
-
-    }
-    else if(this.Hospitalreg.namehos.length > 30){
-
-          alert('ชื่อโรงพยาบาลยาวเกินไป');
-
-    }
 
 
     else {
@@ -74,7 +67,8 @@ this.HospitalService.getHosSize().subscribe(dataD => {
 
                                       },
                                         error => {
-                                            console.log('Rrror', error); {alert('ชื่อโรงพยาบาลซ้ำ!');}
+                                            let snackBarRef = this.snackBar.open('ชื่อโรงพยาบาลมีแล้ว! กรุณากรอกใหม่', 'ตกลง',{
+                    verticalPosition:"top", horizontalPosition: "center" });
                                         }
 
                                     );

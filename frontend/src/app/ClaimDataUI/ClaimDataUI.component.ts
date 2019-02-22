@@ -60,52 +60,61 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
   save(){
 
     if(this.ClaimData.memberDataS === ''){
-      alert('กรุณาเลือก ผู้ใช้สิทธิ์!');
+   /**   alert('กรุณาเลือก ผู้ใช้สิทธิ์!'); */
+      this.snackBar.open("กรุณาเลือก ผู้ใช้สิทธิ์!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
     }
 
 
      else if(this.ClaimData.diseaseAccidentDataS === ''){
-      alert('กรุณาเลือก ชื่อโรค/อุบัติเหตุ!');
+    /**  alert('กรุณาเลือก ชื่อโรค/อุบัติเหตุ!'); */
+      this.snackBar.open("กรุณาเลือก ชื่อโรค/อุบัติเหตุ!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
                 }
       else if(this.ClaimData.categoryS === ''){
-      alert('กรุณาเลือก ประกันที่ใช้!');
+    /**  alert('กรุณาเลือก ประกันที่ใช้!'); */
+      this.snackBar.open("กรุณาเลือก ประกันที่ใช้!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
                      }
       else if(this.ClaimData.hospitalS === ''){
-      alert('กรุณาเลือก โรงบาลที่รักษา!');
+    /**  alert('กรุณาเลือก โรงบาลที่รักษา!'); */
+      this.snackBar.open("กรุณาเลือก โรงบาลที่รักษา!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
                      }
-      else if(this.ClaimData.treatmentStyleSS === ''){
-      alert('กรุณาเลือก รูปแบบการรักษา!');
+      else if(this.ClaimData.treatmentStyleS === ''){
+
+      this.snackBar.open("กรุณาเลือก รูปแบบการรักษา!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
 
                      }
       else if(this.ClaimData.costA === ''){
-      alert('กรุณากรอก ค่ารักษาพยาบาล!');
+    /**  alert('กรุณากรอก ค่ารักษาพยาบาล!'); */
+      this.snackBar.open("กรุณากรอก ค่ารักษาพยาบาล!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
                      }
       else if(/[^0-9]+/.test(this.ClaimData.costA) === true){
-      alert('กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด');
+   /**   alert('กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด'); */
+      this.snackBar.open("กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
                      }
 
     else if(this.ClaimData.costA < 100){
-      alert('จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว');
+    /**  alert('จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว'); */
+      this.snackBar.open("จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
 
     }
 
      else if(this.ClaimData.costA > 10000000){
-      alert('จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว');
+     /** alert('จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว'); */
+      this.snackBar.open("จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
              }
 
@@ -140,8 +149,9 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
 
               },
 
-        error => {console.log('Error', error);
-                alert('เกิดข้อผิดพลาด!!!');
+        error => {console.log('Error ', error);
+               /** alert('เกิดข้อผิดพลาด!!!'); */
+               this.snackBar.open("เกิดข้อผิดพลาด!!!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
         }
       );

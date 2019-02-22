@@ -47,41 +47,47 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
   save(){
 
     if(this.DiseaseAccidentData.dataNameAdd === ''){
-               alert('กรุณากรอก ชื่อโรค/อุบัติเหตุ !');
+           /**    alert('กรุณากรอก ชื่อโรค/อุบัติเหตุ !'); */
+             this.snackBar.open("กรุณากรอก ชื่อโรค/อุบัติเหตุ !", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
     }
     else if( this.DiseaseAccidentData.typeIdSelect === ''){
 
-               alert('กรุณาเลือก ชนิดสิทธิคุ้มครอง !');
+            /**   alert('กรุณาเลือก ชนิดสิทธิคุ้มครอง !'); */
+              this.snackBar.open("กรุณาเลือก ชนิดสิทธิคุ้มครอง !", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
         }
     else if(this.DiseaseAccidentData.levelIdSelect === ''){
-               alert('กรุณาเลือก ระดับความรุนแรง !');
+      /**         alert('กรุณาเลือก ระดับความรุนแรง !'); */
+        this.snackBar.open("กรุณาเลือก ระดับความรุนแรง !", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
         }
     else if(this.DiseaseAccidentData.medicalFeeIdSelect === ''){
-               alert('กรุณาเลือก ค่ารักษารายวัน !');
+        /**       alert('กรุณาเลือก ค่ารักษารายวัน !'); */
+          this.snackBar.open("กรุณาเลือก ค่ารักษารายวัน !", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
         }
     else if(/[A-Za-z]+/.test(this.DiseaseAccidentData.dataNameAdd) === true){
 
-                   alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อโรค/อุบัติเหตุ เป็นภาษาไทย');
+              /**     alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อโรค/อุบัติเหตุ เป็นภาษาไทย'); */
+                this.snackBar.open("ไม่รองรับภาษาอังกฤษ กรุณา ชื่อโรค/อุบัติเหตุ เป็นภาษาไทย", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
         }
 
     else if(this.DiseaseAccidentData.dataNameAdd.length < 3){
 
-               alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป');
+          /**     alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป'); */
+           this.snackBar.open("ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
     }
     else if(this.DiseaseAccidentData.dataNameAdd.length > 50){
 
-               alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ');
-
+           /**    alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ'); */
+                       this.snackBar.open("ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
     }
 
@@ -111,8 +117,9 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 
               },
 
-        error => {console.log('Error', error);
-                       alert('ชื่อโรค/อุบัติเหตุ นี้มีในฐานข้อมูลแล้ว !!');
+        error => {console.log('Error DiseaseAccidentData', error);
+                      /** alert('ชื่อโรค/อุบัติเหตุ นี้มีในฐานข้อมูลแล้ว !!'); */
+                       this.snackBar.open("ชื่อโรค/อุบัติเหตุ นี้มีในฐานข้อมูลแล้ว !!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
         }
       );

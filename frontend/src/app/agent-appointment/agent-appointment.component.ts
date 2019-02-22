@@ -27,36 +27,44 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
     this.appointService.getProvince().subscribe(dataE => { this.Provinces = dataE; console.log(this.Provinces);});   }
 
    save() {
-      if(this.Appointment.typeName == null){alert('กรุณาเลือกประเภทประกันที่สนใจ');}
-
-      else if(this.Appointment.fName == null){alert('กรุณากรอกชื่อจริง');}
-      else if(this.Appointment.fName.length > 30){ alert('ความยาวชื่อจริงไม่ควรเกิน 30 ตัวอักษร!'); }
-      else if(this.Appointment.fName.length < 2){ alert('ความยาวชื่อจริงต้องมากกว่า 2 ตัวอักษร!'); }
-
-      else if(this.Appointment.lName == null){alert('กรุณากรอกนามสกุล');}
-      else if(this.Appointment.lName.length > 30){ alert('ความยาวนามสกุลไม่ควรเกิน 30 ตัวอักษร!'); }
-      else if(this.Appointment.lName.length < 2){ alert('ความยาวนามสกุลต้องมากกว่า 2 ตัวอักษร!'); }
-
-      else if(this.Appointment.idCardNum == null){alert('กรุณากรอกรหัสบัตรประชาชน');}
-      else if(/[0-9]{13}/.test(this.Appointment.idCardNum) === false){ alert('รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง'); }
-
-
-      else if(this.Appointment.genderName == null){alert('กรุณาเลือกเพศ');}
-
-      else if(this.Appointment.age == null){alert('กรุณากรอกอายุ');}
-      else if(this.Appointment.age < 1 || this.Appointment.age > 80){ alert('อายุไม่อยู่ในช่วงที่กำหนด'); }
-
-      else if(this.Appointment.telNum == null){alert('กรุณากรอกเบอร์โทรศัพท์');}
-      else if(/[0]{1}[2-9]{1}[0-9]{8}/.test(this.Appointment.telNum) === false){ alert('รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง'); }
-
-      else if(this.Appointment.email == null){alert('กรุณากรอก email');}
-      else if(/[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+/.test(this.Appointment.email) === false){ alert('รูปแบบemailไม่ถูกต้อง'); }
-
-      else if(this.Appointment.provinceName == null){alert('กรุณาเลือกจังหวัดที่ต้องการ');}
-
-      else if(this.Appointment.date == null){alert('กรุณาเลือกวันที่ต้องการ');}
-
-      else if(this.Appointment.duration == null){alert('กรุณาเลือกเวลาที่ต้องการ');}
+      if(this.Appointment.typeName == null)
+      { this.snackBar.open("กรุณาเลือกประเภทประกันที่สนใจ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.fName == null)
+      { this.snackBar.open("กรุณากรอกชื่อจริง", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.fName.length > 30)
+      { this.snackBar.open("ความยาวชื่อจริงไม่ควรเกิน 30 ตัวอักษร", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.fName.length < 2)
+      { this.snackBar.open("ความยาวชื่อจริงต้องมากกว่า 2 ตัวอักษร", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.lName == null)
+      { this.snackBar.open("กรุณากรอกนามสกุล", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.lName.length > 30)
+      { this.snackBar.open("ความยาวนามสกุลไม่ควรเกิน 30 ตัวอักษร", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.lName.length < 2)
+      { this.snackBar.open("ความยาวนามสกุลต้องมากกว่า 2 ตัวอักษร", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.idCardNum == null)
+      { this.snackBar.open("กรุณากรอกรหัสบัตรประชาชน", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(/[0-9]{13}/.test(this.Appointment.idCardNum) === false)
+      { this.snackBar.open("รูปแบบรหัสบัตรประชาชนไม่ถูกต้อง", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.genderName == null)
+      { this.snackBar.open("กรุณาเลือกเพศ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.age == null)
+      { this.snackBar.open("กรุณากรอกอายุ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.age < 1 || this.Appointment.age > 80)
+      { this.snackBar.open("อายุไม่อยู่ในช่วงที่กำหนด", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.telNum == null)
+      { this.snackBar.open("กรุณากรอกเบอร์โทรศัพท์", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(/[0]{1}[2-9]{1}[0-9]{8}/.test(this.Appointment.telNum) === false)
+      { this.snackBar.open("รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.email == null)
+      { this.snackBar.open("กรุณากรอก email", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(/[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+/.test(this.Appointment.email) === false)
+      { this.snackBar.open("รูปแบบ email ไม่ถูกต้อง", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.provinceName == null)
+      { this.snackBar.open("กรุณาเลือกจังหวัดที่ต้องการ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.date == null)
+      { this.snackBar.open("กรุณาเลือกวันที่ต้องการ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
+      else if(this.Appointment.duration == null)
+      { this.snackBar.open("กรุณาเลือกเวลาที่ต้องการ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
 
       else{
         this.httpClient.post('http://localhost:8080/MakeAppointment/' + this.Appointment.typeName + '/'
@@ -79,9 +87,7 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
              error => {
              console.log('Rrror', error);
               let snackBarRef = this.snackBar.open('วันที่เลือกมีจำนวนการนัดเต็มแล้ว! กรุณาเลือกวันที่ใหม่', 'ตกลง',{
-                    verticalPosition:"top",
-                    horizontalPosition: "center"
-                });
+                    verticalPosition:"top", horizontalPosition: "center" });
              }
           );
 

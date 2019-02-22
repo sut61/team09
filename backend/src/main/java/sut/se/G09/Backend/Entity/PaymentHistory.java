@@ -1,5 +1,7 @@
 package sut.se.G09.Backend.Entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import sut.se.G09.Backend.Entity.*;
 import lombok.*;
 
@@ -30,6 +32,7 @@ public class PaymentHistory {
 
 
  @ManyToOne(fetch = FetchType.EAGER, targetEntity = MemberData.class)
+ @OnDelete(action = OnDeleteAction.CASCADE)
  @JoinColumn(name = "MID", insertable = true)
  private MemberData memberData;
 

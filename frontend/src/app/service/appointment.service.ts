@@ -28,4 +28,7 @@ constructor(private http: HttpClient) { }
 
   getProvince(): Observable<any> {
        return this.http.get(this.API + '/GetProvince');}
+
+  getDateCount(date): Observable<any> {
+      return this.http.get(this.API + '/getDateCount/' + date);}
 }

@@ -43,19 +43,23 @@ public class Hospital {
 
 
 
-    @ManyToOne
+    @NotNull(message="AgentRegistration not be null")
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = AgentRegistration.class)
     @JoinColumn(name= "agent_id")
     private AgentRegistration agentRegistration;
 
-    @ManyToOne
+    @NotNull(message="Category not be null")
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
     @JoinColumn(name= "Category_id")
     private Category category;
 
-    @ManyToOne
+    @NotNull(message="Province not be null")
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name= "province_id")
     private Province province;
 
-    @ManyToOne
+    @NotNull(message="HospitalSize not be null")
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = HospitalSize.class)
     @JoinColumn(name= "hosSize_id")
     private HospitalSize hospitalSize;
 

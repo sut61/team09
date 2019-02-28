@@ -47,15 +47,18 @@ public class AgentRegistration {
   }
   public void setiD(Long iD) { this.iD = iD; }
 
-  @ManyToOne
+  @NotNull(message="Educational not be null")
+  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Educational.class)
   @JoinColumn(name= "education_id")
   private Educational educational;
 
-  @ManyToOne
+  @NotNull(message="Province not be null")
+  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
   @JoinColumn(name= "province_id")
   private Province province;
 
-  @ManyToOne
+  @NotNull(message="Category not be null")
+  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
   @JoinColumn(name= "Category_id")
   private Category category;
 

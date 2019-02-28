@@ -1,6 +1,7 @@
 package sut.se.G09.Backend.Entity;
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity  //บอกว่าเป็น class entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -15,7 +16,9 @@ public class DiseaseAccidentType {
 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="DiseaseAccidentType_seq")
 @Column(name="Type_ID",unique = true, nullable = true)
 private @NonNull long id;
-private @NonNull String typeText;
+
+  @NotNull(message = "typeText Not Null")
+private String typeText;
 
 
   public DiseaseAccidentType(){}

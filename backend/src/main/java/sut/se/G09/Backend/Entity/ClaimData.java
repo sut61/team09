@@ -3,9 +3,7 @@ import lombok.*;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity  //บอกว่าเป็น class entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -23,11 +21,14 @@ private @NonNull long id;
 
 
 
- // @Pattern(regexp = "[1-9]+[0-9]*" ,message = "Cost Include be Number")
-  @Range(min = 100,max = 10000000,message = "Cost Range 100-10000000 digit")
+
+
+
+ @Max(value = 10000000 ,message = "Cost Range 100-10000000 ")
+ @Min(value = 100 ,message = "Cost Range 100-10000000 ")
   private long cost;
 
-  //private @NonNull int trueCost;
+	//private @NonNull int trueCost;
 
 
 
@@ -35,25 +36,29 @@ private @NonNull long id;
   public ClaimData(){}
   
 	//-----------------[ดึงชื่อคนใช้สิทธิ์]-------------------
+    @NotNull(message = "MemberData not Null")
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = MemberData.class)
 	@JoinColumn(name = "MemberData_ID", insertable = true)
 	private  MemberData memberData;
 
   //-------------[ดึงโรค/อุบัติเหตุ]----------------------
+    @NotNull(message = "DiseaseAccidentData not Null")
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = DiseaseAccidentData.class)
 	@JoinColumn(name = "DiseaseAccident_ID", insertable = true)
 	private  DiseaseAccidentData diseaseAccidentData;
 	
   //-----------------[ดึงประกัน]-------------------
+    @NotNull(message = "Category not Null")
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
 	@JoinColumn(name = "Category_ID", insertable = true)
 	private  Category category;
 
-
-	@ManyToOne(fetch = FetchType.EAGER, targetEntity = DiseaseAccidentLevel.class)
+    @NotNull(message = "Hospital not Null")
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Hospital.class)
 	@JoinColumn(name = "Hospital_ID", insertable = true)
 	private  Hospital hospital;
 
+    @NotNull(message = "TreatmentStyle not Null")
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = TreatmentStyle.class)
 	@JoinColumn(name = "TreatmentStyle_ID", insertable = true)
 	private  TreatmentStyle treatmentStyle;
@@ -63,11 +68,12 @@ private @NonNull long id;
 		this.treatmentStyle = treatmentStyle;
 	}
 
-	public void setCostClaimData(long cost) {
-		this.cost = cost;
 
+    public void setCostClaimData(long cost) {
 
-	}
+        this.cost = cost;
+
+    }
 
 		public void setMemberData (MemberData memberData){
 			this.memberData = memberData;

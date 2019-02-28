@@ -1,6 +1,7 @@
 package sut.se.G09.Backend.Entity;
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 
 @Entity  //บอกว่าเป็น class entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -15,7 +16,9 @@ public class MedicalFee {
 @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MedicalFee_seq")
 @Column(name="MedicalFee_ID",unique = true, nullable = true)
 private @NonNull long id;
-private @NonNull int medicalFeeCost;
+
+  @Max(value = 1000000,message = "medicalFeeCost Max 1000000")
+private int medicalFeeCost;
 
 
   public MedicalFee(){}

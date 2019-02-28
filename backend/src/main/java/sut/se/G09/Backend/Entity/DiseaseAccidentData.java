@@ -20,7 +20,6 @@ public class DiseaseAccidentData {
 private @NonNull long id;
 
   @NotNull(message="Please enter Disease/Accident")
-  //@UniqueElements(message = "this data Unique!!")
   @Column(unique = true)
   @Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]$",message = "Please not enter English")
   @Size(min = 3,max = 50,message = "Please not enter data in 3-50 digit")
@@ -29,14 +28,17 @@ private @NonNull long id;
 
   public DiseaseAccidentData(){}
 
+  @NotNull(message="Please enter DiseaseAccidentLevel")
   @ManyToOne(fetch = FetchType.EAGER, targetEntity = DiseaseAccidentLevel.class)
   @JoinColumn(name = "Level_ID", insertable = true)
   private  DiseaseAccidentLevel diseaseAccidentLevel;
-  
+
+  @NotNull(message="Please enter DiseaseAccidentType")
   @ManyToOne(fetch = FetchType.EAGER, targetEntity = DiseaseAccidentType.class)
   @JoinColumn(name = "Type_ID", insertable = true)
   private  DiseaseAccidentType diseaseAccidentType;
-  
+
+  @NotNull(message="Please enter MedicalFee")
   @ManyToOne(fetch = FetchType.EAGER, targetEntity = MedicalFee.class)
   @JoinColumn(name = "MedicalFee_ID", insertable = true)
   private  MedicalFee medicalFee;

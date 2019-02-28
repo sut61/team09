@@ -1,12 +1,11 @@
 package sut.se.G09.Backend.Entity;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity @Data
@@ -24,10 +23,11 @@ public class CancelAppointmentHistory {
     private String idCardNum;
 
     @NotNull(message="First name is null")
-    @Size(max=30, message = "{First name length must less than 30 character}")
+    @Length(min=2, max=30, message = "{First name length must between 2 to 30 characters}")
     private String fName;
 
     @NotNull(message="Last name is null")
+    @Size(min=2, message = "{Last name length must more than 1 character}")
     @Size(max=30, message = "{Last name length must less than 30 character}")
     private String lName;
 
@@ -45,6 +45,7 @@ public class CancelAppointmentHistory {
 
     public void setlName(String lName) { this.lName = lName; }
 
+    @NotNull(message="Cancel appointment reason not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = CancelAppointmentReason.class)
     @JoinColumn(name = "reasonId", insertable = true)
     private CancelAppointmentReason cancelAppointmentReason;

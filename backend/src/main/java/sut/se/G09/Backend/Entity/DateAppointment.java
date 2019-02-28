@@ -21,7 +21,7 @@ public class DateAppointment {
 
   @NotNull(message="{Count is null}")
   @Range(min=0, max=4, message = "{Date Appoint Limit at 4 times/date}")
-  private int count=0;
+  private Integer count=0;
 
   @NotNull(message="{Status is null}")
   @Pattern(regexp = "[a-z]+")
@@ -41,11 +41,11 @@ public class DateAppointment {
     this.date = date;
   }
 
-  public int getCount() {
+  public Integer getCount() {
     return count;
   }
 
-  public void setCount(int count) {
+  public void setCount(Integer count) {
     this.count = count;
   }
 

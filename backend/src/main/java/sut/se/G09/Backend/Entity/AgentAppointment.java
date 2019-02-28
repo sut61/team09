@@ -27,12 +27,13 @@ public class AgentAppointment {
 
     @NotNull(message="{ID card number is null}")
     @Pattern(regexp = "[0-9]{13}", message = "{ID card number pattern is invalid}")
+    @Column(unique = true)
     private String idCardNum;
 
+    @NotNull(message="{Age is null}")
     @Range(min=1, max=80, message = "{Age Must between 1-80 years old}")
-    private int age;
+    private Integer age;
 
-    @NotNull(message="{Telephone number is null}")
     @Pattern(regexp = "[0]{1}[2-9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
     private String telNum;
 
@@ -67,11 +68,11 @@ public class AgentAppointment {
 
     public void setIdCardNum(String idCardNum) { this.idCardNum = idCardNum; }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -94,23 +95,27 @@ public class AgentAppointment {
 
     public AgentAppointment() { }
 
-
+    @NotNull(message="Category not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
     @JoinColumn(name = "categoryId", insertable = true)
     private Category category;
 
+    @NotNull(message="Gender not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
     @JoinColumn(name = "genderId", insertable = true)
     private Gender gender;
 
+    @NotNull(message="Province not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "provinceId", insertable = true)
     private Province province;
 
+    @NotNull(message="DateAppointment not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = DateAppointment.class)
     @JoinColumn(name = "dateId", insertable = true)
     private DateAppointment dateAppointment;
 
+    @NotNull(message="DurationAppointment not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = DurationAppointment.class)
     @JoinColumn(name = "durationId", insertable = true)
     private DurationAppointment durationAppointment;

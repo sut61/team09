@@ -1,4 +1,5 @@
 package sut.se.G09.Backend.Controller;
+import org.springframework.http.MediaType;
 import sut.se.G09.Backend.Entity.*;
 import sut.se.G09.Backend.Repository.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,7 +30,7 @@ public class AgentAppointmentController {
            AgentAppointment newAppointment, @PathVariable String fName , @PathVariable String lName
           , @PathVariable String idCardNum,@PathVariable String typeName, @PathVariable String genderName
           , @PathVariable String date ,@PathVariable String duration, @PathVariable String provinceName
-          , @PathVariable int age ,@PathVariable String telNum, @PathVariable String email
+          , @PathVariable Integer age ,@PathVariable String telNum, @PathVariable String email
             ) {
 
             sut.se.G09.Backend.Entity.AgentAppointment newAp = new AgentAppointment();
@@ -54,7 +55,7 @@ public class AgentAppointmentController {
                     newAp.setDateAppointment(dateAp);
                     newAp.setDurationAppointment(durAp);
 
-                    int count = dateAp.getCount();
+                    Integer count = dateAp.getCount();
                     count++;
                     dateAp.setCount(count);
 
@@ -87,5 +88,9 @@ public class AgentAppointmentController {
     @GetMapping("/GetProvince") public Collection<Province> Province() {
         return provinceRepository.findAll().stream().collect(Collectors.toList()); }
 
-
+    @GetMapping(path ="/getDateCount/{date}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer getDateCount (@PathVariable String date){
+        DateAppointment findDate = dateAppointmentRepository.findByDate(date);
+        return findDate.getCount();
+    }
 }

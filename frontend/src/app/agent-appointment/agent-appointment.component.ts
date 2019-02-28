@@ -16,7 +16,7 @@ Date : Array<any>;
 Duration : Array<any>;
 Provinces : Array<any>;
 Appointment : any = {typeName: '', fName: '', lName: '', idCardNum: '' ,genderName: '', age: '', telNum: '',email: '' , provinceName: '', date: '',  duration: ''};
-
+DateCount : number;
 constructor(private appointService : AppointmentService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
   ngOnInit() {
     this.appointService.getAppointment().subscribe(data => { this.Appointment = data; console.log(this.Appointment);});
@@ -24,7 +24,8 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
     this.appointService.getGender().subscribe(dataB => { this.Genders = dataB; console.log(this.Genders);});
     this.appointService.getDateAppointment().subscribe(dataC => { this.Date = dataC; console.log(this.Date);});
     this.appointService.getDurationAppointment().subscribe(dataD => { this.Duration = dataD; console.log(this.Duration);});
-    this.appointService.getProvince().subscribe(dataE => { this.Provinces = dataE; console.log(this.Provinces);});   }
+    this.appointService.getProvince().subscribe(dataE => { this.Provinces = dataE; console.log(this.Provinces);});
+  }
 
    save() {
       if(this.Appointment.typeName == null)
@@ -67,6 +68,8 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
       { this.snackBar.open("กรุณาเลือกเวลาที่ต้องการ", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"}); }
 
       else{
+        this.appointService.getDateCount(this.Appointment.date).subscribe(dataF => { this.DateCount = dataF; console.log(this.DateCount);});
+
         this.httpClient.post('http://localhost:8080/MakeAppointment/' + this.Appointment.typeName + '/'
         + this.Appointment.fName + '/' + this.Appointment.lName + '/' + this.Appointment.idCardNum + '/'
         + this.Appointment.genderName + '/' + this.Appointment.age + '/' + this.Appointment.telNum + '/'
@@ -86,11 +89,14 @@ constructor(private appointService : AppointmentService ,private httpClient: Htt
              },
              error => {
              console.log('Rrror', error);
-              let snackBarRef = this.snackBar.open('วันที่เลือกมีจำนวนการนัดเต็มแล้ว! กรุณาเลือกวันที่ใหม่', 'ตกลง',{
-                    verticalPosition:"top", horizontalPosition: "center" });
+                if(this.DateCount == 4){
+                  this.snackBar.open("วันนัดเต็มแล้ว! กรุณาเลือกวันนัดอื่น", "ตกลง", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+                }else{
+                  let snackBarRef = this.snackBar.open('รหัสบัตรประชาชนนี้ มีในประวัติการนัดแล้ว! กรุณายกเลิกนัดเดิมก่อนทำรายการ', 'ตกลง',{
+                        verticalPosition:"top", horizontalPosition: "center" });
+                }
              }
           );
-
         }
-    }
+      }
 }

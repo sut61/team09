@@ -46,7 +46,7 @@ public class CancelAppointmentHistoryController {
         newCanc.setCancelAppointmentReason(findReason);
         cancelAppointmentHistoryRepository.save(newCanc);   //บันทึก Objcet ชื่อ newReg
 
-        int count = dateAp.getCount();
+        Integer count = dateAp.getCount();
         count--;
         dateAp.setCount(count);
 

@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.OptionalInt;
 import java.util.Set;
 
@@ -1202,7 +1203,7 @@ public class TestAgentAppointmentAndCancel {
     }
 
 //Sprint2=============================================================================================================================================
-    //(@Column unique [2], @NotNull [4], @Pattern [1], @Size [3], @Length [1])
+    //(@Column unique [2], @NotNull [4], @Pattern [3], @Size [3], @Length [1])
 
     //------CancelAppointmentHistory------
 
@@ -1215,6 +1216,9 @@ public class TestAgentAppointmentAndCancel {
         c1.setIdCardNum("1300000000000");
         c1.setfName("Fffff");
         c1.setlName("Lllll");
+        c1.setTelNum("0801234567");
+        c1.setEmail("Abcdf.1234@gmail.com");
+        c1.setDate(new Date());
 
         CancelAppointmentHistory c2 = new CancelAppointmentHistory();
         c2.setCancelAppointmentReason(r);
@@ -1222,6 +1226,9 @@ public class TestAgentAppointmentAndCancel {
         c2.setIdCardNum("1300000000001");
         c2.setfName("Aaaaa");
         c2.setlName("Sssss");
+        c1.setTelNum("0801234567");
+        c1.setEmail("Abcdf.1234@gmail.com");
+        c1.setDate(new Date());
         try {
 
             entityManager.persist(c1);
@@ -1248,6 +1255,9 @@ public class TestAgentAppointmentAndCancel {
         c.setIdCardNum(null);   //<<<----- Test This Line
         c.setfName("Fffff");
         c.setlName("Lllll");
+        c.setTelNum("0801234567");
+        c.setEmail("Abcdf.1234@gmail.com");
+        c.setDate(new Date());
 
         try {
 
@@ -1275,6 +1285,10 @@ public class TestAgentAppointmentAndCancel {
         c.setIdCardNum("13000000000000000");    //<<<----- Test This Line
         c.setfName("Fffff");
         c.setlName("Lllll");
+        c.setTelNum("0801234567");
+        c.setEmail("Abcdf.1234@gmail.com");
+        c.setDate(new Date());
+
         try {
             entityManager.persist(c);
             entityManager.flush();
@@ -1298,6 +1312,10 @@ public class TestAgentAppointmentAndCancel {
         c.setIdCardNum("1300000000000");
         c.setfName(null);   //<<<----- Test This Line
         c.setlName("Lllll");
+        c.setTelNum("0801234567");
+        c.setEmail("Abcdf.1234@gmail.com");
+        c.setDate(new Date());
+
         try {
             entityManager.persist(c);
             entityManager.flush();
@@ -1322,12 +1340,19 @@ public class TestAgentAppointmentAndCancel {
         c1.setIdCardNum("1300000000000");
         c1.setfName("Fffffffffffffffffffffffffffffffffffffffffffffff");     //<<<----- Test This Line
         c1.setlName("Lllll");
+        c1.setTelNum("0801234567");
+        c1.setEmail("Abcdf.1234@gmail.com");
+        c1.setDate(new Date());
 
         CancelAppointmentHistory c2 = new CancelAppointmentHistory();
         c2.setCancelAppointmentReason(r);
         c2.setIdCardNum("1300000000001");
         c2.setfName("F");   //<<<----- Test This Line
-        c1.setlName("Aaaaa");
+        c2.setlName("Aaaaa");
+        c2.setTelNum("0801234567");
+        c2.setEmail("Abcdf.1234@gmail.com");
+        c2.setDate(new Date());
+
         try {
             entityManager.persist(c1);
             entityManager.flush();
@@ -1355,6 +1380,10 @@ public class TestAgentAppointmentAndCancel {
         c.setIdCardNum("1300000000000");
         c.setfName("Fffff");
         c.setlName(null);   //<<<----- Test This Line
+        c.setTelNum("0801234567");
+        c.setEmail("Abcdf.1234@gmail.com");
+        c.setDate(new Date());
+
         try {
             entityManager.persist(c);
             entityManager.flush();
@@ -1380,6 +1409,10 @@ public class TestAgentAppointmentAndCancel {
         c.setIdCardNum("1300000000000");
         c.setfName("Fffff");
         c.setlName("L");    //<<<----- Test This Line
+        c.setTelNum("0801234567");
+        c.setEmail("Abcdf.1234@gmail.com");
+        c.setDate(new Date());
+
         try {
             entityManager.persist(c);
             entityManager.flush();
@@ -1403,6 +1436,10 @@ public class TestAgentAppointmentAndCancel {
         c.setIdCardNum("1300000000000");
         c.setfName("Fffff");
         c.setlName("Lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");  //<<<----- Test This Line
+        c.setTelNum("0801234567");
+        c.setEmail("Abcdf.1234@gmail.com");
+        c.setDate(new Date());
+
         try {
             entityManager.persist(c);
             entityManager.flush();
@@ -1479,6 +1516,110 @@ public class TestAgentAppointmentAndCancel {
             entityManager.persist(r);
             entityManager.flush();
             fail("expected CancelReasonLengthMustLessThan50Character");
+
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test //@Pattern
+    public void testCancelTelNumMustBeCorrectPattern() {
+        CancelAppointmentHistory c1 = new CancelAppointmentHistory();
+        CancelAppointmentReason r = cancelAppointmentReasonRepository.findByReason("ติดธุระด่วน");
+        c1.setCancelAppointmentReason(r);
+        c1.setIdCardNum("1300000000000");
+        c1.setfName("Fffff");
+        c1.setlName("Lllll");
+        c1.setTelNum("2801234567"); //<<<----- Test This Line
+        c1.setEmail("Abcdf.1234@gmail.com");
+        c1.setDate(new Date());
+
+        CancelAppointmentHistory c2 = new CancelAppointmentHistory();
+        c2.setCancelAppointmentReason(r);
+        c2.setIdCardNum("1300000000001");
+        c2.setfName("Aaaa");
+        c2.setlName("Bbbb");
+        c2.setTelNum("1301234567"); //<<<----- Test This Line
+        c2.setEmail("Abcdf.1234@gmail.com");
+        c2.setDate(new Date());
+        try {
+            entityManager.persist(c1);
+            entityManager.flush();
+            entityManager.persist(c2);
+            entityManager.flush();
+
+            fail("expected CancelTelNumMustBeCorrectPattern");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test //@Pattern
+    public void testCancelEmailMustBeCorrectPattern() {
+        CancelAppointmentHistory c1 = new CancelAppointmentHistory();
+        CancelAppointmentReason r = cancelAppointmentReasonRepository.findByReason("ติดธุระด่วน");
+        c1.setCancelAppointmentReason(r);
+        c1.setIdCardNum("1300000000000");
+        c1.setfName("Fffff");
+        c1.setlName("Lllll");
+        c1.setTelNum("0801234567");
+        c1.setEmail("12+34_abc@gmail.com"); //<<<----- Test This Line
+        c1.setDate(new Date());
+
+        CancelAppointmentHistory c2 = new CancelAppointmentHistory();
+        c2.setCancelAppointmentReason(r);
+        c2.setIdCardNum("1300000000001");
+        c2.setfName("Aaaa");
+        c2.setlName("Bbbb");
+        c2.setTelNum("0801234567");
+        c2.setEmail("123456abc.Gmail.com"); //<<<----- Test This Line
+        c2.setDate(new Date());
+        try {
+            entityManager.persist(c1);
+            entityManager.flush();
+            entityManager.persist(c2);
+            entityManager.flush();
+
+            fail("expected CancelEmailMustBeCorrectPattern");
+        } catch(javax.validation.ConstraintViolationException e) {
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test //@NotNull
+    public void testCancelDateCannotNull() {
+        CancelAppointmentHistory c = new CancelAppointmentHistory();
+        CancelAppointmentReason r = cancelAppointmentReasonRepository.findByReason("ติดธุระด่วน");
+        c.setCancelAppointmentReason(r);
+        c.setIdCardNum("1300000000001");
+        c.setfName("Fffff");
+        c.setlName("Lllll");
+        c.setTelNum("0801234567");
+        c.setEmail("asdfg1234@gmail.com");
+        c.setDate(null);    //<<<----- Test This Line
+
+        try {
+
+            entityManager.persist(c);
+            entityManager.flush();
+            fail("expected CancelDateCannotNull");
 
         } catch(javax.validation.ConstraintViolationException e) {
 

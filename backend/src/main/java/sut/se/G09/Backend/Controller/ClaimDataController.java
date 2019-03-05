@@ -66,14 +66,18 @@ public class ClaimDataController {
 	}
 
 	//======  curl -X POST  http://localhost:8080/DiseaseAccidentData/NEW/"1,22222"/1/1/5
-	@PostMapping(path ="/ClaimData/NEW/{memberData}/{diseaseAccidentData}/{category}/{hospital}/{treatmentStyle}/{cost}")
+	@PostMapping(path ="/ClaimData/NEW/{memberData}/{diseaseAccidentData}/{category}/{hospital}/{treatmentStyle}/{cost}/{doctorName}/{dataOwner}/{dataOwnerPhone}")
 	public void ClaimData(
 											@PathVariable long memberData,
 											@PathVariable String diseaseAccidentData,
 											@PathVariable String category,
 											@PathVariable String hospital,
 											@PathVariable String treatmentStyle,
-											@PathVariable long cost
+											@PathVariable long cost,
+											@PathVariable String doctorName,
+											@PathVariable String dataOwner,
+											@PathVariable String dataOwnerPhone
+
 										)throws JsonParseException, IOException
 	{
 		MemberData member = memberDataRepository.findByID(memberData);
@@ -89,6 +93,9 @@ public class ClaimDataController {
 		newData.setCategory(cat);
 		newData.setTreatmentStyle(ts);
 		newData.setCostClaimData(cost);
+		newData.setDoctorName(doctorName);
+		newData.setDataOwner(dataOwner);
+		newData.setDataOwnerPhone(dataOwnerPhone);
 
 		claimDataRepository.save(newData);
 

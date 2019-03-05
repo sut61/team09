@@ -66,10 +66,32 @@
         <mat-hint align="end">ใส่ตัวเลขเท่านั้น</mat-hint>
       </mat-form-field>
       </mat-list-item><br>
+
     <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput id = "docAdd100" placeholder="กรอก ชื่อผู้รักษา" [(ngModel)]="ClaimData.doctorNameAdd" >
+        <mat-hint align="end">กรุณากรอกเฉพาะภาษาไทย</mat-hint>
+      </mat-form-field>
+      </mat-list-item>
+      <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput id = "OwnerAdd200" placeholder="กรอก ชื่อผู้ใส่ข้อมูล" [(ngModel)]="ClaimData.dataOwnerAdd" >
+        <mat-hint align="end">กรุณากรอกเฉพาะภาษาไทย</mat-hint>
+      </mat-form-field>
+      </mat-list-item>
+      <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput id = "phoneOAdd100" placeholder="กรอก เบอร์โทรผู้ใส่ข้อมูล" [(ngModel)]="ClaimData.dataOwnerPhoneAdd" >
+        <mat-hint align="end">กรุณากรอกเฉพาะตัวเลขให้ครบ 10 ตัว</mat-hint>
+      </mat-form-field>
+      </mat-list-item>
+    <br>
+    <br>
     <button mat-raised-button align = "left" class="font-field" color="warm" routerLink="/OfficerHome">ย้อนกลับ</button>&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;<button class="font-field" (click)="save()" cdkFocusInitial mat-raised-button color="primary">บันทึก</button>
-    </mat-list-item>
+
   </mat-list>
 </a></nav>
 

@@ -14,6 +14,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.Date;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -63,6 +64,8 @@ public void testDataNamePass() {
     a1.setDiseaseAccidentLevel(level);
     a1.setDiseaseAccidentType(type);
     a1.setMedicalFee(medicalFee);
+    a1.setDataOwner("อิศราคนดี");
+
 
 
     try {
@@ -105,6 +108,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -149,6 +153,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(null);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -192,6 +197,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(null);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -235,6 +241,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(null);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -254,6 +261,51 @@ public void testDataNamePass() {
             System.out.println("==========================");
         }
     }
+
+    @Test
+    public void testDataOwnerCannotBeNull() {
+
+        DiseaseAccidentLevel level = new DiseaseAccidentLevel();
+        level.setId(1);
+        level.setLevelText("1");
+        level.getId();
+
+        DiseaseAccidentType type = new DiseaseAccidentType();
+        type.setId(1);
+        type.setTypeText("1");
+        type.getId();
+
+        MedicalFee medicalFee = new MedicalFee();
+        medicalFee.setId(1);
+        medicalFee.setMedicalFee(10);
+        medicalFee.getID();
+
+        DiseaseAccidentData a1 = new DiseaseAccidentData();
+        a1.setDiseaseAccidentData("โรคหัวใจนะ");
+        a1.setDiseaseAccidentLevel(level);
+        a1.setDiseaseAccidentType(type);
+        a1.setMedicalFee(medicalFee);
+        a1.setDataOwner(null);
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("MedicalFee Cannot Be Null");
+            System.out.println("==========================");
+        }
+    }
+
 
 
 
@@ -282,6 +334,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -298,6 +351,50 @@ public void testDataNamePass() {
             System.out.println(e.getMessage());
             System.out.println("==========================");
             System.out.println("DataNameDigitNotEnglish");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerDigitNotEnglish() {
+
+        DiseaseAccidentLevel level = new DiseaseAccidentLevel();
+        level.setId(1);
+        level.setLevelText("1");
+        level.getId();
+
+        DiseaseAccidentType type = new DiseaseAccidentType();
+        type.setId(1);
+        type.setTypeText("1");
+        type.getId();
+
+        MedicalFee medicalFee = new MedicalFee();
+        medicalFee.setId(1);
+        medicalFee.setMedicalFee(10);
+        medicalFee.getID();
+
+        DiseaseAccidentData a1 = new DiseaseAccidentData();
+        a1.setDiseaseAccidentData("โรคเด็ก");
+        a1.setDiseaseAccidentLevel(level);
+        a1.setDiseaseAccidentType(type);
+        a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("Isara");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerDigitNotEnglish");
             System.out.println("==========================");
         }
     }
@@ -325,6 +422,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -368,6 +466,7 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
 
 
 
@@ -411,6 +510,8 @@ public void testDataNamePass() {
         a1.setDiseaseAccidentLevel(level);
         a1.setDiseaseAccidentType(type);
         a1.setMedicalFee(medicalFee);
+        a1.setDataOwner("อิศราคนดี");
+
         entityManager.persist(a1);
 
         DiseaseAccidentLevel level1 = new DiseaseAccidentLevel();
@@ -433,6 +534,7 @@ public void testDataNamePass() {
         a2.setDiseaseAccidentLevel(level1);
         a2.setDiseaseAccidentType(type1);
         a2.setMedicalFee(medicalFee1);
+        a2.setDataOwner("อิศราคนดี");
 
 
 

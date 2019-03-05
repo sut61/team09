@@ -29,6 +29,18 @@ private @NonNull long id;
   private long cost;
 
 	//private @NonNull int trueCost;
+	@NotNull(message = "doctorName not Null")
+	@Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]+$",message = "Please not enter English")
+	private String doctorName;
+
+	@NotNull(message = "dataOwner not Null")
+	@Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]+$",message = "Please not enter English")
+	private String dataOwner;
+
+	@NotNull(message = "dataOwnerPhone not Null")
+	@Pattern(regexp = "^[0-9]+$",message = "Please enter Number Only")
+	@Size(min = 10,max = 10,message = "10 number for dataOwnerPhone")
+	private String dataOwnerPhone;
 
 
 
@@ -90,5 +102,15 @@ private @NonNull long id;
     	this.hospital = hospital;
 		}
 
-
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
 	}
+
+	public void setDataOwner(String dataOwner) {
+		this.dataOwner = dataOwner;
+	}
+
+	public void setDataOwnerPhone(String dataOwnerPhone) {
+		this.dataOwnerPhone = dataOwnerPhone;
+	}
+}

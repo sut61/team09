@@ -132,12 +132,13 @@ public class BackendApplication {
 			medicalFeeRepository.save(cost_11);
 			//=========================================================
 
-			//================add DiseaseAccidentData : BY ISARA ====================
+						//================add DiseaseAccidentData : BY ISARA ====================
 			//-----DATA------------------------------------
 			String s[] ={"โรคหัวใจ","หกล้ม","ไตวาย","แขนขาด"};
 			long ty[] = {1,2,1,2};
 			long lev[] = {2,1,3,3};
 			long mee[] = {5,1,10,11};
+			String owl[] = {"อิศรา","อิศรา","อิศรา","อิศรา"};
 			//--------------------------------------------------------
 			if(s.length == ty.length && s.length == lev.length && s.length == mee.length) {
 				for (int i=0;i<s.length;i++) {
@@ -154,9 +155,12 @@ public class BackendApplication {
 					MedicalFee m = medicalFeeRepository.findById(mee[i]);
 					data1.setMedicalFee(m);
 
+					data1.setDataOwner(owl[i]);
+
 					diseaseAccidentDataRepository.save(data1);
 				}
 			}
+
 
 			//======================================================================
 			//====================By Nattapon=======================================

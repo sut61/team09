@@ -15,10 +15,11 @@ dataNameA:Array<any>;
 typeIdA:Array<any>;
 levelIdA:Array<any>;
 medicalFeeIdA:Array<any>;
+ownerDataA:Array<any>;
 
 
 DiseaseAccidentData : any = {
-dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
+dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :'',ownerDataAdd :''
 };
   constructor(private Service : DiseaseAccidentDataService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
 
@@ -69,6 +70,12 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 
 
         }
+     else if(this.DiseaseAccidentData.ownerDataAdd === ''){
+
+                  this.snackBar.open("กรุณากรอก ชื่อผู้ใส่ข้อมูล !", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                }
     else if(/[A-Za-z]+/.test(this.DiseaseAccidentData.dataNameAdd) === true){
 
               /**     alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อโรค/อุบัติเหตุ เป็นภาษาไทย'); */
@@ -79,17 +86,27 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
 
     else if(this.DiseaseAccidentData.dataNameAdd.length < 3){
 
-          /**     alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป'); */
-           this.snackBar.open("ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+              /**     alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป'); */
+               this.snackBar.open("ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
-    }
-    else if(this.DiseaseAccidentData.dataNameAdd.length > 50){
+        }
+        else if(this.DiseaseAccidentData.dataNameAdd.length > 50){
 
-           /**    alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ'); */
-                       this.snackBar.open("ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+               /**    alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ'); */
+                           this.snackBar.open("ข้อมูล ชื่อโรค/อุบัติเหตุ ! ยาวเกิน 50 อักขระ", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
-    }
+        }
+
+    else if(/[A-Za-z]+/.test(this.DiseaseAccidentData.ownerDataAdd) === true){
+
+                  /**     alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อผู้ใส่ข้อมูล เป็นภาษาไทย'); */
+                    this.snackBar.open("ไม่รองรับภาษาอังกฤษ กรุณากรอก ชื่อผู้ใส่ข้อมูล เป็นภาษาไทย", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+            }
+
+
 
     else{
 
@@ -97,7 +114,8 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
       + this.DiseaseAccidentData.dataNameAdd + '/'
       + this.DiseaseAccidentData.levelIdSelect + '/'
       + this.DiseaseAccidentData.typeIdSelect + '/'
-      + this.DiseaseAccidentData.medicalFeeIdSelect
+      + this.DiseaseAccidentData.medicalFeeIdSelect + '/'
+      + this.DiseaseAccidentData.ownerDataAdd + '/'
        ,this.DiseaseAccidentData)
 
       .subscribe(
@@ -112,7 +130,8 @@ dataNameAdd :''  ,typeIdSelect :'' ,levelIdSelect :'',medicalFeeIdSelect :''
                                dataNameAdd:DiseaseAccidentData.dataNameAdd,
                                typeIdSelect:DiseaseAccidentData.levelIdSelect,
                                levelIdSelect:DiseaseAccidentData.typeIdSelect,
-                               medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect}])
+                               medicalFeeIdSelect:DiseaseAccidentData.medicalFeeIdSelect,
+                               ownerDataAdd:DiseaseAccidentData.ownerDataAdd}])
 
 
               },

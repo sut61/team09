@@ -67,12 +67,13 @@ public class DiseaseAccidentDataController {
 		}
 
 	//======  curl -X POST  http://localhost:8080/DiseaseAccidentData/NEW/"1,22222"/1/1/5
-	@PostMapping(path ="/DiseaseAccidentData/NEW/{dataName}/{levelId}/{typeId}/{medicalFeeId}")	
+	@PostMapping(path ="/DiseaseAccidentData/NEW/{dataName}/{levelId}/{typeId}/{medicalFeeId}/{dataOwner}")
 	public void diseaseAccidentData(
 											@PathVariable String dataName,
 											@PathVariable String levelId,
 											@PathVariable String typeId,
-											@PathVariable int medicalFeeId
+											@PathVariable int medicalFeeId,
+											@PathVariable String dataOwner
 										)throws JsonParseException, IOException
 	{
 		DiseaseAccidentLevel level = diseaseAccidentLevelRepository.findByLevelText(levelId);
@@ -84,6 +85,7 @@ public class DiseaseAccidentDataController {
 		newData.setDiseaseAccidentLevel(level);
 		newData.setDiseaseAccidentType(type);
 		newData.setMedicalFee(medicalFee);
+		newData.setDataOwner(dataOwner);
 		
 		 diseaseAccidentDataRepository.save(newData);
 

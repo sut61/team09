@@ -80,6 +80,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -127,6 +130,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -172,6 +178,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -219,6 +228,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -266,6 +278,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -313,6 +328,9 @@ public void testCostPass() {
         a1.setCategory(null);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -360,6 +378,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(null);
         a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -407,6 +428,9 @@ public void testCostPass() {
         a1.setCategory(category);
         a1.setHospital(hospital);
         a1.setTreatmentStyle(null);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
 
 
 
@@ -423,6 +447,406 @@ public void testCostPass() {
             System.out.println(e.getMessage());
             System.out.println("==========================");
             System.out.println("TreatmentStyleCannotNull ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerPhoneCannotNull() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone(null);
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerPhoneCannotNull ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerCannotNull() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner(null);
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerCannotNull ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDoctorNameCannotNull() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName(null);
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDoctorNameCannotNull ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDoctorNameNotEnglish() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("Doctor.Vectong A");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDoctorNameNotEnglish ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerNotEnglish() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789");
+        a1.setDataOwner("Isara");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerNotEnglish ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerPhoneNotNumber() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("zero-two");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerPhoneNotNumber ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerPhoneNot_10_Number_Less() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("01234567");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerPhoneNot_10_Number_Less ");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testDataOwnerPhoneNot_10_Number_Over() {
+
+        MemberData memberData = new MemberData();
+        memberData = memberDataRepository.findByID(1);
+
+
+        DiseaseAccidentData diseaseAccidentData = new DiseaseAccidentData();
+        diseaseAccidentData = diseaseAccidentDataRepository.findById(1);
+
+        Category category = new Category();
+        category = categoryRepository.findByID(1L);
+
+        Hospital hospital = new Hospital();
+        hospital =hospitalRepository.findByID(1);
+
+        TreatmentStyle treatmentStyle =new TreatmentStyle();
+        treatmentStyle = treatmentStyleRepository.findById(1);
+
+        ClaimData a1 = new ClaimData();
+
+        a1.setCostClaimData(900);
+        a1.setMemberData(memberData);
+        a1.setDiseaseAccidentData(diseaseAccidentData);
+        a1.setCategory(category);
+        a1.setHospital(hospital);
+        a1.setTreatmentStyle(treatmentStyle);
+        a1.setDataOwnerPhone("0123456789012345");
+        a1.setDataOwner("อิศรา");
+        a1.setDoctorName("นพ.เวกตองแอ๊ะ");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testDataOwnerPhoneNot_10_Number_Over ");
             System.out.println("==========================");
         }
     }

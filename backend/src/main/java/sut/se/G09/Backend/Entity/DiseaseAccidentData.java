@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Date;
 
 @Entity  //บอกว่าเป็น class entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -21,9 +22,16 @@ private @NonNull long id;
 
   @NotNull(message="Please enter Disease/Accident")
   @Column(unique = true)
-  @Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]$",message = "Please not enter English")
+  @Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]+$",message = "Please not enter English")
   @Size(min = 3,max = 50,message = "Please not enter data in 3-50 digit")
     private String dataName;
+
+    public void  setDataOwner(String ownerD){this.dataOwner = ownerD;}
+
+    @Pattern(regexp = "^[^a-zA-Z]+$|^[0-9]+$",message = "Please not enter English")
+    @NotNull(message = "Please enter Owner")
+    private String dataOwner;
+
 
 
   public DiseaseAccidentData(){}
@@ -47,6 +55,7 @@ private @NonNull long id;
 	public void setDiseaseAccidentData(String dataName) {
     this.dataName = dataName;
 	}
+
 	
 	public void setDiseaseAccidentLevel(DiseaseAccidentLevel diseaseAccidentLevel) {
     this.diseaseAccidentLevel = diseaseAccidentLevel;
@@ -59,4 +68,8 @@ private @NonNull long id;
 	public void setMedicalFee(MedicalFee medicalFee) {
     this.medicalFee = medicalFee;
 	}
+
+
+
+
 }

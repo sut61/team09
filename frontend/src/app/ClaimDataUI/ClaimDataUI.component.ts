@@ -19,7 +19,7 @@ treatmentStyleSS:Array<any>;
 costAA:Array<any>;
 
 ClaimData : any = {
-memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmentStyleS :'',costA :''
+memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmentStyleS :'',costA :'',doctorNameAdd :'',dataOwnerAdd :'',dataOwnerPhoneAdd :''
 };
   constructor(private Service : ClaimDataService ,private httpClient: HttpClient, private router:Router,private snackBar: MatSnackBar) { }
 
@@ -97,6 +97,24 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
 
 
                      }
+     else if(this.ClaimData.doctorNameAdd === ''){
+         /**  alert('กรุณากรอก ค่ารักษาพยาบาล!'); */
+           this.snackBar.open("กรุณากรอก ชื่อผู้รักษา!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                          }
+     else if(this.ClaimData.dataOwnerAdd === ''){
+         /**  alert('กรุณากรอก ค่ารักษาพยาบาล!'); */
+           this.snackBar.open("กรุณากรอก ชื่อผู้ใส่ข้อมูล!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                          }
+     else if(this.ClaimData.dataOwnerPhoneAdd === ''){
+         /**  alert('กรุณากรอก ค่ารักษาพยาบาล!'); */
+           this.snackBar.open("กรุณากรอก เบอร์โทรผู้ใส่ข้อมูล!", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                          }
       else if(/[^0-9]+/.test(this.ClaimData.costA) === true){
    /**   alert('กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด'); */
       this.snackBar.open("กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
@@ -104,19 +122,50 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
 
                      }
 
-    else if(this.ClaimData.costA < 100){
-    /**  alert('จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว'); */
-      this.snackBar.open("จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+       else if(this.ClaimData.costA < 100){
+          /**  alert('จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว'); */
+            this.snackBar.open("จำนวนค่ารักษาน้อยกว่า 100 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
 
 
-    }
+          }
 
-     else if(this.ClaimData.costA > 10000000){
-     /** alert('จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว'); */
-      this.snackBar.open("จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+           else if(this.ClaimData.costA > 10000000){
+           /** alert('จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว'); */
+            this.snackBar.open("จำนวนค่ารักษามากเกิน10,000,000 บาท ?! โปรดเช็คว่าได้กรอกค่ารักษาพยาบาลที่ถูกต้องแล้ว", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
 
-             }
+                   }
+
+
+     else if(/[^0-9]+/.test(this.ClaimData.dataOwnerPhoneAdd) === true){
+        /**   alert('กรอกค่ารักษาเฉพาตัวเลข และไม่ต้องใส่เครื่องหมายทุกชนิด'); */
+           this.snackBar.open("กรอกเบอร์โทรผู้ใส่ข้อมูลเฉพาตัวเลข เท่านั้น", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                          }
+     else if(this.ClaimData.dataOwnerPhoneAdd.length < 10 ||this.ClaimData.dataOwnerPhoneAdd.length > 10){
+
+              /**     alert('ข้อมูล ชื่อโรค/อุบัติเหตุ ! 3 อักขระขึ้นไป'); */
+               this.snackBar.open("กรอกเบอร์โทรผู้ใส่ข้อมูล 10 ตัวเลขเท่านั้น", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+        }
+     else if(/[A-Za-z]+/.test(this.ClaimData.doctorNameAdd) === true){
+
+                      /**     alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อผู้ใส่ข้อมูล เป็นภาษาไทย'); */
+                        this.snackBar.open("ไม่รองรับภาษาอังกฤษ กรุณากรอก ชื่อผู้รักษา เป็นภาษาไทย", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                }
+      else if(/[A-Za-z]+/.test(this.ClaimData.dataOwnerAdd) === true){
+
+                       /**     alert('ไม่รองรับภาษาอังกฤษ กรุณา ชื่อผู้ใส่ข้อมูล เป็นภาษาไทย'); */
+                         this.snackBar.open("ไม่รองรับภาษาอังกฤษ กรุณากรอก ชื่อผู้ใส่ข้อมูล เป็นภาษาไทย", "ลองใหม่", {duration: 10000,verticalPosition:"top", horizontalPosition: "center"});
+
+
+                 }
+
+
 
     else  {
 
@@ -126,7 +175,10 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
       + this.ClaimData.categoryS + '/'
       + this.ClaimData.hospitalS + '/'
       + this.ClaimData.treatmentStyleS + '/'
-      + this.ClaimData.costA
+      + this.ClaimData.costA + '/'
+      + this.ClaimData.doctorNameAdd + '/'
+      + this.ClaimData.dataOwnerAdd + '/'
+      + this.ClaimData.dataOwnerPhoneAdd + '/'
        ,this.ClaimData)
 
       .subscribe(
@@ -144,7 +196,11 @@ memberDataS :''  ,diseaseAccidentDataS :'' ,categoryS :'',hospitalS :'',treatmen
                                categoryS:ClaimData.categoryS,
                                hospitalS:ClaimData.hospitalS,
                                treatmentStyleS:ClaimData.treatmentStyleS,
-                               costA:ClaimData.costA}])
+                               costA:ClaimData.costA,
+                               doctorNameAdd:ClaimData.doctorNameAdd,
+                               dataOwnerAdd:ClaimData.dataOwnerAdd,
+                               dataOwnerPhoneAdd:ClaimData.dataOwnerPhoneAdd
+                               }])
 
 
               },

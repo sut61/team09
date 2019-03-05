@@ -8,6 +8,7 @@ import sut.se.G09.Backend.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 @RestController
@@ -43,8 +44,11 @@ public class CancelAppointmentHistoryController {
         newCanc.setIdCardNum(idCardNum);
         newCanc.setfName(findApp.getfName());
         newCanc.setlName(findApp.getlName());
+        newCanc.setTelNum(findApp.getTelNum());
+        newCanc.setEmail(findApp.getEmail());
+        newCanc.setDate(new Date());
         newCanc.setCancelAppointmentReason(findReason);
-        cancelAppointmentHistoryRepository.save(newCanc);   //บันทึก Objcet ชื่อ newReg
+        cancelAppointmentHistoryRepository.save(newCanc);
 
         Integer count = dateAp.getCount();
         count--;

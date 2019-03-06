@@ -61,12 +61,17 @@ public class AgentRegistrationController {
 
 
   }
-  @PostMapping(path ="/AgentRegistration/{fName}/{lName}/{typeInsurance}/{Education}/{Province}")
+  @PostMapping(path ="/AgentRegistration/{fName}/{lName}/{telNum}/{age}/{email}/{typeInsurance}/{Education}/{Province}")
   /*==TEST==)))
   http://localhost:8080/MedicineSystem/NEW/id=1/id=1/id=1/id=1,id=2,id=3
   */
   // @RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public AgentRegistration agentRegistration(@PathVariable String fName,@PathVariable String lName,@PathVariable String typeInsurance
+  public AgentRegistration agentRegistration(@PathVariable String fName,@PathVariable String lName
+
+          ,@PathVariable int age
+          ,@PathVariable String telNum
+          ,@PathVariable String email
+          ,@PathVariable String typeInsurance
           ,@PathVariable String Education
           ,@PathVariable String Province)throws JsonParseException, IOException {
 
@@ -77,7 +82,7 @@ public class AgentRegistrationController {
 
     AgentRegistration agent = new AgentRegistration();
 
-    agent.setAgentRegistration(fName, lName);
+    agent.setAgentRegistration(fName, lName,age,telNum,email);
     agent.setCategory(category);
     agent.setEducational(educational);
     agent.setProvince(province);

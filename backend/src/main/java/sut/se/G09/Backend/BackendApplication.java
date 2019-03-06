@@ -427,9 +427,12 @@ public class BackendApplication {
 			});
 			//-----------------------------------------------------------
 
-			//----------------------------------------------
+			//-----------By Nattapon Khonlor-----------------------------------
 			String firstname[] ={"พอเพียง","พอใจ","พอที"};
 			String lastname[] ={"คนเดิม","หรือยัง","ก็ได้"};
+
+			String telNum[] ={"0811028375","0811028375","0811028375"};
+
 			long edu[] = {1,3,2};
 			long vince[] = {5,6,9};
 			long cat[] = {1,1,1,};
@@ -440,6 +443,11 @@ public class BackendApplication {
 
 					data1.setfName(firstname[i]);
 					data1.setlName(lastname[i]);
+					data1.setAge(15);
+					data1.setTelNum(telNum[i]);
+					data1.setEmail("Abcdf.1234@gmail.com");
+
+
 
 					Educational e = educationalrepository.findByID(edu[i]);
 					data1.setEducational(e);
@@ -455,8 +463,10 @@ public class BackendApplication {
 					agentRegistrationRepository.save(data1);
 				}
 			}
-			//-------------------------------------------------
+			//-------------By Nattapon Khonlor------------------------------------
 			String name[] ={"โรงพยาบาลศิริราช","โรงพยาบาลกรุงเทพ","โรงพยาบาลสุรนารี"};
+			String oftname[] ={"สมรัก","สามารถ","ประยุท"};
+			String olname[] ={"คำสิงห์","พยัค","จันอังคาร"};
 			long agent[] = {1,1,2};
 			long cat2[] = {1,1,2};
 			long pro[] = {1,1,21};
@@ -467,6 +477,10 @@ public class BackendApplication {
 					Hospital data1 = new Hospital();
 
 					data1.setHosName(name[i]);
+					data1.setOwnerfName(oftname[i]);
+					data1.setOwnerlName(olname[i]);
+                    data1.setEmail("Abcdf.1234@gmail.com");
+                    data1.setPhoneNum("042456789");
 
 					AgentRegistration a = agentRegistrationRepository.findByID(agent[i]);
 					data1.setAgentRegistration(a);

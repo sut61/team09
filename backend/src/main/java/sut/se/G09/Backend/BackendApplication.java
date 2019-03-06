@@ -255,6 +255,10 @@ public class BackendApplication {
 			reasonMemberRepository.save(ReasonMember5);
 			
 			String typeName[] = {"ประกันผู้สูงอายุ","ประกันนักเรียน","ประกันนักศึกษา","ประกันวัยทอง"};
+			String oFName[] = {"อิสรา","ประยุทธิ์","เสรี","ประวิทย์"};
+			String oLName[] = {"สร้อยสม","จันโอชา","รุ่งอรุณ","วงสาคร"};
+			String oTlePhone[] = {"0927373056","0957878686","0877478865","0877477895"};
+			String typeNameReason[] = {"เฉพาะผู้สูงอายุเท่านั้น","เฉพาะนักเรียนเท่านั้น","เฉพาะนักศึกษาเท่านั้น","เฉพาะวัยทองเท่านั้น"};
 				long insuranceName[]  = {1,2,3,4};
 				long lengthName[] = {4,3,2,1};
 				long moneyName[] = {3,2,1,4};
@@ -266,6 +270,10 @@ public class BackendApplication {
 				MoneyMaximum moneynames = moneyMaximumRepository.findByID(moneyName[i]);
 				Category newCategory = new Category();
 				newCategory.setTypeName(typeName[i]);
+				newCategory.setoFName(oFName[i]);
+				newCategory.setoLName(oLName[i]);
+				newCategory.setoTlePhone(oTlePhone[i]);
+				newCategory.setTypeNameReason(typeNameReason[i]);
 				newCategory.setDate(new Date());
 				newCategory.setInsurancePremium(insurancePremiums);
 				newCategory.setLength(lengthnames);

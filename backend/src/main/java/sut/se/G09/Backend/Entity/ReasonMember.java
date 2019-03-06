@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 import lombok.*;
 @Entity  //บอกว่าเป็น class com.okta.developer.demo.Entity class ที่เก็บขอมูล
 @Data  // lombox จะสร้าง method getter setter ให้เอง
@@ -32,6 +34,8 @@ public class ReasonMember { //เหตุผลในการยกเลิ�
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ReasonMember_seq")
     @Column(name = "ReasonMemberId", unique = true, nullable = false, length = 100)
     private Long iD;
+
+    @NotNull(message="ReasonMember not be null")
     private String reasonMemberName;
 
 

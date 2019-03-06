@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface InsurancePremiumRepository extends JpaRepository<InsurancePremium, Long> {
   InsurancePremium findByID(Long ID);
+  InsurancePremium findByinsuranceName(String insuranceName);
 }

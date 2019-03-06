@@ -7,4 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface MoneyMaximumRepository extends JpaRepository<MoneyMaximum, Long> {
   MoneyMaximum findByID(Long id);
+  MoneyMaximum findBymoneyName(Long moneyName);
+
 }

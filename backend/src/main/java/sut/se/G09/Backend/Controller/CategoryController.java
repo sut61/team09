@@ -70,16 +70,26 @@ class CategoryController {
 
     }
     // curl -X POST  http://localhost:8080/Category/"GGtypename"/1/1/4    //ตัว test class
-    @PostMapping("/Category/{typeName}/{insuranceName}/{lengthName}/{moneyName}")
+    @PostMapping("/Category/{typeName}/{oFName}/{oLName}/{oTlePhone}/{typeNameReason}/{insuranceName}/{lengthName}/{moneyName}")
 //@RequestMapping(path="Reg", method=RequestMethod.POST,  consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Category category(@PathVariable String typeName, @PathVariable Long insuranceName,
-                    @PathVariable Long lengthName,@PathVariable Long moneyName){
+    public Category category(@PathVariable String typeName,
+                             @PathVariable String oFName,
+                             @PathVariable String oLName,
+                             @PathVariable String oTlePhone,
+                             @PathVariable String typeNameReason,
+                             @PathVariable Long insuranceName,
+                             @PathVariable Long lengthName,
+                             @PathVariable Long moneyName){
 
         InsurancePremium insurancePremiums = insurancePremiumRepository.findByID(insuranceName);
         Length lengthnames = lengthRepository.findByID(lengthName);
         MoneyMaximum moneynames = moneyMaximumRepository.findByID(moneyName);
         Category newCategory = new Category();
         newCategory.setTypeName(typeName);
+        newCategory.setoFName(oFName);
+        newCategory.setoLName(oLName);
+        newCategory.setoTlePhone(oTlePhone);
+        newCategory.setTypeNameReason(typeNameReason);
         newCategory.setDate(new Date());
         newCategory.setInsurancePremium(insurancePremiums);
         newCategory.setLength(lengthnames);

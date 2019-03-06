@@ -12,6 +12,34 @@
     </mat-list-item>
     <br>
     <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput  id = "ชื่อคนเพิ่มประเภทระกัน" placeholder="กรอกชื่อคนเพิ่มประเภทระกัน" [(ngModel)]="categorys.oFName">
+        <mat-hint align="end">ex. ประยุทธิ์</mat-hint>
+      </mat-form-field>&nbsp;&nbsp;
+    </mat-list-item>
+    <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput  id = "นามสกุลคนเพิ่มประเภทประกัน" placeholder="กรอกนามสกุลคนเพิ่มประเภทประกัน" [(ngModel)]="categorys.oLName">
+        <mat-hint align="end">ex. จันโอชา</mat-hint>
+      </mat-form-field>&nbsp;&nbsp;
+    </mat-list-item>
+    <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput  id = "เบอร์โทรคนเพิ่มประกัน" placeholder="กรอกเบอร์โทรคนเพิ่มประกัน" [(ngModel)]="categorys.oTlePhone">
+        <mat-hint align="end">ex. 0957878686</mat-hint>
+      </mat-form-field>&nbsp;&nbsp;
+    </mat-list-item>
+    <br>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput  id = "หมายเหตุการเพิ่มประกัน" placeholder="กรอกหมายเหตุ" [(ngModel)]="categorys.typeNameReason">
+        <mat-hint align="end">ex. เฉพาะนักเรียนเท่านั้น</mat-hint>
+      </mat-form-field>&nbsp;&nbsp;
+    </mat-list-item>
+    <br>
+    <mat-list-item>
     <mat-form-field class="example-full-width">
         <mat-select class="font-field" placeholder="เลือกเบี้ยประกัน"[(ngModel)]="categorys.insuranceName">
           <mat-option class="font-field" *ngFor="let InsurancePremium of insurancePremiums" [value]="InsurancePremium.id">

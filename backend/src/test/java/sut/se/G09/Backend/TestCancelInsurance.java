@@ -24,11 +24,10 @@ import static org.junit.Assert.fail;
 @DataJpaTest
 public class TestCancelInsurance {
 
-    @Autowired
-    private AgentAppointmentRepository agentAppointmentRepository;
+    @Autowired private TestEntityManager entityManager;
+    @Autowired private CancelInsuranceRepository cancelInsuranceRepository;
+    @Autowired private ReasonMemberRepository reasonMemberRepository;
 
-    @Autowired
-    private TestEntityManager entityManager;
 
     private Validator validator;
 
@@ -42,7 +41,9 @@ public class TestCancelInsurance {
     @Test
     public void testDataPass() {  //ข้อมูลผ่าน
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
 
+        a1.setReasonMember(R);
         a1.setIdCard("1202000068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัตยา");
@@ -67,7 +68,9 @@ public class TestCancelInsurance {
     @Test
     public void testDataIdCardCannotBeNull() { ///รหัสประจำตัวประชาชนห้ามเป็นค่าว่าง
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
 
+        a1.setReasonMember(R);
         a1.setIdCard(null);
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัตยา");
@@ -92,7 +95,9 @@ public class TestCancelInsurance {
     @Test
     public void testDataFristNameCannotBeNull() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
 
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName(null);
         a1.setlName("สัตยา");
@@ -117,7 +122,9 @@ public class TestCancelInsurance {
     @Test
     public void testDataLastNameCannotBeNull() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
 
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName(null);
@@ -142,7 +149,9 @@ public class TestCancelInsurance {
     @Test
     public void testDataEmailCannotBeNull() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
 
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัยยา");
@@ -169,6 +178,8 @@ public class TestCancelInsurance {
     @Test
     public void testCancelInsuranceIdCardBeUnique() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("Fffff");
         a1.setlName("Lllll");
@@ -176,6 +187,8 @@ public class TestCancelInsurance {
         a1.seteMail("1234abcd@gmail.com");
 
         CancelInsurance a2 = new CancelInsurance();
+
+        a2.setReasonMember(R);
         a2.setIdCard("1230200068195");
         a2.setfName("Allll");
         a2.setlName("Bbbbb");
@@ -197,116 +210,13 @@ public class TestCancelInsurance {
 
         }
     }
-    @Test
-    public void testCancelInsuranceEmailBeUnique() {
-        CancelInsurance a1 = new CancelInsurance();
-        a1.setIdCard("1230200068195");
-        a1.setfName("Fffff");
-        a1.setlName("Lllll");
-        a1.setTlePhone("0927373056");
-        a1.seteMail("1234abcd@gmail.com");
-        entityManager.persist(a1);
-
-        CancelInsurance a2 = new CancelInsurance();
-        a2.setIdCard("1230200078962");
-        a2.setfName("Allll");
-        a2.setlName("Bbbbb");
-        a2.setTlePhone("0836096779");
-        a2.seteMail("1234abcd@gmail.com");
-        try {
-            entityManager.persist(a2);
-            entityManager.flush();
-            fail("expected testCancelInsuranceTlePhoneBeUnique");
-
-        } catch(javax.persistence.PersistenceException e) {
-
-            System.out.println("\n\n\n============================================================================");
-            System.out.println(e.getMessage());
-            System.out.println("=============================================================================\n\n\n");
-        }
-    }
-    @Test
-    public void testCancelInsuranceTlePhoneBeUnique() {
-        CancelInsurance a1 = new CancelInsurance();
-        a1.setIdCard("1230200068195");
-        a1.setfName("Fffff");
-        a1.setlName("Lllll");
-        a1.setTlePhone("0927373056");
-        a1.seteMail("1234abcd@gmail.com");
-        entityManager.persist(a1);
-
-        CancelInsurance a2 = new CancelInsurance();
-        a2.setIdCard("1230200078962");
-        a2.setfName("Allll");
-        a2.setlName("Bbbbb");
-        a2.setTlePhone("0927373056");
-        a2.seteMail("9876abcd@gmail.com");
-        try {
-            entityManager.persist(a2);
-            entityManager.flush();
-            fail("expected testCancelInsuranceTlePhoneBeUnique");
-
-        } catch(javax.persistence.PersistenceException e) {
-
-            System.out.println("\n\n\n============================================================================");
-            System.out.println(e.getMessage());
-            System.out.println("============================================================================\n\n\n");
-
-        }
-    }
-
-    /*NotNumber*/
-    @Test
-    public void testDataFirstNameFirstNotNumber() {
-        CancelInsurance a1 = new CancelInsurance();
-        a1.setIdCard("1230200068195");
-        a1.setfName("1นันทวัฒน์");
-        a1.setlName("สัยยา");
-        a1.seteMail("abcdef@gmai.com");
-        a1.setTlePhone("0927373056");
-
-        try {
-            entityManager.persist(a1);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("\n\n\n\n\n====================================================================");
-            System.out.println(e.getMessage());
-            System.out.println("====================================================================\n\n\n\n\n");
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
-        }
-    }
-    @Test
-    public void testDataLastNameFirstNotNumber() {
-        CancelInsurance a1 = new CancelInsurance();
-        a1.setIdCard("1230200068195");
-        a1.setfName("นันทวัฒน์");
-        a1.setlName("1สัยยา");
-        a1.seteMail("abcdef@gmai.com");
-        a1.setTlePhone("0927373056");
-
-        try {
-            entityManager.persist(a1);
-            entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            System.out.println("\n\n\n\n\n====================================================================");
-            System.out.println(e.getMessage());
-            System.out.println("====================================================================\n\n\n\n\n");
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
-        }
-    }
 
     /*CannotConsonant*/
     @Test
     public void testDataTlePhoneCannotConsonant() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("123a2v0068r95");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัยยา");
@@ -330,6 +240,8 @@ public class TestCancelInsurance {
     @Test
     public void testDataIdCardCannotConsonant() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("123a2v0068r95");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัยยา");
@@ -355,6 +267,8 @@ public class TestCancelInsurance {
     @Test
     public void testIdCardSizeMaxHave13() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("123020006819567890123456789");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัยยา");
@@ -377,6 +291,8 @@ public class TestCancelInsurance {
     @Test
     public void testIdCardSizeMinHave13() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("12302000");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัยยา");
@@ -399,6 +315,8 @@ public class TestCancelInsurance {
     @Test
     public void testFirstNameSizeMaxHave20() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์พดพพดพดพดพดพพพพพพดพดพดพดพดพดพดพดพดพพดพด");
         a1.setlName("สัยยา");
@@ -421,6 +339,8 @@ public class TestCancelInsurance {
     @Test
     public void testFirstNameSizeMinHave2() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("น");
         a1.setlName("สัยยา");
@@ -443,6 +363,8 @@ public class TestCancelInsurance {
     @Test
     public void testLastNameSizeMaxHave20() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัยยายสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยสยส");
@@ -465,6 +387,8 @@ public class TestCancelInsurance {
     @Test
     public void testLastNameSizeMinHave2() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName("ส");
@@ -487,6 +411,8 @@ public class TestCancelInsurance {
     @Test
     public void testTlePhoneSizeMinHave10() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัตยา");
@@ -509,6 +435,8 @@ public class TestCancelInsurance {
     @Test
     public void testTlePhoneSizeMaxHave10() {
         CancelInsurance a1 = new CancelInsurance();
+        ReasonMember R = reasonMemberRepository.findByID(1L);
+        a1.setReasonMember(R);
         a1.setIdCard("1230200068195");
         a1.setfName("นันทวัฒน์");
         a1.setlName("สัตยา");
@@ -526,6 +454,57 @@ public class TestCancelInsurance {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 2);
+        }
+    }
+
+
+    //Entity
+    @Test
+    public void testReasonMemberPass() {
+
+        ReasonMember a1 = new ReasonMember();
+        a1.setReasonMemberName("ค่าใช้จ่ายสูงเกินไป");
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            System.out.println("MoneyMaximumPass");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            //System.out.println("styleNameDigitNotEnglish");
+            System.out.println("==========================");
+        }
+    }
+    @Test
+    public void testReasonMemberNotNull() {
+
+        ReasonMember a1 = new ReasonMember();
+        a1.setReasonMemberName(null);
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("MoneyMaximumNotNull");
+            System.out.println("==========================");
         }
     }
 }

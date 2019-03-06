@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface LengthRepository extends JpaRepository<Length, Long> {
   Length findByID(Long id);
+  Length findBylengthName(String lengthName);
 }

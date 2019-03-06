@@ -82,7 +82,6 @@ public class CancelInsurance { //ยกเลิกประกันชีว�
     @SequenceGenerator(name = "CancelInsurance_seq", sequenceName = "CancelInsurance_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CancelInsurance_seq")
     @Column(name = "CancelInsuranceId", unique = true, nullable = false, length = 100)
-
     private Long iD;
 
     @NotNull(message="idcard not null")
@@ -90,25 +89,26 @@ public class CancelInsurance { //ยกเลิกประกันชีว�
     @Column( unique = true)
     private String idCard;
 
-    @NotNull(message="Please enter not First name")
-    @Pattern(regexp = "^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}")
+    @NotNull(message="{First name is null}")
+    @Size(min=2, message = "{First name length must more than 2 character}")
+    @Size(max=30, message = "{First name length must less than 30 character}")
     private String fName;
 
-    @NotNull(message="LastName is not null")
-    @Pattern(regexp = "^[A-z]*[ก-๐]{2,20}|^[ก-๐]*[A-z]{2,20}")
+    @NotNull(message="{First name is null}")
+    @Size(min=2, message = "{Last name length must more than 2 character}")
+    @Size(max=30, message = "{Last name length must less than 30 character}")
     private String lName;
 
     @NotNull(message="Email is not null")
     @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+", message = "{Email pattern is invalid}")
-    @Column( unique = true)
     private String eMail;
 
     @NotNull(message="{Telephone number is null}")
     @Pattern(regexp = "[0]{1}[2-9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
-    @Column( unique = true)
     private String tlePhone;
     private Date date; //วันที่ทำการยกเลิก
 
+    @NotNull(message="ReasonMember not be null")
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = ReasonMember.class)
     @JoinColumn(name = "ReasonMemberId", insertable = true)
     private  ReasonMember reasonMember;

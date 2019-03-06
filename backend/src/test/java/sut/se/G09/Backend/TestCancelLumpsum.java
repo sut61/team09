@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.OptionalInt;
 import java.util.Set;
 
@@ -24,8 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import sut.se.G09.Backend.Entity.*;
-import sut.se.G09.Backend.Repository.CancelLumpsumRepository;
-import sut.se.G09.Backend.Repository.LumpsumRepository;
+import sut.se.G09.Backend.Repository.*;
 
 
 @RunWith(SpringRunner.class)
@@ -33,6 +33,13 @@ import sut.se.G09.Backend.Repository.LumpsumRepository;
 @DataJpaTest
 
 public class TestCancelLumpsum {
+
+    @Autowired
+    private ContactRepository contactRepository;
+    @Autowired
+    private LumpsumRepository lumpsumRepository;
+    @Autowired
+    private ProvinceRepository provinceRepository;
 
     @Autowired
     private CancelLumpsumRepository cancelLumpsumRepository;
@@ -50,11 +57,21 @@ public class TestCancelLumpsum {
     @Test
     public void testCancelLumpsumPass() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(30);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
+
 
 
         try {
@@ -77,11 +94,21 @@ public class TestCancelLumpsum {
     @Test
     public void testCommentCannotBeNull() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment(null);
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(30);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
+
 
         try {
 
@@ -102,11 +129,20 @@ public class TestCancelLumpsum {
     @Test
     public void testNameCanCannotBeNull() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan(null);
         cancelLumpsum.setAgeCan(30);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -127,11 +163,20 @@ public class TestCancelLumpsum {
     @Test
     public void testNameCanMustBeLengthLessThan50() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
-        cancelLumpsum.setNameCan("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQqqqqqqqqqqqqqqqq");
+        cancelLumpsum.setProvinceId(province);
+        cancelLumpsum.setNameCan("นายหนึ่ง สองsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
         cancelLumpsum.setAgeCan(30);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -152,11 +197,20 @@ public class TestCancelLumpsum {
     @Test
     public void testAgeCanCannotBeNull() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(null);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -177,11 +231,20 @@ public class TestCancelLumpsum {
     @Test
     public void testAgeCanOverSize() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(90);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -202,11 +265,20 @@ public class TestCancelLumpsum {
     @Test
     public void testAgeCanLessSize() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(10);
         cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -227,11 +299,20 @@ public class TestCancelLumpsum {
     @Test
     public void testIDcardCanCannotBeNull() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(30);
         cancelLumpsum.setIDcardCan(null);
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -252,11 +333,20 @@ public class TestCancelLumpsum {
     @Test
     public void testIDcardCanAlphabetWrong() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(30);
-        cancelLumpsum.setIDcardCan("156fd12589412");
+        cancelLumpsum.setIDcardCan("1234kk7890123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -277,11 +367,20 @@ public class TestCancelLumpsum {
     @Test
     public void testIDcardCanOverSize() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(30);
-        cancelLumpsum.setIDcardCan("123456789012345");
+        cancelLumpsum.setIDcardCan("1234567890123123");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
@@ -302,17 +401,130 @@ public class TestCancelLumpsum {
     @Test
     public void testIDcardCanLessSize() {
 
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
         CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
         cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
         cancelLumpsum.setNameCan("นายหนึ่ง สอง");
         cancelLumpsum.setAgeCan(30);
         cancelLumpsum.setIDcardCan("1234567890");
+        cancelLumpsum.setDate(new Date());
 
         try {
 
             entityManager.persist(cancelLumpsum);
             entityManager.flush();
             fail("expected IDcardCanCannotBeNull");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testContactCanBeNall() {
+
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(null);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected ContactCanBeNall");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testProvinceCanBeNall() {
+
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(null);
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(new Date());
+
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected ProvinceCanBeNall");
+        } catch(javax.validation.ConstraintViolationException e) {
+
+            System.out.println("\n\n\n===========================================================================================================");
+            System.out.println(e.getMessage());
+            System.out.println("===========================================================================================================\n\n\n");
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testDateCanBeNall() {
+
+        Contact contact = new Contact();
+        contact = contactRepository.findByID(2L);
+
+        Province province = new Province();
+        province = provinceRepository.findByID(1L);
+
+        CancelLumpsum cancelLumpsum = new CancelLumpsum();
+        cancelLumpsum.setContactId(contact);
+        cancelLumpsum.setComment("test Comment");
+        cancelLumpsum.setProvinceId(province);
+        cancelLumpsum.setNameCan("นายหนึ่ง สอง");
+        cancelLumpsum.setAgeCan(30);
+        cancelLumpsum.setIDcardCan("1234567890123");
+        cancelLumpsum.setDate(null);
+
+
+        try {
+
+            entityManager.persist(cancelLumpsum);
+            entityManager.flush();
+            fail("expected ProvinceCanBeNall");
         } catch(javax.validation.ConstraintViolationException e) {
 
             System.out.println("\n\n\n===========================================================================================================");

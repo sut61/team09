@@ -27,10 +27,11 @@ public class CancelLumpsum {
     @NotNull(message="Comment is null")
     private String comment;
 
-    private @NonNull Date date;
+    @NotNull(message="Date can be null")
+    private Date date;
 
     @NotNull(message="Name is null")
-    @Size(max=50, message = "{First name length must less than 50 character}")
+    @Size(max=50, message = "{Name length must less than 50 character}")
     private String nameCan;
 
     @NotNull(message="Age is null")
@@ -47,11 +48,11 @@ public class CancelLumpsum {
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Contact.class)
     @JoinColumn(name = "CONTACT_ID", insertable = true)
-    private  Contact contactId;
+    private @NotNull Contact contactId;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "PROVINCE_ID", insertable = true)
-    private  Province provinceId;
+    private @NotNull Province provinceId;
 
     public void setProvinceId(Province provinceId){
         this.provinceId = provinceId;
@@ -76,4 +77,6 @@ public class CancelLumpsum {
     public void setDate(Date date){
         this.date = date;
     }
+
+
 }

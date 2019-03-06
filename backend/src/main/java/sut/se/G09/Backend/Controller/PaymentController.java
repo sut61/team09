@@ -29,6 +29,9 @@ public class PaymentController
     private  PaymentHistoryRepository paymentHistoryRepository;
     @Autowired
     private  PaymentCostRepository paymentCostRepository;
+    @Autowired
+    private  PaymentMethodRepository paymentMethodRepository ;
+
 
 
 
@@ -61,6 +64,11 @@ public class PaymentController
         return  po.stream().collect(Collectors.toList());
     }
 
+    @GetMapping(path = "/getMethod", produces = MediaType.APPLICATION_JSON_VALUE)
+    private Collection<PaymentMethod> Method() {
+        return paymentMethodRepository.findAll().stream().collect(Collectors.toList());
+    }
+
     @GetMapping(path ="/paid/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<PaymentHistory>  paid (@PathVariable String user){
         MLData mem = mlDataRepository.findByUserName(user);
@@ -68,14 +76,18 @@ public class PaymentController
         return p.stream().collect(Collectors.toList());
     }
 
-    @DeleteMapping ("/pay/{code}")
-    public void Pay(@PathVariable String code){
+    @DeleteMapping ("/pay/{code}/{method}/{num}/{exp}")
+    public void Pay(@PathVariable String code,@PathVariable long method , @PathVariable String num ,@PathVariable String exp ){
         PaymentCost po = paymentCostRepository.findByCode(code);
+        PaymentMethod pay = paymentMethodRepository.findById(method);
         PaymentHistory p = new PaymentHistory();
         p.setAmount(po.getAmount());
         p.setCode(po.getCode());
         p.setDate(new Date());
         p.setMemberData(po.getMemberData());
+        p.setPaymentMethod(pay);
+        p.setCardNumber(num);
+        p.setCardEXP(exp);
         paymentHistoryRepository.save(p);
         paymentCostRepository.deleteById(po.getID());
     }

@@ -32,7 +32,7 @@ public class BackendApplication {
 						   DurationAppointmentRepository durationAppointmentRepository, DateAppointmentRepository dateAppointmentRepository,
 						   GenderRepository genderRepository,CancelAppointmentReasonRepository cancelAppointmentReasonRepository,HospitalRepository hospitalRepository,
 						   HospitalSizeRepository hospitalSizeRepository ,EMDataRepository emDataRepository,TreatmentStyleRepository treatmentStyleRepository,
-						   ContactRepository contactRepository,LumpsumRepository lumpsumRepository, MemberDataRepository memberDataRepository , MLDataRepository mlDataRepository , PaymentCostRepository paymentCostRepository ,PaymentHistoryRepository paymentHistoryRepository) {
+						   ContactRepository contactRepository,LumpsumRepository lumpsumRepository, MemberDataRepository memberDataRepository , MLDataRepository mlDataRepository , PaymentCostRepository paymentCostRepository ,PaymentHistoryRepository paymentHistoryRepository , PaymentMethodRepository paymentMethodRepository) {
 		return args -> {
 			//================add DiseaseAccidentLevel : BY ISARA ====================
 			DiseaseAccidentLevel leve1_1 = new DiseaseAccidentLevel();
@@ -537,6 +537,23 @@ public class BackendApplication {
 			AgentRegistration ao = agentRegistrationRepository.findByID(2L);
 			Province po = provinceRepository.findByID(9L);
 
+			PaymentMethod pay = new PaymentMethod();
+			pay.setMethod("บัตรเครดิต");
+
+			paymentMethodRepository.save(pay);
+			PaymentMethod pay1 = new PaymentMethod();
+			pay1.setMethod("บัตร MasterCard");
+			paymentMethodRepository.save(pay1);
+
+			PaymentMethod pay2 = new PaymentMethod();
+			pay2.setMethod("บัตร Visa");
+			paymentMethodRepository.save(pay2);
+
+			PaymentMethod pay3 = new PaymentMethod();
+			pay3.setMethod("บัตรเดรบิต");
+			paymentMethodRepository.save(pay3);
+
+
 			MemberData mem2 = new MemberData();
 			mem2.setFname("สมชาย");
 			mem2.setLname("สมหญิง");
@@ -588,28 +605,28 @@ public class BackendApplication {
 			PaymentCost cost = new PaymentCost();
 			cost.setAmount(1800L);
 			cost.setDate(new Date());
-			cost.setCode("A23");
+			cost.setCode("A2345678");
 			cost.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
 			paymentCostRepository.save(cost);
 
 			PaymentCost cost3 = new PaymentCost();
 			cost3.setAmount(2000L);
 			cost3.setDate(new Date());
-			cost3.setCode("AB3");
+			cost3.setCode("AB3564598");
 			cost3.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
 			paymentCostRepository.save(cost3);
 
 			PaymentCost cost4 = new PaymentCost();
 			cost4.setAmount(1900L);
 			cost4.setDate(new Date());
-			cost4.setCode("ABC123");
+			cost4.setCode("ABC123SD");
 			cost4.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
 			paymentCostRepository.save(cost4);
 
 			PaymentCost cost1 = new PaymentCost();
 			cost1.setAmount(1800L);
 			cost1.setDate(new Date());
-			cost1.setCode("321ABC");
+			cost1.setCode("321ABC45");
 			cost1.setMemberData(memberDataRepository.findByIdCard("1234567890123"));
 			paymentCostRepository.save(cost1);
 

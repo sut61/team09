@@ -1,5 +1,7 @@
 package sut.se.G09.Backend.Entity;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 import sut.se.G09.Backend.Entity.*;
 import lombok.*;
 
@@ -21,7 +23,8 @@ public class MemberData {
  @SequenceGenerator(name="mem_seq",sequenceName="mem_seq")
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="mem_seq")
  @Column(name = "MID")
- private @NonNull Long iD;
+ @NonNull
+ private  Long iD;
 
  @NotNull
  @Pattern(regexp = "^[^0-9]+$")
@@ -34,7 +37,7 @@ public class MemberData {
  private String Lname;
 
  @NotNull
- //@Pattern(regexp = "[1-8]{0,1}[0-9]{1}|[9]{1}[0]{1}")
+ @Range(min = 1 , max = 80)
  private Long age;
 
  @Pattern(regexp = "[0-9]+")
@@ -46,15 +49,17 @@ public class MemberData {
  @NotNull
  private String addess;
 
-
+ @NotNull
  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
  @JoinColumn(name = "PROVINCE_ID", insertable = true)
  private Province Province;
 
+ @NotNull
  @ManyToOne(fetch = FetchType.EAGER, targetEntity = AgentRegistration.class)
  @JoinColumn(name = "ID", insertable = true)
  private AgentRegistration AgentRegistration;
 
+ @NotNull
  @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
  @JoinColumn(name = "CategoryID", insertable = true)
  private Category Category;

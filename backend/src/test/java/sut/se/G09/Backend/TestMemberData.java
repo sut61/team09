@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import sut.se.G09.Backend.Entity.ClaimData;
-import sut.se.G09.Backend.Entity.DiseaseAccidentData;
-import sut.se.G09.Backend.Entity.MemberData;
-import sut.se.G09.Backend.Repository.DiseaseAccidentDataRepository;
+import sut.se.G09.Backend.Entity.*;
+import sut.se.G09.Backend.Repository.*;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -30,6 +28,15 @@ public class TestMemberData {
     private DiseaseAccidentDataRepository diseaseAccidentDataRepository;
 
     @Autowired
+    private AgentRegistrationRepository agentRegistrationRepository;
+
+    @Autowired
+    private ProvinceRepository provinceRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
     private TestEntityManager entityManager;
 
     private Validator validator;
@@ -47,10 +54,13 @@ public void testMemberDataPass() {
     MemberData a1 = new MemberData();
 
     a1.setAddess("11aaa");
-    a1.setAge(90L);
+    a1.setAge(50L);
     a1.setFname("GGG");
     a1.setLname("CCCC");
     a1.setIdCard("1111111111110");
+    a1.setProvince(provinceRepository.findByID(1L));
+    a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+    a1.setCategory(categoryRepository.findByID(1L));
 
 
     try {
@@ -73,10 +83,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess(null);
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
         try {
@@ -101,10 +114,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname(null);
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
         try {
@@ -129,10 +145,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname(null);
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
         try {
@@ -157,10 +176,12 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("CCCC");
-        a1.setIdCard(null);
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -191,6 +212,73 @@ public void testMemberDataPass() {
         a1.setFname("GGG");
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testAgeCannotBeNull");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testAgeNotOver() {
+        MemberData a1 = new MemberData();
+
+        a1.setAddess("11aaa");
+        a1.setAge(90L);
+        a1.setFname("GGG");
+        a1.setLname("CCCC");
+        a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("testAgeCannotBeNull");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testAgeNotLower() {
+        MemberData a1 = new MemberData();
+
+        a1.setAddess("11aaa");
+        a1.setAge(0L);
+        a1.setFname("GGG");
+        a1.setLname("CCCC");
+        a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -216,19 +304,25 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
         entityManager.persist(a1);
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
         MemberData a2 = new MemberData();
 
         a2.setAddess("11aaa");
-        a2.setAge(90L);
+        a2.setAge(50L);
         a2.setFname("GGG");
         a2.setLname("CCCC");
         a2.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
         try {
@@ -250,10 +344,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("CCCC");
         a1.setIdCard("11111111111100");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -279,10 +376,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("G");
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -308,10 +408,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("C");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -337,10 +440,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -366,10 +472,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -395,10 +504,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG123");
         a1.setLname("CCCC");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -423,10 +535,13 @@ public void testMemberDataPass() {
         MemberData a1 = new MemberData();
 
         a1.setAddess("11aaa");
-        a1.setAge(90L);
+        a1.setAge(50L);
         a1.setFname("GGG");
         a1.setLname("CCCC852");
         a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
 
 
 
@@ -443,6 +558,104 @@ public void testMemberDataPass() {
             System.out.println(e.getMessage());
             System.out.println("==========================");
             System.out.println("LnameNotNumber");
+            System.out.println("==========================");
+        }
+    }
+
+
+    @Test
+    public void testAgentNotNull() {
+        MemberData a1 = new MemberData();
+
+        a1.setAddess("11aaa");
+        a1.setAge(80L);
+        a1.setFname("GGG");
+        a1.setLname("CCCC");
+        a1.setIdCard("1111111111110");
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
+        a1.setAgentRegistration(null);
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("AgentNotNull");
+            System.out.println("==========================");
+        }
+    }
+
+
+    @Test
+    public void testCateNotNull() {
+        MemberData a1 = new MemberData();
+
+        a1.setAddess("11aaa");
+        a1.setAge(50L);
+        a1.setFname("GGG");
+        a1.setLname("CCCC");
+        a1.setIdCard("1111111111110");
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setProvince(provinceRepository.findByID(1L));
+        a1.setCategory(null);
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("CateNotNull");
+            System.out.println("==========================");
+        }
+    }
+
+    @Test
+    public void testProvinNotNull() {
+        MemberData a1 = new MemberData();
+
+        a1.setAddess("11aaa");
+        a1.setAge(50L);
+        a1.setFname("GGG");
+        a1.setLname("CCCC");
+        a1.setIdCard("1111111111110");
+        a1.setProvince(null);
+        a1.setAgentRegistration(agentRegistrationRepository.findByID(1L));
+        a1.setCategory(categoryRepository.findByID(1L));
+
+
+
+        try {
+            entityManager.persist(a1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================");
+            System.out.println(e.getMessage());
+            System.out.println("==========================");
+            System.out.println("ProvinNotNull");
             System.out.println("==========================");
         }
     }

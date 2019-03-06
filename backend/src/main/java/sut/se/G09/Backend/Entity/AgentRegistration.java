@@ -1,6 +1,7 @@
 package sut.se.G09.Backend.Entity;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -31,11 +32,24 @@ public class AgentRegistration {
   @Size(max=30, message = "{Last name length must less than 30 character}")
   private String lName;
 
+  @NotNull(message="{Age is null}")
+  @Range(min=1, max=80, message = "{Age Must between 1-80 years old}")
+  private Integer age;
+
+  @Pattern(regexp = "[0]{1}[2-9]{1}[0-9]{8}" , message = "{Telephone number pattern is invalid}")
+  private String telNum;
+
+  @Pattern(regexp = "[A-Za-z0-9][A-Za-z0-9.]{7}[A-Za-z0-9.]*@[a-z]+.[a-z.]+", message = "{Email pattern is invalid}")
+  private String email;
+
   public AgentRegistration(){}
-  public void setAgentRegistration( String fName,String lName) {
+  public void setAgentRegistration( String fName,String lName,int age,String telNum,String email) {
 
     this.fName = fName;
     this.lName = lName;
+    this.age=age;
+    this.telNum = telNum;
+    this.email = email;
   }
 
 
@@ -45,6 +59,9 @@ public class AgentRegistration {
   public void setlName(String lName) {
     this.lName = lName;
   }
+  public void setAge(Integer age) { this.age = age; }
+  public void setTelNum(String telNum) { this.telNum = telNum; }
+  public void setEmail(String email) { this.email = email; }
   public void setiD(Long iD) { this.iD = iD; }
 
   @NotNull(message="Educational not be null")

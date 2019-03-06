@@ -68,8 +68,14 @@ public class HospitalController {
 
 
   }
-  @PostMapping(path ="/Hospital/{hosName}/{ag}/{typeInsurance}/{Province}/{hosSize}")
-  public Hospital hospital(@PathVariable String hosName, @PathVariable String ag, @PathVariable String typeInsurance
+  @PostMapping(path ="/Hospital/{hosName}/{ownerfName}/{ownerlName}/{phoneNum}/{email}/{ag}/{typeInsurance}/{Province}/{hosSize}")
+  public Hospital hospital(@PathVariable String hosName
+          , @PathVariable String ownerfName
+          , @PathVariable String ownerlName
+          , @PathVariable String phoneNum
+          , @PathVariable String email
+          , @PathVariable String ag
+          , @PathVariable String typeInsurance
           , @PathVariable String Province
           , @PathVariable String hosSize)throws JsonParseException, IOException {
 
@@ -80,7 +86,7 @@ public class HospitalController {
 
     Hospital hospital = new Hospital();
 
-    hospital.setHosName(hosName);
+    hospital.setHospital(hosName,ownerfName,ownerlName,phoneNum,email);
     hospital.setAgentRegistration(agentName);
     hospital.setCategory(category);
     hospital.setProvince(province);

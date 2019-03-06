@@ -23,4 +23,8 @@ getUser(user): Observable<any> {
         return this.http.get(this.API + '/paid/' + user);
       }
 
+    getMethod(): Observable<any> {
+        return this.http.get(this.API + '/getMethod');
+      }
+
 }

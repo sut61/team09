@@ -28,43 +28,41 @@ public class Lumpsum {
     @Column(name="LUMPSUM_ID",unique = true, nullable = true)
     private @NonNull Long iD;
 
-    @NotNull(message="Please enter Company Name")
+    @NotNull(message="Company Name can be null")
     @Column(unique = true)
     private String companyName;
 
-    @NotNull(message="Please enter among of Employee")
+    @NotNull(message="among of Employee can be null")
     @Range(min=5, max=10000000)
     private Integer amoungEmp;
 
-    @NotNull(message="Please enter address")
+    @NotNull(message="address can be null")
     @Pattern(regexp = "[0-9\\d]{1,3}\\W.{1,20}\\W.{1,20}")
     private String address;
 
-    @NotNull(message="Please enter zipCode")
+    @NotNull(message="zipCode can be null")
     @Size(min = 5 , max = 5)
     private String zipCode;
 
+    @NotNull(message="Date can be null")
     private Date date;
 
-//    @ManyToOne(fetch = FetchType.EAGER, targetEntity = AgentRegistration.class)
-//    @JoinColumn(name = "ID", insertable = true)
-//    private  AgentRegistration agentRegistrationId;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = BusinessSize.class)
     @JoinColumn(name = "BUSINESS_ID", insertable = true)
-    private  BusinessSize businessSizeId;
+    private @NotNull BusinessSize businessSizeId;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class)
     @JoinColumn(name = "CATEGORY_ID", insertable = true)
-    private  Category categoryId;
+    private @NotNull Category categoryId;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Establishment.class)
     @JoinColumn(name = "ESTABLISHMENT_ID", insertable = true)
-    private  Establishment establishmentId;
+    private @NotNull Establishment establishmentId;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "PROVINCE_ID", insertable = true)
-    private  Province provinceId;
+    private @NotNull Province provinceId;
 
     public void setBusinessSizeId(BusinessSize businessSizeId){
         this.businessSizeId = businessSizeId;

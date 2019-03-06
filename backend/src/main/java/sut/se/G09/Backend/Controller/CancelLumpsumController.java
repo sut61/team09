@@ -21,16 +21,15 @@ public class CancelLumpsumController {
     private ContactRepository contactRepository;
     @Autowired
     private LumpsumRepository lumpsumRepository;
-    private GenderRepository genderRepository;
+
     private ProvinceRepository provinceRepository;
 
 
     public CancelLumpsumController(CancelLumpsumRepository cancelLumpsumRepository,LumpsumRepository lumpsumRepositorya,
-                                   ContactRepository contactRepository,GenderRepository genderRepository,ProvinceRepository provinceRepository) {
+                                   ContactRepository contactRepository,ProvinceRepository provinceRepository) {
         this.cancelLumpsumRepository = cancelLumpsumRepository;
         this.lumpsumRepository = lumpsumRepository;
         this.contactRepository = contactRepository;
-        this.genderRepository = genderRepository;
         this.provinceRepository = provinceRepository;
 
     }
@@ -74,10 +73,10 @@ public class CancelLumpsumController {
         newCancel.setNameCan(nameCan);
         newCancel.setAgeCan(ageCan);
         newCancel.setIDcardCan(IDcardCan);
+        newCancel.setDate(new Date());
 
         Lumpsum l = this.lumpsumRepository.findByID(findLumpsum.getiD());
         this.lumpsumRepository.delete(l);
-        newCancel.setDate(new Date());
         cancelLumpsumRepository.save(newCancel);
 
     }

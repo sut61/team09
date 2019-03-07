@@ -4,6 +4,9 @@ import sut.se.G09.Backend.Entity.*;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,9 +25,15 @@ public class PaymentCost {
  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ph_seq")
  @Column(name = "PCID")
  private @NonNull Long iD;
+
+ @NotNull
  @Column(unique = true)
+ @Size(min = 8 , max = 8)
  private String code;
+
+ @NotNull
  private Long amount;
+ @NotNull
  private Date date;
 
 

@@ -612,7 +612,7 @@ public class BackendApplication {
 			PaymentCost cost3 = new PaymentCost();
 			cost3.setAmount(2000L);
 			cost3.setDate(new Date());
-			cost3.setCode("AB3564598");
+			cost3.setCode("AB356459");
 			cost3.setMemberData(memberDataRepository.findByIdCard("1234567890132"));
 			paymentCostRepository.save(cost3);
 
